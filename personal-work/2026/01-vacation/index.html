@@ -2415,6 +2415,7 @@
     const weatherCards = [...document.querySelectorAll("[data-weather-id]")];
     const weatherUpdated = document.querySelector("#weather-updated");
     const weatherRefresh = document.querySelector("#weather-refresh");
+    const weatherSource = document.querySelector(".weather-source");
 
     function escapeWeather(value) {
       return String(value ?? "").replace(/[&<>'"]/g, character => ({
@@ -2478,7 +2479,7 @@
       card.innerHTML = `
         <div class="weather-card-head">
           <div><strong>${escapeWeather(location.name)}</strong><span>${escapeWeather(location.stay)}</span></div>
-          <span class="weather-badge">${location.stale ? "이전 데이터" : "최신"}</span>
+          <span class="weather-badge">${location.stale ? "이전 데이터" : location.fallback ? "대체 데이터" : "최신"}</span>
         </div>
         <div class="weather-current">
           ${weatherIcon(current.condition)}
@@ -2509,6 +2510,9 @@
         weatherUpdated.textContent = data.updatedAt
           ? `마지막 업데이트 ${new Intl.DateTimeFormat("ko-KR", { timeZone: "Asia/Seoul", month: "numeric", day: "numeric", hour: "numeric", minute: "2-digit" }).format(new Date(data.updatedAt))}`
           : "첫 자동 업데이트를 기다리고 있습니다.";
+        weatherSource.innerHTML = data.source?.includes("Open-Meteo")
+          ? '출처: 기상청 우선 · <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a> Best Match 대체 · 매시간 자동 갱신'
+          : "출처: 기상청 단기예보 조회서비스 · 매시간 자동 갱신";
       } catch {
         weatherUpdated.textContent = "날씨 정보를 불러오지 못했습니다. 잠시 후 다시 확인해 주세요.";
       } finally {

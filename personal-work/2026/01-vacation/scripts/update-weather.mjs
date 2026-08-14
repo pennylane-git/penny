@@ -2,19 +2,16 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 
 const API_BASE = process.env.KMA_API_BASE || "https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0";
+const OPEN_METEO_BASE = process.env.OPEN_METEO_API_BASE || "https://api.open-meteo.com/v1/forecast";
 const OUTPUT_PATH = resolve(process.env.WEATHER_OUTPUT_PATH || "personal-work/2026/01-vacation/data/weather.json");
 const KST_OFFSET = 9 * 60 * 60 * 1000;
 const serviceKey = process.env.KMA_SERVICE_KEY?.trim();
 
 const locations = [
-  { id: "gyeongju", name: "경주", stay: "8/19-8/23", nx: 100, ny: 91 },
-  { id: "resom", name: "충남 리솜", stay: "8/25-8/26", nx: 55, ny: 100 },
-  { id: "gwangju", name: "광주", stay: "8/26-8/28", nx: 60, ny: 74 }
+  { id: "gyeongju", name: "경주", stay: "8/19-8/23", nx: 100, ny: 91, latitude: 35.8562, longitude: 129.2247 },
+  { id: "resom", name: "충남 리솜", stay: "8/25-8/26", nx: 55, ny: 100, latitude: 36.6885, longitude: 126.6626 },
+  { id: "gwangju", name: "광주", stay: "8/26-8/28", nx: 60, ny: 74, latitude: 35.146, longitude: 126.923 }
 ];
-
-if (!serviceKey) {
-  throw new Error("KMA_SERVICE_KEY is not configured.");
-}
 
 function shiftedKst(milliseconds = 0) {
   return new Date(Date.now() + KST_OFFSET + milliseconds);
@@ -48,6 +45,7 @@ function forecastBase() {
 }
 
 function decodedKey() {
+  if (!serviceKey) return "";
   if (!serviceKey.includes("%")) return serviceKey;
   try {
     return decodeURIComponent(serviceKey);
@@ -73,6 +71,7 @@ function apiErrorDetail(body, status) {
 }
 
 async function request(endpoint, params, attempt = 1) {
+  if (!serviceKey) throw new Error("KMA_SERVICE_KEY is not configured");
   const url = new URL(`${API_BASE}/${endpoint}`);
   url.search = new URLSearchParams({
     ServiceKey: decodedKey(),
@@ -138,6 +137,87 @@ function conditionLabel(point) {
   return String(point.PTY || "0") !== "0" ? precipitationLabel(point.PTY) : skyLabel(point.SKY);
 }
 
+function openMeteoCondition(code) {
+  const value = Number(code);
+  if (value === 0) return "맑음";
+  if (value === 1 || value === 2) return "구름 조금";
+  if (value === 3 || value === 45 || value === 48) return "흐림";
+  if ((value >= 71 && value <= 77) || value === 85 || value === 86) return "눈";
+  if ((value >= 51 && value <= 67) || (value >= 80 && value <= 82) || value >= 95) return "비";
+  return "날씨 확인 중";
+}
+
+function openMeteoIso(value) {
+  if (!value) return null;
+  return /[zZ]|[+-]\d\d:\d\d$/.test(value) ? value : `${value}:00+09:00`;
+}
+
+async function fetchOpenMeteo(location) {
+  const url = new URL(OPEN_METEO_BASE);
+  url.search = new URLSearchParams({
+    latitude: String(location.latitude),
+    longitude: String(location.longitude),
+    timezone: "Asia/Seoul",
+    forecast_days: "16",
+    wind_speed_unit: "ms",
+    current: "temperature_2m,relative_humidity_2m,precipitation,weather_code,wind_speed_10m",
+    hourly: "temperature_2m,relative_humidity_2m,precipitation_probability,precipitation,weather_code",
+    daily: "weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max"
+  }).toString();
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 20_000);
+  try {
+    const response = await fetch(url, {
+      signal: controller.signal,
+      cache: "no-store",
+      headers: { Accept: "application/json" }
+    });
+    if (!response.ok) throw new Error(`Open-Meteo HTTP ${response.status}`);
+    const data = await response.json();
+    if (data?.error) throw new Error(`Open-Meteo: ${data.reason || "unknown error"}`);
+
+    const currentHour = (data.hourly?.time || []).findIndex(time => time >= data.current?.time);
+    const start = Math.max(currentHour, 0);
+    const hourly = (data.hourly?.time || []).slice(start, start + 8).map((time, offset) => {
+      const index = start + offset;
+      return {
+        at: openMeteoIso(time),
+        temperature: numberValue(data.hourly.temperature_2m?.[index]),
+        humidity: numberValue(data.hourly.relative_humidity_2m?.[index]),
+        precipitationProbability: numberValue(data.hourly.precipitation_probability?.[index]),
+        precipitation: numberValue(data.hourly.precipitation?.[index]) ?? 0,
+        condition: openMeteoCondition(data.hourly.weather_code?.[index])
+      };
+    });
+
+    const daily = (data.daily?.time || []).slice(0, 16).map((date, index) => ({
+      date,
+      min: numberValue(data.daily.temperature_2m_min?.[index]),
+      max: numberValue(data.daily.temperature_2m_max?.[index]),
+      precipitationProbability: numberValue(data.daily.precipitation_probability_max?.[index]),
+      condition: openMeteoCondition(data.daily.weather_code?.[index])
+    }));
+
+    return {
+      ...location,
+      provider: "Open-Meteo Best Match",
+      fallback: true,
+      current: {
+        temperature: numberValue(data.current?.temperature_2m),
+        humidity: numberValue(data.current?.relative_humidity_2m),
+        windSpeed: numberValue(data.current?.wind_speed_10m),
+        rainLastHour: numberValue(data.current?.precipitation) ?? 0,
+        condition: openMeteoCondition(data.current?.weather_code)
+      },
+      hourly,
+      daily
+    };
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 function groupForecast(items) {
   const grouped = new Map();
   for (const item of items) {
@@ -190,7 +270,7 @@ function summarizeForecast(items) {
   return { hourly, daily };
 }
 
-async function fetchLocation(location) {
+async function fetchKma(location) {
   const observation = observationBase();
   const forecast = forecastBase();
   const common = { nx: String(location.nx), ny: String(location.ny) };
@@ -205,6 +285,7 @@ async function fetchLocation(location) {
 
   return {
     ...location,
+    provider: "기상청 단기예보",
     current: {
       temperature: numberValue(currentValues.T1H),
       humidity: numberValue(currentValues.REH),
@@ -214,6 +295,19 @@ async function fetchLocation(location) {
     },
     ...summarized
   };
+}
+
+async function fetchLocation(location) {
+  try {
+    return await fetchKma(location);
+  } catch (kmaError) {
+    console.warn(`[${location.id}] KMA unavailable: ${kmaError?.message || kmaError}`);
+    try {
+      return await fetchOpenMeteo(location);
+    } catch (openMeteoError) {
+      throw new Error(`KMA: ${kmaError?.message || kmaError}; Open-Meteo: ${openMeteoError?.message || openMeteoError}`);
+    }
+  }
 }
 
 async function previousData() {
@@ -245,7 +339,9 @@ async function main() {
   const output = {
     status: allFailed ? "error" : "ok",
     updatedAt: new Date().toISOString(),
-    source: "기상청 단기예보 조회서비스",
+    source: nextLocations.some(location => location.fallback)
+      ? "기상청 우선 · Open-Meteo Best Match 대체"
+      : "기상청 단기예보 조회서비스",
     updateIntervalMinutes: 60,
     locations: nextLocations
   };
