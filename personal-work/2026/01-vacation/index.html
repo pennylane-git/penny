@@ -963,6 +963,17 @@
       background: var(--color-bg-layer-elevated);
     }
 
+    /* Date summaries are already represented by the timeline and schedule. */
+    .timeline-context > .context-label,
+    .timeline-context > h3,
+    .timeline-context > p {
+      display: none;
+    }
+
+    .timeline-context > .context-support {
+      margin-top: 0;
+    }
+
     .timeline-context[hidden] {
       display: none;
     }
@@ -1008,16 +1019,26 @@
 
     .context-support-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: var(--dimension-x2);
+      grid-template-columns: 1fr;
+      gap: 0;
     }
 
     .context-support-card {
       min-width: 0;
-      padding: var(--dimension-x3);
-      border: 1px solid var(--color-line-neutral);
-      border-radius: var(--radius-r3);
-      background: var(--color-bg-layer-default);
+      padding: var(--dimension-x3) 0;
+      border: 0;
+      border-bottom: 1px solid var(--color-line-neutral);
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .context-support-card:first-child {
+      padding-top: 0;
+    }
+
+    .context-support-card:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
     }
 
     .context-support-card strong,
@@ -2464,9 +2485,6 @@
       ],
       19: [
         { title: "통행료 예산", text: "승용차 편도 약 15,000원 기준으로 잡고, 실제 요금은 진입·진출 IC와 할인 적용에 따라 출발 전에 확인하세요." },
-        { title: "쉬는 타이밍", text: "09:00 출발 후 11:00 전후 40–60분 정차를 기준으로 잡으면 점심과 휴식을 함께 해결할 수 있습니다." },
-        { title: "출발 전 확인", text: "차량 연료·하이패스·보조배터리·생수를 확인하고, 교통 상황에 따라 휴게소 체류 시간을 조절하세요." },
-        { title: "LPG 소모 예상", text: "예전 800–900원/L 시절 100km당 10,000원 사용량을 기준으로 현재 1,100원/L를 환산하면 100km당 약 12,200–13,800원입니다." },
         { title: "LPG 충전 예산", text: "양재→경주 약 341km 편도는 약 42,000–47,000원, 출발·도착 시내 구간과 교통·에어컨 여유를 포함하면 약 44,000–52,000원으로 잡는 것이 현실적입니다." }
       ],
       20: [
