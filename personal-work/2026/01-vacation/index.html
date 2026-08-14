@@ -1308,7 +1308,7 @@
 
     .schedule-canvas {
       position: relative;
-      height: 840px;
+      height: 672px;
       background: repeating-linear-gradient(to bottom, transparent 0, transparent 55px, var(--color-line-neutral) 55px, var(--color-line-neutral) 56px);
     }
 
@@ -2126,7 +2126,7 @@
       <div class="timeline-layout">
         <div class="timeline-main">
           <div class="day-schedule" aria-live="polite">
-        <div class="day-schedule-header"><strong id="schedule-title">일정 시간표</strong><span>07:00–21:00</span></div>
+        <div class="day-schedule-header"><strong id="schedule-title">일정 시간표</strong><span>08:00–19:00</span></div>
         <div class="schedule-canvas">
           <div class="schedule-times" aria-hidden="true"></div>
           <div class="schedule-events"></div>
@@ -2597,15 +2597,20 @@
       if (!isDaySelected) return;
 
       scheduleTitle.textContent = `${tripDetails[filter]?.label || "선택한 날짜"} 시간표`;
-      scheduleTimes.innerHTML = Array.from({ length: 15 }, (_, index) => `<div class="schedule-time">${String(index + 7).padStart(2, "0")}:00</div>`).join("");
+      scheduleTimes.innerHTML = Array.from({ length: 12 }, (_, index) => `<div class="schedule-time">${String(index + 8).padStart(2, "0")}:00</div>`).join("");
       if (!events.length) {
         scheduleEvents.innerHTML = '<p class="schedule-empty">등록된 시간이 없습니다. 일정 시간을 추가하면 이곳에 표시됩니다.</p>';
         return;
       }
 
       scheduleEvents.innerHTML = events.map(event => {
-        const top = ((toMinutes(event.start) - 420) / 60) * 56;
-        const height = Math.max(((toMinutes(event.end) - toMinutes(event.start)) / 60) * 56, 44);
+        const scheduleStart = 8 * 60;
+        const scheduleEnd = 19 * 60;
+        const visibleStart = Math.max(toMinutes(event.start), scheduleStart);
+        const visibleEnd = Math.min(toMinutes(event.end), scheduleEnd);
+        if (visibleEnd <= visibleStart) return "";
+        const top = ((visibleStart - scheduleStart) / 60) * 56;
+        const height = Math.max(((visibleEnd - visibleStart) / 60) * 56, 44);
         return `<article class="schedule-event ${event.kind || ""}" style="top:${top}px;height:${height}px" aria-label="${event.start}부터 ${event.end}까지 ${event.title}"><strong>${event.title}</strong><span>${event.start}–${event.end} · ${event.detail}</span></article>`;
       }).join("");
     }
