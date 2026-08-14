@@ -2378,6 +2378,15 @@
     const lunchCandidates = document.querySelector("#lunch-candidates");
     const timeline = document.querySelector("#timeline");
 
+    function getDefaultTripFilter() {
+      const now = new Date();
+      const tripStart = new Date("2026-08-19T00:00:00+09:00");
+      const tripEnd = new Date("2026-08-28T23:59:59+09:00");
+      if (now < tripStart) return "19";
+      if (now > tripEnd) return "28";
+      return String(new Intl.DateTimeFormat("en-US", { timeZone: "Asia/Seoul", day: "numeric" }).format(now));
+    }
+
     const contextDetails = {
       19: {
         kicker: "이동 중 점심",
@@ -2561,7 +2570,7 @@
       card.addEventListener("click", () => setTripFilter(card.dataset.filterLink, false));
     });
 
-    setTripFilter("all", false);
+    setTripFilter(getDefaultTripFilter(), false);
 
     const heroSlides = [...document.querySelectorAll(".hero-slide")];
     const heroCount = document.querySelector(".hero-count");
