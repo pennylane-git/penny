@@ -2,15 +2,16 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 
 const API_BASE = process.env.KMA_API_BASE || "https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0";
+const MID_API_BASE = process.env.KMA_MID_API_BASE || "https://apis.data.go.kr/1360000/MidFcstInfoService";
 const OPEN_METEO_BASE = process.env.OPEN_METEO_API_BASE || "https://api.open-meteo.com/v1/forecast";
 const OUTPUT_PATH = resolve(process.env.WEATHER_OUTPUT_PATH || "personal-work/2026/01-vacation/data/weather.json");
 const KST_OFFSET = 9 * 60 * 60 * 1000;
 const serviceKey = process.env.KMA_SERVICE_KEY?.trim();
 
 const locations = [
-  { id: "gyeongju", name: "경주", stay: "8/19-8/23", nx: 100, ny: 91, latitude: 35.8562, longitude: 129.2247 },
-  { id: "resom", name: "충남 리솜", stay: "8/25-8/26", nx: 55, ny: 100, latitude: 36.6885, longitude: 126.6626 },
-  { id: "gwangju", name: "광주", stay: "8/26-8/28", nx: 60, ny: 74, latitude: 35.146, longitude: 126.923 }
+  { id: "gyeongju", name: "경주 교동", stay: "8/19-8/23", nx: 100, ny: 91, latitude: 35.8308, longitude: 129.2142, midLandRegId: "11H10000" },
+  { id: "resom", name: "충남 리솜", stay: "8/25-8/26", nx: 55, ny: 100, latitude: 36.6885, longitude: 126.6626, midLandRegId: "11C20000" },
+  { id: "gwangju", name: "광주", stay: "8/26-8/28", nx: 60, ny: 74, latitude: 35.146, longitude: 126.923, midLandRegId: "11F20000" }
 ];
 
 function shiftedKst(milliseconds = 0) {
@@ -42,6 +43,15 @@ function forecastBase() {
 
   const previousDay = new Date(date.getTime() - 24 * 60 * 60 * 1000);
   return { base_date: ymd(previousDay), base_time: "2300" };
+}
+
+function midForecastBase() {
+  const date = shiftedKst(-30 * 60 * 1000);
+  const hour = date.getUTCHours();
+  if (hour >= 18) return `${ymd(date)}1800`;
+  if (hour >= 6) return `${ymd(date)}0600`;
+  const previousDay = new Date(date.getTime() - 24 * 60 * 60 * 1000);
+  return `${ymd(previousDay)}1800`;
 }
 
 function decodedKey() {
@@ -113,6 +123,39 @@ async function request(endpoint, params, attempt = 1) {
   }
 }
 
+async function requestMid(endpoint, params, attempt = 1) {
+  if (!serviceKey) throw new Error("KMA_SERVICE_KEY is not configured");
+  const url = new URL(`${MID_API_BASE}/${endpoint}`);
+  url.search = new URLSearchParams({
+    ServiceKey: decodedKey(), pageNo: "1", numOfRows: "10", dataType: "JSON", ...params
+  }).toString();
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 20_000);
+  try {
+    const response = await fetch(url, {
+      signal: controller.signal, cache: "no-store", headers: { Accept: "application/json" }
+    });
+    const body = await response.text();
+    if (!response.ok || body.trimStart().startsWith("<")) {
+      throw new Error(`${endpoint}: ${apiErrorDetail(body, response.status)}`);
+    }
+    const payload = JSON.parse(body);
+    const header = payload?.response?.header;
+    if (header?.resultCode !== "00") {
+      throw new Error(`${endpoint}: KMA API error ${header?.resultCode || "unknown"} (${header?.resultMsg || "no message"})`);
+    }
+    return payload?.response?.body?.items?.item || [];
+  } catch (error) {
+    if (attempt < 3) {
+      await new Promise(resolveDelay => setTimeout(resolveDelay, attempt * 1_500));
+      return requestMid(endpoint, params, attempt + 1);
+    }
+    throw error;
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 function numberValue(value) {
   const parsed = Number.parseFloat(value);
   return Number.isFinite(parsed) ? parsed : null;
@@ -150,6 +193,43 @@ function openMeteoCondition(code) {
 function openMeteoIso(value) {
   if (!value) return null;
   return /[zZ]|[+-]\d\d:\d\d$/.test(value) ? value : `${value}:00+09:00`;
+}
+
+function dateAfter(date, days) {
+  const next = new Date(Date.UTC(
+    Number(date.slice(0, 4)), Number(date.slice(4, 6)) - 1, Number(date.slice(6, 8)) + days
+  ));
+  return `${next.getUTCFullYear()}-${String(next.getUTCMonth() + 1).padStart(2, "0")}-${String(next.getUTCDate()).padStart(2, "0")}`;
+}
+
+function midCondition(...values) {
+  const text = values.filter(Boolean).join(" ");
+  if (/눈/.test(text)) return "눈";
+  if (/비|소나기/.test(text)) return "비";
+  if (/흐림/.test(text)) return "흐림";
+  if (/구름/.test(text)) return "구름 많음";
+  if (/맑음/.test(text)) return "맑음";
+  return "날씨 확인 중";
+}
+
+async function fetchKmaMidDaily(location) {
+  const tmFc = midForecastBase();
+  const [item] = await requestMid("getMidLandFcst", { regId: location.midLandRegId, tmFc });
+  if (!item) throw new Error("getMidLandFcst: empty forecast");
+  const issueDate = tmFc.slice(0, 8);
+  return Array.from({ length: 8 }, (_, index) => {
+    const day = index + 3;
+    const am = item[`wf${day}Am`] ?? item[`wf${day}`];
+    const pm = item[`wf${day}Pm`] ?? item[`wf${day}`];
+    const rainAm = numberValue(item[`rnSt${day}Am`] ?? item[`rnSt${day}`]);
+    const rainPm = numberValue(item[`rnSt${day}Pm`] ?? item[`rnSt${day}`]);
+    return {
+      date: dateAfter(issueDate, day),
+      precipitationProbability: Math.max(rainAm ?? 0, rainPm ?? 0),
+      condition: midCondition(am, pm),
+      provider: "기상청 중기육상예보"
+    };
+  });
 }
 
 async function fetchOpenMeteo(location) {
@@ -299,24 +379,31 @@ async function fetchKma(location) {
 
 function mergeDailyForecasts(primary = [], supplement = []) {
   const merged = new Map(supplement.map(day => [day.date, day]));
-  for (const day of primary) merged.set(day.date, day);
+  for (const day of primary) merged.set(day.date, { ...(merged.get(day.date) || {}), ...day });
   return [...merged.values()].sort((a, b) => a.date.localeCompare(b.date)).slice(0, 16);
 }
 
 async function fetchLocation(location) {
   try {
     const kma = await fetchKma(location);
-    try {
-      const supplement = await fetchOpenMeteo(location);
-      return {
-        ...kma,
-        daily: mergeDailyForecasts(kma.daily, supplement.daily),
-        dailySupplement: "Open-Meteo Best Match"
-      };
-    } catch (supplementError) {
-      console.warn(`[${location.id}] Open-Meteo daily supplement unavailable: ${supplementError?.message || supplementError}`);
-      return kma;
+    const [openMeteoResult, midResult] = await Promise.allSettled([
+      fetchOpenMeteo(location), fetchKmaMidDaily(location)
+    ]);
+    let daily = kma.daily;
+    const supplements = [];
+    if (openMeteoResult.status === "fulfilled") {
+      daily = mergeDailyForecasts(daily, openMeteoResult.value.daily);
+      supplements.push("Open-Meteo 기온");
+    } else {
+      console.warn(`[${location.id}] Open-Meteo daily supplement unavailable: ${openMeteoResult.reason?.message || openMeteoResult.reason}`);
     }
+    if (midResult.status === "fulfilled") {
+      daily = mergeDailyForecasts(midResult.value, daily);
+      supplements.unshift("기상청 중기예보");
+    } else {
+      console.warn(`[${location.id}] KMA mid-range forecast unavailable: ${midResult.reason?.message || midResult.reason}`);
+    }
+    return { ...kma, daily, dailySupplement: supplements.join(" · ") || undefined };
   } catch (kmaError) {
     console.warn(`[${location.id}] KMA unavailable: ${kmaError?.message || kmaError}`);
     try {
@@ -358,6 +445,8 @@ async function main() {
     updatedAt: new Date().toISOString(),
     source: nextLocations.some(location => location.fallback)
       ? "기상청 우선 · Open-Meteo Best Match 대체"
+      : nextLocations.some(location => location.dailySupplement?.includes("기상청 중기예보"))
+        ? "기상청 단기·중기예보 · Open-Meteo 기온 보완"
       : nextLocations.some(location => location.dailySupplement)
         ? "기상청 단기예보 · Open-Meteo 장기예보 보완"
         : "기상청 단기예보 조회서비스",
