@@ -57,6 +57,10 @@
       --color-fg-warning: #2f6fba;
       --color-bg-purple-soft: #f4f7fb;
       --color-fg-purple: #60758f;
+      --calendar-teal: #0f766e;
+      --calendar-blue: #1677d2;
+      --calendar-indigo: #4f46c7;
+      --calendar-violet: #7c3aed;
       --color-bg-danger-soft: #ffebe9;
       --color-fg-danger: #c9342e;
       --color-fg-event-muted: rgba(31, 31, 31, 0.68);
@@ -502,20 +506,15 @@
       letter-spacing: 0.12em;
     }
 
-    .dot.green,
-    .dot.orange,
-    .dot.blue,
-    .dot.purple {
-      background: var(--color-fg-brand);
-    }
+    .dot.green { background: var(--calendar-teal); }
+    .dot.orange { background: var(--calendar-blue); }
+    .dot.blue { background: var(--calendar-indigo); }
+    .dot.purple { background: var(--calendar-violet); }
 
-    .green-event,
-    .orange-event,
-    .blue-event,
-    .purple-event {
-      background: var(--color-bg-accent-soft);
-      border-color: var(--color-fg-brand);
-    }
+    .green-event { background: #e6f7f5; border-color: var(--calendar-teal); }
+    .orange-event { background: #eaf3ff; border-color: var(--calendar-blue); }
+    .blue-event { background: #eef0ff; border-color: var(--calendar-indigo); }
+    .purple-event { background: #f2edff; border-color: var(--calendar-violet); }
 
     .tag.green,
     .tag.orange,
@@ -975,6 +974,123 @@
       color: #12345a;
       text-decoration: none;
       font-weight: 700;
+    }
+
+    .day-schedule {
+      display: none;
+      margin: 0 0 var(--dimension-x4);
+      overflow: hidden;
+      border: 1px solid var(--color-line-neutral);
+      border-radius: var(--radius-r4);
+      background: var(--color-bg-layer-default);
+    }
+
+    .day-schedule.is-visible {
+      display: block;
+    }
+
+    .day-schedule-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--dimension-x3);
+      padding: var(--dimension-x4);
+      border-bottom: 1px solid var(--color-line-neutral);
+    }
+
+    .day-schedule-header strong {
+      font-size: 1rem;
+    }
+
+    .day-schedule-header span {
+      color: var(--color-fg-secondary);
+      font-size: 0.75rem;
+    }
+
+    .schedule-canvas {
+      position: relative;
+      height: 840px;
+      background: repeating-linear-gradient(to bottom, transparent 0, transparent 55px, var(--color-line-neutral) 55px, var(--color-line-neutral) 56px);
+    }
+
+    .schedule-times {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 64px;
+      background: var(--color-bg-layer-default);
+    }
+
+    .schedule-time {
+      height: 56px;
+      padding: 8px 8px 0;
+      color: var(--color-fg-secondary);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-align: right;
+    }
+
+    .schedule-events {
+      position: absolute;
+      inset: 0 0 0 64px;
+      border-left: 1px solid var(--color-line-neutral);
+    }
+
+    .schedule-event {
+      position: absolute;
+      right: 12px;
+      left: 12px;
+      min-height: 38px;
+      padding: 8px 10px;
+      overflow: hidden;
+      border-left: 3px solid var(--color-bg-brand);
+      border-radius: var(--radius-r3);
+      background: var(--color-bg-info-soft);
+      color: var(--color-fg-primary);
+      font-size: 0.75rem;
+      line-height: 1.35;
+    }
+
+    .schedule-event strong,
+    .schedule-event span {
+      display: block;
+    }
+
+    .schedule-event span {
+      color: var(--color-fg-secondary);
+      font-size: 0.6875rem;
+    }
+
+    .schedule-event.travel {
+      border-left-color: var(--color-fg-accent);
+      background: var(--color-bg-accent-soft);
+    }
+
+    .schedule-event.stay {
+      border-left-color: var(--color-fg-info);
+    }
+
+    .schedule-empty {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      left: 84px;
+      color: var(--color-fg-secondary);
+      font-size: 0.8125rem;
+      text-align: center;
+      transform: translateY(-50%);
+    }
+
+    .route-recommendations {
+      margin-top: var(--dimension-x6);
+    }
+
+    .route-recommendations h3 {
+      margin: 0 0 var(--dimension-x3);
+      font-size: 1rem;
+    }
+
+    .route-recommendations .card {
+      background: var(--color-bg-layer-default);
     }
 
     .week-strip {
@@ -1438,6 +1554,13 @@
         <button type="button" data-filter="27"><small>목</small><b>27</b></button>
         <button type="button" data-filter="28"><small>금</small><b>28</b></button>
       </div>
+      <div class="day-schedule" aria-live="polite">
+        <div class="day-schedule-header"><strong id="schedule-title">일정 시간표</strong><span>07:00–21:00</span></div>
+        <div class="schedule-canvas">
+          <div class="schedule-times" aria-hidden="true"></div>
+          <div class="schedule-events"></div>
+        </div>
+      </div>
       <div class="timeline">
         <article class="step" data-date="19">
           <div class="date">8/19 수</div>
@@ -1500,6 +1623,29 @@
             <dd>당일 구매·당일 사용 가능</dd>
           </dl>
         </article>
+      </div>
+      <div class="route-recommendations">
+        <h3>19일 이동 중 점심 후보</h3>
+        <div class="cards">
+          <article class="card">
+            <span class="tag blue">1순위 · 이동 중</span>
+            <h3>금강휴게소 부산방향</h3>
+            <p>09:00 출발 후 약 2시간 지점. 11:00 전후 40–60분 휴식과 점심을 함께 해결하기 좋고, 금강 뷰와 휴게소 푸드코트를 이용할 수 있습니다.</p>
+            <dl><dt>추천</dt><dd>도리뱅뱅 정식, 산채비빔밥, 간단한 휴게소 식사</dd><dt>메모</dt><dd>주말·성수기에는 식사와 주차 시간을 넉넉히 잡으세요.</dd></dl>
+          </article>
+          <article class="card">
+            <span class="tag orange">2순위 · 경주 도착 후</span>
+            <h3>향화정 · 황리단길</h3>
+            <p>경주식 육회물회와 육회비빔밥, 꼬막무침 비빔밥으로 유명한 인기 한식당입니다. 여행 리뷰에서 4.7/5, 13개 리뷰가 확인되지만 대기 가능성이 있습니다.</p>
+            <dl><dt>추천</dt><dd>경주물회, 육회비빔밥</dd><dt>메모</dt><dd>아벤타 호텔 도착 후 늦은 점심 후보로 검토하세요.</dd></dl>
+          </article>
+          <article class="card">
+            <span class="tag green">3순위 · 주차 우선</span>
+            <h3>함양집 경주보문점</h3>
+            <p>한우물회와 육회비빔밥을 중심으로 경주 대표 메뉴를 먹을 수 있는 후보입니다. 황리단길보다 주차와 좌석 여건을 우선할 때 대안으로 좋습니다.</p>
+            <dl><dt>추천</dt><dd>한우물회, 육회비빔밥</dd><dt>메모</dt><dd>영업시간과 당일 대기 여부를 출발 전에 확인하세요.</dd></dl>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -1604,7 +1750,65 @@
     const focusDescription = document.querySelector("#focus-description");
     const focusDay = document.querySelector("#focus-day");
     const focusCard = document.querySelector(".focus-card");
+    const daySchedule = document.querySelector(".day-schedule");
+    const scheduleTitle = document.querySelector("#schedule-title");
+    const scheduleTimes = document.querySelector(".schedule-times");
+    const scheduleEvents = document.querySelector(".schedule-events");
     const timeline = document.querySelector("#timeline");
+
+    const daySchedules = {
+      19: [
+        { start: "09:00", end: "13:20", title: "양재 → 경주 이동", detail: "금강휴게소 휴식·점심 포함", kind: "travel" },
+        { start: "16:00", end: "17:00", title: "Aventa Hotel 체크인", detail: "경주 도착 후 체크인", kind: "stay" }
+      ],
+      20: [
+        { start: "10:00", end: "18:00", title: "경주월드 + 캘리포니아비치", detail: "물놀이 예정", kind: "travel" }
+      ],
+      21: [
+        { start: "16:00", end: "21:00", title: "경주 숙박", detail: "Aventa Hotel", kind: "stay" }
+      ],
+      22: [
+        { start: "12:00", end: "13:00", title: "Aventa Hotel 체크아웃", detail: "퇴실 후 다음 숙소로 이동", kind: "stay" }
+      ],
+      25: [
+        { start: "15:00", end: "16:00", title: "스플라스 리솜 체크인", detail: "충남 리솜 도착", kind: "stay" }
+      ],
+      26: [
+        { start: "11:00", end: "12:00", title: "스플라스 리솜 체크아웃", detail: "광주 이동 준비", kind: "stay" },
+        { start: "15:00", end: "16:00", title: "Hotel LAAM 체크인", detail: "광주 도착", kind: "stay" }
+      ],
+      27: [
+        { start: "16:00", end: "21:00", title: "광주 숙박", detail: "Hotel LAAM", kind: "stay" }
+      ],
+      28: [
+        { start: "11:00", end: "12:00", title: "Hotel LAAM 체크아웃", detail: "퇴실", kind: "stay" }
+      ]
+    };
+
+    function toMinutes(time) {
+      const [hours, minutes] = time.split(":").map(Number);
+      return hours * 60 + minutes;
+    }
+
+    function renderDaySchedule(filter) {
+      const events = daySchedules[filter] || [];
+      const isDaySelected = filter !== "all";
+      daySchedule.classList.toggle("is-visible", isDaySelected);
+      if (!isDaySelected) return;
+
+      scheduleTitle.textContent = `${tripDetails[filter]?.label || "선택한 날짜"} 시간표`;
+      scheduleTimes.innerHTML = Array.from({ length: 15 }, (_, index) => `<div class="schedule-time">${String(index + 7).padStart(2, "0")}:00</div>`).join("");
+      if (!events.length) {
+        scheduleEvents.innerHTML = '<p class="schedule-empty">등록된 시간이 없습니다. 일정 시간을 추가하면 이곳에 표시됩니다.</p>';
+        return;
+      }
+
+      scheduleEvents.innerHTML = events.map(event => {
+        const top = ((toMinutes(event.start) - 420) / 60) * 56;
+        const height = Math.max(((toMinutes(event.end) - toMinutes(event.start)) / 60) * 56, 44);
+        return `<article class="schedule-event ${event.kind || ""}" style="top:${top}px;height:${height}px" aria-label="${event.start}부터 ${event.end}까지 ${event.title}"><strong>${event.title}</strong><span>${event.start}–${event.end} · ${event.detail}</span></article>`;
+      }).join("");
+    }
 
     function setTripFilter(filter, shouldScroll = true) {
       const detail = tripDetails[filter] || tripDetails.all;
@@ -1621,6 +1825,7 @@
       focusDay.textContent = detail.day;
       const focusImage = filter === "all" ? focusImages.all : Number(filter) <= 24 ? focusImages.gyeongju : Number(filter) === 25 ? focusImages.resom : focusImages.gwangju;
       focusCard.style.setProperty("--focus-image", focusImage);
+      renderDaySchedule(filter);
       if (shouldScroll) timeline.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
