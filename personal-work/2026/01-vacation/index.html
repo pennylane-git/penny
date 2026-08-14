@@ -919,6 +919,75 @@
       grid-area: overview;
     }
 
+    .timeline-layout.is-all {
+      display: block;
+    }
+
+    .timeline-layout.is-all .timeline-main {
+      display: none;
+    }
+
+    .timeline-context {
+      margin-top: var(--dimension-x5);
+      padding: var(--dimension-x4);
+      border: 1px solid var(--color-line-neutral);
+      border-radius: var(--radius-r4);
+      background: var(--color-bg-layer-elevated);
+    }
+
+    .timeline-context[hidden] {
+      display: none;
+    }
+
+    .context-label {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--dimension-x3);
+      color: var(--color-fg-brand);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .context-label span:last-child {
+      color: var(--color-fg-secondary);
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .timeline-context h3 {
+      margin: var(--dimension-x2) 0 var(--dimension-x1);
+      font-size: 1rem;
+    }
+
+    .timeline-context p {
+      margin: 0;
+      color: var(--color-fg-secondary);
+      font-size: 0.8125rem;
+      line-height: 1.55;
+    }
+
+    .context-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--dimension-x2);
+      margin-top: var(--dimension-x4);
+    }
+
+    .context-actions a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--color-bg-layer-default);
+      color: var(--color-fg-brand);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
     .focus-card {
       position: relative;
       isolation: isolate;
@@ -1440,6 +1509,10 @@
         gap: var(--dimension-x8);
       }
 
+      .timeline-layout.is-all {
+        display: block;
+      }
+
       .timeline-main {
         position: sticky;
         top: 24px;
@@ -1899,6 +1972,15 @@
           <div><strong>광주 체크아웃</strong><p>Hotel LAAM 11:00 퇴실</p></div>
         </article>
           </div>
+          <aside class="timeline-context" id="timeline-context" hidden aria-live="polite">
+            <div class="context-label"><span>주변 정보</span><span id="context-kicker"></span></div>
+            <h3 id="context-title"></h3>
+            <p id="context-description"></p>
+            <div class="context-actions">
+              <a id="context-map" href="#" target="_blank" rel="noreferrer">지도에서 보기 ↗</a>
+              <a id="context-link" href="#" target="_blank" rel="noreferrer">관련 링크 ↗</a>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -2052,7 +2134,49 @@
     const scheduleTitle = document.querySelector("#schedule-title");
     const scheduleTimes = document.querySelector(".schedule-times");
     const scheduleEvents = document.querySelector(".schedule-events");
+    const timelineLayout = document.querySelector(".timeline-layout");
+    const timelineContext = document.querySelector("#timeline-context");
+    const contextKicker = document.querySelector("#context-kicker");
+    const contextTitle = document.querySelector("#context-title");
+    const contextDescription = document.querySelector("#context-description");
+    const contextMap = document.querySelector("#context-map");
+    const contextLink = document.querySelector("#context-link");
     const timeline = document.querySelector("#timeline");
+
+    const contextDetails = {
+      19: {
+        kicker: "이동 중 점심",
+        title: "금강휴게소 부산방향",
+        description: "양재 출발 약 2시간 지점의 1순위 후보입니다. 11:00 전후 40–60분 휴식과 점심을 함께 잡고, 도리뱅뱅·산채비빔밥을 검토하세요.",
+        map: "https://map.naver.com/p/search/%EA%B8%88%EA%B0%95%ED%9C%B4%EA%B2%8C%EC%86%8C%20%EB%B6%80%EC%82%B0%EB%B0%A9%ED%96%A5",
+        link: "#plans",
+        linkLabel: "점심 후보 보기"
+      },
+      20: {
+        kicker: "물놀이 메모",
+        title: "캘리포니아비치 입장 준비",
+        description: "09:30 입장을 목표로 QR 티켓을 미리 준비하세요. 음식은 지정된 보관소와 피크닉 장소 이용 후 재입장하는 방식입니다.",
+        map: "https://map.naver.com/p/search/%EC%BA%98%EB%A6%AC%ED%8F%AC%EB%8B%88%EC%95%84%EB%B9%84%EC%B9%98",
+        link: "https://m.booking.naver.com/booking/5/bizes/92520/items/7914521?theme=place&lang=ko&area=ple",
+        linkLabel: "티켓 예매"
+      },
+      21: {
+        kicker: "놀이공원 메모",
+        title: "경주월드 동선",
+        description: "오전에는 인기 어트랙션을 먼저 타고, 점심 이후에는 대기 시간을 보며 실내·휴식형 콘텐츠를 섞으면 체력이 덜 소모됩니다.",
+        map: "https://map.naver.com/p/search/%EA%B2%BD%EC%A3%BC%EC%9B%94%EB%93%9C",
+        link: "https://smart.gjw.co.kr/reservation/amusement/SMBIA002.do",
+        linkLabel: "이용권 확인"
+      },
+      22: {
+        kicker: "방문 추천",
+        title: "국립경주박물관",
+        description: "22일 토요일 16:00–19:00 방문을 우선 추천합니다. 토요일 연장 개관 시간을 활용해 낮 시간대 혼잡을 피하고 23일은 예비로 남겨둡니다.",
+        map: "https://map.naver.com/p/search/%EA%B5%AD%EB%A6%BD%EA%B2%BD%EC%A3%BC%EB%B0%95%EB%AC%BC%EA%B4%80",
+        link: "https://gyeongju.museum.go.kr/kor/html/sub09/09.html",
+        linkLabel: "공식 관람 안내"
+      }
+    };
 
     const daySchedules = {
       19: [
@@ -2115,6 +2239,25 @@
       }).join("");
     }
 
+    function renderTimelineContext(filter) {
+      const detail = contextDetails[filter] || (filter !== "all" ? {
+        kicker: tripDetails[filter]?.day || "일정 메모",
+        title: tripDetails[filter]?.title || "선택한 일정",
+        description: tripDetails[filter]?.description || "선택한 날짜의 상세 정보를 확인하세요.",
+        map: `https://map.naver.com/p/search/${encodeURIComponent(tripDetails[filter]?.title || "경주 여행")}`,
+        link: "#plans",
+        linkLabel: "예약·정보 확인"
+      } : null);
+      timelineContext.hidden = !detail;
+      if (!detail) return;
+      contextKicker.textContent = tripDetails[filter]?.day || "일정 메모";
+      contextTitle.textContent = detail.title;
+      contextDescription.textContent = detail.description;
+      contextMap.href = detail.map;
+      contextLink.href = detail.link;
+      contextLink.textContent = detail.linkLabel + " ↗";
+    }
+
     function setTripFilter(filter, shouldScroll = true) {
       const detail = tripDetails[filter] || tripDetails.all;
       document.querySelectorAll(".week-strip button").forEach(button => {
@@ -2123,6 +2266,7 @@
       document.querySelectorAll(".step[data-date]").forEach(step => {
         step.hidden = filter !== "all" && step.dataset.date !== filter;
       });
+      timelineLayout.classList.toggle("is-all", filter === "all");
       focusLabel.textContent = detail.label;
       focusProgress.textContent = detail.progress;
       focusTitle.textContent = detail.title;
@@ -2131,6 +2275,7 @@
       const focusImage = filter === "all" ? focusImages.all : Number(filter) <= 24 ? focusImages.gyeongju : Number(filter) === 25 ? focusImages.resom : focusImages.gwangju;
       focusCard.style.setProperty("--focus-image", focusImage);
       renderDaySchedule(filter);
+      renderTimelineContext(filter);
       if (shouldScroll) timeline.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
