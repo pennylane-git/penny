@@ -550,7 +550,7 @@
     }
 
     .hero {
-      grid-template-columns: 1fr auto;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.82fr);
       align-items: end;
       min-height: 220px;
       padding: var(--dimension-x8) var(--dimension-x6) var(--dimension-x6);
@@ -582,12 +582,132 @@
       color: var(--color-fg-secondary);
     }
 
+    .hero-media {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      width: min(100%, 360px);
+      aspect-ratio: 4 / 3;
+      margin: 0;
+      overflow: hidden;
+      border-radius: var(--radius-r5);
+      background: var(--color-bg-layer-elevated);
+      box-shadow: var(--shadow-level-1);
+    }
+
+    .hero-copy {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .hero .chips {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .hero-media img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .chip {
       padding: var(--dimension-x2) var(--dimension-x3);
       background: var(--color-bg-layer-default);
       border: 1px solid var(--color-line-neutral);
       color: var(--color-fg-secondary);
       font-weight: 600;
+    }
+
+    .destination-strip {
+      margin-top: var(--dimension-x8);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: var(--dimension-x4);
+      margin-bottom: var(--dimension-x4);
+    }
+
+    .section-heading h2 {
+      margin-bottom: 0;
+    }
+
+    .section-heading > span {
+      color: var(--color-fg-secondary);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .section-kicker {
+      margin: 0 0 var(--dimension-x1);
+      color: var(--color-fg-brand);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    .destination-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--dimension-x3);
+    }
+
+    .destination-card {
+      position: relative;
+      display: block;
+      min-height: 180px;
+      overflow: hidden;
+      border-radius: var(--radius-r4);
+      background: var(--color-bg-layer-elevated);
+      color: var(--color-fg-on-brand);
+      text-decoration: none;
+      box-shadow: var(--shadow-level-1);
+    }
+
+    .destination-card::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 42%;
+      background: linear-gradient(to top, rgba(10, 22, 38, 0.7), transparent);
+      content: "";
+    }
+
+    .destination-card img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 180px;
+      object-fit: cover;
+      transition: transform 240ms ease;
+    }
+
+    .destination-card:hover img,
+    .destination-card:focus-visible img {
+      transform: scale(1.04);
+    }
+
+    .destination-card > span {
+      position: absolute;
+      right: var(--dimension-x4);
+      bottom: var(--dimension-x3);
+      left: var(--dimension-x4);
+      z-index: 1;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      font-size: 1.125rem;
+      font-weight: 700;
+    }
+
+    .destination-card small {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.6875rem;
+      letter-spacing: 0.08em;
     }
 
     section {
@@ -667,6 +787,96 @@
       border-top: 1px solid var(--color-line-neutral);
     }
 
+    .focus-card {
+      margin-bottom: var(--dimension-x4);
+      padding: var(--dimension-x5);
+      border-radius: var(--radius-r5);
+      background: #eaf3ff;
+      box-shadow: var(--shadow-level-1);
+    }
+
+    .focus-meta,
+    .focus-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--dimension-x3);
+      color: var(--color-fg-secondary);
+      font-size: 0.8125rem;
+    }
+
+    .focus-meta strong {
+      color: var(--color-fg-brand);
+      font-size: 0.875rem;
+    }
+
+    .focus-card h3 {
+      margin: var(--dimension-x8) 0 var(--dimension-x2);
+      font-size: 1.75rem;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .focus-card p {
+      margin: 0 0 var(--dimension-x6);
+      color: var(--color-fg-secondary);
+    }
+
+    .focus-button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 var(--dimension-x4);
+      border-radius: 999px;
+      background: var(--color-bg-brand);
+      color: var(--color-fg-on-brand);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .week-strip {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: var(--dimension-x1);
+      margin-bottom: var(--dimension-x5);
+      padding: var(--dimension-x2);
+      border-radius: var(--radius-r4);
+      background: var(--color-bg-layer-default);
+      box-shadow: 0 1px 4px rgba(31, 31, 31, 0.04);
+    }
+
+    .week-strip span {
+      display: grid;
+      justify-items: center;
+      gap: var(--dimension-x1);
+      padding: var(--dimension-x2) 0;
+      border-radius: var(--radius-r3);
+      color: var(--color-fg-secondary);
+      font-size: 0.75rem;
+    }
+
+    .week-strip small {
+      font-size: 0.6875rem;
+    }
+
+    .week-strip b {
+      color: var(--color-fg-neutral);
+      font-size: 0.875rem;
+    }
+
+    .week-strip .selected {
+      background: var(--color-bg-brand);
+      color: var(--color-fg-on-brand);
+    }
+
+    .week-strip .selected b {
+      color: var(--color-fg-on-brand);
+    }
+
+    .bottom-bar {
+      display: none;
+    }
+
     .step {
       grid-template-columns: 86px minmax(0, 1fr);
       gap: var(--dimension-x4);
@@ -714,8 +924,95 @@
         padding: var(--dimension-x6) 0 var(--dimension-x4);
       }
 
+      .hero-media {
+        grid-column: 1;
+        grid-row: auto;
+        width: 100%;
+        max-width: none;
+        aspect-ratio: 16 / 9;
+        order: -1;
+      }
+
       .chips {
         gap: var(--dimension-x2);
+      }
+
+      .destination-strip {
+        margin-inline: -12px;
+      }
+
+      .destination-strip .section-heading {
+        margin-inline: 12px;
+      }
+
+      .destination-grid {
+        display: flex;
+        gap: var(--dimension-x2);
+        overflow-x: auto;
+        padding: 0 12px var(--dimension-x1);
+        scrollbar-width: none;
+      }
+
+      .destination-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .destination-card {
+        flex: 0 0 72%;
+        min-height: 188px;
+      }
+
+      main {
+        padding-bottom: 104px;
+      }
+
+      .bottom-bar {
+        position: fixed;
+        right: 12px;
+        bottom: max(12px, env(safe-area-inset-bottom));
+        left: 12px;
+        z-index: 20;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr) auto;
+        align-items: center;
+        gap: var(--dimension-x1);
+        min-height: 64px;
+        padding: var(--dimension-x2);
+        border: 1px solid rgba(31, 31, 31, 0.1);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.88);
+        box-shadow: 0 12px 32px rgba(31, 31, 31, 0.14);
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+      }
+
+      .bottom-bar a {
+        display: grid;
+        justify-items: center;
+        gap: 2px;
+        min-height: 48px;
+        padding: var(--dimension-x1) var(--dimension-x2);
+        border-radius: var(--radius-r3);
+        color: var(--color-fg-secondary);
+        text-decoration: none;
+        font-size: 0.6875rem;
+        font-weight: 700;
+      }
+
+      .bottom-bar a span {
+        font-size: 1.125rem;
+        line-height: 1;
+      }
+
+      .bottom-bar .bottom-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 88px;
+        padding-inline: var(--dimension-x3);
+        background: var(--color-bg-brand);
+        color: var(--color-fg-on-brand);
+        font-size: 0.75rem;
       }
     }
 
@@ -753,7 +1050,7 @@
       }
 
       .hero {
-        grid-template-columns: 1fr auto;
+        grid-template-columns: minmax(0, 1fr) minmax(260px, 0.82fr);
         align-items: end;
       }
 
@@ -834,6 +1131,33 @@
         <span class="chip">경주 → 충남 → 광주</span>
         <span class="chip">모바일 우선</span>
       </div>
+      <figure class="hero-media">
+        <img src="./assets/og-vacation.jpg" alt="모래사장 위 피크닉 매트와 밀짚모자, 책이 놓인 여름 풍경">
+      </figure>
+    </section>
+
+    <section class="destination-strip" aria-labelledby="destination-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">DESTINATIONS</p>
+          <h2 id="destination-title">이번 여행의 장면</h2>
+        </div>
+        <span>3 places</span>
+      </div>
+      <div class="destination-grid">
+        <a class="destination-card" href="#timeline">
+          <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&amp;fit=crop&amp;w=720&amp;q=82" alt="경주 불국사 풍경" loading="lazy">
+          <span><small>01</small>경주</span>
+        </a>
+        <a class="destination-card" href="#stays">
+          <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&amp;fit=crop&amp;w=720&amp;q=82" alt="호수와 산이 보이는 여행 풍경" loading="lazy">
+          <span><small>02</small>충남 리솜</span>
+        </a>
+        <a class="destination-card" href="#stays">
+          <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&amp;fit=crop&amp;w=720&amp;q=82" alt="도시와 전통 건축이 어우러진 여행 풍경" loading="lazy">
+          <span><small>03</small>광주</span>
+        </a>
+      </div>
     </section>
 
     <section id="calendar" class="calendar" aria-labelledby="calendar-title">
@@ -869,6 +1193,24 @@
 
     <section id="timeline" aria-labelledby="timeline-title">
       <h2 id="timeline-title">날짜별 흐름</h2>
+      <article class="focus-card" aria-label="다음 일정">
+        <div class="focus-meta"><span>다음 일정</span><strong>20%</strong></div>
+        <h3>경주 물놀이</h3>
+        <p>8월 20일 목요일 · 경주월드 + 캘리포니아비치</p>
+        <div class="focus-actions">
+          <a class="focus-button" href="#plans">예약 확인</a>
+          <span>여행 2일차</span>
+        </div>
+      </article>
+      <div class="week-strip" aria-label="이번 주 일정">
+        <span><small>수</small><b>19</b></span>
+        <span class="selected"><small>목</small><b>20</b></span>
+        <span><small>금</small><b>21</b></span>
+        <span><small>토</small><b>22</b></span>
+        <span><small>일</small><b>23</b></span>
+        <span><small>월</small><b>24</b></span>
+        <span><small>화</small><b>25</b></span>
+      </div>
       <div class="timeline">
         <article class="step">
           <div class="date">8/19 수</div>
@@ -985,5 +1327,11 @@
       검색 차단 메타 태그와 robots.txt를 포함한 공개 링크용 페이지입니다. 링크를 받은 사람은 열람할 수 있으므로 예약번호 등 민감정보는 제외했습니다.
     </footer>
   </main>
+  <nav class="bottom-bar" aria-label="빠른 이동">
+    <a href="#calendar"><span aria-hidden="true">▦</span>일정</a>
+    <a href="#timeline"><span aria-hidden="true">≡</span>흐름</a>
+    <a href="#stays"><span aria-hidden="true">⌂</span>숙소</a>
+    <a class="bottom-cta" href="#plans">예약 확인</a>
+  </nav>
 </body>
 </html>
