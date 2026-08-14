@@ -900,6 +900,27 @@
       border-top: 1px solid var(--color-line-neutral);
     }
 
+    .timeline-layout {
+      display: grid;
+      grid-template-areas:
+        "overview"
+        "main";
+      gap: var(--dimension-x6);
+    }
+
+    .timeline-main,
+    .timeline-overview {
+      min-width: 0;
+    }
+
+    .timeline-main {
+      grid-area: main;
+    }
+
+    .timeline-overview {
+      grid-area: overview;
+    }
+
     .focus-card {
       position: relative;
       isolation: isolate;
@@ -1411,6 +1432,22 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+      .timeline-layout {
+        grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+        grid-template-areas: "main overview";
+        align-items: start;
+        gap: var(--dimension-x8);
+      }
+
+      .timeline-main {
+        position: sticky;
+        top: 24px;
+      }
+
+      .timeline-overview .focus-card {
+        margin-bottom: var(--dimension-x5);
+      }
+
       .day {
         min-height: 112px;
         padding: 8px;
@@ -1786,16 +1823,9 @@
 
     <section id="timeline" aria-labelledby="timeline-title">
       <h2 id="timeline-title">날짜별 흐름</h2>
-      <article class="focus-card" aria-label="다음 일정">
-        <div class="focus-meta"><span id="focus-label">전체 일정</span><strong id="focus-progress">10일</strong></div>
-        <h3 id="focus-title">경주 → 충남 → 광주</h3>
-        <p id="focus-description">8월 19일부터 28일까지 이어지는 전체 일정을 확인하세요.</p>
-        <div class="focus-actions">
-          <a class="focus-button" href="#plans">예약 확인</a>
-          <span id="focus-day">전체 보기</span>
-        </div>
-      </article>
-      <div class="week-strip" aria-label="이번 주 일정">
+      <div class="timeline-layout">
+        <div class="timeline-main">
+          <div class="week-strip" aria-label="이번 주 일정">
         <button class="selected" type="button" data-filter="all"><small>전체</small><b>일정</b></button>
         <button type="button" data-filter="19"><small>수</small><b>19</b></button>
         <button type="button" data-filter="20"><small>목</small><b>20</b></button>
@@ -1807,15 +1837,26 @@
         <button type="button" data-filter="26"><small>수</small><b>26</b></button>
         <button type="button" data-filter="27"><small>목</small><b>27</b></button>
         <button type="button" data-filter="28"><small>금</small><b>28</b></button>
-      </div>
-      <div class="day-schedule" aria-live="polite">
+          </div>
+          <div class="day-schedule" aria-live="polite">
         <div class="day-schedule-header"><strong id="schedule-title">일정 시간표</strong><span>07:00–21:00</span></div>
         <div class="schedule-canvas">
           <div class="schedule-times" aria-hidden="true"></div>
           <div class="schedule-events"></div>
         </div>
-      </div>
-      <div class="timeline">
+          </div>
+        </div>
+        <div class="timeline-overview">
+          <article class="focus-card" aria-label="다음 일정">
+            <div class="focus-meta"><span id="focus-label">전체 일정</span><strong id="focus-progress">10일</strong></div>
+            <h3 id="focus-title">경주 → 충남 → 광주</h3>
+            <p id="focus-description">8월 19일부터 28일까지 이어지는 전체 일정을 확인하세요.</p>
+            <div class="focus-actions">
+              <a class="focus-button" href="#plans">예약 확인</a>
+              <span id="focus-day">전체 보기</span>
+            </div>
+          </article>
+          <div class="timeline">
         <article class="step" data-date="19">
           <div class="date">8/19 수</div>
           <div><strong>서울 양재 출발 → 경주 이동</strong><p>대우양재디오빌·양재역 인근에서 09:00 출발, 자동차 약 4시간 20분 예상</p><p>아벤타 호텔 13:20 도착 예상 · 체크인 16:00</p></div>
@@ -1856,6 +1897,8 @@
           <div class="date">8/28 금</div>
           <div><strong>광주 체크아웃</strong><p>Hotel LAAM 11:00 퇴실</p></div>
         </article>
+          </div>
+        </div>
       </div>
     </section>
 
