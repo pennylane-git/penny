@@ -75,7 +75,7 @@ function apiErrorDetail(body, status) {
 async function request(endpoint, params, attempt = 1) {
   const url = new URL(`${API_BASE}/${endpoint}`);
   url.search = new URLSearchParams({
-    serviceKey: decodedKey(),
+    ServiceKey: decodedKey(),
     pageNo: "1",
     numOfRows: "1000",
     dataType: "JSON",
