@@ -630,6 +630,15 @@
       opacity: 1;
     }
 
+    .hero-slide:nth-child(1) {
+      object-position: 50% 35%;
+    }
+
+    .hero-slide:nth-child(2),
+    .hero-slide:nth-child(3) {
+      object-position: 50% 70%;
+    }
+
     .hero-dots {
       position: absolute;
       right: var(--dimension-x4);
@@ -1144,7 +1153,7 @@
       grid-row: auto;
       width: 100%;
       max-width: none;
-      height: clamp(420px, 54vw, 620px);
+      height: clamp(320px, 34vw, 420px);
       aspect-ratio: auto;
       border-radius: 0;
       box-shadow: none;
@@ -1191,7 +1200,7 @@
 
     @media (max-width: 759px) {
       .hero-media {
-        height: 520px;
+        height: 400px;
       }
 
       .hero-copy {
