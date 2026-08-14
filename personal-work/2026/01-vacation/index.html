@@ -902,11 +902,40 @@
     }
 
     .focus-card {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
       margin-bottom: var(--dimension-x4);
+      min-height: 220px;
       padding: var(--dimension-x5);
       border-radius: var(--radius-r5);
-      background: #eaf3ff;
+      background: #1d3557;
+      color: #ffffff;
       box-shadow: var(--shadow-level-1);
+    }
+
+    .focus-card::before {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background-image: var(--focus-image);
+      background-position: center;
+      background-size: cover;
+      content: "";
+      transform: scale(1.02);
+    }
+
+    .focus-card::after {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(105deg, rgba(6, 18, 34, 0.9) 0%, rgba(6, 18, 34, 0.68) 52%, rgba(6, 18, 34, 0.46) 100%);
+      content: "";
+    }
+
+    .focus-card > * {
+      position: relative;
+      z-index: 1;
     }
 
     .focus-meta,
@@ -915,12 +944,12 @@
       align-items: center;
       justify-content: space-between;
       gap: var(--dimension-x3);
-      color: var(--color-fg-secondary);
+      color: rgba(255, 255, 255, 0.78);
       font-size: 0.8125rem;
     }
 
     .focus-meta strong {
-      color: var(--color-fg-brand);
+      color: #ffffff;
       font-size: 0.875rem;
     }
 
@@ -933,7 +962,7 @@
 
     .focus-card p {
       margin: 0 0 var(--dimension-x6);
-      color: var(--color-fg-secondary);
+      color: rgba(255, 255, 255, 0.86);
     }
 
     .focus-button {
@@ -942,8 +971,8 @@
       min-height: 44px;
       padding: 0 var(--dimension-x4);
       border-radius: 999px;
-      background: var(--color-bg-brand);
-      color: var(--color-fg-on-brand);
+      background: rgba(255, 255, 255, 0.96);
+      color: #12345a;
       text-decoration: none;
       font-weight: 700;
     }
@@ -1212,8 +1241,8 @@
       color: #ffffff;
     }
 
-    .hero-kicker {
-      color: #ffffff;
+    .hero .hero-kicker {
+      color: #ffffff !important;
       text-shadow: 0 1px 10px rgba(0, 0, 0, 0.18);
     }
 
@@ -1352,30 +1381,6 @@
           </button>
         </div>
       </figure>
-    </section>
-
-    <section class="destination-strip" aria-labelledby="destination-title">
-      <div class="section-heading">
-        <div>
-          <p class="section-kicker">DESTINATIONS</p>
-          <h2 id="destination-title">이번 여행의 장면</h2>
-        </div>
-        <span>3 places</span>
-      </div>
-      <div class="destination-grid">
-        <a class="destination-card" href="#timeline" data-filter-link="19">
-          <img src="https://imagel.sekainavi.com/images/templates/SEOUL/5030464/f29db0d1e1a67fd7_S.jpg" alt="경주 불국사의 석탑과 전각" loading="lazy">
-          <span><small>01</small><strong>경주</strong><em>불국사 · 동궁과 월지</em></span>
-        </a>
-        <a class="destination-card" href="#stays">
-          <img src="https://tripgend.co.kr/wp-content/uploads/2025/12/it11-5-1-1024x683.jpg" alt="예산 스플라스 리솜 워터파크 전경" loading="lazy">
-          <span><small>02</small><strong>충남 리솜</strong><em>수덕사 · 덕산온천</em></span>
-        </a>
-        <a class="destination-card" href="#stays">
-          <img src="https://tong.visitkorea.or.kr/cms/resource/32/2752032_image2_1.jpg" alt="광주 양림역사문화마을의 골목 풍경" loading="lazy">
-          <span><small>03</small><strong>광주</strong><em>양림동 · 무등산</em></span>
-        </a>
-      </div>
     </section>
 
     <section id="calendar" class="calendar" aria-labelledby="calendar-title">
@@ -1586,11 +1591,19 @@
       28: { label: "8월 28일 금요일", progress: "10일차", title: "광주 체크아웃", description: "Hotel LAAM 11:00 퇴실", day: "광주" }
     };
 
+    const focusImages = {
+      all: "url('https://imagel.sekainavi.com/images/templates/SEOUL/5030464/f29db0d1e1a67fd7_S.jpg')",
+      gyeongju: "url('https://imagel.sekainavi.com/images/templates/SEOUL/5030464/f29db0d1e1a67fd7_S.jpg')",
+      resom: "url('https://tripgend.co.kr/wp-content/uploads/2025/12/it11-5-1-1024x683.jpg')",
+      gwangju: "url('https://tong.visitkorea.or.kr/cms/resource/32/2752032_image2_1.jpg')"
+    };
+
     const focusLabel = document.querySelector("#focus-label");
     const focusProgress = document.querySelector("#focus-progress");
     const focusTitle = document.querySelector("#focus-title");
     const focusDescription = document.querySelector("#focus-description");
     const focusDay = document.querySelector("#focus-day");
+    const focusCard = document.querySelector(".focus-card");
     const timeline = document.querySelector("#timeline");
 
     function setTripFilter(filter, shouldScroll = true) {
@@ -1606,6 +1619,8 @@
       focusTitle.textContent = detail.title;
       focusDescription.textContent = detail.description;
       focusDay.textContent = detail.day;
+      const focusImage = filter === "all" ? focusImages.all : Number(filter) <= 24 ? focusImages.gyeongju : Number(filter) === 25 ? focusImages.resom : focusImages.gwangju;
+      focusCard.style.setProperty("--focus-image", focusImage);
       if (shouldScroll) timeline.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
@@ -1620,6 +1635,8 @@
     document.querySelectorAll(".destination-card[data-filter-link]").forEach(card => {
       card.addEventListener("click", () => setTripFilter(card.dataset.filterLink, false));
     });
+
+    setTripFilter("all", false);
 
     const heroSlides = [...document.querySelectorAll(".hero-slide")];
     const heroCount = document.querySelector(".hero-count");
