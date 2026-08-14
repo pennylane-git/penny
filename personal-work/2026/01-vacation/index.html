@@ -957,21 +957,14 @@
 
     .timeline-context {
       margin-top: var(--dimension-x5);
-      padding: var(--dimension-x4);
-      border: 1px solid var(--color-line-neutral);
-      border-radius: var(--radius-r4);
-      background: var(--color-bg-layer-elevated);
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
     }
 
-    /* Date summaries are already represented by the timeline and schedule. */
-    .timeline-context > .context-label,
-    .timeline-context > h3,
-    .timeline-context > p {
-      display: none;
-    }
-
-    .timeline-context > .context-support {
-      margin-top: 0;
+    .timeline[hidden] {
+      display: none !important;
     }
 
     .timeline-context[hidden] {
