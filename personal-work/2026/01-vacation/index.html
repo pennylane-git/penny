@@ -968,26 +968,6 @@
       line-height: 1.55;
     }
 
-    .context-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--dimension-x2);
-      margin-top: var(--dimension-x4);
-    }
-
-    .context-actions a {
-      display: inline-flex;
-      align-items: center;
-      min-height: 40px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: var(--color-bg-layer-default);
-      color: var(--color-fg-brand);
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
     .lunch-candidates {
       margin-top: var(--dimension-x5);
       padding-top: var(--dimension-x4);
@@ -2038,10 +2018,6 @@
             <div class="context-label"><span>주변 정보</span><span id="context-kicker"></span></div>
             <h3 id="context-title"></h3>
             <p id="context-description"></p>
-            <div class="context-actions">
-              <a id="context-map" href="#" target="_blank" rel="noreferrer">지도에서 보기 ↗</a>
-              <a id="context-link" href="#" target="_blank" rel="noreferrer">관련 링크 ↗</a>
-            </div>
             <div class="lunch-candidates" id="lunch-candidates" hidden>
               <div class="lunch-candidates-head"><strong>점심 후보 3곳</strong><span>19일 이동·도착 동선</span></div>
               <div class="lunch-candidate-list">
@@ -2198,9 +2174,6 @@
     const contextKicker = document.querySelector("#context-kicker");
     const contextTitle = document.querySelector("#context-title");
     const contextDescription = document.querySelector("#context-description");
-    const contextActions = document.querySelector(".context-actions");
-    const contextMap = document.querySelector("#context-map");
-    const contextLink = document.querySelector("#context-link");
     const lunchCandidates = document.querySelector("#lunch-candidates");
     const timeline = document.querySelector("#timeline");
 
@@ -2311,14 +2284,10 @@
       } : null);
       timelineContext.hidden = !detail;
       lunchCandidates.hidden = filter !== "19";
-      contextActions.hidden = filter === "19";
       if (!detail) return;
       contextKicker.textContent = tripDetails[filter]?.day || "일정 메모";
       contextTitle.textContent = detail.title;
       contextDescription.textContent = detail.description;
-      contextMap.href = detail.map;
-      contextLink.href = detail.link;
-      contextLink.textContent = detail.linkLabel + " ↗";
     }
 
     function setTripFilter(filter, shouldScroll = true) {
