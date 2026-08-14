@@ -1017,6 +1017,65 @@
       text-decoration: none;
     }
 
+    .context-weather {
+      margin-top: var(--dimension-x4);
+      padding: var(--dimension-x3);
+      border-radius: var(--radius-r3);
+      background: var(--color-bg-info-soft);
+    }
+
+    .context-weather[hidden] {
+      display: none;
+    }
+
+    .context-weather-head,
+    .context-weather-main {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--dimension-x3);
+    }
+
+    .context-weather-head {
+      color: var(--color-fg-info);
+      font-size: 0.6875rem;
+      font-weight: 800;
+    }
+
+    .context-weather-time {
+      color: var(--color-fg-secondary);
+      font-size: 0.625rem;
+      font-weight: 600;
+    }
+
+    .context-weather-main {
+      justify-content: flex-start;
+      margin-top: var(--dimension-x2);
+    }
+
+    .context-weather-icon {
+      width: 36px;
+      height: 36px;
+    }
+
+    .context-weather-place {
+      font-size: 0.8125rem;
+      font-weight: 800;
+    }
+
+    .context-weather-condition {
+      margin-top: 2px;
+      color: var(--color-fg-secondary);
+      font-size: 0.6875rem;
+    }
+
+    .context-weather-temperature {
+      margin-left: auto;
+      color: var(--color-fg-info);
+      font-size: 1.25rem;
+      font-weight: 800;
+    }
+
     .lunch-candidates {
       margin-top: var(--dimension-x5);
       padding-top: var(--dimension-x4);
@@ -1937,31 +1996,6 @@
       </figure>
     </section>
 
-    <section id="weather" aria-labelledby="weather-title">
-      <div class="weather-heading">
-        <div>
-          <h2 id="weather-title">여행지 날씨</h2>
-          <p id="weather-updated">첫 자동 업데이트를 준비하고 있습니다.</p>
-        </div>
-        <button class="weather-refresh" id="weather-refresh" type="button">새로고침</button>
-      </div>
-      <div class="weather-grid" id="weather-grid" aria-live="polite">
-        <article class="weather-card" data-weather-id="gyeongju">
-          <div class="weather-card-head"><div><strong>경주</strong><span>8/19-8/23</span></div><span class="weather-badge">대기 중</span></div>
-          <p class="weather-message">기상청 날씨를 불러오는 중입니다.</p>
-        </article>
-        <article class="weather-card" data-weather-id="resom">
-          <div class="weather-card-head"><div><strong>충남 리솜</strong><span>8/25-8/26</span></div><span class="weather-badge">대기 중</span></div>
-          <p class="weather-message">기상청 날씨를 불러오는 중입니다.</p>
-        </article>
-        <article class="weather-card" data-weather-id="gwangju">
-          <div class="weather-card-head"><div><strong>광주</strong><span>8/26-8/28</span></div><span class="weather-badge">대기 중</span></div>
-          <p class="weather-message">기상청 날씨를 불러오는 중입니다.</p>
-        </article>
-      </div>
-      <p class="weather-source">출처: 기상청 단기예보 조회서비스 · 매시간 자동 갱신</p>
-    </section>
-
     <section id="calendar" class="calendar" aria-labelledby="calendar-title">
       <div class="month">
         <strong id="calendar-title">2026년 8월</strong>
@@ -2074,6 +2108,7 @@
             <div class="context-label"><span>주변 정보</span><span id="context-kicker"></span></div>
             <h3 id="context-title"></h3>
             <p id="context-description"></p>
+            <div class="context-weather" id="context-weather" hidden></div>
             <div class="context-support" id="context-support" hidden></div>
             <div class="lunch-candidates" id="lunch-candidates" hidden>
               <div class="lunch-candidates-head"><strong>점심 후보 3곳</strong><span>19일 이동·도착 동선</span></div>
@@ -2098,6 +2133,31 @@
           </aside>
         </div>
       </div>
+    </section>
+
+    <section id="weather" aria-labelledby="weather-title">
+      <div class="weather-heading">
+        <div>
+          <h2 id="weather-title">여행지 날씨</h2>
+          <p id="weather-updated">첫 자동 업데이트를 준비하고 있습니다.</p>
+        </div>
+        <button class="weather-refresh" id="weather-refresh" type="button">새로고침</button>
+      </div>
+      <div class="weather-grid" id="weather-grid" aria-live="polite">
+        <article class="weather-card" data-weather-id="gyeongju">
+          <div class="weather-card-head"><div><strong>경주</strong><span>8/19-8/23</span></div><span class="weather-badge">대기 중</span></div>
+          <p class="weather-message">기상청 날씨를 불러오는 중입니다.</p>
+        </article>
+        <article class="weather-card" data-weather-id="resom">
+          <div class="weather-card-head"><div><strong>충남 리솜</strong><span>8/25-8/26</span></div><span class="weather-badge">대기 중</span></div>
+          <p class="weather-message">기상청 날씨를 불러오는 중입니다.</p>
+        </article>
+        <article class="weather-card" data-weather-id="gwangju">
+          <div class="weather-card-head"><div><strong>광주</strong><span>8/26-8/28</span></div><span class="weather-badge">대기 중</span></div>
+          <p class="weather-message">기상청 날씨를 불러오는 중입니다.</p>
+        </article>
+      </div>
+      <p class="weather-source">출처: 기상청 단기예보 조회서비스 · 매시간 자동 갱신</p>
     </section>
 
     <section id="plans" aria-labelledby="plans-title">
@@ -2275,6 +2335,7 @@
     const contextKicker = document.querySelector("#context-kicker");
     const contextTitle = document.querySelector("#context-title");
     const contextDescription = document.querySelector("#context-description");
+    const contextWeather = document.querySelector("#context-weather");
     const contextSupport = document.querySelector("#context-support");
     const lunchCandidates = document.querySelector("#lunch-candidates");
     const timeline = document.querySelector("#timeline");
@@ -2446,6 +2507,7 @@
       focusCard.style.setProperty("--focus-image", focusImage);
       renderDaySchedule(filter);
       renderTimelineContext(filter);
+      window.renderContextWeather?.(filter);
       if (shouldScroll) timeline.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
@@ -2511,6 +2573,8 @@
     const weatherUpdated = document.querySelector("#weather-updated");
     const weatherRefresh = document.querySelector("#weather-refresh");
     const weatherSource = document.querySelector(".weather-source");
+    const contextWeather = document.querySelector("#context-weather");
+    let weatherData = null;
 
     function escapeWeather(value) {
       return String(value ?? "").replace(/[&<>'"]/g, character => ({
@@ -2589,6 +2653,34 @@
         ${days ? `<div class="weather-days" aria-label="3일 예보">${days}</div>` : `<p class="weather-message">여행일 예보는 날짜가 가까워지면 표시됩니다.</p>`}`;
     }
 
+    function weatherLocationForFilter(filter) {
+      const date = Number(filter);
+      if (!Number.isFinite(date) || filter === "all") return null;
+      if (date <= 24) return "gyeongju";
+      if (date <= 26) return "resom";
+      return "gwangju";
+    }
+
+    function renderContextWeather(filter) {
+      if (!contextWeather) return;
+      const weatherId = weatherLocationForFilter(filter);
+      const location = weatherData?.locations?.find(item => item.id === weatherId);
+      contextWeather.hidden = !weatherId;
+      if (!weatherId) {
+        contextWeather.innerHTML = "";
+        return;
+      }
+      if (!location?.current) {
+        contextWeather.innerHTML = `<div class="context-weather-head"><span>현재 여행지 날씨</span><span class="context-weather-time">불러오는 중</span></div><div class="context-weather-main"><span class="context-weather-place">${escapeWeather(location?.name || "여행지")}</span><span class="context-weather-condition">날씨 정보를 준비하고 있습니다.</span></div>`;
+        return;
+      }
+      const updated = weatherData.updatedAt ? new Intl.DateTimeFormat("ko-KR", { timeZone: "Asia/Seoul", hour: "numeric", minute: "2-digit" }).format(new Date(weatherData.updatedAt)) : "현재";
+      const current = location.current;
+      contextWeather.innerHTML = `<div class="context-weather-head"><span>현재 여행지 날씨</span><span class="context-weather-time">${escapeWeather(updated)} 기준</span></div><div class="context-weather-main">${weatherIcon(current.condition, "context-weather-icon")}<div><div class="context-weather-place">${escapeWeather(location.name)}</div><div class="context-weather-condition">${escapeWeather(current.condition)}</div></div><strong class="context-weather-temperature">${escapeWeather(displayNumber(current.temperature, "°"))}</strong></div>`;
+    }
+
+    window.renderContextWeather = renderContextWeather;
+
     async function loadWeather() {
       weatherRefresh.disabled = true;
       weatherRefresh.textContent = "불러오는 중";
@@ -2596,6 +2688,7 @@
         const response = await fetch(`./data/weather.json?v=${Date.now()}`, { cache: "no-store" });
         if (!response.ok) throw new Error("Weather data is unavailable");
         const data = await response.json();
+        weatherData = data;
 
         weatherCards.forEach(card => {
           const location = data.locations?.find(item => item.id === card.dataset.weatherId);
@@ -2608,6 +2701,7 @@
         weatherSource.innerHTML = data.source?.includes("Open-Meteo")
           ? '출처: 기상청 우선 · <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a> Best Match 대체 · 매시간 자동 갱신'
           : "출처: 기상청 단기예보 조회서비스 · 매시간 자동 갱신";
+        renderContextWeather(document.querySelector(".week-strip button.selected")?.dataset.filter || "all");
       } catch {
         weatherUpdated.textContent = "날씨 정보를 불러오지 못했습니다. 잠시 후 다시 확인해 주세요.";
       } finally {
