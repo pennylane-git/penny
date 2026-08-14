@@ -1,0 +1,44 @@
+name: Update vacation weather
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/update-weather.yml"
+      - "personal-work/2026/01-vacation/scripts/update-weather.mjs"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: vacation-weather
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Fetch latest KMA weather
+        env:
+          KMA_SERVICE_KEY: ${{ secrets.KMA_SERVICE_KEY }}
+        run: node personal-work/2026/01-vacation/scripts/update-weather.mjs
+
+      - name: Commit changed weather data
+        run: |
+          if git diff --quiet -- personal-work/2026/01-vacation/data/weather.json; then
+            echo "Weather data is unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add personal-work/2026/01-vacation/data/weather.json
+          git commit -m "Update vacation weather [skip ci]"
+          git push

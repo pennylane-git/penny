@@ -1454,6 +1454,234 @@
         grid-template-columns: 70px minmax(0, 1fr);
       }
     }
+
+    .weather-heading {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: var(--dimension-x3);
+      margin-bottom: var(--dimension-x3);
+    }
+
+    .weather-heading h2,
+    .weather-heading p {
+      margin: 0;
+    }
+
+    .weather-heading p {
+      margin-top: var(--dimension-x1);
+      color: var(--color-fg-secondary);
+      font-size: 0.8125rem;
+    }
+
+    .weather-refresh {
+      flex: 0 0 auto;
+      min-height: 44px;
+      border: 1px solid var(--color-line-neutral);
+      border-radius: var(--radius-r3);
+      padding: 9px 12px;
+      background: var(--color-bg-layer-default);
+      color: var(--color-fg-neutral);
+      font: inherit;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .weather-refresh:hover,
+    .weather-refresh:focus-visible {
+      border-color: var(--color-bg-brand);
+      color: var(--color-fg-brand);
+    }
+
+    .weather-refresh[disabled] {
+      cursor: wait;
+      opacity: 0.55;
+    }
+
+    .weather-grid {
+      display: grid;
+      gap: var(--dimension-x3);
+    }
+
+    .weather-card {
+      min-width: 0;
+      border: 1px solid var(--color-line-neutral);
+      border-radius: var(--radius-r4);
+      padding: var(--dimension-x4);
+      background: var(--color-bg-layer-default);
+    }
+
+    .weather-card-head,
+    .weather-current,
+    .weather-metrics {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--dimension-x3);
+    }
+
+    .weather-card-head strong {
+      display: block;
+      font-size: 1rem;
+    }
+
+    .weather-card-head span {
+      color: var(--color-fg-secondary);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .weather-badge {
+      border-radius: 999px;
+      padding: 5px 8px;
+      background: var(--color-bg-info-soft);
+      color: var(--color-fg-info) !important;
+    }
+
+    .weather-current {
+      justify-content: flex-start;
+      margin-top: var(--dimension-x4);
+    }
+
+    .weather-icon {
+      display: block;
+      flex: 0 0 56px;
+      width: 56px;
+      height: 56px;
+    }
+
+    .weather-temperature {
+      font-size: 2rem;
+      font-weight: 750;
+      line-height: 1;
+    }
+
+    .weather-condition {
+      margin: 4px 0 0;
+      color: var(--color-fg-secondary);
+      font-size: 0.8125rem;
+      font-weight: 700;
+    }
+
+    .weather-metrics {
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      margin-top: var(--dimension-x4);
+      color: var(--color-fg-secondary);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .weather-hours {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(72px, 1fr);
+      gap: var(--dimension-x2);
+      margin-top: var(--dimension-x4);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .weather-hours::-webkit-scrollbar {
+      display: none;
+    }
+
+    .weather-hour {
+      border-radius: var(--radius-r2);
+      padding: 8px 6px;
+      background: var(--color-bg-layer-elevated);
+      text-align: center;
+      font-size: 0.75rem;
+    }
+
+    .weather-hour span,
+    .weather-hour strong,
+    .weather-hour small {
+      display: block;
+    }
+
+    .weather-hour span,
+    .weather-hour small {
+      color: var(--color-fg-secondary);
+      font-size: 0.6875rem;
+      font-weight: 700;
+    }
+
+    .weather-hour strong {
+      margin: 2px 0;
+      font-size: 0.875rem;
+    }
+
+    .weather-hour-icon {
+      display: block;
+      width: 30px;
+      height: 30px;
+      margin: 4px auto 2px;
+    }
+
+    .weather-days {
+      display: grid;
+      gap: 7px;
+      margin-top: var(--dimension-x4);
+      padding-top: var(--dimension-x3);
+      border-top: 1px solid var(--color-line-neutral);
+    }
+
+    .weather-day {
+      display: grid;
+      grid-template-columns: 70px 26px minmax(0, 1fr) auto;
+      gap: var(--dimension-x2);
+      align-items: center;
+      font-size: 0.75rem;
+    }
+
+    .weather-day-icon {
+      display: block;
+      width: 26px;
+      height: 26px;
+    }
+
+    .weather-day span:nth-child(3) {
+      min-width: 0;
+      overflow: hidden;
+      color: var(--color-fg-secondary);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .weather-day strong {
+      white-space: nowrap;
+    }
+
+    .weather-message {
+      margin: var(--dimension-x4) 0 0;
+      color: var(--color-fg-secondary);
+      font-size: 0.8125rem;
+    }
+
+    .weather-source {
+      margin: var(--dimension-x3) 0 0;
+      color: var(--color-fg-secondary);
+      font-size: 0.6875rem;
+      text-align: right;
+    }
+
+    @media (min-width: 760px) {
+      .weather-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 430px) {
+      .weather-heading {
+        align-items: flex-start;
+      }
+
+      .weather-heading p {
+        max-width: 220px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1463,6 +1691,7 @@
       <h1>2026, 힝구힝구 여름휴가</h1>
     </div>
     <nav aria-label="페이지 이동">
+      <a href="#weather">날씨</a>
       <a href="#calendar">캘린더</a>
       <a href="#timeline">날짜별 흐름</a>
       <a href="#plans">예약할 곳</a>
@@ -1497,6 +1726,31 @@
           </button>
         </div>
       </figure>
+    </section>
+
+    <section id="weather" aria-labelledby="weather-title">
+      <div class="weather-heading">
+        <div>
+          <h2 id="weather-title">여행지 날씨</h2>
+          <p id="weather-updated">첫 자동 업데이트를 준비하고 있습니다.</p>
+        </div>
+        <button class="weather-refresh" id="weather-refresh" type="button">새로고침</button>
+      </div>
+      <div class="weather-grid" id="weather-grid" aria-live="polite">
+        <article class="weather-card" data-weather-id="gyeongju">
+          <div class="weather-card-head"><div><strong>경주</strong><span>8/19-8/23</span></div><span class="weather-badge">대기 중</span></div>
+          <p class="weather-message">기상청 날씨를 불러오는 중입니다.</p>
+        </article>
+        <article class="weather-card" data-weather-id="resom">
+          <div class="weather-card-head"><div><strong>충남 리솜</strong><span>8/25-8/26</span></div><span class="weather-badge">대기 중</span></div>
+          <p class="weather-message">기상청 날씨를 불러오는 중입니다.</p>
+        </article>
+        <article class="weather-card" data-weather-id="gwangju">
+          <div class="weather-card-head"><div><strong>광주</strong><span>8/26-8/28</span></div><span class="weather-badge">대기 중</span></div>
+          <p class="weather-message">기상청 날씨를 불러오는 중입니다.</p>
+        </article>
+      </div>
+      <p class="weather-source">출처: 기상청 단기예보 조회서비스 · 매시간 자동 갱신</p>
     </section>
 
     <section id="calendar" class="calendar" aria-labelledby="calendar-title">
@@ -1892,6 +2146,116 @@
 
     showHeroSlide(0);
     startHeroRotation();
+  </script>
+  <script>
+    const weatherCards = [...document.querySelectorAll("[data-weather-id]")];
+    const weatherUpdated = document.querySelector("#weather-updated");
+    const weatherRefresh = document.querySelector("#weather-refresh");
+
+    function escapeWeather(value) {
+      return String(value ?? "").replace(/[&<>'"]/g, character => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", "\"": "&quot;"
+      })[character]);
+    }
+
+    function weatherIconName(condition) {
+      if (/눈/.test(condition)) return "snow";
+      if (/비|소나기/.test(condition)) return "rain";
+      if (/흐림/.test(condition)) return "cloudy";
+      if (/구름/.test(condition)) return "partly-cloudy";
+      return "sunny";
+    }
+
+    function weatherIcon(condition, className = "weather-icon") {
+      const name = weatherIconName(condition);
+      return `<img class="${className}" src="./assets/weather/${name}.svg" alt="" aria-hidden="true">`;
+    }
+
+    function formatHour(value) {
+      return new Intl.DateTimeFormat("ko-KR", {
+        timeZone: "Asia/Seoul", hour: "numeric"
+      }).format(new Date(value));
+    }
+
+    function formatDay(value) {
+      return new Intl.DateTimeFormat("ko-KR", {
+        timeZone: "Asia/Seoul", month: "numeric", day: "numeric", weekday: "short"
+      }).format(new Date(`${value}T12:00:00+09:00`));
+    }
+
+    function displayNumber(value, suffix = "") {
+      return Number.isFinite(value) ? `${Math.round(value)}${suffix}` : "-";
+    }
+
+    function renderWeatherCard(card, location) {
+      if (!location || location.error || !location.current) {
+        card.innerHTML = `
+          <div class="weather-card-head"><div><strong>${escapeWeather(location?.name || card.dataset.weatherId)}</strong><span>${escapeWeather(location?.stay || "")}</span></div><span class="weather-badge">확인 필요</span></div>
+          <p class="weather-message">${escapeWeather(location?.error || "첫 자동 업데이트를 기다리고 있습니다.")}</p>`;
+        return;
+      }
+
+      const current = location.current;
+      const hours = (location.hourly || []).slice(0, 5).map(hour => `
+        <div class="weather-hour">
+          <span>${escapeWeather(formatHour(hour.at))}</span>
+          ${weatherIcon(hour.condition, "weather-hour-icon")}
+          <strong>${escapeWeather(displayNumber(hour.temperature, "°"))}</strong>
+          <small>강수 ${escapeWeather(displayNumber(hour.precipitationProbability, "%"))}</small>
+        </div>`).join("");
+      const days = (location.daily || []).slice(0, 3).map(day => `
+        <div class="weather-day">
+          <span>${escapeWeather(formatDay(day.date))}</span>
+          ${weatherIcon(day.condition, "weather-day-icon")}
+          <span>${escapeWeather(day.condition)}</span>
+          <strong>${escapeWeather(displayNumber(day.min, "°"))} / ${escapeWeather(displayNumber(day.max, "°"))}</strong>
+        </div>`).join("");
+
+      card.innerHTML = `
+        <div class="weather-card-head">
+          <div><strong>${escapeWeather(location.name)}</strong><span>${escapeWeather(location.stay)}</span></div>
+          <span class="weather-badge">${location.stale ? "이전 데이터" : "최신"}</span>
+        </div>
+        <div class="weather-current">
+          ${weatherIcon(current.condition)}
+          <div><div class="weather-temperature">${escapeWeather(displayNumber(current.temperature, "°"))}</div><p class="weather-condition">${escapeWeather(current.condition)}</p></div>
+        </div>
+        <div class="weather-metrics">
+          <span>습도 ${escapeWeather(displayNumber(current.humidity, "%"))}</span>
+          <span>바람 ${escapeWeather(displayNumber(current.windSpeed, "m/s"))}</span>
+          <span>1시간 강수 ${escapeWeather(displayNumber(current.rainLastHour, "mm"))}</span>
+        </div>
+        ${hours ? `<div class="weather-hours" aria-label="시간별 예보">${hours}</div>` : ""}
+        ${days ? `<div class="weather-days" aria-label="3일 예보">${days}</div>` : `<p class="weather-message">여행일 예보는 날짜가 가까워지면 표시됩니다.</p>`}`;
+    }
+
+    async function loadWeather() {
+      weatherRefresh.disabled = true;
+      weatherRefresh.textContent = "불러오는 중";
+      try {
+        const response = await fetch(`./data/weather.json?v=${Date.now()}`, { cache: "no-store" });
+        if (!response.ok) throw new Error("Weather data is unavailable");
+        const data = await response.json();
+
+        weatherCards.forEach(card => {
+          const location = data.locations?.find(item => item.id === card.dataset.weatherId);
+          renderWeatherCard(card, location);
+        });
+
+        weatherUpdated.textContent = data.updatedAt
+          ? `마지막 업데이트 ${new Intl.DateTimeFormat("ko-KR", { timeZone: "Asia/Seoul", month: "numeric", day: "numeric", hour: "numeric", minute: "2-digit" }).format(new Date(data.updatedAt))}`
+          : "첫 자동 업데이트를 기다리고 있습니다.";
+      } catch {
+        weatherUpdated.textContent = "날씨 정보를 불러오지 못했습니다. 잠시 후 다시 확인해 주세요.";
+      } finally {
+        weatherRefresh.disabled = false;
+        weatherRefresh.textContent = "새로고침";
+      }
+    }
+
+    weatherRefresh.addEventListener("click", loadWeather);
+    loadWeather();
+    window.setInterval(loadWeather, 60 * 60 * 1000);
   </script>
 </body>
 </html>

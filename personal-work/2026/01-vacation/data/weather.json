@@ -1,0 +1,7 @@
+{
+  "status": "pending",
+  "updatedAt": null,
+  "source": "기상청 단기예보 조회서비스",
+  "updateIntervalMinutes": 60,
+  "locations": []
+}

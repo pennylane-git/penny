@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="구름 조금">
+  <circle cx="25" cy="24" r="15" fill="#ffc400"/>
+  <circle cx="25" cy="24" r="18" fill="none" stroke="#fff2b8" stroke-width="3"/>
+  <path d="M21 48h27a10 10 0 0 0 1-20 15 15 0 0 0-28-1 11 11 0 0 0 0 21Z" fill="#e7e9ee"/>
+  <path d="M25 47h23a9 9 0 0 0 1-18" fill="none" stroke="#d4d7de" stroke-width="2" stroke-linecap="round"/>
+</svg>

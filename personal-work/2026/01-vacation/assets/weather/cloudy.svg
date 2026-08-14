@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="흐림">
+  <path d="M12 39h28a10 10 0 0 0 0-20 14 14 0 0 0-26 2 9 9 0 0 0-2 18Z" fill="#c9cdd5"/>
+  <path d="M22 50h28a10 10 0 0 0 1-20 15 15 0 0 0-28-1 11 11 0 0 0-1 21Z" fill="#e7e9ee"/>
+  <path d="M26 49h24a9 9 0 0 0 1-18" fill="none" stroke="#d4d7de" stroke-width="2" stroke-linecap="round"/>
+</svg>

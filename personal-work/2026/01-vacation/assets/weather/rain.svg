@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="비">
+  <circle cx="23" cy="22" r="13" fill="#ffc400"/>
+  <path d="M17 41h31a10 10 0 0 0 1-20 15 15 0 0 0-28-1 11 11 0 0 0-4 21Z" fill="#dfe2e8"/>
+  <g fill="none" stroke="#5b9dff" stroke-width="3.5" stroke-linecap="round">
+    <path d="m24 46-4 8"/><path d="m36 46-4 8"/><path d="m48 46-4 8"/>
+  </g>
+</svg>
