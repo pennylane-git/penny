@@ -87,6 +87,7 @@ async function request(endpoint, params, attempt = 1) {
   try {
     const response = await fetch(url, {
       signal: controller.signal,
+      cache: "no-store",
       headers: { Accept: "application/json" }
     });
     const body = await response.text();
