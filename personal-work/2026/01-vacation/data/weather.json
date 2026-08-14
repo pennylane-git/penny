@@ -1,6 +1,6 @@
 {
   "status": "error",
-  "updatedAt": "2026-08-14T17:49:57.411Z",
+  "updatedAt": "2026-08-14T17:53:57.456Z",
   "source": "기상청 단기예보 조회서비스",
   "updateIntervalMinutes": 60,
   "locations": [
@@ -10,7 +10,8 @@
       "stay": "8/19-8/23",
       "nx": 100,
       "ny": 91,
-      "error": "getUltraSrtNcst: HTTP 403"
+      "error": "getUltraSrtNcst: HTTP 403",
+      "stale": true
     },
     {
       "id": "resom",
@@ -18,7 +19,8 @@
       "stay": "8/25-8/26",
       "nx": 55,
       "ny": 100,
-      "error": "getUltraSrtNcst: HTTP 403"
+      "error": "getUltraSrtNcst: HTTP 403",
+      "stale": true
     },
     {
       "id": "gwangju",
@@ -26,7 +28,8 @@
       "stay": "8/26-8/28",
       "nx": 60,
       "ny": 74,
-      "error": "getUltraSrtNcst: HTTP 403"
+      "error": "getUltraSrtNcst: HTTP 403",
+      "stale": true
     }
   ]
 }
