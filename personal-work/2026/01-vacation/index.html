@@ -2165,7 +2165,7 @@
         </article>
         <article class="step" data-date="26">
           <div class="date">8/26 수</div>
-          <div><strong>광주 이동</strong><p>스플라스 리솜 11:00 퇴실 후 Gwangju Culture Hotel LAAM 15:00 입실</p></div>
+          <div><strong>충남 리솜 → 광주 이동</strong><p>스플라스 리솜 11:00 퇴실 후 약 220km, 자동차 약 3시간 20분 이동</p><p>12:30–13:30 점심 식사 후 15:20 도착·16:00 체크인 예상</p></div>
         </article>
         <article class="step" data-date="27">
           <div class="date">8/27 목</div>
@@ -2385,7 +2385,7 @@
       23: { label: "8월 23일 일요일", progress: "5일차", title: "경주 출발 → 양재 귀환", description: "11:00 한화 경주 담톤 퇴실 · 금강휴게소 서울방향 점심·휴식 · 강남대로 256번지 16:20 도착 예상", day: "경주 → 서울" },
       24: { label: "8월 24일 월요일", progress: "6일차", title: "중간 일정", description: "숙소 또는 이동 일정을 추가로 정리할 예정입니다.", day: "확인 필요" },
       25: { label: "8월 25일 화요일", progress: "7일차", title: "양재 출발 → 스플라스 리솜", description: "09:00 강남대로 256번지 출발 · 약 2시간 10분 · 11:10 도착 예상 · 15:00 체크인", day: "서울 → 충남" },
-      26: { label: "8월 26일 수요일", progress: "8일차", title: "광주 이동", description: "스플라스 리솜 11:00 퇴실 후 Hotel LAAM 15:00 입실", day: "광주" },
+      26: { label: "8월 26일 수요일", progress: "8일차", title: "충남 리솜 → 광주 이동", description: "11:00 퇴실 · 약 220km·자동차 약 3시간 20분 · 점심 1시간 · 15:20 도착·16:00 체크인 예상", day: "충남 → 광주" },
       27: { label: "8월 27일 목요일", progress: "9일차", title: "광주 숙박", description: "Hotel LAAM을 거점으로 광주 명소를 둘러봅니다.", day: "광주" },
       28: { label: "8월 28일 금요일", progress: "10일차", title: "광주 출발 → 양재 귀환", description: "11:00 Hotel LAAM 퇴실 · 이동 중 점심·휴식 1시간 · 강남대로 256번지 15:30 도착 예상", day: "광주 → 서울" }
     };
@@ -2558,48 +2558,67 @@
         { start: "09:00", end: "11:00", title: "양재 → 금강휴게소 이동", detail: "고속도로 중심 이동", kind: "travel" },
         { start: "11:00", end: "12:00", title: "금강휴게소 점심·휴식", detail: "식사·화장실·충전 확인", kind: "stay" },
         { start: "12:00", end: "14:20", title: "금강휴게소 → 경주 이동", detail: "점심 후 Aventa Hotel 이동", kind: "travel" },
-        { start: "16:00", end: "17:00", title: "Aventa Hotel 체크인", detail: "경주 도착 후 체크인", kind: "stay" }
+        { start: "16:00", end: "17:00", title: "Aventa Hotel 체크인", detail: "경주 도착 후 체크인", kind: "stay" },
+        { start: "19:00", end: "20:00", title: "저녁 식사", detail: "경주 저녁 식사", kind: "stay" }
       ],
       20: [
         { start: "09:30", end: "12:30", title: "캘리포니아비치 물놀이", detail: "오전 어트랙션·파도풀", kind: "travel" },
         { start: "12:30", end: "13:30", title: "점심·휴식", detail: "피크닉 장소 이용 후 재입장", kind: "stay" },
-        { start: "13:30", end: "18:00", title: "캘리포니아비치 물놀이", detail: "오후 물놀이·샤워·퇴장 준비", kind: "travel" }
+        { start: "13:30", end: "18:00", title: "캘리포니아비치 물놀이", detail: "오후 물놀이·샤워·퇴장 준비", kind: "travel" },
+        { start: "19:00", end: "20:00", title: "저녁 식사", detail: "경주 저녁 식사", kind: "stay" }
       ],
       21: [
         { start: "10:00", end: "12:30", title: "경주월드 어트랙션", detail: "오전 인기 놀이기구", kind: "travel" },
         { start: "12:30", end: "13:30", title: "점심·휴식", detail: "파크 내 식사 및 대기 동선 정리", kind: "stay" },
         { start: "13:30", end: "18:30", title: "경주월드 어트랙션", detail: "오후 놀이기구·퍼레이드 관람", kind: "travel" },
-        { start: "18:30", end: "19:00", title: "퇴장 준비", detail: "기념품·숙소 복귀", kind: "stay" }
+        { start: "18:30", end: "19:00", title: "퇴장 준비", detail: "기념품·숙소 복귀", kind: "stay" },
+        { start: "19:00", end: "20:00", title: "저녁 식사", detail: "경주 저녁 식사", kind: "stay" }
       ],
       22: [
-        { start: "12:00", end: "13:00", title: "Aventa Hotel 체크아웃", detail: "퇴실 후 다음 숙소로 이동", kind: "stay" },
-        { start: "13:00", end: "15:00", title: "한화리조트 경주 이동·정리", detail: "담톤 체크인 전 짐 보관·휴식", kind: "travel" },
+        { start: "12:00", end: "12:30", title: "Aventa Hotel 체크아웃", detail: "퇴실·짐 정리", kind: "stay" },
+        { start: "12:30", end: "13:30", title: "점심 식사", detail: "Aventa 주변 식사", kind: "stay" },
+        { start: "13:30", end: "14:00", title: "Aventa → 한화리조트 경주 이동", detail: "차량 약 20분·여유 포함 30분", kind: "travel" },
+        { start: "14:00", end: "15:00", title: "한화리조트 짐 보관·휴식", detail: "담톤 체크인 전 대기", kind: "stay" },
         { start: "15:00", end: "16:00", title: "한화리조트 경주 담톤 체크인", detail: "주말·여름 성수기 입실 15:00", kind: "stay" },
-        { start: "16:00", end: "19:00", title: "국립경주박물관", detail: "토요일 야간 연장 시간대 관람 추천", kind: "travel" }
+        { start: "16:00", end: "19:00", title: "국립경주박물관", detail: "토요일 야간 연장 시간대 관람 추천", kind: "travel" },
+        { start: "19:00", end: "20:00", title: "저녁 식사", detail: "경주 저녁 식사", kind: "stay" }
       ],
       23: [
         { start: "11:00", end: "12:00", title: "한화리조트 경주 담톤 체크아웃", detail: "주말·여름 성수기 퇴실 11:00", kind: "stay" },
         { start: "11:00", end: "13:10", title: "경주 → 금강휴게소 서울방향", detail: "귀경길 이동·점심 장소로 이동", kind: "travel" },
         { start: "13:10", end: "14:10", title: "금강휴게소 점심·휴식", detail: "도리뱅뱅 정식·금강 전망 산책", kind: "stay" },
-        { start: "14:10", end: "16:20", title: "금강휴게소 → 양재 이동", detail: "대우양재디오빌 도착 예상", kind: "travel" }
+        { start: "14:10", end: "16:20", title: "금강휴게소 → 양재 이동", detail: "대우양재디오빌 도착 예상", kind: "travel" },
+        { start: "18:00", end: "19:00", title: "저녁 식사", detail: "양재 도착 후 저녁 식사", kind: "stay" }
+      ],
+      24: [
+        { start: "12:00", end: "13:00", title: "점심 식사", detail: "중간 일정 점심 식사", kind: "stay" },
+        { start: "19:00", end: "20:00", title: "저녁 식사", detail: "중간 일정 저녁 식사", kind: "stay" }
       ],
       25: [
         { start: "09:00", end: "11:10", title: "양재 → 스플라스 리솜 이동", detail: "강남대로 256번지 출발", kind: "travel" },
-        { start: "11:10", end: "15:00", title: "도착 후 점심·휴식", detail: "체크인 전 주변 식사·휴식", kind: "stay" },
-        { start: "15:00", end: "16:00", title: "스플라스 리솜 체크인", detail: "충남 리솜 도착", kind: "stay" }
+        { start: "11:10", end: "12:10", title: "점심 식사", detail: "체크인 전 주변 식사", kind: "stay" },
+        { start: "12:10", end: "15:00", title: "체크인 전 휴식", detail: "리솜 주변 산책·휴식", kind: "stay" },
+        { start: "15:00", end: "16:00", title: "스플라스 리솜 체크인", detail: "충남 리솜 도착", kind: "stay" },
+        { start: "19:00", end: "20:00", title: "저녁 식사", detail: "리솜 저녁 식사", kind: "stay" }
       ],
       26: [
-        { start: "11:00", end: "12:00", title: "스플라스 리솜 체크아웃", detail: "광주 이동 준비", kind: "stay" },
-        { start: "15:00", end: "16:00", title: "Hotel LAAM 체크인", detail: "광주 도착", kind: "stay" }
+        { start: "11:00", end: "12:30", title: "스플라스 리솜 체크아웃·출발", detail: "퇴실·광주 이동 시작", kind: "travel" },
+        { start: "12:30", end: "13:30", title: "점심 식사", detail: "이동 중 휴게소·식당", kind: "stay" },
+        { start: "13:30", end: "15:20", title: "예산 덕산 → 광주 이동", detail: "약 220km·자동차 약 3시간 20분 기준", kind: "travel" },
+        { start: "15:20", end: "16:20", title: "Hotel LAAM 체크인", detail: "광주 도착·체크인", kind: "stay" },
+        { start: "19:00", end: "20:00", title: "저녁 식사", detail: "광주 저녁 식사", kind: "stay" }
       ],
       27: [
-        { start: "16:00", end: "21:00", title: "광주 숙박", detail: "Hotel LAAM", kind: "stay" }
+        { start: "12:00", end: "13:00", title: "점심 식사", detail: "광주 점심 식사", kind: "stay" },
+        { start: "16:00", end: "19:00", title: "광주 숙박", detail: "Hotel LAAM", kind: "stay" },
+        { start: "19:00", end: "20:00", title: "저녁 식사", detail: "광주 저녁 식사", kind: "stay" }
       ],
       28: [
         { start: "11:00", end: "12:00", title: "Hotel LAAM 체크아웃", detail: "퇴실", kind: "stay" },
         { start: "11:00", end: "13:00", title: "광주 → 양재 이동", detail: "강남대로 256번지 방향", kind: "travel" },
         { start: "13:00", end: "14:00", title: "이동 중 점심·휴식", detail: "휴게소에서 식사·휴식 1시간", kind: "stay" },
-        { start: "14:00", end: "15:30", title: "점심 장소 → 양재 이동", detail: "대우양재디오빌 도착 예상", kind: "travel" }
+        { start: "14:00", end: "15:30", title: "점심 장소 → 양재 이동", detail: "대우양재디오빌 도착 예상", kind: "travel" },
+        { start: "18:00", end: "19:00", title: "저녁 식사", detail: "양재 도착 후 저녁 식사", kind: "stay" }
       ]
     };
 
