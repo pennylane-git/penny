@@ -49,14 +49,14 @@
       --radius-r3: 12px;
       --radius-r4: 16px;
       --radius-r5: 20px;
-      --color-bg-accent-soft: #e4f3ee;
-      --color-fg-accent: #167c65;
-      --color-bg-info-soft: #eaf3ff;
-      --color-fg-info: #1769aa;
-      --color-bg-warning-soft: #fff4e8;
-      --color-fg-warning: #a34b10;
-      --color-bg-purple-soft: #f0edff;
-      --color-fg-purple: #6250ba;
+      --color-bg-accent-soft: #eaf3ff;
+      --color-fg-accent: #005fcc;
+      --color-bg-info-soft: #e1efff;
+      --color-fg-info: #0071e3;
+      --color-bg-warning-soft: #f0f6ff;
+      --color-fg-warning: #2f6fba;
+      --color-bg-purple-soft: #f4f7fb;
+      --color-fg-purple: #60758f;
       --color-bg-danger-soft: #ffebe9;
       --color-fg-danger: #c9342e;
       --color-fg-event-muted: rgba(31, 31, 31, 0.68);
@@ -148,7 +148,7 @@
     }
 
     a:focus-visible {
-      outline: 3px solid rgba(255, 111, 15, 0.32);
+      outline: 3px solid rgba(0, 113, 227, 0.32);
       outline-offset: 3px;
     }
 
@@ -502,6 +502,27 @@
       letter-spacing: 0.12em;
     }
 
+    .dot.green,
+    .dot.orange,
+    .dot.blue,
+    .dot.purple {
+      background: var(--color-fg-brand);
+    }
+
+    .green-event,
+    .orange-event,
+    .blue-event,
+    .purple-event {
+      background: var(--color-bg-accent-soft);
+      border-color: var(--color-fg-brand);
+    }
+
+    .tag.green,
+    .tag.orange,
+    .tag.blue {
+      background: var(--color-bg-brand);
+    }
+
     nav {
       margin-top: var(--dimension-x4);
       gap: var(--dimension-x1);
@@ -662,9 +683,9 @@
     }
 
     .notice {
-      border: 1px solid rgba(201, 52, 46, 0.24);
-      border-left: 4px solid var(--color-fg-danger);
-      background: var(--color-bg-danger-soft);
+      border: 1px solid rgba(0, 113, 227, 0.2);
+      border-left: 4px solid var(--color-fg-brand);
+      background: var(--color-bg-info-soft);
     }
 
     .links {
