@@ -1166,6 +1166,12 @@
       font-size: 0.6875rem;
     }
 
+    .context-option p + p {
+      margin-top: 4px;
+      color: var(--color-fg-neutral);
+      font-weight: 700;
+    }
+
     .context-option > a {
       display: grid;
       width: 28px;
@@ -2143,7 +2149,7 @@
         </article>
           </div>
           <aside class="timeline-context" id="timeline-context" hidden aria-live="polite">
-            <div class="context-label"><span>주변 정보</span><span id="context-kicker"></span></div>
+            <div class="context-label"><span>여행 정보</span><span id="context-kicker"></span></div>
             <h3 id="context-title"></h3>
             <p id="context-description"></p>
             <div class="context-weather" id="context-weather" hidden></div>
@@ -2153,17 +2159,17 @@
               <div class="lunch-candidate-list">
                 <article class="context-option">
                   <span class="option-rank">01</span>
-                  <div><strong>금강휴게소 부산방향</strong><p>11:00 전후 · 도리뱅뱅 정식·산채비빔밥 · 이동 중 1순위</p></div>
+                  <div><strong>금강휴게소 부산방향</strong><p>11:00 전후 · 이동 중 1순위</p><p>금강도리뱅뱅정식 12,000원 · 흑돼지볶음덮밥 9,500원 · 새우튀김우동 7,000원</p></div>
                   <a href="https://map.naver.com/p/search/%EA%B8%88%EA%B0%95%ED%9C%B4%EA%B2%8C%EC%86%8C%20%EB%B6%80%EC%82%B0%EB%B0%A9%ED%96%A5" target="_blank" rel="noreferrer" aria-label="금강휴게소 지도에서 보기">↗</a>
                 </article>
                 <article class="context-option">
                   <span class="option-rank">02</span>
-                  <div><strong>향화정 · 황리단길</strong><p>경주식 육회물회·육회비빔밥이 대표 메뉴인 인기 한식당 · 도착 후 후보</p></div>
+                  <div><strong>향화정 · 황리단길</strong><p>도착 후 후보 · 경주식 육회 메뉴 전문</p><p>경주육회비빔밥 13,500원 · 경주육회물회 13,500원 · 꼬막무침비빔밥(2인) 28,000원</p></div>
                   <a href="https://map.naver.com/p/search/%ED%96%A5%ED%99%94%EC%A0%95%20%ED%99%A9%EB%A6%AC%EB%8B%A8%EA%B8%B8" target="_blank" rel="noreferrer" aria-label="향화정 지도에서 보기">↗</a>
                 </article>
                 <article class="context-option">
                   <span class="option-rank">03</span>
-                  <div><strong>함양집 경주보문점</strong><p>한우물회·육회비빔밥 중심 · 주차와 좌석을 우선할 때 대안</p></div>
+                  <div><strong>함양집 경주보문점</strong><p>주차와 좌석을 우선할 때 대안</p><p>육회비빔밥(전통비빔밥) 16,000원 · 한우물회 16,000원 · 치즈불고기 17,000원</p></div>
                   <a href="https://map.naver.com/p/search/%ED%95%A8%EC%96%91%EC%A7%91%20%EA%B2%BD%EC%A3%BC%EB%B3%B4%EB%AC%B8%EC%A0%90" target="_blank" rel="noreferrer" aria-label="함양집 지도에서 보기">↗</a>
                 </article>
               </div>
@@ -2389,9 +2395,9 @@
 
     const contextDetails = {
       19: {
-        kicker: "이동 중 점심",
-        title: "점심 후보 3곳",
-        description: "금강휴게소, 향화정, 함양집을 이동·도착 동선에 맞춰 비교해 보세요. 아래 후보별 설명과 메뉴를 확인할 수 있습니다.",
+        kicker: "8월 19일 이동",
+        title: "서울 양재 → 경주 이동 정보",
+        description: "통행료 예산과 휴식 타이밍을 확인하고, 아래 점심 후보 중 이동 동선에 맞는 곳을 선택하세요.",
         map: "https://map.naver.com/p/search/%EA%B8%88%EA%B0%95%ED%9C%B4%EA%B2%8C%EC%86%8C%20%EB%B6%80%EC%82%B0%EB%B0%A9%ED%96%A5",
         link: "#plans",
         linkLabel: "점심 후보 보기"
@@ -2425,7 +2431,6 @@
     const contextSupportDetails = {
       19: [
         { title: "통행료 예산", text: "승용차 편도 약 15,000원 기준으로 잡고, 실제 요금은 진입·진출 IC와 할인 적용에 따라 출발 전에 확인하세요." },
-        { title: "금강휴게소 메뉴", text: "금강도리뱅뱅정식 12,000원 · 흑돼지볶음덮밥 9,500원 · 새우튀김우동 7,000원. 가격은 현장 메뉴판 우선." },
         { title: "쉬는 타이밍", text: "09:00 출발 후 11:00 전후 40–60분 정차를 기준으로 잡으면 점심과 휴식을 함께 해결할 수 있습니다." },
         { title: "출발 전 확인", text: "차량 연료·하이패스·보조배터리·생수를 확인하고, 교통 상황에 따라 휴게소 체류 시간을 조절하세요." }
       ],
