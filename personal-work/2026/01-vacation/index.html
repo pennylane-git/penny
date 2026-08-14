@@ -639,13 +639,35 @@
       object-position: 50% 70%;
     }
 
+    .hero-slide:nth-child(4) {
+      object-position: 50% 52%;
+    }
+
+    .hero-slide:nth-child(5) {
+      object-position: 53% 48%;
+    }
+
+    .hero-slide:nth-child(6) {
+      object-position: 48% 48%;
+    }
+
+    .hero-slide:nth-child(7) {
+      object-position: 52% 58%;
+    }
+
+    .hero-slide:nth-child(8) {
+      object-position: 52% 58%;
+    }
+
     .hero-dots {
       position: absolute;
       right: var(--dimension-x4);
       bottom: var(--dimension-x4);
       z-index: 2;
       display: flex;
-      gap: var(--dimension-x1);
+      align-items: center;
+      gap: var(--dimension-x2);
+      min-height: 32px;
       padding: var(--dimension-x1) var(--dimension-x2);
       border-radius: 999px;
       background: rgba(16, 24, 32, 0.4);
@@ -653,22 +675,33 @@
       backdrop-filter: blur(8px);
     }
 
-    .hero-dots button {
-      width: 8px;
-      height: 8px;
+    .hero-count {
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-play-toggle {
+      display: grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
       padding: 0;
-      border: 0;
+      border: 1px solid rgba(255, 255, 255, 0.5);
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.55);
+      background: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
       cursor: pointer;
     }
 
-    .hero-dots button.is-active {
-      background: #ffffff;
-      transform: scale(1.2);
+    .hero-toggle-icon {
+      font-size: 0.625rem;
+      line-height: 1;
     }
 
-    .hero-dots button:focus-visible {
+    .hero-play-toggle:focus-visible {
       outline: 2px solid #ffffff;
       outline-offset: 2px;
     }
@@ -1180,7 +1213,8 @@
     }
 
     .hero-kicker {
-      color: rgba(255, 255, 255, 0.82);
+      color: #ffffff;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, 0.18);
     }
 
     .hero h2 {
@@ -1302,14 +1336,20 @@
       </div>
       <figure class="hero-media">
         <div class="hero-slides" aria-label="여름휴가 사진">
-          <img class="hero-slide is-active" src="./assets/hero-trip-1.jpg" alt="계곡에서 물놀이 중인 여행 사진">
-          <img class="hero-slide" src="./assets/hero-trip-2.jpg" alt="다리 아래 계곡에서 물놀이하는 풍경">
-          <img class="hero-slide" src="./assets/hero-trip-3.jpg" alt="계곡에서 함께 찍은 여행 사진">
+          <img class="hero-slide is-active" src="./assets/hero-trip-1.jpg" alt="계곡에서 물놀이 중인 여행 사진" loading="eager">
+          <img class="hero-slide" src="./assets/hero-trip-2.jpg" alt="다리 아래 계곡에서 물놀이하는 풍경" loading="eager">
+          <img class="hero-slide" src="./assets/hero-trip-3.jpg" alt="계곡에서 함께 찍은 여행 사진" loading="eager">
+          <img class="hero-slide" src="./assets/hero-trip-4.jpg" alt="여행지 실내에서 함께 찍은 셀카" loading="eager">
+          <img class="hero-slide" src="./assets/hero-trip-5.jpg" alt="전통 의상을 입고 함께 찍은 셀카" loading="eager">
+          <img class="hero-slide" src="./assets/hero-trip-6.jpg" alt="전통 의상을 입고 장난스럽게 찍은 사진" loading="eager">
+          <img class="hero-slide" src="./assets/hero-trip-7.jpg" alt="실내에서 함께 찍은 여행 사진" loading="eager">
+          <img class="hero-slide" src="./assets/hero-trip-8.jpg" alt="거울 앞에서 함께 찍은 여행 사진" loading="eager">
         </div>
-        <div class="hero-dots" aria-label="사진 선택">
-          <button class="is-active" type="button" aria-label="첫 번째 사진"></button>
-          <button type="button" aria-label="두 번째 사진"></button>
-          <button type="button" aria-label="세 번째 사진"></button>
+        <div class="hero-dots" aria-label="사진 페이지네이션">
+          <span class="hero-count" aria-live="polite">01 / 08</span>
+          <button class="hero-play-toggle" type="button" aria-label="사진 자동 재생 일시정지" aria-pressed="false">
+            <span class="hero-toggle-icon" aria-hidden="true">Ⅱ</span>
+          </button>
         </div>
       </figure>
     </section>
@@ -1582,22 +1622,47 @@
     });
 
     const heroSlides = [...document.querySelectorAll(".hero-slide")];
-    const heroDots = [...document.querySelectorAll(".hero-dots button")];
+    const heroCount = document.querySelector(".hero-count");
+    const heroToggle = document.querySelector(".hero-play-toggle");
+    const heroToggleIcon = document.querySelector(".hero-toggle-icon");
     let heroIndex = 0;
+    let heroTimer = null;
+    let heroPlaying = true;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     function showHeroSlide(index) {
-      heroIndex = index;
+      heroIndex = (index + heroSlides.length) % heroSlides.length;
       heroSlides.forEach((slide, slideIndex) => slide.classList.toggle("is-active", slideIndex === heroIndex));
-      heroDots.forEach((dot, dotIndex) => dot.classList.toggle("is-active", dotIndex === heroIndex));
+      heroCount.textContent = `${String(heroIndex + 1).padStart(2, "0")} / ${String(heroSlides.length).padStart(2, "0")}`;
     }
 
-    heroDots.forEach((dot, dotIndex) => {
-      dot.addEventListener("click", () => showHeroSlide(dotIndex));
+    function stopHeroRotation() {
+      if (heroTimer) {
+        window.clearInterval(heroTimer);
+        heroTimer = null;
+      }
+      heroPlaying = false;
+      heroToggle.setAttribute("aria-pressed", "true");
+      heroToggle.setAttribute("aria-label", "사진 자동 재생 시작");
+      heroToggleIcon.textContent = "▶";
+    }
+
+    function startHeroRotation() {
+      if (prefersReducedMotion || heroSlides.length < 2 || heroTimer) return;
+      heroTimer = window.setInterval(() => showHeroSlide(heroIndex + 1), 1500);
+      heroPlaying = true;
+      heroToggle.setAttribute("aria-pressed", "false");
+      heroToggle.setAttribute("aria-label", "사진 자동 재생 일시정지");
+      heroToggleIcon.textContent = "Ⅱ";
+    }
+
+    heroToggle.addEventListener("click", () => {
+      if (heroPlaying) stopHeroRotation();
+      else startHeroRotation();
     });
 
-    if (heroSlides.length > 1 && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      window.setInterval(() => showHeroSlide((heroIndex + 1) % heroSlides.length), 1500);
-    }
+    showHeroSlide(0);
+    startHeroRotation();
   </script>
 </body>
 </html>
