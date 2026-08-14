@@ -31,10 +31,10 @@
       --color-bg-layer-basement: #f7f7f8;
       --color-bg-layer-default: #ffffff;
       --color-bg-layer-elevated: #f2f2f5;
-      --color-bg-brand: #ff6f0f;
+      --color-bg-brand: #0071e3;
       --color-fg-neutral: #1f1f1f;
       --color-fg-secondary: #6b6b6b;
-      --color-fg-brand: #d94f00;
+      --color-fg-brand: #0066cc;
       --color-fg-on-brand: #ffffff;
       --color-line-neutral: #e5e5e5;
       --dimension-x1: 4px;
@@ -60,7 +60,7 @@
       --color-bg-danger-soft: #ffebe9;
       --color-fg-danger: #c9342e;
       --color-fg-event-muted: rgba(31, 31, 31, 0.68);
-      --shadow-level-1: 0 2px 8px rgba(0, 0, 0, 0.05);
+      --shadow-level-1: 0 8px 24px rgba(0, 0, 0, 0.06);
     }
 
     * {
@@ -488,6 +488,234 @@
       line-height: 1.5;
     }
 
+    /* Quiet OS-like layer: hierarchy comes from type, spacing, and selection. */
+    header {
+      background: rgba(247, 247, 248, 0.88);
+      border-bottom-color: rgba(31, 31, 31, 0.1);
+    }
+
+    .eyebrow,
+    .hero-kicker {
+      color: var(--color-fg-brand);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    nav {
+      margin-top: var(--dimension-x4);
+      gap: var(--dimension-x1);
+    }
+
+    nav a {
+      border-color: transparent;
+      border-radius: 999px;
+      padding-inline: var(--dimension-x3);
+      background: transparent;
+      color: var(--color-fg-secondary);
+      font-weight: 600;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      border-color: transparent;
+      background: var(--color-bg-layer-default);
+      color: var(--color-fg-neutral);
+    }
+
+    main {
+      width: min(100%, 1040px);
+      padding-top: var(--dimension-x8);
+    }
+
+    .hero {
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      min-height: 220px;
+      padding: var(--dimension-x8) var(--dimension-x6) var(--dimension-x6);
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .hero-copy {
+      max-width: 620px;
+    }
+
+    .hero-kicker {
+      margin: 0 0 var(--dimension-x2);
+    }
+
+    .hero h2 {
+      margin: 0 0 var(--dimension-x3);
+      color: var(--color-fg-neutral);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+    }
+
+    .hero-copy > p:last-child {
+      max-width: 480px;
+      color: var(--color-fg-secondary);
+    }
+
+    .chip {
+      padding: var(--dimension-x2) var(--dimension-x3);
+      background: var(--color-bg-layer-default);
+      border: 1px solid var(--color-line-neutral);
+      color: var(--color-fg-secondary);
+      font-weight: 600;
+    }
+
+    section {
+      margin-top: var(--dimension-x8);
+    }
+
+    section > h2 {
+      margin-bottom: var(--dimension-x4);
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .calendar {
+      box-shadow: var(--shadow-level-1);
+    }
+
+    .month {
+      padding: var(--dimension-x5) var(--dimension-x6);
+    }
+
+    .month strong {
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .weekdays div {
+      padding-block: var(--dimension-x3);
+      background: var(--color-bg-layer-default);
+      font-size: 0.6875rem;
+      font-weight: 600;
+    }
+
+    .day {
+      min-height: 88px;
+      padding: var(--dimension-x2);
+    }
+
+    .event {
+      border-left-width: 3px;
+      border-radius: var(--radius-r2);
+      padding: var(--dimension-x2);
+      font-weight: 600;
+    }
+
+    .cards {
+      gap: var(--dimension-x4);
+    }
+
+    .card {
+      border-color: rgba(31, 31, 31, 0.12);
+      border-radius: var(--radius-r4);
+      padding: var(--dimension-x5);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+    }
+
+    .card h3 {
+      margin-bottom: var(--dimension-x2);
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .tag {
+      padding-inline: var(--dimension-x3);
+      font-size: 0.6875rem;
+      letter-spacing: 0.01em;
+    }
+
+    .card-link {
+      border-radius: 999px;
+      padding-inline: var(--dimension-x4);
+      background: var(--color-bg-brand);
+      font-weight: 600;
+    }
+
+    .timeline {
+      gap: 0;
+      border-top: 1px solid var(--color-line-neutral);
+    }
+
+    .step {
+      grid-template-columns: 86px minmax(0, 1fr);
+      gap: var(--dimension-x4);
+      border: 0;
+      border-bottom: 1px solid var(--color-line-neutral);
+      border-radius: 0;
+      padding: var(--dimension-x4) 0;
+      background: transparent;
+    }
+
+    .date {
+      padding-top: 2px;
+      color: var(--color-fg-brand);
+    }
+
+    .notice {
+      border: 1px solid rgba(201, 52, 46, 0.24);
+      border-left: 4px solid var(--color-fg-danger);
+      background: var(--color-bg-danger-soft);
+    }
+
+    .links {
+      gap: var(--dimension-x2);
+    }
+
+    .links a,
+    .links div {
+      border-color: rgba(31, 31, 31, 0.12);
+      border-radius: var(--radius-r3);
+      background: var(--color-bg-layer-default);
+      font-weight: 600;
+      transition: border-color 160ms ease, background-color 160ms ease;
+    }
+
+    .links a:hover,
+    .links a:focus-visible {
+      border-color: var(--color-bg-brand);
+      background: var(--color-bg-info-soft);
+    }
+
+    @media (max-width: 759px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        padding: var(--dimension-x6) 0 var(--dimension-x4);
+      }
+
+      .chips {
+        gap: var(--dimension-x2);
+      }
+    }
+
+    @media (max-width: 430px) {
+      main {
+        padding-top: var(--dimension-x5);
+      }
+
+      .hero h2 {
+        font-size: 2.25rem;
+      }
+
+      .month {
+        padding-inline: var(--dimension-x4);
+      }
+
+      .day {
+        min-height: 86px;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
@@ -575,7 +803,11 @@
 
   <main>
     <section class="hero" aria-label="여행 요약">
-      <p>8월 19일부터 28일까지 이어지는 경주, 충남, 광주 숙소 일정을 모바일에서 빠르게 확인할 수 있게 정리했습니다. 공개 링크용 페이지라 예약번호, 회원번호, 개인명 같은 민감정보는 제외했습니다.</p>
+      <div class="hero-copy">
+        <p class="hero-kicker">TRIP OVERVIEW</p>
+        <h2>경주에서 광주까지,<br>10일의 여름</h2>
+        <p>8월 19일부터 28일까지 이어지는 숙소와 이동 일정을 한눈에 확인하세요.</p>
+      </div>
       <div class="chips">
         <span class="chip">8/19-8/28</span>
         <span class="chip">경주 → 충남 → 광주</span>
