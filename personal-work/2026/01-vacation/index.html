@@ -1952,6 +1952,16 @@
   </style>
 </head>
 <body>
+  <script>
+    const navigationEntry = performance.getEntriesByType("navigation")[0];
+    if (navigationEntry?.type === "reload") {
+      if (window.location.hash) {
+        window.history.replaceState(null, document.title, `${window.location.pathname}${window.location.search}`);
+      }
+      if ("scrollRestoration" in window.history) window.history.scrollRestoration = "manual";
+      window.scrollTo(0, 0);
+    }
+  </script>
   <header>
     <div class="titlebar">
       <p class="eyebrow">PRIVATE LINK · NOINDEX</p>
