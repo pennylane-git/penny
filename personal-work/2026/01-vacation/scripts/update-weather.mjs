@@ -9,10 +9,30 @@ const KST_OFFSET = 9 * 60 * 60 * 1000;
 const serviceKey = process.env.KMA_SERVICE_KEY?.trim();
 
 const locations = [
-  { id: "gyeongju", name: "경주 교동", stay: "8/19-8/23", nx: 100, ny: 91, latitude: 35.8308, longitude: 129.2142, midLandRegId: "11H10000" },
-  { id: "resom", name: "충남 리솜", stay: "8/25-8/26", nx: 55, ny: 100, latitude: 36.6885, longitude: 126.6626, midLandRegId: "11C20000" },
-  { id: "gwangju", name: "광주", stay: "8/26-8/28", nx: 60, ny: 74, latitude: 35.146, longitude: 126.923, midLandRegId: "11F20000" }
+  { id: "gyeongju", name: "경주 교동", stay: "8/19-8/23", nx: 100, ny: 90, latitude: 35.8308, longitude: 129.2142, midLandRegId: "11H10000" },
+  { id: "resom", name: "충남 덕산면", stay: "8/25-8/26", nx: 55, ny: 108, latitude: 36.6885, longitude: 126.6626, midLandRegId: "11C20000" },
+  { id: "gwangju", name: "광주 동구 대의동", stay: "8/26-8/28", nx: 59, ny: 74, latitude: 35.146, longitude: 126.923, midLandRegId: "11F20000" }
 ];
+
+// 2026-08-15 사용자가 확인한 네이버 날씨 캡처 기준.
+// 기상청 단기예보가 해당 날짜를 제공하기 시작하면 아래 기준보다 항상 우선한다.
+const capturedForecasts = {
+  gyeongju: [
+    ["2026-08-19", 23, 33, 20], ["2026-08-20", 23, 32, 20],
+    ["2026-08-21", 23, 31, 20], ["2026-08-22", 23, 31, 20],
+    ["2026-08-23", 23, 30, 20], ["2026-08-24", 23, 30, 20]
+  ],
+  resom: [
+    ["2026-08-19", 23, 32, 20], ["2026-08-20", 23, 32, 20],
+    ["2026-08-21", 23, 32, 20], ["2026-08-22", 24, 33, 20],
+    ["2026-08-23", 23, 31, 20], ["2026-08-24", 23, 32, 20]
+  ],
+  gwangju: [
+    ["2026-08-19", 24, 33, 20], ["2026-08-20", 24, 32, 20],
+    ["2026-08-21", 24, 32, 20], ["2026-08-22", 24, 33, 20],
+    ["2026-08-23", 24, 33, 20], ["2026-08-24", 24, 32, 20]
+  ]
+};
 
 function shiftedKst(milliseconds = 0) {
   return new Date(Date.now() + KST_OFFSET + milliseconds);
@@ -383,16 +403,30 @@ function mergeDailyForecasts(primary = [], supplement = []) {
   return [...merged.values()].sort((a, b) => a.date.localeCompare(b.date)).slice(0, 16);
 }
 
+function capturedReferenceDaily(locationId) {
+  return (capturedForecasts[locationId] || []).map(([date, min, max, precipitationProbability]) => ({
+    date,
+    min,
+    max,
+    precipitationProbability,
+    condition: "구름 많음",
+    provider: "2026-08-15 네이버 날씨 캡처 기준"
+  }));
+}
+
 async function fetchLocation(location) {
+  const captured = capturedReferenceDaily(location.id);
   try {
     const kma = await fetchKma(location);
     const [openMeteoResult, midResult] = await Promise.allSettled([
       fetchOpenMeteo(location), fetchKmaMidDaily(location)
     ]);
-    let daily = kma.daily;
+
+    // 우선순위: 기상청 단기 > 첨부 캡처 기준 > 기상청 중기 > Open-Meteo.
+    // 여행일이 단기예보 범위에 들어오면 매시간 최신 기상청 값으로 자동 교체된다.
+    let daily = openMeteoResult.status === "fulfilled" ? openMeteoResult.value.daily : [];
     const supplements = [];
     if (openMeteoResult.status === "fulfilled") {
-      daily = mergeDailyForecasts(daily, openMeteoResult.value.daily);
       supplements.push("Open-Meteo 기온");
     } else {
       console.warn(`[${location.id}] Open-Meteo daily supplement unavailable: ${openMeteoResult.reason?.message || openMeteoResult.reason}`);
@@ -403,11 +437,19 @@ async function fetchLocation(location) {
     } else {
       console.warn(`[${location.id}] KMA mid-range forecast unavailable: ${midResult.reason?.message || midResult.reason}`);
     }
-    return { ...kma, daily, dailySupplement: supplements.join(" · ") || undefined };
+    daily = mergeDailyForecasts(captured, daily);
+    daily = mergeDailyForecasts(kma.daily, daily);
+    supplements.unshift("첨부 예보 기준");
+    return { ...kma, daily, dailySupplement: supplements.join(" · ") };
   } catch (kmaError) {
     console.warn(`[${location.id}] KMA unavailable: ${kmaError?.message || kmaError}`);
     try {
-      return await fetchOpenMeteo(location);
+      const openMeteo = await fetchOpenMeteo(location);
+      return {
+        ...openMeteo,
+        daily: mergeDailyForecasts(captured, openMeteo.daily),
+        dailySupplement: "첨부 예보 기준 · Open-Meteo"
+      };
     } catch (openMeteoError) {
       throw new Error(`KMA: ${kmaError?.message || kmaError}; Open-Meteo: ${openMeteoError?.message || openMeteoError}`);
     }
@@ -443,13 +485,15 @@ async function main() {
   const output = {
     status: allFailed ? "error" : "ok",
     updatedAt: new Date().toISOString(),
-    source: nextLocations.some(location => location.fallback)
-      ? "기상청 우선 · Open-Meteo Best Match 대체"
-      : nextLocations.some(location => location.dailySupplement?.includes("기상청 중기예보"))
-        ? "기상청 단기·중기예보 · Open-Meteo 기온 보완"
-      : nextLocations.some(location => location.dailySupplement)
-        ? "기상청 단기예보 · Open-Meteo 장기예보 보완"
-        : "기상청 단기예보 조회서비스",
+    source: nextLocations.some(location => location.dailySupplement?.includes("첨부 예보 기준"))
+      ? "기상청 단기·중기예보 · 첨부 예보 기준 · Open-Meteo 기온 보완"
+      : nextLocations.some(location => location.fallback)
+        ? "기상청 우선 · Open-Meteo Best Match 대체"
+        : nextLocations.some(location => location.dailySupplement?.includes("기상청 중기예보"))
+          ? "기상청 단기·중기예보 · Open-Meteo 기온 보완"
+        : nextLocations.some(location => location.dailySupplement)
+          ? "기상청 단기예보 · Open-Meteo 장기예보 보완"
+          : "기상청 단기예보 조회서비스",
     updateIntervalMinutes: 60,
     locations: nextLocations
   };
