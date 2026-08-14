@@ -228,18 +228,21 @@ async function main() {
   const results = await Promise.allSettled(locations.map(fetchLocation));
   const nextLocations = results.map((result, index) => {
     if (result.status === "fulfilled") return result.value;
-    console.error(`[${locations[index].id}] ${result.reason?.message || result.reason || "unknown KMA error"}`);
+    const errorMessage = result.reason?.message || String(result.reason || "unknown KMA error");
+    console.error(`[${locations[index].id}] ${errorMessage}`);
     const fallback = previous?.locations?.find(location => location.id === locations[index].id);
     if (fallback) return { ...fallback, stale: true };
-    return { ...locations[index], error: "날씨 정보를 불러오지 못했습니다." };
+    return { ...locations[index], error: errorMessage };
   });
 
-  if (results.every(result => result.status === "rejected")) {
+  const allFailed = results.every(result => result.status === "rejected");
+  const hasPreviousWeather = previous?.locations?.some(location => location.current);
+  if (allFailed && hasPreviousWeather) {
     throw new Error("All KMA requests failed; keeping the last successful weather file.");
   }
 
   const output = {
-    status: "ok",
+    status: allFailed ? "error" : "ok",
     updatedAt: new Date().toISOString(),
     source: "기상청 단기예보 조회서비스",
     updateIntervalMinutes: 60,
