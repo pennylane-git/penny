@@ -5,27 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
-  <meta name="color-scheme" content="light">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f5f5f7">
   <title>2026 여름휴가 일정</title>
   <style>
     :root {
-      --bg: #f8f4ec;
-      --paper: #fffaf1;
-      --paper-2: #fffdf8;
-      --ink: #202628;
-      --muted: #697579;
-      --line: #e3d8c9;
-      --green: #1f705d;
-      --green-soft: #dceee5;
-      --blue: #2d709f;
-      --blue-soft: #dcecf6;
-      --orange: #c77234;
-      --orange-soft: #f8e2cf;
-      --purple: #7459a8;
-      --purple-soft: #ebe2f7;
-      --red: #a64b43;
-      --red-soft: #f4dedb;
-      --shadow: 0 18px 42px rgba(68, 52, 32, 0.12);
+      --bg: #f5f5f7;
+      --paper: #ffffff;
+      --paper-2: #fbfbfd;
+      --ink: #1d1d1f;
+      --muted: #6e6e73;
+      --line: #d2d2d7;
+      --green: #167c65;
+      --green-soft: #e4f3ee;
+      --blue: #0071e3;
+      --blue-soft: #e5f1ff;
+      --orange: #b95b18;
+      --orange-soft: #fff0e5;
+      --purple: #6e5cc7;
+      --purple-soft: #f0edff;
+      --red: #c9342e;
+      --red-soft: #ffebe9;
+      --event-muted: rgba(29, 29, 31, 0.66);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
     }
 
     * {
@@ -36,15 +38,18 @@
       scroll-behavior: smooth;
     }
 
+    section {
+      scroll-margin-top: 150px;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
-      background:
-        radial-gradient(circle at 12% 0%, rgba(45, 112, 159, 0.14), transparent 24rem),
-        linear-gradient(180deg, #fbf7ef 0%, var(--bg) 100%);
+      background: var(--bg);
       color: var(--ink);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
       letter-spacing: 0;
+      line-height: 1.5;
     }
 
     header {
@@ -52,9 +57,10 @@
       top: 0;
       z-index: 10;
       padding: max(16px, env(safe-area-inset-top)) 16px 12px;
-      background: rgba(248, 244, 236, 0.88);
-      border-bottom: 1px solid rgba(227, 216, 201, 0.8);
-      backdrop-filter: blur(16px);
+      background: rgba(245, 245, 247, 0.78);
+      border-bottom: 1px solid rgba(210, 210, 215, 0.78);
+      -webkit-backdrop-filter: blur(20px) saturate(1.15);
+      backdrop-filter: blur(20px) saturate(1.15);
     }
 
     .titlebar {
@@ -92,13 +98,25 @@
     nav a {
       flex: 0 0 auto;
       border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 8px 11px;
-      background: rgba(255, 250, 241, 0.9);
+      border-radius: 12px;
+      min-height: 44px;
+      padding: 10px 13px;
+      background: rgba(255, 255, 255, 0.72);
       color: var(--ink);
       text-decoration: none;
       font-size: 13px;
       font-weight: 800;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    a:focus-visible {
+      outline: 3px solid rgba(0, 113, 227, 0.35);
+      outline-offset: 3px;
     }
 
     main {
@@ -112,7 +130,7 @@
       gap: 12px;
       padding: 18px;
       border: 1px solid var(--line);
-      border-radius: 22px;
+      border-radius: 18px;
       background: var(--paper);
       box-shadow: var(--shadow);
     }
@@ -121,7 +139,7 @@
       margin: 0;
       color: var(--muted);
       line-height: 1.55;
-      font-size: 15px;
+      font-size: 16px;
     }
 
     .chips {
@@ -133,8 +151,8 @@
     .chip {
       border-radius: 999px;
       padding: 7px 10px;
-      background: #efe6d8;
-      color: #594d3f;
+      background: #e8e8ed;
+      color: #424245;
       font-size: 13px;
       font-weight: 850;
     }
@@ -145,13 +163,13 @@
 
     h2 {
       margin: 0 0 12px;
-      font-size: 20px;
+      font-size: 22px;
     }
 
     .calendar {
       border: 1px solid var(--line);
-      border-radius: 20px;
-      background: rgba(255, 250, 241, 0.88);
+      border-radius: 18px;
+      background: var(--paper);
       box-shadow: var(--shadow);
       overflow: hidden;
     }
@@ -216,7 +234,7 @@
 
     .weekdays div {
       padding: 9px 2px;
-      background: rgba(238, 229, 216, 0.68);
+      background: #f2f2f7;
       color: var(--muted);
       text-align: center;
       font-size: 11px;
@@ -224,11 +242,11 @@
     }
 
     .day {
-      min-height: 86px;
+      min-height: 94px;
       padding: 6px;
       border-top: 1px solid var(--line);
       border-right: 1px solid var(--line);
-      background: rgba(255, 253, 248, 0.76);
+      background: var(--paper);
     }
 
     .day:nth-child(7n) {
@@ -259,10 +277,10 @@
       display: block;
       margin-top: 5px;
       border-left: 4px solid;
-      border-radius: 8px;
+      border-radius: 6px;
       padding: 6px;
       color: var(--ink);
-      font-size: 11px;
+      font-size: 12px;
       line-height: 1.22;
       font-weight: 850;
     }
@@ -270,8 +288,8 @@
     .event small {
       display: block;
       margin-top: 2px;
-      color: rgba(32, 38, 40, 0.66);
-      font-size: 10px;
+      color: var(--event-muted);
+      font-size: 11px;
       font-weight: 800;
     }
 
@@ -302,10 +320,10 @@
 
     .card {
       border: 1px solid var(--line);
-      border-radius: 18px;
+      border-radius: 16px;
       padding: 16px;
       background: var(--paper-2);
-      box-shadow: 0 10px 24px rgba(68, 52, 32, 0.08);
+      box-shadow: none;
     }
 
     .card h3 {
@@ -362,10 +380,15 @@
     }
 
     .card-link {
-      color: var(--blue);
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: var(--blue);
+      color: white;
       font-weight: 900;
-      text-decoration: underline;
-      text-underline-offset: 3px;
+      text-decoration: none;
     }
 
     .timeline {
@@ -379,9 +402,9 @@
       gap: 12px;
       align-items: start;
       border: 1px solid var(--line);
-      border-radius: 16px;
+      border-radius: 14px;
       padding: 13px;
-      background: rgba(255, 253, 248, 0.86);
+      background: var(--paper);
     }
 
     .date {
@@ -397,7 +420,7 @@
 
     .notice {
       border-left: 5px solid var(--red);
-      border-radius: 16px;
+      border-radius: 14px;
       padding: 14px;
       background: var(--red-soft);
     }
@@ -413,7 +436,10 @@
       border: 1px solid var(--line);
       border-radius: 14px;
       padding: 13px;
-      background: rgba(255, 253, 248, 0.88);
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      background: var(--paper);
       color: var(--ink);
       text-decoration: none;
       font-size: 14px;
@@ -426,6 +452,60 @@
       text-align: center;
       font-size: 12px;
       line-height: 1.5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1c1c1e;
+        --paper: #2c2c2e;
+        --paper-2: #242426;
+        --ink: #f5f5f7;
+        --muted: #a1a1a6;
+        --line: #48484a;
+        --green: #63d7b8;
+        --green-soft: #173e37;
+        --blue: #5aa9ff;
+        --blue-soft: #193755;
+        --orange: #ffad72;
+        --orange-soft: #4a2d1e;
+        --purple: #b7a9ff;
+        --purple-soft: #342f52;
+        --red: #ff8a83;
+        --red-soft: #4b2523;
+        --event-muted: rgba(245, 245, 247, 0.72);
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+      }
+
+      header {
+        background: rgba(28, 28, 30, 0.78);
+        border-bottom-color: rgba(72, 72, 74, 0.78);
+      }
+
+      nav a,
+      .hero,
+      .calendar,
+      .card,
+      .step,
+      .links a,
+      .links div,
+      .weekdays div {
+        background: #2c2c2e;
+      }
+
+      .weekdays div {
+        background: #3a3a3c;
+      }
+
+      .chip {
+        background: #3a3a3c;
+        color: #f5f5f7;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
     }
 
     @media (min-width: 760px) {
@@ -468,17 +548,17 @@
       }
 
       .day {
-        min-height: 78px;
+        min-height: 86px;
         padding: 4px;
       }
 
       .event {
         padding: 5px;
-        font-size: 10px;
+        font-size: 11px;
       }
 
       .event small {
-        font-size: 9px;
+        font-size: 10px;
       }
 
       dl {
