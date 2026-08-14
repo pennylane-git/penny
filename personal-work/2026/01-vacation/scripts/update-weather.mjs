@@ -47,35 +47,58 @@ function forecastBase() {
   return { base_date: ymd(previousDay), base_time: "2300" };
 }
 
-function encodedKey() {
-  return serviceKey.includes("%") ? serviceKey : encodeURIComponent(serviceKey);
+function decodedKey() {
+  if (!serviceKey.includes("%")) return serviceKey;
+  try {
+    return decodeURIComponent(serviceKey);
+  } catch {
+    return serviceKey;
+  }
+}
+
+function apiErrorDetail(body, status) {
+  const text = body.trim();
+  if (!text) return `empty response (${status})`;
+
+  if (text.startsWith("<")) {
+    const tags = ["returnAuthMsg", "resultMsg", "errMsg", "returnReasonCode"];
+    const details = tags.flatMap(tag => {
+      const match = text.match(new RegExp(`<${tag}>([^<]+)</${tag}>`, "i"));
+      return match ? [`${tag}=${match[1].trim()}`] : [];
+    });
+    return details.length ? details.join(", ") : `XML error response (${status})`;
+  }
+
+  return `HTTP ${status}`;
 }
 
 async function request(endpoint, params, attempt = 1) {
-  const query = new URLSearchParams({
+  const url = new URL(`${API_BASE}/${endpoint}`);
+  url.search = new URLSearchParams({
+    serviceKey: decodedKey(),
     pageNo: "1",
     numOfRows: "1000",
     dataType: "JSON",
     ...params
-  });
+  }).toString();
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 20_000);
 
   try {
-    const response = await fetch(`${API_BASE}/${endpoint}?ServiceKey=${encodedKey()}&${query}`, {
+    const response = await fetch(url, {
       signal: controller.signal,
       headers: { Accept: "application/json" }
     });
     const body = await response.text();
 
     if (!response.ok || body.trimStart().startsWith("<")) {
-      throw new Error(`KMA response error (${response.status})`);
+      throw new Error(`${endpoint}: ${apiErrorDetail(body, response.status)}`);
     }
 
     const payload = JSON.parse(body);
     const header = payload?.response?.header;
     if (header?.resultCode !== "00") {
-      throw new Error(`KMA API error: ${header?.resultMsg || header?.resultCode || "unknown"}`);
+      throw new Error(`${endpoint}: KMA API error ${header?.resultCode || "unknown"} (${header?.resultMsg || "no message"})`);
     }
 
     return payload?.response?.body?.items?.item || [];
@@ -205,6 +228,7 @@ async function main() {
   const results = await Promise.allSettled(locations.map(fetchLocation));
   const nextLocations = results.map((result, index) => {
     if (result.status === "fulfilled") return result.value;
+    console.error(`[${locations[index].id}] ${result.reason?.message || result.reason || "unknown KMA error"}`);
     const fallback = previous?.locations?.find(location => location.id === locations[index].id);
     if (fallback) return { ...fallback, stale: true };
     return { ...locations[index], error: "날씨 정보를 불러오지 못했습니다." };
