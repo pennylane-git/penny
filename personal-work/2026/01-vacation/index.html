@@ -902,9 +902,7 @@
 
     .timeline-layout {
       display: grid;
-      grid-template-areas:
-        "overview"
-        "main";
+      grid-template-areas: "main" "overview";
       gap: var(--dimension-x6);
     }
 
@@ -1115,6 +1113,9 @@
     }
 
     .week-strip {
+      position: sticky;
+      top: 12px;
+      z-index: 5;
       display: grid;
       grid-template-columns: repeat(11, minmax(48px, 1fr));
       gap: var(--dimension-x1);
@@ -1823,9 +1824,16 @@
 
     <section id="timeline" aria-labelledby="timeline-title">
       <h2 id="timeline-title">날짜별 흐름</h2>
-      <div class="timeline-layout">
-        <div class="timeline-main">
-          <div class="week-strip" aria-label="이번 주 일정">
+      <article class="focus-card" aria-label="다음 일정">
+        <div class="focus-meta"><span id="focus-label">전체 일정</span><strong id="focus-progress">10일</strong></div>
+        <h3 id="focus-title">경주 → 충남 → 광주</h3>
+        <p id="focus-description">8월 19일부터 28일까지 이어지는 전체 일정을 확인하세요.</p>
+        <div class="focus-actions">
+          <a class="focus-button" href="#plans">예약 확인</a>
+          <span id="focus-day">전체 보기</span>
+        </div>
+      </article>
+      <div class="week-strip" aria-label="이번 주 일정">
         <button class="selected" type="button" data-filter="all"><small>전체</small><b>일정</b></button>
         <button type="button" data-filter="19"><small>수</small><b>19</b></button>
         <button type="button" data-filter="20"><small>목</small><b>20</b></button>
@@ -1837,7 +1845,9 @@
         <button type="button" data-filter="26"><small>수</small><b>26</b></button>
         <button type="button" data-filter="27"><small>목</small><b>27</b></button>
         <button type="button" data-filter="28"><small>금</small><b>28</b></button>
-          </div>
+      </div>
+      <div class="timeline-layout">
+        <div class="timeline-main">
           <div class="day-schedule" aria-live="polite">
         <div class="day-schedule-header"><strong id="schedule-title">일정 시간표</strong><span>07:00–21:00</span></div>
         <div class="schedule-canvas">
@@ -1847,15 +1857,6 @@
           </div>
         </div>
         <div class="timeline-overview">
-          <article class="focus-card" aria-label="다음 일정">
-            <div class="focus-meta"><span id="focus-label">전체 일정</span><strong id="focus-progress">10일</strong></div>
-            <h3 id="focus-title">경주 → 충남 → 광주</h3>
-            <p id="focus-description">8월 19일부터 28일까지 이어지는 전체 일정을 확인하세요.</p>
-            <div class="focus-actions">
-              <a class="focus-button" href="#plans">예약 확인</a>
-              <span id="focus-day">전체 보기</span>
-            </div>
-          </article>
           <div class="timeline">
         <article class="step" data-date="19">
           <div class="date">8/19 수</div>
