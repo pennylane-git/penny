@@ -361,6 +361,13 @@
       font-weight: 750;
     }
 
+    .card-link {
+      color: var(--blue);
+      font-weight: 900;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     .timeline {
       display: grid;
       gap: 10px;
@@ -489,6 +496,7 @@
     <nav aria-label="페이지 이동">
       <a href="#calendar">캘린더</a>
       <a href="#timeline">날짜별 흐름</a>
+      <a href="#plans">예약할 곳</a>
       <a href="#stays">숙소</a>
       <a href="#check">확인할 것</a>
       <a href="#links">링크</a>
@@ -544,7 +552,7 @@
         <div class="day"><span class="num">17</span></div>
         <div class="day"><span class="num">18</span></div>
         <div class="day start"><span class="num">19</span><span class="event green-event">Aventa Hotel<small>체크인 16:00</small></span></div>
-        <div class="day"><span class="num">20</span><span class="event green-event">경주 숙박<small>Aventa</small></span></div>
+        <div class="day"><span class="num">20</span><span class="event green-event">물놀이<small>경주월드 · 캘리포니아비치</small></span><span class="event green-event">경주 숙박<small>Aventa</small></span></div>
         <div class="day"><span class="num">21</span><span class="event green-event">경주 숙박<small>Aventa</small></span></div>
         <div class="day"><span class="num">22</span><span class="event green-event">Aventa 퇴실<small>12:00</small></span><span class="event green-event">한화 경주<small>담톤 1박</small></span></div>
         <div class="day"><span class="num">23</span><span class="event green-event">한화 경주 퇴실<small>시간 확인</small></span></div>
@@ -572,6 +580,10 @@
           <div><strong>경주 체크인</strong><p>Gyeongju Aventa Hotel, 16:00 입실</p></div>
         </article>
         <article class="step">
+          <div class="date">8/20 목</div>
+          <div><strong>경주 물놀이</strong><p>경주월드 + 캘리포니아비치 방문 예정</p></div>
+        </article>
+        <article class="step">
           <div class="date">8/22 토</div>
           <div><strong>경주 숙소 이동</strong><p>Aventa 12:00 퇴실 후 한화리조트 경주 담톤 1박</p></div>
         </article>
@@ -586,6 +598,27 @@
         <article class="step">
           <div class="date">8/28 금</div>
           <div><strong>광주 체크아웃</strong><p>Hotel LAAM 11:00 퇴실</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="plans" aria-labelledby="plans-title">
+      <h2 id="plans-title">예약할 장소·식당</h2>
+      <div class="cards">
+        <article class="card">
+          <span class="tag green">8월 20일 목요일</span>
+          <h3>경주월드 + 캘리포니아비치</h3>
+          <p>경주에서 물놀이를 하는 일정입니다. 원하는 상품을 선택해 예매합니다.</p>
+          <dl>
+            <dt>예매</dt>
+            <dd><a class="card-link" href="https://m.booking.naver.com/booking/5/bizes/92520/items/7914521?theme=place&amp;lang=ko&amp;area=ple" target="_blank" rel="noreferrer">네이버에서 예매하기 ↗</a></dd>
+            <dt>티켓</dt>
+            <dd>구매 후 별도의 SMS 문자로 QR코드 수령</dd>
+            <dt>주의</dt>
+            <dd>QR코드 발송 시간이 소요되므로 원활한 입장을 위해 방문 1시간 전 구매 필수</dd>
+            <dt>사용</dt>
+            <dd>당일 구매·당일 사용 가능</dd>
+          </dl>
         </article>
       </div>
     </section>

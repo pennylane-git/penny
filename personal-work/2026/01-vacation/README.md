@@ -22,6 +22,7 @@
 ## Included Schedule
 
 - Gyeongju Aventa Hotel: 2026-08-19 to 2026-08-22
+- Gyeongju World + California Beach: 2026-08-20, water-play day
 - Hanwha Resort Gyeongju Damton: 2026-08-22, 1 night
 - Splas Resom: 2026-08-25, 1 night
 - Gwangju Culture Hotel LAAM: 2026-08-26 to 2026-08-28
@@ -29,3 +30,8 @@
 ## GitHub Pages
 
 이 프로젝트는 `pennylane-git/penny` 저장소의 `main` 브랜치에서 제공되며, GitHub Pages 게시 소스는 저장소 루트입니다.
+
+### Reservation Link
+
+- [경주월드 + 캘리포니아비치 네이버 예매](https://m.booking.naver.com/booking/5/bizes/92520/items/7914521?theme=place&lang=ko&area=ple)
+- QR코드 발송 시간이 소요되므로 방문 1시간 전 구매가 필요합니다. 당일 구매·당일 사용이 가능합니다.
