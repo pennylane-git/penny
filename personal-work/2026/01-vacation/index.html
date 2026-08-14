@@ -306,6 +306,34 @@
       font-weight: 700;
     }
 
+    .day-date-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4px;
+      min-height: 24px;
+    }
+
+    .calendar-weather {
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-end;
+      min-width: 24px;
+      min-height: 24px;
+      color: var(--color-fg-secondary);
+    }
+
+    .calendar-weather:empty {
+      visibility: hidden;
+    }
+
+    .calendar-weather-icon {
+      display: block;
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+
     .start .num {
       background: var(--color-fg-neutral);
       color: white;
@@ -2671,6 +2699,58 @@
       return "gwangju";
     }
 
+    function calendarWeatherLocationForDate(day) {
+      if (day >= 19 && day <= 24) return "gyeongju";
+      if (day === 25) return "resom";
+      if (day >= 26 && day <= 28) return "gwangju";
+      return null;
+    }
+
+    function calendarDateKey(day) {
+      return `2026-08-${String(day).padStart(2, "0")}`;
+    }
+
+    function ensureCalendarWeatherSlot(day) {
+      const dayCell = document.querySelector(`.event[data-date="${day}"]`)?.closest(".day");
+      if (!dayCell) return null;
+      let row = dayCell.querySelector(".day-date-row");
+      if (!row) {
+        const number = dayCell.querySelector(":scope > .num");
+        row = document.createElement("div");
+        row.className = "day-date-row";
+        dayCell.prepend(row);
+        if (number) row.append(number);
+        const slot = document.createElement("span");
+        slot.className = "calendar-weather";
+        slot.dataset.calendarWeather = String(day);
+        row.append(slot);
+      }
+      return row.querySelector("[data-calendar-weather]");
+    }
+
+    function renderCalendarWeather() {
+      for (let day = 19; day <= 28; day += 1) {
+        const slot = ensureCalendarWeatherSlot(day);
+        if (!slot) continue;
+        const locationId = calendarWeatherLocationForDate(day);
+        const location = weatherData?.locations?.find(item => item.id === locationId);
+        const forecast = location?.daily?.find(item => item.date === calendarDateKey(day));
+        slot.replaceChildren();
+        slot.removeAttribute("aria-label");
+        slot.removeAttribute("title");
+        if (!forecast) continue;
+
+        slot.innerHTML = weatherIcon(forecast.condition, "calendar-weather-icon");
+        const temperature = Number.isFinite(forecast.min) && Number.isFinite(forecast.max)
+          ? `, 최저 ${Math.round(forecast.min)}°, 최고 ${Math.round(forecast.max)}°`
+          : "";
+        const label = `${location.name} ${forecast.condition}${temperature}`;
+        slot.setAttribute("role", "img");
+        slot.setAttribute("aria-label", label);
+        slot.title = label;
+      }
+    }
+
     function renderContextWeather(filter) {
       if (!contextWeather) return;
       const weatherId = weatherLocationForFilter(filter);
@@ -2709,8 +2789,9 @@
           ? `마지막 업데이트 ${new Intl.DateTimeFormat("ko-KR", { timeZone: "Asia/Seoul", month: "numeric", day: "numeric", hour: "numeric", minute: "2-digit" }).format(new Date(data.updatedAt))}`
           : "첫 자동 업데이트를 기다리고 있습니다.";
         weatherSource.innerHTML = data.source?.includes("Open-Meteo")
-          ? '출처: 기상청 우선 · <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a> Best Match 대체 · 매시간 자동 갱신'
+          ? `출처: 기상청 단기예보 · <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a> ${data.source.includes("보완") ? "장기예보 보완" : "Best Match 대체"} · 매시간 자동 갱신`
           : "출처: 기상청 단기예보 조회서비스 · 매시간 자동 갱신";
+        renderCalendarWeather();
         renderContextWeather(document.querySelector(".week-strip button.selected")?.dataset.filter || "all");
       } catch {
         weatherUpdated.textContent = "날씨 정보를 불러오지 못했습니다. 잠시 후 다시 확인해 주세요.";

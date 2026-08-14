@@ -297,9 +297,26 @@ async function fetchKma(location) {
   };
 }
 
+function mergeDailyForecasts(primary = [], supplement = []) {
+  const merged = new Map(supplement.map(day => [day.date, day]));
+  for (const day of primary) merged.set(day.date, day);
+  return [...merged.values()].sort((a, b) => a.date.localeCompare(b.date)).slice(0, 16);
+}
+
 async function fetchLocation(location) {
   try {
-    return await fetchKma(location);
+    const kma = await fetchKma(location);
+    try {
+      const supplement = await fetchOpenMeteo(location);
+      return {
+        ...kma,
+        daily: mergeDailyForecasts(kma.daily, supplement.daily),
+        dailySupplement: "Open-Meteo Best Match"
+      };
+    } catch (supplementError) {
+      console.warn(`[${location.id}] Open-Meteo daily supplement unavailable: ${supplementError?.message || supplementError}`);
+      return kma;
+    }
   } catch (kmaError) {
     console.warn(`[${location.id}] KMA unavailable: ${kmaError?.message || kmaError}`);
     try {
@@ -341,7 +358,9 @@ async function main() {
     updatedAt: new Date().toISOString(),
     source: nextLocations.some(location => location.fallback)
       ? "기상청 우선 · Open-Meteo Best Match 대체"
-      : "기상청 단기예보 조회서비스",
+      : nextLocations.some(location => location.dailySupplement)
+        ? "기상청 단기예보 · Open-Meteo 장기예보 보완"
+        : "기상청 단기예보 조회서비스",
     updateIntervalMinutes: 60,
     locations: nextLocations
   };
