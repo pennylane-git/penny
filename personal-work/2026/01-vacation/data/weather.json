@@ -1,6 +1,6 @@
 {
   "status": "error",
-  "updatedAt": "2026-08-14T17:53:57.456Z",
+  "updatedAt": "2026-08-14T18:11:05.381Z",
   "source": "기상청 단기예보 조회서비스",
   "updateIntervalMinutes": 60,
   "locations": [
