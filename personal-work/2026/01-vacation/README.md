@@ -1,6 +1,16 @@
 # 2026 Summer Vacation Plan
 
-Mobile-first static vacation calendar for a public-but-unlisted GitHub Pages link.
+2026년 여름휴가 일정을 한눈에 확인하기 위한 모바일용 정적 웹 대시보드입니다.
+
+🔗 **웹 대시보드:** [https://pennylane-git.github.io/penny/personal-work/2026/01-vacation/](https://pennylane-git.github.io/penny/personal-work/2026/01-vacation/)
+
+브라우저에서 위 링크를 열어 숙소별 일정과 이동 흐름을 확인할 수 있습니다.
+
+## 구성
+
+- [`index.html`](./index.html) — 모바일용 휴가 일정 대시보드
+- [`robots.txt`](./robots.txt) — 검색엔진 크롤링 차단 설정
+- [`.nojekyll`](./.nojekyll) — GitHub Pages 정적 파일 처리 설정
 
 ## Privacy Notes
 
@@ -16,11 +26,6 @@ Mobile-first static vacation calendar for a public-but-unlisted GitHub Pages lin
 - Splas Resom: 2026-08-25, 1 night
 - Gwangju Culture Hotel LAAM: 2026-08-26 to 2026-08-28
 
-## To Publish With GitHub Pages
+## GitHub Pages
 
-1. Create a repository on GitHub.
-2. Push this folder to the repository's `main` branch.
-3. In GitHub, open `Settings > Pages`.
-4. Choose `Deploy from a branch`, branch `main`, folder `/root`.
-5. Save and wait for the Pages URL.
-
+이 프로젝트는 `pennylane-git/penny` 저장소의 `main` 브랜치에서 제공되며, GitHub Pages 게시 소스는 저장소 루트입니다.
