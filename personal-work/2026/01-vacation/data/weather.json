@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "updatedAt": "2026-08-14T19:12:57.194Z",
+  "updatedAt": "2026-08-14T19:16:23.619Z",
   "source": "기상청 단기·중기예보 · 첨부 예보 기준 · Open-Meteo 기온 보완",
   "updateIntervalMinutes": 60,
   "locations": [
@@ -392,7 +392,7 @@
           "min": 21.5,
           "max": 31.3,
           "precipitationProbability": 26,
-          "condition": "구름 조금"
+          "condition": "흐림"
         },
         {
           "date": "2026-08-28",
@@ -591,22 +591,25 @@
           "date": "2026-08-26",
           "min": 23.7,
           "max": 29.5,
-          "precipitationProbability": 50,
-          "condition": "비"
+          "precipitationProbability": 20,
+          "condition": "구름 많음",
+          "provider": "2026-08-15 네이버 날씨 캡처 아이콘 기준"
         },
         {
           "date": "2026-08-27",
           "min": 22.9,
           "max": 31.3,
-          "precipitationProbability": 44,
-          "condition": "비"
+          "precipitationProbability": 20,
+          "condition": "구름 많음",
+          "provider": "2026-08-15 네이버 날씨 캡처 아이콘 기준"
         },
         {
           "date": "2026-08-28",
           "min": 22.5,
           "max": 31.5,
-          "precipitationProbability": 53,
-          "condition": "흐림"
+          "precipitationProbability": 20,
+          "condition": "구름 많음",
+          "provider": "2026-08-15 네이버 날씨 캡처 아이콘 기준"
         },
         {
           "date": "2026-08-29",
