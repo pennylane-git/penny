@@ -1759,45 +1759,59 @@
     .weather-heading {
       display: flex;
       align-items: flex-end;
-      justify-content: space-between;
       gap: var(--dimension-x3);
       margin-bottom: var(--dimension-x3);
     }
 
-    .weather-heading h2,
-    .weather-heading p {
+    .weather-heading h2 {
       margin: 0;
     }
 
-    .weather-heading p {
+    .weather-update-status {
       margin-top: var(--dimension-x1);
-      color: var(--color-fg-secondary);
-      font-size: 0.8125rem;
     }
 
-    .weather-refresh {
-      flex: 0 0 auto;
-      min-height: 44px;
-      border: 1px solid var(--color-line-neutral);
-      border-radius: var(--radius-r3);
-      padding: 9px 12px;
-      background: var(--color-bg-layer-default);
-      color: var(--color-fg-neutral);
+    .weather-update-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      min-height: 32px;
+      margin: 0;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      color: var(--color-fg-secondary);
       font: inherit;
       font-size: 0.8125rem;
-      font-weight: 700;
+      font-weight: 600;
+      text-align: left;
       cursor: pointer;
     }
 
-    .weather-refresh:hover,
-    .weather-refresh:focus-visible {
-      border-color: var(--color-bg-brand);
+    .weather-update-toggle:hover,
+    .weather-update-toggle:focus-visible {
       color: var(--color-fg-brand);
     }
 
-    .weather-refresh[disabled] {
-      cursor: wait;
-      opacity: 0.55;
+    .weather-update-toggle::after {
+      content: "⌄";
+      font-size: 0.75rem;
+      transition: transform 160ms ease;
+    }
+
+    .weather-update-toggle[aria-expanded="true"]::after {
+      transform: rotate(180deg);
+    }
+
+    .weather-next-update {
+      margin: 0;
+      color: var(--color-fg-secondary);
+      font-size: 0.75rem;
+      line-height: 1.45;
+    }
+
+    .weather-next-update[hidden] {
+      display: none;
     }
 
     .weather-grid {
@@ -2183,9 +2197,11 @@
       <div class="weather-heading">
         <div>
           <h2 id="weather-title">여행지 날씨</h2>
-          <p id="weather-updated">첫 자동 업데이트를 준비하고 있습니다.</p>
+          <div class="weather-update-status">
+            <button class="weather-update-toggle" id="weather-updated" type="button" aria-expanded="false" aria-controls="weather-next-update">첫 자동 업데이트를 준비하고 있습니다.</button>
+            <p class="weather-next-update" id="weather-next-update" hidden></p>
+          </div>
         </div>
-        <button class="weather-refresh" id="weather-refresh" type="button">새로고침</button>
       </div>
       <div class="weather-grid" id="weather-grid" aria-live="polite">
         <article class="weather-card" data-weather-id="gyeongju">
@@ -2379,7 +2395,6 @@
     const contextKicker = document.querySelector("#context-kicker");
     const contextTitle = document.querySelector("#context-title");
     const contextDescription = document.querySelector("#context-description");
-    const contextWeather = document.querySelector("#context-weather");
     const contextSupport = document.querySelector("#context-support");
     const lunchCandidates = document.querySelector("#lunch-candidates");
     const timeline = document.querySelector("#timeline");
@@ -2623,9 +2638,9 @@
   <script>
     const weatherCards = [...document.querySelectorAll("[data-weather-id]")];
     const weatherUpdated = document.querySelector("#weather-updated");
-    const weatherRefresh = document.querySelector("#weather-refresh");
+    const weatherNextUpdate = document.querySelector("#weather-next-update");
     const weatherSource = document.querySelector(".weather-source");
-    const contextWeather = document.querySelector("#context-weather");
+    const weatherContextPanel = document.querySelector("#context-weather");
     let weatherData = null;
 
     function escapeWeather(value) {
@@ -2661,6 +2676,40 @@
 
     function displayNumber(value, suffix = "") {
       return Number.isFinite(value) ? `${Math.round(value)}${suffix}` : "-";
+    }
+
+    function formatWeatherTimestamp(value) {
+      return new Intl.DateTimeFormat("ko-KR", {
+        timeZone: "Asia/Seoul", month: "numeric", day: "numeric", hour: "numeric", minute: "2-digit"
+      }).format(new Date(value));
+    }
+
+    function nextScheduledWeatherUpdate(value = Date.now()) {
+      const next = new Date(value);
+      next.setUTCMinutes(17, 0, 0);
+      if (next <= new Date(value)) next.setUTCHours(next.getUTCHours() + 1);
+      return next;
+    }
+
+    function renderWeatherUpdateTiming(updatedAt) {
+      if (!updatedAt) {
+        weatherUpdated.textContent = "첫 자동 업데이트를 기다리고 있습니다.";
+        weatherUpdated.setAttribute("aria-expanded", "false");
+        weatherNextUpdate.hidden = true;
+        return;
+      }
+      weatherUpdated.textContent = `마지막 업데이트 ${formatWeatherTimestamp(updatedAt)}`;
+      const next = nextScheduledWeatherUpdate();
+      weatherNextUpdate.textContent = `다음 자동 업데이트 ${formatWeatherTimestamp(next)} 이후 예정`;
+    }
+
+    function scheduleWeatherReload() {
+      const next = nextScheduledWeatherUpdate();
+      const delay = Math.max(next.getTime() - Date.now() + 5 * 60 * 1000, 60 * 1000);
+      window.setTimeout(async () => {
+        await loadWeather();
+        scheduleWeatherReload();
+      }, delay);
     }
 
     function renderWeatherCard(card, location) {
@@ -2766,28 +2815,26 @@
     }
 
     function renderContextWeather(filter) {
-      if (!contextWeather) return;
+      if (!weatherContextPanel) return;
       const weatherId = weatherLocationForFilter(filter);
       const location = weatherData?.locations?.find(item => item.id === weatherId);
-      contextWeather.hidden = !weatherId;
+      weatherContextPanel.hidden = !weatherId;
       if (!weatherId) {
-        contextWeather.innerHTML = "";
+        weatherContextPanel.innerHTML = "";
         return;
       }
       if (!location?.current) {
-        contextWeather.innerHTML = `<div class="context-weather-head"><span>현재 여행지 날씨</span><span class="context-weather-time">불러오는 중</span></div><div class="context-weather-main"><span class="context-weather-place">${escapeWeather(location?.name || "여행지")}</span><span class="context-weather-condition">날씨 정보를 준비하고 있습니다.</span></div>`;
+        weatherContextPanel.innerHTML = `<div class="context-weather-head"><span>현재 여행지 날씨</span><span class="context-weather-time">불러오는 중</span></div><div class="context-weather-main"><span class="context-weather-place">${escapeWeather(location?.name || "여행지")}</span><span class="context-weather-condition">날씨 정보를 준비하고 있습니다.</span></div>`;
         return;
       }
       const updated = weatherData.updatedAt ? new Intl.DateTimeFormat("ko-KR", { timeZone: "Asia/Seoul", hour: "numeric", minute: "2-digit" }).format(new Date(weatherData.updatedAt)) : "현재";
       const current = location.current;
-      contextWeather.innerHTML = `<div class="context-weather-head"><span>현재 여행지 날씨</span><span class="context-weather-time">${escapeWeather(updated)} 기준</span></div><div class="context-weather-main">${weatherIcon(current.condition, "context-weather-icon")}<div><div class="context-weather-place">${escapeWeather(location.name)}</div><div class="context-weather-condition">${escapeWeather(current.condition)}</div></div><strong class="context-weather-temperature">${escapeWeather(displayNumber(current.temperature, "°"))}</strong></div>`;
+      weatherContextPanel.innerHTML = `<div class="context-weather-head"><span>현재 여행지 날씨</span><span class="context-weather-time">${escapeWeather(updated)} 기준</span></div><div class="context-weather-main">${weatherIcon(current.condition, "context-weather-icon")}<div><div class="context-weather-place">${escapeWeather(location.name)}</div><div class="context-weather-condition">${escapeWeather(current.condition)}</div></div><strong class="context-weather-temperature">${escapeWeather(displayNumber(current.temperature, "°"))}</strong></div>`;
     }
 
     window.renderContextWeather = renderContextWeather;
 
     async function loadWeather() {
-      weatherRefresh.disabled = true;
-      weatherRefresh.textContent = "불러오는 중";
       try {
         const response = await fetch(`./data/weather.json?v=${Date.now()}`, { cache: "no-store" });
         if (!response.ok) throw new Error("Weather data is unavailable");
@@ -2799,9 +2846,7 @@
           renderWeatherCard(card, location);
         });
 
-        weatherUpdated.textContent = data.updatedAt
-          ? `마지막 업데이트 ${new Intl.DateTimeFormat("ko-KR", { timeZone: "Asia/Seoul", month: "numeric", day: "numeric", hour: "numeric", minute: "2-digit" }).format(new Date(data.updatedAt))}`
-          : "첫 자동 업데이트를 기다리고 있습니다.";
+        renderWeatherUpdateTiming(data.updatedAt);
         weatherSource.innerHTML = data.source?.includes("Open-Meteo")
           ? `출처: 기상청 단기예보 · <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a> ${data.source.includes("보완") ? "장기예보 보완" : "Best Match 대체"} · 매시간 자동 갱신`
           : "출처: 기상청 단기예보 조회서비스 · 매시간 자동 갱신";
@@ -2809,15 +2854,19 @@
         renderContextWeather(document.querySelector(".week-strip button.selected")?.dataset.filter || "all");
       } catch {
         weatherUpdated.textContent = "날씨 정보를 불러오지 못했습니다. 잠시 후 다시 확인해 주세요.";
-      } finally {
-        weatherRefresh.disabled = false;
-        weatherRefresh.textContent = "새로고침";
+        weatherUpdated.setAttribute("aria-expanded", "false");
+        weatherNextUpdate.hidden = true;
       }
     }
 
-    weatherRefresh.addEventListener("click", loadWeather);
+    weatherUpdated.addEventListener("click", () => {
+      if (!weatherNextUpdate.textContent) return;
+      const expanded = weatherUpdated.getAttribute("aria-expanded") === "true";
+      weatherUpdated.setAttribute("aria-expanded", String(!expanded));
+      weatherNextUpdate.hidden = expanded;
+    });
     loadWeather();
-    window.setInterval(loadWeather, 60 * 60 * 1000);
+    scheduleWeatherReload();
   </script>
 </body>
 </html>
