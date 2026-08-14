@@ -30,7 +30,9 @@ const capturedForecasts = {
   gwangju: [
     ["2026-08-19", 24, 33, 20], ["2026-08-20", 24, 32, 20],
     ["2026-08-21", 24, 32, 20], ["2026-08-22", 24, 33, 20],
-    ["2026-08-23", 24, 33, 20], ["2026-08-24", 24, 32, 20]
+    ["2026-08-23", 24, 33, 20], ["2026-08-24", 24, 32, 20],
+    ["2026-08-26", null, null, 20], ["2026-08-27", null, null, 20],
+    ["2026-08-28", null, null, 20]
   ]
 };
 
@@ -406,11 +408,13 @@ function mergeDailyForecasts(primary = [], supplement = []) {
 function capturedReferenceDaily(locationId) {
   return (capturedForecasts[locationId] || []).map(([date, min, max, precipitationProbability]) => ({
     date,
-    min,
-    max,
+    ...(min === null ? {} : { min }),
+    ...(max === null ? {} : { max }),
     precipitationProbability,
     condition: "구름 많음",
-    provider: "2026-08-15 네이버 날씨 캡처 기준"
+    provider: min === null
+      ? "2026-08-15 네이버 날씨 캡처 아이콘 기준"
+      : "2026-08-15 네이버 날씨 캡처 기준"
   }));
 }
 
