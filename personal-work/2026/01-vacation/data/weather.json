@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "updatedAt": "2026-08-15T11:33:21.758Z",
+  "updatedAt": "2026-08-15T12:58:27.463Z",
   "source": "기상청 단기·중기예보 · 첨부 예보 기준 · Open-Meteo 기온 보완",
   "updateIntervalMinutes": 60,
   "locations": [
@@ -15,9 +15,9 @@
       "midLandRegId": "11H10000",
       "provider": "기상청 단기예보",
       "current": {
-        "temperature": 26.9,
-        "humidity": 76,
-        "windSpeed": 1.1,
+        "temperature": 26.2,
+        "humidity": 83,
+        "windSpeed": 1.9,
         "rainLastHour": 0,
         "condition": "흐림"
       },
@@ -205,7 +205,7 @@
           "date": "2026-08-30",
           "min": 21.7,
           "max": 27.9,
-          "precipitationProbability": 43,
+          "precipitationProbability": 36,
           "condition": "비"
         }
       ],
@@ -222,9 +222,9 @@
       "midLandRegId": "11C20000",
       "provider": "기상청 단기예보",
       "current": {
-        "temperature": 26.3,
-        "humidity": 83,
-        "windSpeed": 0.7,
+        "temperature": 26.2,
+        "humidity": 84,
+        "windSpeed": 1.1,
         "rainLastHour": 0,
         "condition": "흐림"
       },
@@ -412,7 +412,7 @@
           "date": "2026-08-30",
           "min": 22.1,
           "max": 31.9,
-          "precipitationProbability": 26,
+          "precipitationProbability": 23,
           "condition": "비"
         }
       ],
@@ -429,9 +429,9 @@
       "midLandRegId": "11F20000",
       "provider": "기상청 단기예보",
       "current": {
-        "temperature": 25.4,
-        "humidity": 78,
-        "windSpeed": 2.1,
+        "temperature": 25.1,
+        "humidity": 76,
+        "windSpeed": 1.4,
         "rainLastHour": 0,
         "condition": "비"
       },
@@ -622,7 +622,7 @@
           "date": "2026-08-30",
           "min": 21.8,
           "max": 31.3,
-          "precipitationProbability": 46,
+          "precipitationProbability": 45,
           "condition": "흐림"
         }
       ],
