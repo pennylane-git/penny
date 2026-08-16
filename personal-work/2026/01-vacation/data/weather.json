@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "updatedAt": "2026-08-16T03:12:35.522Z",
+  "updatedAt": "2026-08-16T03:58:34.651Z",
   "source": "기상청 단기·중기예보 · 첨부 예보 기준 · Open-Meteo 기온 보완",
   "updateIntervalMinutes": 60,
   "locations": [
@@ -205,7 +205,7 @@
           "date": "2026-08-31",
           "min": 20.7,
           "max": 26.6,
-          "precipitationProbability": 49,
+          "precipitationProbability": 51,
           "condition": "흐림"
         }
       ],
