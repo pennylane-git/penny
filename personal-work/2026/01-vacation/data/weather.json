@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "updatedAt": "2026-08-16T09:40:50.340Z",
+  "updatedAt": "2026-08-16T10:39:25.000Z",
   "source": "기상청 단기·중기예보 · 첨부 예보 기준 · Open-Meteo 기온 보완",
   "updateIntervalMinutes": 60,
   "locations": [
@@ -13,107 +13,108 @@
       "latitude": 35.8308,
       "longitude": 129.2142,
       "midLandRegId": "11H10000",
-      "provider": "기상청 단기예보",
+      "provider": "Open-Meteo Best Match",
+      "fallback": true,
       "current": {
-        "temperature": 22.4,
-        "humidity": 94,
-        "windSpeed": 1,
-        "rainLastHour": 0.8,
+        "temperature": 22.1,
+        "humidity": 92,
+        "windSpeed": 4.44,
+        "rainLastHour": 0.4,
         "condition": "비"
       },
       "hourly": [
         {
-          "at": "2026-08-16T18:00:00+09:00",
-          "temperature": 24,
-          "humidity": 90,
-          "precipitationProbability": 60,
-          "precipitation": "6.0mm",
-          "condition": "비"
-        },
-        {
-          "at": "2026-08-16T19:00:00+09:00",
-          "temperature": 23,
-          "humidity": 90,
-          "precipitationProbability": 60,
-          "precipitation": "8.0mm",
-          "condition": "비"
-        },
-        {
           "at": "2026-08-16T20:00:00+09:00",
-          "temperature": 23,
-          "humidity": 90,
-          "precipitationProbability": 60,
-          "precipitation": "6.0mm",
+          "temperature": 21.7,
+          "humidity": 92,
+          "precipitationProbability": 99,
+          "precipitation": 1.6,
           "condition": "비"
         },
         {
           "at": "2026-08-16T21:00:00+09:00",
-          "temperature": 23,
-          "humidity": 90,
-          "precipitationProbability": 60,
-          "precipitation": "8.0mm",
+          "temperature": 22,
+          "humidity": 93,
+          "precipitationProbability": 100,
+          "precipitation": 2.6,
           "condition": "비"
         },
         {
           "at": "2026-08-16T22:00:00+09:00",
-          "temperature": 24,
-          "humidity": 95,
-          "precipitationProbability": 60,
-          "precipitation": "7.0mm",
+          "temperature": 22.4,
+          "humidity": 94,
+          "precipitationProbability": 100,
+          "precipitation": 1.9,
           "condition": "비"
         },
         {
           "at": "2026-08-16T23:00:00+09:00",
-          "temperature": 24,
-          "humidity": 95,
-          "precipitationProbability": 60,
-          "precipitation": "6.0mm",
+          "temperature": 22.8,
+          "humidity": 96,
+          "precipitationProbability": 100,
+          "precipitation": 3.9,
           "condition": "비"
         },
         {
           "at": "2026-08-17T00:00:00+09:00",
-          "temperature": 23,
+          "temperature": 23.2,
           "humidity": 95,
-          "precipitationProbability": 60,
-          "precipitation": "2.0mm",
+          "precipitationProbability": 100,
+          "precipitation": 3.5,
           "condition": "비"
         },
         {
           "at": "2026-08-17T01:00:00+09:00",
-          "temperature": 23,
-          "humidity": 95,
-          "precipitationProbability": 60,
-          "precipitation": "4.0mm",
+          "temperature": 23.2,
+          "humidity": 92,
+          "precipitationProbability": 100,
+          "precipitation": 1.2,
+          "condition": "비"
+        },
+        {
+          "at": "2026-08-17T02:00:00+09:00",
+          "temperature": 23.2,
+          "humidity": 96,
+          "precipitationProbability": 100,
+          "precipitation": 0.7,
+          "condition": "비"
+        },
+        {
+          "at": "2026-08-17T03:00:00+09:00",
+          "temperature": 23.9,
+          "humidity": 96,
+          "precipitationProbability": 100,
+          "precipitation": 0.8,
           "condition": "비"
         }
       ],
       "daily": [
         {
           "date": "2026-08-16",
-          "min": 23,
-          "max": 24,
-          "precipitationProbability": 60,
+          "min": 21.7,
+          "max": 24.4,
+          "precipitationProbability": 100,
           "condition": "비"
         },
         {
           "date": "2026-08-17",
-          "min": 23,
+          "min": 23.2,
           "max": 28,
-          "precipitationProbability": 60,
+          "precipitationProbability": 100,
           "condition": "비"
         },
         {
           "date": "2026-08-18",
-          "min": 24,
-          "max": 33,
-          "precipitationProbability": 60,
-          "condition": "구름 많음"
+          "min": 24.3,
+          "max": 29.1,
+          "precipitationProbability": 80,
+          "condition": "비"
         },
         {
           "date": "2026-08-19",
-          "min": 24,
-          "max": 32,
-          "precipitationProbability": 30,
+          "min": 23,
+          "max": 33,
+          "precipitationProbability": 20,
           "condition": "구름 많음",
           "provider": "2026-08-15 네이버 날씨 캡처 기준"
         },
@@ -161,17 +162,15 @@
           "date": "2026-08-25",
           "min": 25.8,
           "max": 32.5,
-          "precipitationProbability": 20,
-          "condition": "구름 많음",
-          "provider": "기상청 중기육상예보"
+          "precipitationProbability": 54,
+          "condition": "구름 조금"
         },
         {
           "date": "2026-08-26",
           "min": 25,
           "max": 32.5,
-          "precipitationProbability": 20,
-          "condition": "구름 많음",
-          "provider": "기상청 중기육상예보"
+          "precipitationProbability": 55,
+          "condition": "비"
         },
         {
           "date": "2026-08-27",
@@ -209,7 +208,7 @@
           "condition": "흐림"
         }
       ],
-      "dailySupplement": "첨부 예보 기준 · 기상청 중기예보 · Open-Meteo 기온"
+      "dailySupplement": "첨부 예보 기준 · Open-Meteo"
     },
     {
       "id": "resom",
@@ -220,108 +219,109 @@
       "latitude": 36.6885,
       "longitude": 126.6626,
       "midLandRegId": "11C20000",
-      "provider": "기상청 단기예보",
+      "provider": "Open-Meteo Best Match",
+      "fallback": true,
       "current": {
-        "temperature": 27.5,
+        "temperature": 23.9,
         "humidity": 82,
-        "windSpeed": 1.8,
+        "windSpeed": 2,
         "rainLastHour": 0,
-        "condition": "흐림"
+        "condition": "구름 조금"
       },
       "hourly": [
         {
-          "at": "2026-08-16T18:00:00+09:00",
-          "temperature": 26,
-          "humidity": 85,
-          "precipitationProbability": 30,
-          "precipitation": "강수없음",
-          "condition": "흐림"
-        },
-        {
-          "at": "2026-08-16T19:00:00+09:00",
-          "temperature": 25,
-          "humidity": 85,
-          "precipitationProbability": 20,
-          "precipitation": "강수없음",
-          "condition": "구름 많음"
-        },
-        {
           "at": "2026-08-16T20:00:00+09:00",
-          "temperature": 25,
-          "humidity": 90,
-          "precipitationProbability": 0,
-          "precipitation": "강수없음",
-          "condition": "맑음"
+          "temperature": 23.7,
+          "humidity": 83,
+          "precipitationProbability": 49,
+          "precipitation": 0,
+          "condition": "구름 조금"
         },
         {
           "at": "2026-08-16T21:00:00+09:00",
-          "temperature": 24,
-          "humidity": 90,
-          "precipitationProbability": 30,
-          "precipitation": "강수없음",
-          "condition": "흐림"
+          "temperature": 23.4,
+          "humidity": 85,
+          "precipitationProbability": 41,
+          "precipitation": 0,
+          "condition": "구름 조금"
         },
         {
           "at": "2026-08-16T22:00:00+09:00",
-          "temperature": 24,
-          "humidity": 90,
-          "precipitationProbability": 0,
-          "precipitation": "강수없음",
-          "condition": "맑음"
+          "temperature": 23.1,
+          "humidity": 87,
+          "precipitationProbability": 37,
+          "precipitation": 0,
+          "condition": "구름 조금"
         },
         {
           "at": "2026-08-16T23:00:00+09:00",
-          "temperature": 24,
-          "humidity": 90,
-          "precipitationProbability": 60,
-          "precipitation": "1mm 미만",
+          "temperature": 22.8,
+          "humidity": 91,
+          "precipitationProbability": 36,
+          "precipitation": 0.1,
           "condition": "비"
         },
         {
           "at": "2026-08-17T00:00:00+09:00",
-          "temperature": 24,
-          "humidity": 95,
-          "precipitationProbability": 0,
-          "precipitation": "강수없음",
-          "condition": "맑음"
+          "temperature": 22.5,
+          "humidity": 94,
+          "precipitationProbability": 33,
+          "precipitation": 0.5,
+          "condition": "비"
         },
         {
           "at": "2026-08-17T01:00:00+09:00",
-          "temperature": 24,
+          "temperature": 22.3,
           "humidity": 95,
-          "precipitationProbability": 0,
-          "precipitation": "강수없음",
-          "condition": "맑음"
+          "precipitationProbability": 27,
+          "precipitation": 0.6,
+          "condition": "비"
+        },
+        {
+          "at": "2026-08-17T02:00:00+09:00",
+          "temperature": 22.2,
+          "humidity": 96,
+          "precipitationProbability": 20,
+          "precipitation": 0,
+          "condition": "구름 조금"
+        },
+        {
+          "at": "2026-08-17T03:00:00+09:00",
+          "temperature": 22.1,
+          "humidity": 97,
+          "precipitationProbability": 18,
+          "precipitation": 0,
+          "condition": "구름 조금"
         }
       ],
       "daily": [
         {
           "date": "2026-08-16",
-          "min": 24,
-          "max": 26,
-          "precipitationProbability": 60,
-          "condition": "흐림"
+          "min": 22.3,
+          "max": 26.3,
+          "precipitationProbability": 100,
+          "condition": "비"
         },
         {
           "date": "2026-08-17",
-          "min": 23,
-          "max": 30,
-          "precipitationProbability": 60,
+          "min": 21.8,
+          "max": 27.8,
+          "precipitationProbability": 96,
           "condition": "비"
         },
         {
           "date": "2026-08-18",
-          "min": 23,
-          "max": 31,
-          "precipitationProbability": 30,
-          "condition": "맑음"
+          "min": 22.5,
+          "max": 30,
+          "precipitationProbability": 61,
+          "condition": "흐림"
         },
         {
           "date": "2026-08-19",
-          "min": 22,
-          "max": 31,
-          "precipitationProbability": 30,
-          "condition": "흐림",
+          "min": 23,
+          "max": 32,
+          "precipitationProbability": 20,
+          "condition": "구름 많음",
           "provider": "2026-08-15 네이버 날씨 캡처 기준"
         },
         {
@@ -368,17 +368,15 @@
           "date": "2026-08-25",
           "min": 24.9,
           "max": 29.9,
-          "precipitationProbability": 20,
-          "condition": "구름 많음",
-          "provider": "기상청 중기육상예보"
+          "precipitationProbability": 61,
+          "condition": "비"
         },
         {
           "date": "2026-08-26",
           "min": 24.7,
           "max": 29.2,
-          "precipitationProbability": 20,
-          "condition": "구름 많음",
-          "provider": "기상청 중기육상예보"
+          "precipitationProbability": 54,
+          "condition": "비"
         },
         {
           "date": "2026-08-27",
@@ -416,7 +414,7 @@
           "condition": "비"
         }
       ],
-      "dailySupplement": "첨부 예보 기준 · 기상청 중기예보 · Open-Meteo 기온"
+      "dailySupplement": "첨부 예보 기준 · Open-Meteo"
     },
     {
       "id": "gwangju",
@@ -427,107 +425,108 @@
       "latitude": 35.146,
       "longitude": 126.923,
       "midLandRegId": "11F20000",
-      "provider": "기상청 단기예보",
+      "provider": "Open-Meteo Best Match",
+      "fallback": true,
       "current": {
-        "temperature": 28.1,
-        "humidity": 74,
-        "windSpeed": 1.7,
+        "temperature": 24.9,
+        "humidity": 89,
+        "windSpeed": 2.34,
         "rainLastHour": 0,
-        "condition": "비"
+        "condition": "구름 조금"
       },
       "hourly": [
         {
-          "at": "2026-08-16T18:00:00+09:00",
-          "temperature": 27,
-          "humidity": 85,
-          "precipitationProbability": 60,
-          "precipitation": "1.0mm",
-          "condition": "비"
-        },
-        {
-          "at": "2026-08-16T19:00:00+09:00",
-          "temperature": 26,
-          "humidity": 85,
-          "precipitationProbability": 60,
-          "precipitation": "1mm 미만",
-          "condition": "비"
-        },
-        {
           "at": "2026-08-16T20:00:00+09:00",
-          "temperature": 26,
+          "temperature": 24.7,
           "humidity": 90,
-          "precipitationProbability": 60,
-          "precipitation": "1mm 미만",
-          "condition": "비"
+          "precipitationProbability": 77,
+          "precipitation": 0,
+          "condition": "구름 조금"
         },
         {
           "at": "2026-08-16T21:00:00+09:00",
-          "temperature": 26,
-          "humidity": 90,
-          "precipitationProbability": 60,
-          "precipitation": "1mm 미만",
-          "condition": "비"
+          "temperature": 24.6,
+          "humidity": 92,
+          "precipitationProbability": 67,
+          "precipitation": 0,
+          "condition": "구름 조금"
         },
         {
           "at": "2026-08-16T22:00:00+09:00",
-          "temperature": 25,
-          "humidity": 90,
-          "precipitationProbability": 60,
-          "precipitation": "1.0mm",
+          "temperature": 24.5,
+          "humidity": 93,
+          "precipitationProbability": 59,
+          "precipitation": 0.1,
           "condition": "비"
         },
         {
           "at": "2026-08-16T23:00:00+09:00",
-          "temperature": 25,
-          "humidity": 90,
-          "precipitationProbability": 60,
-          "precipitation": "1mm 미만",
+          "temperature": 24.4,
+          "humidity": 95,
+          "precipitationProbability": 52,
+          "precipitation": 0.5,
           "condition": "비"
         },
         {
           "at": "2026-08-17T00:00:00+09:00",
-          "temperature": 25,
-          "humidity": 90,
-          "precipitationProbability": 60,
-          "precipitation": "1mm 미만",
+          "temperature": 24.4,
+          "humidity": 95,
+          "precipitationProbability": 47,
+          "precipitation": 0.3,
           "condition": "비"
         },
         {
           "at": "2026-08-17T01:00:00+09:00",
+          "temperature": 24.6,
+          "humidity": 96,
+          "precipitationProbability": 43,
+          "precipitation": 1.6,
+          "condition": "비"
+        },
+        {
+          "at": "2026-08-17T02:00:00+09:00",
+          "temperature": 24.7,
+          "humidity": 96,
+          "precipitationProbability": 40,
+          "precipitation": 1.4,
+          "condition": "비"
+        },
+        {
+          "at": "2026-08-17T03:00:00+09:00",
           "temperature": 25,
-          "humidity": 90,
-          "precipitationProbability": 30,
-          "precipitation": "강수없음",
-          "condition": "흐림"
+          "humidity": 96,
+          "precipitationProbability": 39,
+          "precipitation": 0.6,
+          "condition": "비"
         }
       ],
       "daily": [
         {
           "date": "2026-08-16",
-          "min": 25,
-          "max": 27,
-          "precipitationProbability": 60,
+          "min": 22.6,
+          "max": 25.6,
+          "precipitationProbability": 100,
           "condition": "비"
         },
         {
           "date": "2026-08-17",
-          "min": 24,
-          "max": 32,
-          "precipitationProbability": 60,
-          "condition": "흐림"
+          "min": 24.4,
+          "max": 31.2,
+          "precipitationProbability": 97,
+          "condition": "비"
         },
         {
           "date": "2026-08-18",
-          "min": 24,
-          "max": 33,
-          "precipitationProbability": 30,
-          "condition": "맑음"
+          "min": 23.2,
+          "max": 31.8,
+          "precipitationProbability": 71,
+          "condition": "구름 조금"
         },
         {
           "date": "2026-08-19",
           "min": 24,
-          "max": 32,
-          "precipitationProbability": 30,
+          "max": 33,
+          "precipitationProbability": 20,
           "condition": "구름 많음",
           "provider": "2026-08-15 네이버 날씨 캡처 기준"
         },
@@ -575,9 +574,8 @@
           "date": "2026-08-25",
           "min": 24.3,
           "max": 29.1,
-          "precipitationProbability": 20,
-          "condition": "구름 많음",
-          "provider": "기상청 중기육상예보"
+          "precipitationProbability": 51,
+          "condition": "비"
         },
         {
           "date": "2026-08-26",
@@ -625,7 +623,7 @@
           "condition": "비"
         }
       ],
-      "dailySupplement": "첨부 예보 기준 · 기상청 중기예보 · Open-Meteo 기온"
+      "dailySupplement": "첨부 예보 기준 · Open-Meteo"
     }
   ]
 }
