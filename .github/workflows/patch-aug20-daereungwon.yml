@@ -1,0 +1,66 @@
+name: patch-aug20-daereungwon
+
+on:
+  push:
+    paths:
+      - .github/workflows/patch-aug20-daereungwon.yml
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update Aug 20 Daereungwon schedule
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const path = 'personal-work/2026/01-vacation/index.html';
+          let html = fs.readFileSync(path, 'utf8');
+          const replacements = [
+            [
+              '<div class="day"><span class="num">20</span><button class="event green-event" type="button" data-date="20">캘리포니아비치<small>09:30–18:00 · 물놀이</small></button><button class="event green-event" type="button" data-date="20">경주 숙박<small>Aventa</small></button></div>',
+              '<div class="day"><span class="num">20</span><button class="event green-event" type="button" data-date="20">캘리포니아비치<small>09:30–16:30 · 물놀이</small></button><button class="event green-event" type="button" data-date="20">대릉원·천마총<small>18:00–19:00 · 저녁 관람</small></button><button class="event green-event" type="button" data-date="20">경주 숙박<small>Aventa</small></button></div>'
+            ],
+            [
+              '<div><strong>캘리포니아비치 물놀이</strong><p>09:30 입장부터 18:00까지 물놀이와 점심 휴식을 포함한 하루 일정입니다.</p></div>',
+              '<div><strong>캘리포니아비치 → 대릉원·천마총</strong><p>09:30 입장 후 16:30쯤 워터파크를 나와 숙소에서 정리합니다.</p><p>18:00–19:00 대릉원·천마총 저녁 관람 후 황리단길 저녁 식사로 이어갑니다.</p></div>'
+            ],
+            [
+              '20: { label: "8월 20일 목요일", progress: "2일차", title: "캘리포니아비치 물놀이", description: "09:30–18:00 물놀이 · 점심과 휴식 시간을 포함한 여유 있는 하루 일정", day: "경주" },',
+              '20: { label: "8월 20일 목요일", progress: "2일차", title: "캘리포니아비치 → 대릉원·천마총", description: "09:30–16:30 물놀이 · 숙소 정리 후 18:00–19:00 대릉원·천마총 저녁 관람 · 황리단길 저녁 식사", day: "경주" },'
+            ],
+            [
+              '20: {\n        kicker: "물놀이 메모",\n        title: "캘리포니아비치 입장 준비",\n        description: "09:30 입장을 목표로 QR 티켓을 미리 준비하세요. 음식은 지정된 보관소와 피크닉 장소 이용 후 재입장하는 방식입니다.",\n        map: "https://map.naver.com/p/search/%EC%BA%98%EB%A6%AC%ED%8F%AC%EB%8B%88%EC%95%84%EB%B9%84%EC%B9%98",\n        link: "https://m.booking.naver.com/booking/5/bizes/92520/items/7914521?theme=place&lang=ko&area=ple",\n        linkLabel: "티켓 예매"\n      },',
+              '20: {\n        kicker: "물놀이·저녁 관람",\n        title: "캘리포니아비치 → 대릉원·천마총",\n        description: "16:30쯤 워터파크를 나와 Aventa에서 샤워·정리 후 18:00 전후 대릉원·천마총으로 이동합니다. 천마총 내부까지 보려면 21:00 전 입장을 기준으로 두되, 이 일정은 18시대라 여유가 있습니다.",\n        map: "https://map.naver.com/p/search/%EB%8C%80%EB%A6%89%EC%9B%90%20%EC%B2%9C%EB%A7%88%EC%B4%9D",\n        link: "https://map.naver.com/p/search/%EB%8C%80%EB%A6%89%EC%9B%90%20%EC%B2%9C%EB%A7%88%EC%B4%9D",\n        linkLabel: "대릉원 지도"\n      },'
+            ],
+            [
+              '20: [\n        { title: "입장 준비", text: "QR 티켓은 방문 1시간 전까지 준비하고, 아쿠아슈즈·모자·방수팩을 챙기세요." },\n        { title: "하루 운영", text: "09:30–18:00 물놀이. 오전 어트랙션 후 12:30 점심·휴식, 오후 물놀이 순서입니다." },\n        { title: "재입장 메모", text: "피크닉 장소와 음식 보관 방식을 현장에서 확인하고, 휴식 후 재입장 동선을 잡으세요." },\n        { title: "예매 링크", text: "네이버 예약에서 상품과 운영일을 최종 확인하세요.", href: "https://m.booking.naver.com/booking/5/bizes/92520/items/7914521?theme=place&lang=ko&area=ple", link: "티켓 확인 ↗" }\n      ],',
+              '20: [\n        { title: "입장 준비", text: "QR 티켓은 방문 1시간 전까지 준비하고, 아쿠아슈즈·모자·방수팩을 챙기세요." },\n        { title: "하루 운영", text: "09:30–16:30 물놀이. 오전 어트랙션 후 12:30 점심·휴식, 오후 물놀이 후 16:30쯤 퇴장합니다." },\n        { title: "대릉원·천마총", text: "18:00–19:00 저녁 관람으로 배치했습니다. 천마총 내부 관람까지 가능하도록 여유 있게 이동합니다.", href: "https://map.naver.com/p/search/%EB%8C%80%EB%A6%89%EC%9B%90%20%EC%B2%9C%EB%A7%88%EC%B4%9D", link: "네이버 지도 ↗" },\n        { title: "저녁 식사", text: "관람 후 황리단길이나 대릉원 인근에서 저녁 식사로 이어가면 동선이 짧습니다." },\n        { title: "예매 링크", text: "네이버 예약에서 상품과 운영일을 최종 확인하세요.", href: "https://m.booking.naver.com/booking/5/bizes/92520/items/7914521?theme=place&lang=ko&area=ple", link: "티켓 확인 ↗" }\n      ],'
+            ],
+            [
+              '20: [\n        { start: "09:30", end: "12:30", title: "캘리포니아비치 물놀이", detail: "오전 어트랙션·파도풀", kind: "travel" },\n        { start: "12:30", end: "13:30", title: "점심·휴식", detail: "피크닉 장소 이용 후 재입장", kind: "stay" },\n        { start: "13:30", end: "18:00", title: "캘리포니아비치 물놀이", detail: "오후 물놀이·샤워·퇴장 준비", kind: "travel" },\n        { start: "18:00", end: "19:00", title: "저녁 식사", detail: "경주 저녁 식사", kind: "stay" }\n      ],',
+              '20: [\n        { start: "09:30", end: "12:30", title: "캘리포니아비치 물놀이", detail: "오전 어트랙션·파도풀", kind: "travel" },\n        { start: "12:30", end: "13:30", title: "점심·휴식", detail: "피크닉 장소 이용 후 재입장", kind: "stay" },\n        { start: "13:30", end: "16:30", title: "캘리포니아비치 물놀이", detail: "오후 물놀이 후 16:30쯤 퇴장", kind: "travel" },\n        { start: "16:30", end: "17:30", title: "워터파크 → Aventa 이동·정리", detail: "샤워·짐 정리·저녁 관람 준비", kind: "travel" },\n        { start: "17:30", end: "18:00", title: "Aventa → 대릉원 이동", detail: "대릉원·천마총 저녁 관람 이동", kind: "travel" },\n        { start: "18:00", end: "19:00", title: "대릉원·천마총 저녁 관람", detail: "천마총 내부와 고분 산책 중심", kind: "travel" }\n      ],'
+            ]
+          ];
+
+          for (const [from, to] of replacements) {
+            if (!html.includes(from)) {
+              throw new Error(`Expected text not found: ${from.slice(0, 160)}`);
+            }
+            html = html.replace(from, to);
+          }
+
+          fs.writeFileSync(path, html);
+          NODE
+      - name: Remove one-time workflow
+        run: rm .github/workflows/patch-aug20-daereungwon.yml
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add personal-work/2026/01-vacation/index.html .github/workflows/patch-aug20-daereungwon.yml
+          git commit -m "Update Aug 20 waterpark and Daereungwon schedule"
+          git push
