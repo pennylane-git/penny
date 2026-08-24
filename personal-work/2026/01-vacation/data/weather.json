@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "updatedAt": "2026-08-24T20:47:30.840Z",
+  "updatedAt": "2026-08-24T21:43:11.247Z",
   "source": "기상청 단기·중기예보 · 첨부 예보 기준 · Open-Meteo 기온 보완",
   "updateIntervalMinutes": 60,
   "locations": [
@@ -15,9 +15,9 @@
       "midLandRegId": "11H10000",
       "provider": "기상청 단기예보",
       "current": {
-        "temperature": 24.9,
-        "humidity": 93,
-        "windSpeed": 1,
+        "temperature": 24.6,
+        "humidity": 94,
+        "windSpeed": 1.2,
         "rainLastHour": 0,
         "condition": "맑음"
       },
@@ -155,8 +155,7 @@
           "min": 24,
           "max": 32,
           "precipitationProbability": 60,
-          "condition": "구름 많음",
-          "provider": "기상청 중기육상예보"
+          "condition": "구름 많음"
         },
         {
           "date": "2026-08-28",
@@ -228,8 +227,8 @@
       "midLandRegId": "11C20000",
       "provider": "기상청 단기예보",
       "current": {
-        "temperature": 24.7,
-        "humidity": 94,
+        "temperature": 24.6,
+        "humidity": 95,
         "windSpeed": 1.7,
         "rainLastHour": 0,
         "condition": "흐림"
@@ -368,8 +367,7 @@
           "min": 24,
           "max": 31,
           "precipitationProbability": 30,
-          "condition": "구름 많음",
-          "provider": "기상청 중기육상예보"
+          "condition": "구름 많음"
         },
         {
           "date": "2026-08-28",
@@ -441,9 +439,9 @@
       "midLandRegId": "11F20000",
       "provider": "기상청 단기예보",
       "current": {
-        "temperature": 24.3,
+        "temperature": 24.1,
         "humidity": 94,
-        "windSpeed": 0.1,
+        "windSpeed": 0.2,
         "rainLastHour": 0,
         "condition": "구름 많음"
       },
