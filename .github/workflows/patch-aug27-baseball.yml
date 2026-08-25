@@ -1,0 +1,66 @@
+name: patch-aug27-baseball
+
+on:
+  push:
+    paths:
+      - .github/workflows/patch-aug27-baseball.yml
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add Aug 27 baseball schedule
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const path = 'personal-work/2026/01-vacation/index.html';
+          let html = fs.readFileSync(path, 'utf8');
+          const replacements = [
+            [
+              '<div class="day"><span class="num">27</span><button class="event blue-event" type="button" data-date="27">광주 숙박<small>Hotel LAAM</small></button></div>',
+              '<div class="day"><span class="num">27</span><button class="event blue-event" type="button" data-date="27">챔피언스필드<small>18:30 · 롯데 vs KIA</small></button><button class="event blue-event" type="button" data-date="27">예매 좌석<small>1루 EV석 518블록 14열 5·6번</small></button></div>'
+            ],
+            [
+              '<div><strong>광주 숙박</strong><p>Hotel LAAM을 거점으로 광주 명소를 둘러봅니다.</p></div>',
+              '<div><strong>광주-기아 챔피언스필드 야구 관람</strong><p>18:30 롯데 vs KIA 경기 관람 일정입니다.</p><p>예매 좌석은 1루 EV석 518블록 14열 5·6번입니다. 예매번호 등 식별 정보는 공개 페이지에서 제외했습니다.</p></div>'
+            ],
+            [
+              '27: { label: "8월 27일 목요일", progress: "9일차", title: "광주 숙박", description: "Hotel LAAM을 거점으로 광주 명소를 둘러봅니다.", day: "광주" },',
+              '27: { label: "8월 27일 목요일", progress: "9일차", title: "챔피언스필드 야구 관람", description: "18:30 롯데 vs KIA · 1루 EV석 518블록 14열 5·6번 · 주차장이 협소하므로 대중교통 또는 택시 이동 우선", day: "광주" },'
+            ],
+            [
+              '27: [\n        { start: "12:00", end: "13:00", title: "점심 식사", detail: "광주 점심 식사", kind: "stay" },\n        { start: "16:00", end: "18:00", title: "광주 숙박", detail: "Hotel LAAM", kind: "stay" },\n        { start: "18:00", end: "19:00", title: "저녁 식사", detail: "광주 저녁 식사", kind: "stay" }\n      ],',
+              '27: [\n        { start: "16:30", end: "17:10", title: "Hotel LAAM → 챔피언스필드 이동", detail: "주차장이 협소하므로 택시·대중교통 우선", kind: "travel" },\n        { start: "17:10", end: "18:10", title: "입장·먹거리 준비", detail: "모바일 티켓 확인·구장 먹거리 구매", kind: "stay" },\n        { start: "18:10", end: "18:30", title: "좌석 착석", detail: "1루 EV석 518블록 14열 5·6번", kind: "stay" },\n        { start: "18:30", end: "21:30", title: "롯데 vs KIA 야구 관람", detail: "2026 신한 SOL KBO 리그", kind: "travel" },\n        { start: "21:30", end: "22:00", title: "퇴장·숙소 복귀", detail: "혼잡 시 택시 호출 또는 대중교통 이용", kind: "travel" }\n      ],'
+            ],
+            [
+              '      const scheduleStartHour = filter === "21" ? 10 : 8;\n      const scheduleEndHour = filter === "21" ? 21 : (filter === "19" ? 20 : 19);',
+              '      const scheduleStartHour = filter === "21" ? 10 : (filter === "27" ? 16 : 8);\n      const scheduleEndHour = filter === "21" ? 21 : (filter === "27" ? 22 : (filter === "19" ? 20 : 19));'
+            ],
+            [
+              '      27: [\n        { title: "Hotel LAAM 인근 LPG", text: "동부충전소 · 광주 동구 남문로 615. 광주권 최저가는 별도 검색으로 확인하고, 숙소 인근 가격과 비교하세요.", href: "https://map.naver.com/p/search/%EB%8F%99%EB%B6%80%EC%B6%A9%EC%A0%84%EC%86%8C%20%EA%B4%91%EC%A3%BC", link: "네이버 지도 ↗" },',
+              '      27: [\n        { title: "챔피언스필드 야구", text: "2026 신한 SOL KBO 리그 롯데 vs KIA · 8월 27일 목요일 18:30. 좌석은 1루 EV석 518블록 14열 5·6번입니다. 예매번호는 공개 페이지에서 제외했습니다.", href: "https://map.naver.com/p/search/%EA%B4%91%EC%A3%BC%20%EA%B8%B0%EC%95%84%20%EC%B1%94%ED%94%BC%EC%96%B8%EC%8A%A4%ED%95%84%EB%93%9C", link: "구장 지도 ↗" },\n        { title: "이동 메모", text: "티켓 안내에 주차장이 협소하다고 되어 있으므로 Hotel LAAM에 주차 후 택시·대중교통 이동을 우선합니다." },\n        { title: "Hotel LAAM 인근 LPG", text: "동부충전소 · 광주 동구 남문로 615. 광주권 최저가는 별도 검색으로 확인하고, 숙소 인근 가격과 비교하세요.", href: "https://map.naver.com/p/search/%EB%8F%99%EB%B6%80%EC%B6%A9%EC%A0%84%EC%86%8C%20%EA%B4%91%EC%A3%BC", link: "네이버 지도 ↗" },'
+            ]
+          ];
+
+          for (const [from, to] of replacements) {
+            if (!html.includes(from)) {
+              throw new Error(`Expected text not found: ${from.slice(0, 180)}`);
+            }
+            html = html.replace(from, to);
+          }
+
+          fs.writeFileSync(path, html);
+          NODE
+      - name: Remove one-time workflow
+        run: rm .github/workflows/patch-aug27-baseball.yml
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add personal-work/2026/01-vacation/index.html .github/workflows/patch-aug27-baseball.yml
+          git commit -m "Add Aug 27 Champions Field baseball schedule"
+          git push
