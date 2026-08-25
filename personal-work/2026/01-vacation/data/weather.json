@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "updatedAt": "2026-08-25T04:52:56.781Z",
+  "updatedAt": "2026-08-25T05:46:34.835Z",
   "source": "기상청 단기·중기예보 · 첨부 예보 기준 · Open-Meteo 기온 보완",
   "updateIntervalMinutes": 60,
   "locations": [
@@ -15,29 +15,13 @@
       "midLandRegId": "11H10000",
       "provider": "기상청 단기예보",
       "current": {
-        "temperature": 34.5,
+        "temperature": 35.6,
         "humidity": 50,
-        "windSpeed": 2.2,
+        "windSpeed": 2.5,
         "rainLastHour": 0,
         "condition": "맑음"
       },
       "hourly": [
-        {
-          "at": "2026-08-25T13:00:00+09:00",
-          "temperature": 34,
-          "humidity": 55,
-          "precipitationProbability": 0,
-          "precipitation": "강수없음",
-          "condition": "맑음"
-        },
-        {
-          "at": "2026-08-25T14:00:00+09:00",
-          "temperature": 34,
-          "humidity": 55,
-          "precipitationProbability": 0,
-          "precipitation": "강수없음",
-          "condition": "맑음"
-        },
         {
           "at": "2026-08-25T15:00:00+09:00",
           "temperature": 35,
@@ -82,6 +66,22 @@
           "at": "2026-08-25T20:00:00+09:00",
           "temperature": 28,
           "humidity": 80,
+          "precipitationProbability": 0,
+          "precipitation": "강수없음",
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-08-25T21:00:00+09:00",
+          "temperature": 28,
+          "humidity": 85,
+          "precipitationProbability": 0,
+          "precipitation": "강수없음",
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-08-25T22:00:00+09:00",
+          "temperature": 27,
+          "humidity": 85,
           "precipitationProbability": 0,
           "precipitation": "강수없음",
           "condition": "맑음"
@@ -227,29 +227,13 @@
       "midLandRegId": "11C20000",
       "provider": "기상청 단기예보",
       "current": {
-        "temperature": 29.6,
-        "humidity": 82,
-        "windSpeed": 0.9,
-        "rainLastHour": 2.1,
-        "condition": "맑음"
+        "temperature": 31.5,
+        "humidity": 74,
+        "windSpeed": 2.1,
+        "rainLastHour": 0,
+        "condition": "소나기"
       },
       "hourly": [
-        {
-          "at": "2026-08-25T13:00:00+09:00",
-          "temperature": 31,
-          "humidity": 75,
-          "precipitationProbability": 0,
-          "precipitation": "강수없음",
-          "condition": "맑음"
-        },
-        {
-          "at": "2026-08-25T14:00:00+09:00",
-          "temperature": 31,
-          "humidity": 70,
-          "precipitationProbability": 0,
-          "precipitation": "강수없음",
-          "condition": "맑음"
-        },
         {
           "at": "2026-08-25T15:00:00+09:00",
           "temperature": 31,
@@ -294,6 +278,22 @@
           "at": "2026-08-25T20:00:00+09:00",
           "temperature": 27,
           "humidity": 90,
+          "precipitationProbability": 0,
+          "precipitation": "강수없음",
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-08-25T21:00:00+09:00",
+          "temperature": 26,
+          "humidity": 90,
+          "precipitationProbability": 0,
+          "precipitation": "강수없음",
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-08-25T22:00:00+09:00",
+          "temperature": 25,
+          "humidity": 95,
           "precipitationProbability": 0,
           "precipitation": "강수없음",
           "condition": "맑음"
@@ -353,7 +353,7 @@
           "min": 25,
           "max": 31,
           "precipitationProbability": 60,
-          "condition": "구름 많음"
+          "condition": "맑음"
         },
         {
           "date": "2026-08-26",
@@ -439,29 +439,13 @@
       "midLandRegId": "11F20000",
       "provider": "기상청 단기예보",
       "current": {
-        "temperature": 31.8,
-        "humidity": 54,
-        "windSpeed": 1,
+        "temperature": 34.4,
+        "humidity": 49,
+        "windSpeed": 1.6,
         "rainLastHour": 0,
         "condition": "맑음"
       },
       "hourly": [
-        {
-          "at": "2026-08-25T13:00:00+09:00",
-          "temperature": 33,
-          "humidity": 55,
-          "precipitationProbability": 0,
-          "precipitation": "강수없음",
-          "condition": "맑음"
-        },
-        {
-          "at": "2026-08-25T14:00:00+09:00",
-          "temperature": 34,
-          "humidity": 50,
-          "precipitationProbability": 0,
-          "precipitation": "강수없음",
-          "condition": "맑음"
-        },
         {
           "at": "2026-08-25T15:00:00+09:00",
           "temperature": 34,
@@ -506,6 +490,22 @@
           "at": "2026-08-25T20:00:00+09:00",
           "temperature": 29,
           "humidity": 75,
+          "precipitationProbability": 0,
+          "precipitation": "강수없음",
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-08-25T21:00:00+09:00",
+          "temperature": 28,
+          "humidity": 80,
+          "precipitationProbability": 0,
+          "precipitation": "강수없음",
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-08-25T22:00:00+09:00",
+          "temperature": 28,
+          "humidity": 80,
           "precipitationProbability": 0,
           "precipitation": "강수없음",
           "condition": "맑음"
