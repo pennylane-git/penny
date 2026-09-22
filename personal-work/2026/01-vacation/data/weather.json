@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "updatedAt": "2026-09-22T18:54:01.444Z",
+  "updatedAt": "2026-09-22T22:08:06.904Z",
   "source": "기상청 단기·중기예보 · 첨부 예보 기준 · Open-Meteo 기온 보완",
   "updateIntervalMinutes": 60,
   "locations": [
@@ -16,48 +16,24 @@
       "provider": "Open-Meteo Best Match",
       "fallback": true,
       "current": {
-        "temperature": 16.3,
+        "temperature": 16.2,
         "humidity": 90,
-        "windSpeed": 2.15,
+        "windSpeed": 1.92,
         "rainLastHour": 0,
         "condition": "맑음"
       },
       "hourly": [
         {
-          "at": "2026-09-23T04:00:00+09:00",
-          "temperature": 16.1,
-          "humidity": 90,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
-          "at": "2026-09-23T05:00:00+09:00",
-          "temperature": 15.7,
-          "humidity": 91,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
-          "at": "2026-09-23T06:00:00+09:00",
-          "temperature": 15.5,
-          "humidity": 90,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
           "at": "2026-09-23T07:00:00+09:00",
-          "temperature": 16.1,
-          "humidity": 89,
+          "temperature": 16.2,
+          "humidity": 90,
           "precipitationProbability": 0,
           "precipitation": 0,
           "condition": "맑음"
         },
         {
           "at": "2026-09-23T08:00:00+09:00",
-          "temperature": 18.6,
+          "temperature": 18.7,
           "humidity": 84,
           "precipitationProbability": 0,
           "precipitation": 0,
@@ -73,19 +49,43 @@
         },
         {
           "at": "2026-09-23T10:00:00+09:00",
-          "temperature": 22.9,
-          "humidity": 68,
+          "temperature": 23,
+          "humidity": 67,
           "precipitationProbability": 0,
           "precipitation": 0,
           "condition": "맑음"
         },
         {
           "at": "2026-09-23T11:00:00+09:00",
-          "temperature": 23.9,
+          "temperature": 23.8,
           "humidity": 64,
           "precipitationProbability": 0,
           "precipitation": 0,
           "condition": "맑음"
+        },
+        {
+          "at": "2026-09-23T12:00:00+09:00",
+          "temperature": 24,
+          "humidity": 62,
+          "precipitationProbability": 0,
+          "precipitation": 0,
+          "condition": "구름 조금"
+        },
+        {
+          "at": "2026-09-23T13:00:00+09:00",
+          "temperature": 24.4,
+          "humidity": 62,
+          "precipitationProbability": 0,
+          "precipitation": 0,
+          "condition": "구름 조금"
+        },
+        {
+          "at": "2026-09-23T14:00:00+09:00",
+          "temperature": 24.5,
+          "humidity": 61,
+          "precipitationProbability": 0,
+          "precipitation": 0,
+          "condition": "구름 조금"
         }
       ],
       "daily": [
@@ -139,31 +139,31 @@
         },
         {
           "date": "2026-09-23",
-          "min": 15.5,
-          "max": 25.1,
+          "min": 15.4,
+          "max": 24.5,
           "precipitationProbability": 2,
           "condition": "흐림"
         },
         {
           "date": "2026-09-24",
           "min": 15.6,
-          "max": 28.1,
+          "max": 27.9,
           "precipitationProbability": 3,
           "condition": "흐림"
         },
         {
           "date": "2026-09-25",
-          "min": 17.4,
-          "max": 24.7,
+          "min": 17.8,
+          "max": 25.7,
           "precipitationProbability": 42,
-          "condition": "비"
+          "condition": "흐림"
         },
         {
           "date": "2026-09-26",
           "min": 18.6,
           "max": 26.2,
           "precipitationProbability": 41,
-          "condition": "비"
+          "condition": "흐림"
         },
         {
           "date": "2026-09-27",
@@ -222,37 +222,13 @@
       "provider": "Open-Meteo Best Match",
       "fallback": true,
       "current": {
-        "temperature": 17.8,
-        "humidity": 84,
-        "windSpeed": 0.92,
+        "temperature": 17.1,
+        "humidity": 85,
+        "windSpeed": 0.22,
         "rainLastHour": 0,
         "condition": "맑음"
       },
       "hourly": [
-        {
-          "at": "2026-09-23T04:00:00+09:00",
-          "temperature": 17.7,
-          "humidity": 84,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
-          "at": "2026-09-23T05:00:00+09:00",
-          "temperature": 17.6,
-          "humidity": 83,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
-          "at": "2026-09-23T06:00:00+09:00",
-          "temperature": 17.2,
-          "humidity": 84,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
         {
           "at": "2026-09-23T07:00:00+09:00",
           "temperature": 17.1,
@@ -263,7 +239,7 @@
         },
         {
           "at": "2026-09-23T08:00:00+09:00",
-          "temperature": 18.3,
+          "temperature": 18.2,
           "humidity": 84,
           "precipitationProbability": 0,
           "precipitation": 0,
@@ -271,8 +247,8 @@
         },
         {
           "at": "2026-09-23T09:00:00+09:00",
-          "temperature": 20.4,
-          "humidity": 77,
+          "temperature": 20.2,
+          "humidity": 78,
           "precipitationProbability": 0,
           "precipitation": 0,
           "condition": "맑음"
@@ -287,11 +263,35 @@
         },
         {
           "at": "2026-09-23T11:00:00+09:00",
-          "temperature": 24.1,
+          "temperature": 24,
           "humidity": 63,
           "precipitationProbability": 0,
           "precipitation": 0,
           "condition": "맑음"
+        },
+        {
+          "at": "2026-09-23T12:00:00+09:00",
+          "temperature": 25.1,
+          "humidity": 58,
+          "precipitationProbability": 0,
+          "precipitation": 0,
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-09-23T13:00:00+09:00",
+          "temperature": 25.9,
+          "humidity": 56,
+          "precipitationProbability": 17,
+          "precipitation": 0,
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-09-23T14:00:00+09:00",
+          "temperature": 26,
+          "humidity": 57,
+          "precipitationProbability": 39,
+          "precipitation": 0,
+          "condition": "구름 조금"
         }
       ],
       "daily": [
@@ -346,20 +346,20 @@
         {
           "date": "2026-09-23",
           "min": 17.1,
-          "max": 25.9,
+          "max": 26,
           "precipitationProbability": 53,
           "condition": "구름 조금"
         },
         {
           "date": "2026-09-24",
-          "min": 18.7,
-          "max": 26.1,
+          "min": 18.2,
+          "max": 25.8,
           "precipitationProbability": 2,
           "condition": "흐림"
         },
         {
           "date": "2026-09-25",
-          "min": 17.7,
+          "min": 18,
           "max": 24.9,
           "precipitationProbability": 51,
           "condition": "비"
@@ -428,31 +428,15 @@
       "provider": "Open-Meteo Best Match",
       "fallback": true,
       "current": {
-        "temperature": 19.3,
+        "temperature": 18.7,
         "humidity": 81,
         "windSpeed": 1.1,
         "rainLastHour": 0,
-        "condition": "구름 조금"
+        "condition": "맑음"
       },
       "hourly": [
         {
-          "at": "2026-09-23T04:00:00+09:00",
-          "temperature": 19.2,
-          "humidity": 81,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
-          "at": "2026-09-23T05:00:00+09:00",
-          "temperature": 19,
-          "humidity": 80,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
-          "at": "2026-09-23T06:00:00+09:00",
+          "at": "2026-09-23T07:00:00+09:00",
           "temperature": 18.7,
           "humidity": 81,
           "precipitationProbability": 0,
@@ -460,32 +444,24 @@
           "condition": "맑음"
         },
         {
-          "at": "2026-09-23T07:00:00+09:00",
-          "temperature": 18.8,
-          "humidity": 81,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
           "at": "2026-09-23T08:00:00+09:00",
-          "temperature": 20.3,
-          "humidity": 77,
+          "temperature": 20,
+          "humidity": 79,
           "precipitationProbability": 0,
           "precipitation": 0,
           "condition": "구름 조금"
         },
         {
           "at": "2026-09-23T09:00:00+09:00",
-          "temperature": 21.6,
-          "humidity": 73,
+          "temperature": 21.4,
+          "humidity": 75,
           "precipitationProbability": 0,
           "precipitation": 0,
           "condition": "구름 조금"
         },
         {
           "at": "2026-09-23T10:00:00+09:00",
-          "temperature": 22.7,
+          "temperature": 22.5,
           "humidity": 72,
           "precipitationProbability": 3,
           "precipitation": 0,
@@ -493,11 +469,35 @@
         },
         {
           "at": "2026-09-23T11:00:00+09:00",
-          "temperature": 23.7,
-          "humidity": 70,
+          "temperature": 23.6,
+          "humidity": 68,
           "precipitationProbability": 8,
           "precipitation": 0,
           "condition": "구름 조금"
+        },
+        {
+          "at": "2026-09-23T12:00:00+09:00",
+          "temperature": 24.3,
+          "humidity": 66,
+          "precipitationProbability": 12,
+          "precipitation": 0,
+          "condition": "구름 조금"
+        },
+        {
+          "at": "2026-09-23T13:00:00+09:00",
+          "temperature": 24.4,
+          "humidity": 65,
+          "precipitationProbability": 15,
+          "precipitation": 0,
+          "condition": "구름 조금"
+        },
+        {
+          "at": "2026-09-23T14:00:00+09:00",
+          "temperature": 24.7,
+          "humidity": 62,
+          "precipitationProbability": 18,
+          "precipitation": 0,
+          "condition": "흐림"
         }
       ],
       "daily": [
@@ -569,28 +569,28 @@
         },
         {
           "date": "2026-09-23",
-          "min": 18.7,
-          "max": 24.7,
+          "min": 18.6,
+          "max": 24.9,
           "precipitationProbability": 18,
           "condition": "흐림"
         },
         {
           "date": "2026-09-24",
-          "min": 18.2,
-          "max": 27.5,
+          "min": 18.5,
+          "max": 27.2,
           "precipitationProbability": 10,
-          "condition": "흐림"
+          "condition": "구름 조금"
         },
         {
           "date": "2026-09-25",
-          "min": 20.1,
-          "max": 25,
+          "min": 20.5,
+          "max": 25.5,
           "precipitationProbability": 41,
           "condition": "비"
         },
         {
           "date": "2026-09-26",
-          "min": 19.4,
+          "min": 19.5,
           "max": 25.5,
           "precipitationProbability": 45,
           "condition": "비"
