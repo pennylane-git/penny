@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "updatedAt": "2026-10-07T14:30:07.990Z",
+  "updatedAt": "2026-10-07T20:36:07.344Z",
   "source": "기상청 단기·중기예보 · 첨부 예보 기준 · Open-Meteo 기온 보완",
   "updateIntervalMinutes": 60,
   "locations": [
@@ -13,78 +13,77 @@
       "latitude": 35.8308,
       "longitude": 129.2142,
       "midLandRegId": "11H10000",
-      "provider": "Open-Meteo Best Match",
-      "fallback": true,
+      "provider": "기상청 단기예보",
       "current": {
-        "temperature": 15.7,
-        "humidity": 59,
-        "windSpeed": 0.9,
+        "temperature": 7.8,
+        "humidity": 94,
+        "windSpeed": 1.6,
         "rainLastHour": 0,
         "condition": "맑음"
       },
       "hourly": [
         {
-          "at": "2026-10-08T00:00:00+09:00",
-          "temperature": 15.7,
-          "humidity": 57,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
-          "at": "2026-10-08T01:00:00+09:00",
-          "temperature": 14.5,
-          "humidity": 63,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
-          "at": "2026-10-08T02:00:00+09:00",
-          "temperature": 12.6,
-          "humidity": 76,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
-          "at": "2026-10-08T03:00:00+09:00",
-          "temperature": 11.8,
-          "humidity": 79,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
-          "at": "2026-10-08T04:00:00+09:00",
-          "temperature": 12.4,
-          "humidity": 73,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
-          "at": "2026-10-08T05:00:00+09:00",
-          "temperature": 12.6,
-          "humidity": 70,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
           "at": "2026-10-08T06:00:00+09:00",
-          "temperature": 12.3,
+          "temperature": 10,
           "humidity": 70,
           "precipitationProbability": 0,
-          "precipitation": 0,
+          "precipitation": "강수없음",
           "condition": "맑음"
         },
         {
           "at": "2026-10-08T07:00:00+09:00",
-          "temperature": 12.3,
-          "humidity": 72,
+          "temperature": 10,
+          "humidity": 75,
           "precipitationProbability": 0,
-          "precipitation": 0,
+          "precipitation": "강수없음",
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-10-08T08:00:00+09:00",
+          "temperature": 13,
+          "humidity": 65,
+          "precipitationProbability": 0,
+          "precipitation": "강수없음",
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-10-08T09:00:00+09:00",
+          "temperature": 17,
+          "humidity": 55,
+          "precipitationProbability": 0,
+          "precipitation": "강수없음",
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-10-08T10:00:00+09:00",
+          "temperature": 20,
+          "humidity": 50,
+          "precipitationProbability": 0,
+          "precipitation": "강수없음",
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-10-08T11:00:00+09:00",
+          "temperature": 22,
+          "humidity": 45,
+          "precipitationProbability": 0,
+          "precipitation": "강수없음",
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-10-08T12:00:00+09:00",
+          "temperature": 23,
+          "humidity": 40,
+          "precipitationProbability": 0,
+          "precipitation": "강수없음",
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-10-08T13:00:00+09:00",
+          "temperature": 25,
+          "humidity": 40,
+          "precipitationProbability": 0,
+          "precipitation": "강수없음",
           "condition": "맑음"
         }
       ],
@@ -138,77 +137,85 @@
           "provider": "2026-08-15 네이버 날씨 캡처 기준"
         },
         {
-          "date": "2026-10-07",
-          "min": 11.4,
-          "max": 22.5,
-          "precipitationProbability": 0,
-          "condition": "맑음"
-        },
-        {
           "date": "2026-10-08",
-          "min": 11.8,
-          "max": 24,
+          "min": 10,
+          "max": 26,
           "precipitationProbability": 0,
           "condition": "맑음"
         },
         {
           "date": "2026-10-09",
-          "min": 12.7,
-          "max": 24.8,
-          "precipitationProbability": 0,
+          "min": 11,
+          "max": 27,
+          "precipitationProbability": 20,
           "condition": "맑음"
         },
         {
           "date": "2026-10-10",
-          "min": 16.2,
-          "max": 25.7,
-          "precipitationProbability": 74,
-          "condition": "비"
+          "min": 14,
+          "max": 26,
+          "precipitationProbability": 60,
+          "condition": "구름 많음",
+          "provider": "기상청 중기육상예보"
         },
         {
           "date": "2026-10-11",
-          "min": 17.4,
-          "max": 25.4,
-          "precipitationProbability": 75,
-          "condition": "비"
+          "min": 17,
+          "max": 25,
+          "precipitationProbability": 60,
+          "condition": "비",
+          "provider": "기상청 중기육상예보"
         },
         {
           "date": "2026-10-12",
-          "min": 17.7,
-          "max": 25.2,
-          "precipitationProbability": 69,
-          "condition": "비"
+          "min": 17.9,
+          "max": 26.5,
+          "precipitationProbability": 40,
+          "condition": "흐림",
+          "provider": "기상청 중기육상예보"
         },
         {
           "date": "2026-10-13",
-          "min": 18,
-          "max": 25.9,
-          "precipitationProbability": 25,
-          "condition": "비"
+          "min": 18.1,
+          "max": 26.7,
+          "precipitationProbability": 40,
+          "condition": "흐림",
+          "provider": "기상청 중기육상예보"
         },
         {
           "date": "2026-10-14",
-          "min": 13.1,
-          "max": 23.8,
-          "precipitationProbability": 13,
-          "condition": "흐림"
+          "min": 14,
+          "max": 20.9,
+          "precipitationProbability": 40,
+          "condition": "흐림",
+          "provider": "기상청 중기육상예보"
         },
         {
           "date": "2026-10-15",
-          "min": 10.8,
-          "max": 21.7,
-          "precipitationProbability": 12,
-          "condition": "구름 조금"
+          "min": 13.1,
+          "max": 24.4,
+          "precipitationProbability": 20,
+          "condition": "구름 많음",
+          "provider": "기상청 중기육상예보"
         },
         {
           "date": "2026-10-16",
-          "min": 14.3,
-          "max": 23.2,
-          "precipitationProbability": 16,
-          "condition": "비"
+          "min": 12.6,
+          "max": 24.3,
+          "precipitationProbability": 10,
+          "condition": "맑음",
+          "provider": "기상청 중기육상예보"
+        },
+        {
+          "date": "2026-10-17",
+          "min": 14.2,
+          "max": 24.7,
+          "precipitationProbability": 10,
+          "condition": "맑음",
+          "provider": "기상청 중기육상예보"
         }
       ],
-      "dailySupplement": "첨부 예보 기준 · Open-Meteo"
+      "dailySupplement": "첨부 예보 기준 · 기상청 중기예보 · Open-Meteo 기온"
     },
     {
       "id": "resom",
@@ -219,78 +226,77 @@
       "latitude": 36.6885,
       "longitude": 126.6626,
       "midLandRegId": "11C20000",
-      "provider": "Open-Meteo Best Match",
-      "fallback": true,
+      "provider": "기상청 단기예보",
       "current": {
-        "temperature": 14.3,
-        "humidity": 63,
-        "windSpeed": 2.53,
+        "temperature": 8.2,
+        "humidity": 90,
+        "windSpeed": 1.2,
         "rainLastHour": 0,
         "condition": "맑음"
       },
       "hourly": [
         {
-          "at": "2026-10-08T00:00:00+09:00",
-          "temperature": 14.1,
-          "humidity": 64,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
-          "at": "2026-10-08T01:00:00+09:00",
-          "temperature": 13.7,
-          "humidity": 64,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
-          "at": "2026-10-08T02:00:00+09:00",
-          "temperature": 13.6,
-          "humidity": 64,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
-          "at": "2026-10-08T03:00:00+09:00",
-          "temperature": 13.6,
-          "humidity": 64,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
-          "at": "2026-10-08T04:00:00+09:00",
-          "temperature": 14.3,
-          "humidity": 61,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
-          "at": "2026-10-08T05:00:00+09:00",
-          "temperature": 14.9,
-          "humidity": 57,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
           "at": "2026-10-08T06:00:00+09:00",
-          "temperature": 13.8,
-          "humidity": 62,
+          "temperature": 9,
+          "humidity": 85,
           "precipitationProbability": 0,
-          "precipitation": 0,
+          "precipitation": "강수없음",
           "condition": "맑음"
         },
         {
           "at": "2026-10-08T07:00:00+09:00",
-          "temperature": 11.6,
-          "humidity": 72,
+          "temperature": 9,
+          "humidity": 85,
           "precipitationProbability": 0,
-          "precipitation": 0,
+          "precipitation": "강수없음",
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-10-08T08:00:00+09:00",
+          "temperature": 11,
+          "humidity": 75,
+          "precipitationProbability": 0,
+          "precipitation": "강수없음",
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-10-08T09:00:00+09:00",
+          "temperature": 15,
+          "humidity": 65,
+          "precipitationProbability": 0,
+          "precipitation": "강수없음",
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-10-08T10:00:00+09:00",
+          "temperature": 18,
+          "humidity": 55,
+          "precipitationProbability": 0,
+          "precipitation": "강수없음",
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-10-08T11:00:00+09:00",
+          "temperature": 20,
+          "humidity": 50,
+          "precipitationProbability": 0,
+          "precipitation": "강수없음",
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-10-08T12:00:00+09:00",
+          "temperature": 21,
+          "humidity": 45,
+          "precipitationProbability": 0,
+          "precipitation": "강수없음",
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-10-08T13:00:00+09:00",
+          "temperature": 23,
+          "humidity": 40,
+          "precipitationProbability": 0,
+          "precipitation": "강수없음",
           "condition": "맑음"
         }
       ],
@@ -344,77 +350,85 @@
           "provider": "2026-08-15 네이버 날씨 캡처 기준"
         },
         {
-          "date": "2026-10-07",
-          "min": 14,
-          "max": 21.7,
-          "precipitationProbability": 0,
-          "condition": "비"
-        },
-        {
           "date": "2026-10-08",
-          "min": 11.6,
-          "max": 22.8,
+          "min": 9,
+          "max": 24,
           "precipitationProbability": 0,
           "condition": "맑음"
         },
         {
           "date": "2026-10-09",
-          "min": 13.3,
-          "max": 23.6,
-          "precipitationProbability": 0,
-          "condition": "구름 조금"
+          "min": 11,
+          "max": 24,
+          "precipitationProbability": 20,
+          "condition": "맑음"
         },
         {
           "date": "2026-10-10",
-          "min": 14.5,
-          "max": 25.1,
-          "precipitationProbability": 5,
-          "condition": "구름 조금"
+          "min": 12,
+          "max": 24,
+          "precipitationProbability": 30,
+          "condition": "맑음",
+          "provider": "기상청 중기육상예보"
         },
         {
           "date": "2026-10-11",
-          "min": 15.1,
-          "max": 26.9,
-          "precipitationProbability": 20,
-          "condition": "흐림"
+          "min": 16,
+          "max": 25,
+          "precipitationProbability": 30,
+          "condition": "구름 많음",
+          "provider": "기상청 중기육상예보"
         },
         {
           "date": "2026-10-12",
-          "min": 17,
-          "max": 24.9,
-          "precipitationProbability": 67,
-          "condition": "비"
+          "min": 17.2,
+          "max": 25.5,
+          "precipitationProbability": 30,
+          "condition": "흐림",
+          "provider": "기상청 중기육상예보"
         },
         {
           "date": "2026-10-13",
-          "min": 15.4,
-          "max": 24.5,
-          "precipitationProbability": 22,
-          "condition": "비"
+          "min": 16.2,
+          "max": 23.8,
+          "precipitationProbability": 60,
+          "condition": "비",
+          "provider": "기상청 중기육상예보"
         },
         {
           "date": "2026-10-14",
-          "min": 11,
+          "min": 10.5,
           "max": 18.8,
-          "precipitationProbability": 6,
-          "condition": "흐림"
+          "precipitationProbability": 30,
+          "condition": "흐림",
+          "provider": "기상청 중기육상예보"
         },
         {
           "date": "2026-10-15",
-          "min": 9.8,
-          "max": 21.1,
-          "precipitationProbability": 4,
-          "condition": "구름 조금"
+          "min": 9.5,
+          "max": 20.4,
+          "precipitationProbability": 20,
+          "condition": "구름 많음",
+          "provider": "기상청 중기육상예보"
         },
         {
           "date": "2026-10-16",
-          "min": 12.2,
-          "max": 19.1,
-          "precipitationProbability": 22,
-          "condition": "비"
+          "min": 10.6,
+          "max": 23.8,
+          "precipitationProbability": 20,
+          "condition": "구름 많음",
+          "provider": "기상청 중기육상예보"
+        },
+        {
+          "date": "2026-10-17",
+          "min": 15.2,
+          "max": 26.4,
+          "precipitationProbability": 10,
+          "condition": "맑음",
+          "provider": "기상청 중기육상예보"
         }
       ],
-      "dailySupplement": "첨부 예보 기준 · Open-Meteo"
+      "dailySupplement": "첨부 예보 기준 · 기상청 중기예보 · Open-Meteo 기온"
     },
     {
       "id": "gwangju",
@@ -425,78 +439,77 @@
       "latitude": 35.146,
       "longitude": 126.923,
       "midLandRegId": "11F20000",
-      "provider": "Open-Meteo Best Match",
-      "fallback": true,
+      "provider": "기상청 단기예보",
       "current": {
-        "temperature": 16.1,
-        "humidity": 66,
-        "windSpeed": 1.51,
+        "temperature": 9.9,
+        "humidity": 93,
+        "windSpeed": 0.3,
         "rainLastHour": 0,
         "condition": "맑음"
       },
       "hourly": [
         {
-          "at": "2026-10-08T00:00:00+09:00",
-          "temperature": 15.9,
-          "humidity": 66,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
-          "at": "2026-10-08T01:00:00+09:00",
-          "temperature": 15.7,
-          "humidity": 66,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
-          "at": "2026-10-08T02:00:00+09:00",
-          "temperature": 15.7,
-          "humidity": 65,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
-          "at": "2026-10-08T03:00:00+09:00",
-          "temperature": 15.5,
-          "humidity": 66,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
-          "at": "2026-10-08T04:00:00+09:00",
-          "temperature": 15.4,
-          "humidity": 67,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
-          "at": "2026-10-08T05:00:00+09:00",
-          "temperature": 15.1,
-          "humidity": 67,
-          "precipitationProbability": 0,
-          "precipitation": 0,
-          "condition": "맑음"
-        },
-        {
           "at": "2026-10-08T06:00:00+09:00",
-          "temperature": 14.8,
-          "humidity": 68,
+          "temperature": 11,
+          "humidity": 80,
           "precipitationProbability": 0,
-          "precipitation": 0,
+          "precipitation": "강수없음",
           "condition": "맑음"
         },
         {
           "at": "2026-10-08T07:00:00+09:00",
-          "temperature": 14.6,
-          "humidity": 73,
+          "temperature": 11,
+          "humidity": 80,
           "precipitationProbability": 0,
-          "precipitation": 0,
+          "precipitation": "강수없음",
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-10-08T08:00:00+09:00",
+          "temperature": 13,
+          "humidity": 70,
+          "precipitationProbability": 0,
+          "precipitation": "강수없음",
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-10-08T09:00:00+09:00",
+          "temperature": 16,
+          "humidity": 55,
+          "precipitationProbability": 0,
+          "precipitation": "강수없음",
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-10-08T10:00:00+09:00",
+          "temperature": 19,
+          "humidity": 45,
+          "precipitationProbability": 0,
+          "precipitation": "강수없음",
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-10-08T11:00:00+09:00",
+          "temperature": 22,
+          "humidity": 40,
+          "precipitationProbability": 0,
+          "precipitation": "강수없음",
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-10-08T12:00:00+09:00",
+          "temperature": 24,
+          "humidity": 35,
+          "precipitationProbability": 0,
+          "precipitation": "강수없음",
+          "condition": "맑음"
+        },
+        {
+          "at": "2026-10-08T13:00:00+09:00",
+          "temperature": 25,
+          "humidity": 35,
+          "precipitationProbability": 0,
+          "precipitation": "강수없음",
           "condition": "맑음"
         }
       ],
@@ -568,56 +581,61 @@
           "provider": "2026-08-15 네이버 날씨 캡처 아이콘 기준"
         },
         {
-          "date": "2026-10-07",
-          "min": 14.1,
-          "max": 22.2,
-          "precipitationProbability": 0,
-          "condition": "구름 조금"
-        },
-        {
           "date": "2026-10-08",
-          "min": 14.6,
-          "max": 23.8,
+          "min": 11,
+          "max": 26,
           "precipitationProbability": 0,
-          "condition": "구름 조금"
+          "condition": "맑음"
         },
         {
           "date": "2026-10-09",
-          "min": 14.8,
-          "max": 25,
-          "precipitationProbability": 0,
-          "condition": "구름 조금"
+          "min": 12,
+          "max": 26,
+          "precipitationProbability": 20,
+          "condition": "맑음"
         },
         {
           "date": "2026-10-10",
-          "min": 17.9,
-          "max": 27.1,
-          "precipitationProbability": 59,
-          "condition": "비"
+          "min": 15,
+          "max": 26,
+          "precipitationProbability": 60,
+          "condition": "구름 많음",
+          "provider": "기상청 중기육상예보"
         },
         {
           "date": "2026-10-11",
-          "min": 17.9,
-          "max": 23.4,
+          "min": 18,
+          "max": 25,
           "precipitationProbability": 60,
-          "condition": "비"
+          "condition": "비",
+          "provider": "기상청 중기육상예보"
         },
         {
           "date": "2026-10-12",
-          "min": 15.9,
-          "max": 25,
-          "precipitationProbability": 65,
-          "condition": "비"
+          "min": 17.9,
+          "max": 27.2,
+          "precipitationProbability": 40,
+          "condition": "흐림",
+          "provider": "기상청 중기육상예보"
         },
         {
           "date": "2026-10-13",
-          "min": 15.5,
-          "max": 24.6,
-          "precipitationProbability": 27,
-          "condition": "비"
+          "min": 16.5,
+          "max": 25.8,
+          "precipitationProbability": 40,
+          "condition": "흐림",
+          "provider": "기상청 중기육상예보"
+        },
+        {
+          "date": "2026-10-14",
+          "min": 11.6,
+          "max": 22.1,
+          "precipitationProbability": 40,
+          "condition": "흐림",
+          "provider": "기상청 중기육상예보"
         }
       ],
-      "dailySupplement": "첨부 예보 기준 · Open-Meteo"
+      "dailySupplement": "첨부 예보 기준 · 기상청 중기예보 · Open-Meteo 기온"
     }
   ]
 }
