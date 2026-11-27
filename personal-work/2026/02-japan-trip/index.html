@@ -346,6 +346,67 @@ main.wrap{padding-block:4px 8px}
   .fl-pt .t{font-size:23px}
   .viewctl button{padding:6px 10px}
 }
+/* ---------- 모바일 최적화 ---------- */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+.m-only{display:none}
+@media (max-width:600px){
+  .m-only{display:inline}
+  /* 상단 바: 보기 전환 한 줄, 탭 한 줄 */
+  .bar-in{flex-wrap:wrap;gap:4px;padding-block:8px 0}
+  .viewctl{flex:1 1 100%;display:flex}
+  .viewctl button{flex:1 1 0;min-height:36px;padding:7px 6px;font-size:14px}
+  .tabs{flex:1 1 100%;gap:0;margin-inline:-6px;-webkit-mask-image:linear-gradient(90deg,#000 86%,transparent);mask-image:linear-gradient(90deg,#000 86%,transparent)}
+  .tab{min-height:42px;padding:12px 11px 8px;font-size:15px}
+  .day{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 108px)}
+  /* 상자 안쪽 여백을 줄여 글 폭 확보 */
+  .sec{margin-top:36px}
+  .sec-h h2{font-size:20px}
+  .panel{padding:16px 14px}
+  .budget{padding:2px 14px 12px}
+  .fx{padding:16px 14px}
+  .strip-box{padding:14px 12px 10px}
+  .bk,.fl{padding:14px 16px}
+  .wx{padding:12px 14px}
+  /* 날짜별 일정: 날짜를 위로 올려 본문 폭 넓히기, 태그는 시각 아래로 */
+  #plan{--dw:0px;--rw:22px}
+  .day{grid-template-columns:var(--rw) minmax(0,1fr);padding-block:18px 6px}
+  .day-node{grid-column:1;grid-row:1}
+  .day-node::after{top:4px}
+  .day-date{grid-column:2;grid-row:1;display:flex;align-items:baseline;gap:8px;margin:0 0 6px 8px;text-align:left}
+  .dm{margin-top:0}
+  .day-body{grid-column:2;grid-row:2;margin-left:8px}
+  .terminus{grid-template-columns:var(--rw) minmax(0,1fr)}
+  .tn-node{grid-column:1}
+  .tn-body{grid-column:2;margin-left:8px}
+  .it{grid-template-columns:42px minmax(0,1fr);gap:2px 8px;padding:7px 0}
+  .it .tx{grid-column:2;grid-row:1 / span 2}
+  .it .tag{grid-column:1;grid-row:2;justify-self:start;padding:0 5px;font-size:10.5px}
+  .lane{padding:10px 12px 4px}
+  /* 표는 한 줄씩 카드로 */
+  .tbl table,.tbl tbody,.tbl tr,.tbl td{display:block;width:auto}
+  .tbl colgroup,.tbl thead{display:none}
+  .tbl caption{display:block;padding-bottom:8px}
+  .tbl tr{padding:12px 0;border-bottom:1px solid var(--line)}
+  .tbl tbody tr:last-child{border-bottom:0}
+  .tbl td{padding:0;border:0;font-size:14px}
+  .tbl td:first-child{margin-bottom:6px}
+  .tbl td b{font-size:15px}
+  .tbl td small{font-size:12.5px}
+  .tbl td[data-label]:not(:first-child){display:grid;grid-template-columns:5.5em minmax(0,1fr);gap:10px;padding:3px 0}
+  .tbl td[data-label]:not(:first-child)::before{content:attr(data-label);font:600 12.5px/1.65 var(--font-ko);color:var(--ink-3)}
+  /* 금액·날씨 표: 숫자 칸을 나란히 */
+  .tbl table.stat tr{display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));gap:2px 10px}
+  .tbl table.stat td:first-child{grid-column:1 / -1}
+  .tbl table.stat td[data-label]:not(:first-child){display:block;padding:0;font-size:13.5px;word-break:keep-all;overflow-wrap:normal}
+  .budget table.stat tr{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) minmax(0,1fr)}
+  .tbl table.stat td[data-label]:not(:first-child)::before{display:block;font-size:11.5px;line-height:1.5}
+  .budget .num{text-align:left}
+  .budget tr.subrow{margin:4px 0;padding:10px 12px;border-bottom:0;border-radius:10px;background:var(--soft)}
+  .budget tr.subrow td{background:transparent}
+  .budget tr.subrow td:first-child{padding-left:0}
+  .budget tr.sum{margin-top:6px;padding-top:12px;border-top:2px solid var(--ink);border-bottom:0}
+  .budget tr.sum td{padding-top:0;border-bottom:0}
+}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -377,7 +438,7 @@ main.wrap{padding-block:4px 8px}
       <div><dt>숙소</dt><dd>5곳</dd><dd class="sub">교토·오사카 예약 완료 · 고베부터 미정</dd></div>
     </dl>
     <div class="strip-box">
-      <div class="strip-h"><h2>누가 언제 어디에</h2><p>날짜를 누르면 그날 일정으로 이동합니다</p></div>
+      <div class="strip-h"><h2>누가 언제 어디에</h2><p>날짜를 누르면 그날 일정으로 이동합니다<span class="m-only"> · 옆으로 밀어서 보기</span></p></div>
       <div class="strip-scroll"><div class="strip" id="strip"></div></div>
     </div>
   </div>
@@ -946,6 +1007,11 @@ main.wrap{padding-block:4px 8px}
       var n=CITY[p[0]]?'<small>'+CITY[p[0]].nights+'박</small>':'';
       return '<a class="tab" href="#'+p[0]+'"'+c+(page===p[0]?' aria-current="page"':'')+'>'+p[1]+n+'</a>';
     }).join('');
+    var tb=$('tabs'), cur=tb.querySelector('[aria-current]');
+    if(cur && tb.scrollWidth>tb.clientWidth){
+      var a=cur.getBoundingClientRect(), b=tb.getBoundingClientRect();
+      tb.scrollLeft+=(a.left-b.left)-(b.width-a.width)/2;
+    }
   }
 
   /* ---------- weather (기상청 평년값 1991~2020) ---------- */
@@ -1123,10 +1189,28 @@ main.wrap{padding-block:4px 8px}
   /* ---------- view switch ---------- */
   var view='all';
   try{ var saved=localStorage.getItem('jp-trip-view'); if(saved==='all'||saved==='ab'||saved==='c') view=saved; }catch(e){}
+  function labelTables(){
+    document.querySelectorAll('.tbl table').forEach(function(t){
+      var hs=t.tHead?[].map.call(t.tHead.rows[0].cells,function(c){ return c.textContent.trim(); }):[];
+      if(t.classList.contains('price')||t.closest('.budget')||t.closest('#wx-overview')){
+        t.classList.add('stat'); t.style.setProperty('--n',String(Math.max(1,hs.length-1)));
+      }
+      [].forEach.call(t.tBodies,function(tb){ [].forEach.call(tb.rows,function(r){ [].forEach.call(r.cells,function(td,i){
+        if(td.hasAttribute('data-label')) return;
+        td.setAttribute('data-label',hs[i]||'');
+        if(i>0){ var w=document.createElement('div'); w.className='cv'; while(td.firstChild) w.appendChild(td.firstChild); td.appendChild(w); }
+        if(i>0 && t.classList.contains('stat')){
+          var it=document.createTreeWalker(td,NodeFilter.SHOW_TEXT), n;
+          while((n=it.nextNode())){ if(n.nodeValue.indexOf('~')>-1) n.nodeValue=n.nodeValue.replace(/~(?!\u200b)/g,'~\u200b'); }
+        }
+      }); }); });
+    });
+  }
   function render(keepScroll){
     renderStrip(view); renderTodo(view); renderFlights(view); renderOverviewWx();
     document.querySelectorAll('.viewctl button').forEach(function(b){ b.setAttribute('aria-pressed', String(b.getAttribute('data-view')===view)); });
     route(keepScroll);
+    labelTables();
   }
   document.querySelectorAll('.viewctl button').forEach(function(b){
     b.addEventListener('click',function(){
@@ -1136,6 +1220,10 @@ main.wrap{padding-block:4px 8px}
     });
   });
   render(true);
+  if(target){
+    var goTarget=function(){ var el=document.getElementById(target); if(el) el.scrollIntoView({block:'start'}); };
+    if(document.readyState==='complete') goTarget(); else window.addEventListener('load',goTarget);
+  }
 
   /* ---------- copy booking number ---------- */
   var cp=$('copy-pnr');
