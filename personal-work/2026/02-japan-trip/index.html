@@ -1,0 +1,1174 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="강슛돌 · 이힝구 · 호호의 일본 여행 계획 · 교토 · 오사카 · 고베 · 히로시마 · 마쓰야마 · 2027.02.25 – 03.10">
+<meta property="og:type" content="website">
+<meta property="og:title" content="2027 일본 여행 · 모시모시재팬">
+<meta property="og:description" content="교토 · 오사카 · 고베 · 히로시마 · 마쓰야마 · 2027.02.25 – 03.10 · 13박 14일">
+<style>
+/* 기본 초기화 (아티팩트 뷰어가 넣던 것과 같은 값) */
+:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;font:14px/1.5 system-ui,-apple-system,"Apple SD Gothic Neo","Segoe UI",sans-serif}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>2027 일본 여행</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap">
+<style>
+/* 레이아웃: 한 줄의 노선. 위에서 아래로 도시(역명판)를 지나고, 날짜는 노선 위 정차역처럼 놓인다. */
+:root{
+  --paper:#FFFFFF;      /* 요청: 흰 배경 */
+  --surface:#FFFFFF;
+  --soft:#F3F6FC;       /* 흰 바탕 위 옅은 블루그레이 면 */
+  --ink:#172033;
+  --ink-2:#4F5A70;
+  --ink-3:#7F8AA0;
+  --line:#E2E7EF;
+  --accent:#1E5BD8;     /* 포인트 블루(루리색 계열): 오늘·항공·정할 것 */
+  --on-accent:#FFFFFF;
+  --sun:#D8452F;        /* 달력의 일요일 */
+  --ok:#1E7A55;
+  --kyoto:#8A5BB0; --osaka:#D2556F; --kobe:#1D8C86; --hiroshima:#6A8F2E; --matsuyama:#E08A1E;
+  color-scheme:light;
+  --font-ko:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --font-jp:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  --font-num:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+/* 흰 배경 고정: 요청에 따라 다크 모드에서도 같은 라이트 화면을 씁니다 */
+
+*,*::before,*::after{box-sizing:border-box}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-ko);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{max-width:1040px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4{text-wrap:balance}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* ---------- hero ---------- */
+.hero .wrap{padding-block:44px 4px}
+.eyebrow{margin:0;font:600 13px/1.4 var(--font-num);letter-spacing:.08em;color:var(--ink-2)}
+.eyebrow{color:var(--accent)}
+h1{margin:10px 0 0;font:700 clamp(34px,6.4vw,56px)/1.12 var(--font-ko);letter-spacing:-.02em}
+.slogan{display:inline-block;margin:14px 0 0;padding:5px 14px;border-radius:999px;background:var(--accent);color:var(--on-accent);font:700 15px/1.4 var(--font-ko);letter-spacing:.06em}
+.route-sub{margin:10px 0 16px;font:500 16px/1.4 var(--font-ko);color:var(--ink-2)}
+.lede{margin:0;color:var(--ink-2);font-size:16px}
+.facts{display:flex;flex-wrap:wrap;gap:14px 40px;margin:26px 0 0;padding:0}
+.facts div{display:grid;gap:1px;align-content:start}
+.facts dt{font-size:12px;color:var(--ink-2)}
+.facts dd{margin:0;font:600 19px/1.3 var(--font-ko)}
+.facts dd.sub{font:400 12.5px/1.4 var(--font-ko);color:var(--ink-2)}
+#dday{color:var(--accent);font-family:var(--font-num)}
+
+.strip-box{margin-top:30px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 16px 12px}
+.strip-h{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px;margin-bottom:10px}
+.strip-h h2{margin:0;font:700 16px/1.3 var(--font-ko)}
+.strip-h p{margin:0;font-size:12.5px;color:var(--ink-3)}
+.strip-scroll{overflow-x:auto;padding-bottom:4px}
+.strip{display:grid;grid-template-columns:52px repeat(14,minmax(40px,1fr));gap:6px 3px;min-width:652px}
+.dh{display:grid;justify-items:center;padding:5px 0 6px;border-radius:7px;text-decoration:none;font:600 13px/1.25 var(--font-num);color:var(--ink)}
+.dh small{font:500 11px/1.3 var(--font-ko);color:var(--ink-3)}
+a.dh:hover{background:var(--soft)}
+.dh.sat small{color:var(--hiroshima)}
+.dh.sun small{color:var(--sun)}
+.dh.off{opacity:.35}
+.dh.today{background:var(--accent);color:var(--on-accent)}
+.dh.today small{color:inherit}
+.rl{grid-column:1;align-self:center;font:700 12px/1.25 var(--font-ko)}
+.seg{display:flex;flex-direction:column;justify-content:center;min-width:0;padding:7px 9px;border-radius:7px;border-top:3px solid var(--c);background:color-mix(in srgb,var(--c) 15%,var(--surface));font:600 13.5px/1.25 var(--font-ko)}
+.seg small{font:500 11.5px/1.3 var(--font-ko);color:var(--ink-2)}
+.home{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:4px 0;border-radius:7px;border:1.5px dashed var(--accent);color:var(--accent);font:600 11.5px/1.2 var(--font-ko)}
+.home svg{width:15px;height:15px;transform:rotate(45deg)}
+.gone{align-self:center;height:0;margin-inline:6px;border-top:1.5px dashed var(--line)}
+.dim{opacity:.3}
+
+/* ---------- toolbar ---------- */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;margin-top:0;background:color-mix(in srgb,var(--paper) 88%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar-in{display:flex;align-items:center;gap:12px;padding-block:9px}
+.viewctl{flex:none;display:inline-flex;padding:3px;background:var(--surface);border:1px solid var(--line);border-radius:999px}
+.viewctl button{appearance:none;border:0;background:transparent;padding:6px 13px;border-radius:999px;font:600 13px/1.2 var(--font-ko);color:var(--ink-2);cursor:pointer}
+.viewctl button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+.tabs{flex:1;min-width:0;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;padding:8px 12px 6px;border-bottom:3px solid transparent;border-radius:8px 8px 0 0;text-decoration:none;font:600 14px/1.2 var(--font-ko);color:var(--ink-2);white-space:nowrap}
+.tab small{margin-left:4px;font:500 11.5px/1 var(--font-num);color:var(--ink-3)}
+.tab:hover{background:var(--soft);color:var(--ink)}
+.tab[aria-current="page"]{color:var(--ink);border-bottom-color:var(--c,var(--accent))}
+.wx{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 16px;margin:12px 0 2px;padding:14px 18px;border-radius:14px;background:var(--soft)}
+.wx-h{grid-column:1/-1;font:600 13px/1.4 var(--font-ko);color:var(--ink-2)}
+.wx-col{display:grid;gap:2px;font-size:13.5px;color:var(--ink-2)}
+.wx-col b{font:600 14px/1.5 var(--font-ko);color:var(--ink)}
+.wx-tip{grid-column:1/-1;margin:4px 0 0;font-size:13.5px;color:var(--ink)}
+.next-city{display:flex;justify-content:flex-end;margin-top:20px;padding:14px 18px;border-radius:12px;border-left:4px solid var(--c);background:var(--soft);font:600 15px/1.4 var(--font-ko);color:var(--ink);text-decoration:none}
+.next-city:hover{background:color-mix(in srgb,var(--c) 12%,var(--surface))}
+.chips{flex:1;min-width:0;display:flex;gap:3px;overflow-x:auto;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;display:grid;justify-items:center;min-width:38px;padding:3px 5px 2px;border-bottom:3px solid var(--c);border-radius:6px 6px 2px 2px;text-decoration:none;font:600 13px/1.2 var(--font-num);color:var(--ink)}
+.chip small{font:500 10.5px/1.3 var(--font-ko);color:var(--ink-3)}
+.chip:hover{background:var(--soft)}
+.chip.today{background:var(--accent);color:var(--on-accent)}
+.chip.today small{color:inherit}
+
+/* ---------- sections ---------- */
+main.wrap{padding-block:4px 8px}
+.sec{margin-top:44px}
+.sec-h{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 16px;margin-bottom:14px}
+.sec-h h2{margin:0;font:700 22px/1.3 var(--font-ko);letter-spacing:-.01em}
+.sec-h p{margin:0;font-size:13px;color:var(--ink-2)}
+
+/* to-do */
+.todo{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.td{display:grid;grid-template-columns:84px minmax(0,1fr);gap:6px 16px;padding:16px 18px}
+.td+.td{border-top:1px solid var(--line)}
+.st{justify-self:start;align-self:start;margin-top:2px;padding:1px 9px;border-radius:999px;font:600 12px/1.6 var(--font-ko);white-space:nowrap}
+.st.todo{color:var(--accent);background:color-mix(in srgb,var(--accent) 13%,transparent)}
+.st.check{color:var(--ink-2);box-shadow:inset 0 0 0 1px var(--ink-3)}
+.st.done{color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,transparent)}
+.td h3{margin:0;font:600 15.5px/1.45 var(--font-ko)}
+.td p{margin:4px 0 0;color:var(--ink-2);font-size:14px}
+.jump{margin-left:6px;white-space:nowrap;color:var(--ink);font-weight:500;text-underline-offset:3px}
+.td-list{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:5px}
+.td-list li{display:grid;grid-template-columns:8.5em minmax(0,1fr);gap:12px;font-size:14px}
+.td-list b{font-weight:500}
+.td-list span{color:var(--ink-2)}
+
+/* flights */
+.flights{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.fl{display:grid;gap:14px;align-content:start;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.fl-top{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+.fl-no{font:600 15px/1.3 var(--font-num);letter-spacing:.04em}
+.fl-date{font-size:13px;color:var(--ink-2)}
+.fl-top .who{margin-left:auto}
+.fl-route{display:grid;grid-template-columns:auto minmax(36px,1fr) auto;align-items:center;gap:12px}
+.fl-pt{display:grid;gap:2px}
+.fl-pt.r{justify-items:end;text-align:right}
+.fl-pt .t{font:600 26px/1.05 var(--font-num);letter-spacing:-.01em}
+.fl-pt .code{font:600 12.5px/1.3 var(--font-num);letter-spacing:.12em}
+.fl-pt .pl{font-size:12.5px;color:var(--ink-2)}
+.fl-path{display:grid;justify-items:center;gap:4px;font-size:11.5px;color:var(--ink-3);text-align:center}
+.fl-path i{display:block;width:100%;border-top:1.5px dashed var(--line)}
+.fl-path svg{width:16px;height:16px;color:var(--ink-2);transform:rotate(90deg)}
+.fl-foot{padding-top:10px;border-top:1px dashed var(--line);font-size:13px;color:var(--ink-2)}
+.book{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-top:12px}
+.bk{padding:16px 20px;background:var(--soft);border-radius:14px}
+.bk h3{margin:0 0 8px;font:600 14px/1.4 var(--font-ko)}
+.bk dl{margin:0;display:grid;gap:6px}
+.bk dl div{display:grid;grid-template-columns:84px minmax(0,1fr);gap:10px;font-size:14px;align-items:baseline}
+.bk dt{color:var(--ink-2)}
+.bk dd{margin:0;font-weight:500}
+.bk dd.muted{color:var(--ink-3);font-weight:400}
+#pnr{font:600 15px/1.3 var(--font-num);letter-spacing:.14em;-webkit-user-select:all;user-select:all}
+.copy{margin-left:8px;appearance:none;padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);font:500 12px/1.2 var(--font-ko);cursor:pointer}
+.copy:hover{border-color:var(--ink-3)}
+
+/* plan: station boards + rail */
+#plan{--dw:64px;--rw:34px}
+.city{--c:var(--ink);margin-top:30px}
+.city:first-child{margin-top:0}
+.board{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.sign{display:flex;flex-direction:column;align-items:center;padding:20px 22px 0;border-right:1px solid var(--line)}
+.sign .jp{padding-left:.3em;font:700 14px/1.2 var(--font-jp);letter-spacing:.3em;color:var(--ink-2)}
+.sign .ko{margin-top:4px;font:700 34px/1.1 var(--font-ko);letter-spacing:.06em}
+.sign .ro{margin-top:5px;font:500 11.5px/1.3 var(--font-num);letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}
+.sign .band{align-self:stretch;height:9px;margin:14px -22px 0;background:var(--c)}
+.sign .nav{align-self:stretch;display:flex;justify-content:space-between;gap:8px;padding:7px 0 12px;font-size:12px;color:var(--ink-2)}
+.meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 22px;margin:0;padding:18px 22px;align-content:center}
+.meta div{min-width:0}
+.meta dt{font-size:12px;color:var(--ink-3)}
+.meta dd{margin:2px 0 0;font-size:14.5px;font-weight:500}
+.pill{display:inline-block;margin-left:6px;padding:0 7px;border-radius:999px;font:600 11px/1.65 var(--font-ko);color:var(--accent);background:color-mix(in srgb,var(--accent) 13%,transparent);vertical-align:1px}
+
+.days{position:relative;margin-top:6px}
+.days::before{content:"";position:absolute;top:0;bottom:0;left:calc(var(--dw) + var(--rw) / 2 - 2px);width:4px;border-radius:2px;background:var(--c)}
+.day{position:relative;display:grid;grid-template-columns:var(--dw) var(--rw) minmax(0,1fr);padding-block:16px 8px;scroll-margin-top:calc(env(safe-area-inset-top,0px) + 72px)}
+.day-date{display:grid;justify-items:end;align-content:start;text-align:right}
+.dn{font:600 26px/1 var(--font-num)}
+.dm{margin-top:5px;font-size:12px;color:var(--ink-2)}
+.di{font:500 11px/1.5 var(--font-num);color:var(--ink-3)}
+.day-node{position:relative}
+.day-node::after{content:"";position:absolute;top:5px;left:50%;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--paper);border:4px solid var(--c)}
+.day.today .day-node::after{background:var(--accent);border-color:var(--accent)}
+.day-body{min-width:0}
+.day-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:4px}
+.day-head h3{margin:0;font:600 16.5px/1.45 var(--font-ko)}
+.now{display:inline-block;margin-right:8px;padding:0 8px;border-radius:999px;background:var(--accent);color:var(--on-accent);font-size:12px;vertical-align:2px}
+
+.tl{list-style:none;margin:0;padding:0}
+.it{display:grid;grid-template-columns:50px minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:6px 0;border-top:1px solid var(--line)}
+.it:first-child{border-top:0}
+.tm{font:500 13px/1.5 var(--font-num);color:var(--ink-2);font-variant-numeric:tabular-nums}
+.tx{font-weight:500}
+.k-e .tx{font-weight:400;color:var(--ink-2)}
+.k-t .tx{font-weight:400;color:var(--ink-2)}
+.k-f .tx{font-weight:600}
+.k-f .tm{color:var(--accent)}
+.ic{width:14px;height:14px;margin-right:6px;vertical-align:-2px;color:var(--accent);transform:rotate(90deg)}
+.tag{padding:0 7px;border-radius:999px;font:600 11px/1.7 var(--font-ko);color:var(--ink-2);box-shadow:inset 0 0 0 1px var(--line);white-space:nowrap}
+.t-o,.t-x{box-shadow:inset 0 0 0 1px var(--ink-3)}
+.t-f,.t-t{color:var(--accent);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--accent) 45%,transparent)}
+
+.lanes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:6px}
+.lane{min-width:0;padding:10px 14px 4px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.lane h4{display:flex;align-items:center;gap:8px;margin:0 0 2px;font:600 13.5px/1.4 var(--font-ko)}
+
+.who{flex:none;display:inline-flex;gap:3px}
+.p{display:grid;place-items:center;width:21px;height:21px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--ink-3);font:600 11px/1 var(--font-num);color:var(--ink)}
+
+.terminus{display:grid;grid-template-columns:var(--dw) var(--rw) minmax(0,1fr);padding-top:10px}
+.tn-node{grid-column:2;position:relative}
+.tn-node::after{content:"";position:absolute;top:1px;left:50%;width:24px;height:24px;margin-left:-12px;border-radius:50%;background:var(--surface);border:6px solid var(--ink)}
+.tn-body{grid-column:3;display:grid;gap:2px}
+.tn-body b{font:700 16px/1.5 var(--font-ko)}
+.tn-body span{font-size:13px;color:var(--ink-2)}
+
+/* footer */
+.foot .wrap{padding-block:26px 40px}
+.foot p{margin:0;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;line-height:1.7;color:var(--ink-2)}
+.foot a{color:var(--ink);text-underline-offset:3px}
+
+/* today: osaka focus */
+.kicker{margin:0 0 2px;font:600 12px/1.4 var(--font-ko);letter-spacing:.06em;color:var(--accent)}
+.verdict{display:grid;gap:14px;padding:24px 26px;border-radius:18px;background:var(--accent);color:var(--on-accent)}
+.v-q{margin:0;font-size:13px;color:color-mix(in srgb,var(--on-accent) 78%,var(--accent))}
+.v-a{margin:0;font:700 clamp(19px,3vw,24px)/1.35 var(--font-ko)}
+.v-steps{list-style:none;counter-reset:s;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(176px,1fr));gap:8px}
+.v-steps li{counter-increment:s;display:grid;gap:3px;align-content:start;padding:12px 14px;border-radius:12px;background:color-mix(in srgb,var(--on-accent) 13%,var(--accent))}
+.v-steps li::before{content:counter(s);font:600 12px/1.2 var(--font-num);color:color-mix(in srgb,var(--on-accent) 70%,var(--accent))}
+.v-steps b{font-size:14px;font-weight:600}
+.v-steps span{font-size:12.5px;line-height:1.5;color:color-mix(in srgb,var(--on-accent) 84%,var(--accent))}
+.v-why,.v-alt{margin:0;font-size:14px;color:color-mix(in srgb,var(--on-accent) 90%,var(--accent))}
+.v-alt{padding-top:12px;border-top:1px solid color-mix(in srgb,var(--on-accent) 28%,var(--accent))}
+.v-alt b{color:var(--on-accent)}
+.osaka-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+.panel{min-width:0;display:grid;gap:10px;align-content:start;padding:18px 20px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.panel.wide{grid-column:1 / -1}
+.panel h3{margin:0;font:700 17px/1.35 var(--font-ko)}
+.panel p{margin:0;font-size:14px}
+.panel p.pick{font-size:13.5px;color:var(--ink-2)}
+.pick b{color:var(--accent);font-weight:700}
+.kv{margin:0;display:grid}
+.kv div{display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px;padding:9px 0;border-top:1px solid var(--line)}
+.kv dt{font-size:13px;font-weight:600}
+.kv dd{margin:0;font-size:14px;color:var(--ink-2)}
+.panel p.note{padding:10px 12px;border-radius:10px;background:var(--soft);font-size:13.5px;color:var(--ink-2)}
+.note b{color:var(--ink);font-weight:600}
+.tbl{overflow:visible}
+.tbl table{width:100%;min-width:0;table-layout:fixed;border-collapse:collapse;font-size:13.5px}
+.tbl th,.tbl td{word-break:keep-all;overflow-wrap:anywhere}
+.tbl col.c-name{width:38%}
+.tbl col.c-way{width:40%}
+.tbl col.c-room{width:22%}
+.price col.c-ticket{width:40%}
+.price col.c-amt{width:30%}
+.budget col.c-item{width:34%}
+.budget col.c-amt{width:22%}
+.tbl th{padding:6px 10px 6px 0;border-bottom:1px solid var(--line);text-align:left;font-size:12px;font-weight:600;color:var(--ink-3)}
+.tbl td{padding:9px 10px 9px 0;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink-2)}
+.tbl td b{display:block;color:var(--ink);font-weight:600}
+.tbl td small{display:block;font-size:12px;color:var(--ink-3)}
+.tbl tr.best td b::after{content:"추천";margin-left:6px;padding:0 7px;border-radius:999px;font:600 10.5px/1.6 var(--font-ko);color:var(--on-accent);background:var(--accent);vertical-align:1px}
+.tbl tr.best.held td b::after{content:"가예정"}
+.tbl tr.best.booked td b::after{content:"예약됨";background:var(--ok)}
+.panel p.src{font-size:12.5px;color:var(--ink-3)}
+.tbl caption{caption-side:top;padding:0 0 6px;text-align:left;font-size:12.5px;font-weight:600;color:var(--ink)}
+.price td:nth-child(n+2){font-variant-numeric:tabular-nums}
+.price td:last-child{color:var(--ink);font-weight:500}
+.tips{list-style:none;margin:0;padding:12px 14px;display:grid;gap:7px;border-radius:10px;background:var(--soft)}
+.tips li{font-size:13.5px;line-height:1.55;color:var(--ink-2)}
+.tips b{margin-right:8px;color:var(--accent);font-weight:600}
+.change{margin:0 0 12px;padding:12px 16px;border-radius:12px;background:var(--soft);font-size:14px;color:var(--ink-2)}
+.change b{margin-right:8px;color:var(--accent);font-weight:700}
+.budget{padding:6px 20px 16px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.budget .num{text-align:right;font-variant-numeric:tabular-nums}
+.budget td.num{color:var(--ink)}
+.budget tr.wait td.num{color:var(--ink-3);font-size:13px}
+.budget tr.sum td{padding-top:12px;border-bottom:2px solid var(--ink);font-weight:700;color:var(--ink)}
+.budget tr.optrow td{border-bottom:0;color:var(--ink-2)}
+.budget tr.subrow td{background:var(--soft);font-weight:600;color:var(--ink)}
+.budget tr.subrow td:first-child{padding-left:10px}
+.budget tr.optrow td.num{color:var(--ink-2)}
+.opt{display:inline-block;margin-left:6px;padding:0 7px;border-radius:999px;font:600 10.5px/1.6 var(--font-ko);color:var(--ink-2);box-shadow:inset 0 0 0 1px var(--line);vertical-align:1px}
+.optrow td b{display:inline}
+.rate{margin:10px 0 0;font-size:12.5px;line-height:1.6;color:var(--ink-3)}
+/* ---------- 엔화 환율 계산 ---------- */
+.fx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.3fr);gap:16px 22px;padding:18px 20px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.fx-in{display:grid;gap:6px;align-content:start;min-width:0}
+.fx-in label{font:600 13px/1.4 var(--font-ko);color:var(--ink-2)}
+.fx-in input{width:100%;min-width:0;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);font:600 18px/1.2 var(--font-num)}
+.fx-in input:focus-visible{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.fx-link{font:500 13px/1.4 var(--font-ko);color:var(--accent);text-decoration:none}
+.fx-link:hover{text-decoration:underline}
+.fx-out{margin:0;font:600 15px/1.4 var(--font-ko);color:var(--accent)}
+.fx-tbl{margin:0;display:grid;align-content:start;min-width:0}
+.fx-tbl div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:7px 0;border-top:1px solid var(--line)}
+.fx-tbl div:first-child{border-top:0;padding-top:0}
+.fx-tbl dt{min-width:0;font-size:13px;font-weight:600}
+.fx-tbl dt small{display:block;font:500 11.5px/1.3 var(--font-num);color:var(--ink-3)}
+.fx-tbl dd{margin:0;font:600 13.5px/1.3 var(--font-ko);font-variant-numeric:tabular-nums;white-space:nowrap}
+.fx-tbl .fx-diff dd{color:var(--ink-2)}
+@media (max-width:760px){.fx{grid-template-columns:1fr}}
+.src a{color:var(--ink-2);text-underline-offset:3px}
+.mini{list-style:none;margin:0;padding:0;display:grid}
+.mini>li{display:grid;grid-template-columns:84px minmax(0,1fr);gap:12px;padding:11px 0;border-top:1px solid var(--line);font-size:14px}
+.mini>li:first-child{border-top:0}
+.mini .dt{font:600 13px/1.6 var(--font-num)}
+.mini em{display:block;margin-top:4px;font-style:normal;font-size:13px;color:var(--ink-2)}
+.split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:8px}
+.split div{padding:10px 12px;border-radius:10px;background:var(--soft);font-size:13.5px;color:var(--ink-2)}
+.split b{display:block;margin-bottom:2px;color:var(--ink);font-weight:600}
+.seen{margin-top:9px;padding:1px 10px;border-radius:999px;font:600 11.5px/1.6 var(--font-ko);color:var(--ink-2);box-shadow:inset 0 0 0 1px var(--line)}
+.seen.first{color:var(--ink)}
+.seen.first::before{content:"";display:inline-block;width:7px;height:7px;margin-right:6px;border-radius:50%;background:var(--c);vertical-align:1px}
+.pref{display:block;font-size:12.5px;font-weight:400;color:var(--ink-2)}
+
+@media (max-width:600px){
+  .hero .wrap{padding-block:30px 4px}
+  .verdict{padding:18px}
+  .osaka-grid{grid-template-columns:1fr}
+  .kv div{grid-template-columns:1fr;gap:2px}
+  .mini>li{grid-template-columns:1fr;gap:4px}
+  .split{grid-template-columns:1fr}
+  .facts{gap:14px 28px}
+  .td{grid-template-columns:1fr;padding:14px 16px}
+  .board{grid-template-columns:1fr}
+  .sign{border-right:0;border-bottom:1px solid var(--line)}
+  .meta{grid-template-columns:1fr;gap:10px;padding:14px 18px}
+  #plan{--dw:44px;--rw:26px}
+  .dn{font-size:22px}
+  .day-node::after{width:14px;height:14px;margin-left:-7px;border-width:3px}
+  .lanes{grid-template-columns:1fr}
+  .it{grid-template-columns:44px minmax(0,1fr) auto;gap:8px}
+  .fl-pt .t{font-size:23px}
+  .viewctl button{padding:6px 10px}
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-plane" viewBox="0 0 24 24"><path fill="currentColor" d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></symbol>
+</svg>
+
+<div class="bar">
+  <div class="wrap bar-in">
+    <div class="viewctl" role="group" aria-label="누구의 일정을 볼지">
+      <button type="button" id="v-all" data-view="all" aria-pressed="true">전체</button>
+      <button type="button" id="v-ab" data-view="ab" aria-pressed="false">강슛돌·이힝구</button>
+      <button type="button" id="v-c" data-view="c" aria-pressed="false">호호</button>
+    </div>
+    <nav class="tabs" id="tabs" aria-label="페이지"></nav>
+  </div>
+</div>
+
+<header class="hero" data-page="overview">
+  <div class="wrap">
+    <p class="eyebrow">02.25 목 — 03.10 수 · 13박 14일</p>
+    <p class="slogan">모시모시재팬</p>
+    <h1>2027 일본 여행</h1>
+    <p class="route-sub">교토 · 오사카 · 고베 · 히로시마 · 마쓰야마</p>
+    <p class="lede">간사이공항으로 들어가 교토·오사카·고베·히로시마를 지나 마쓰야마에서 돌아오는 일정입니다. 이힝구가 짠 일정 시트에 항공권 시각을 맞춰 넣었고, USJ는 오사카에 묵는 03.01 월로 잡았습니다. 교토·오사카는 다시 가는 곳, 히로시마·마쓰야마는 처음입니다.</p>
+    <dl class="facts">
+      <div><dt id="dday-k">출발까지</dt><dd id="dday">D-90</dd></div>
+      <div><dt>기간</dt><dd>13박 14일</dd><dd class="sub">호호는 5박 6일</dd></div>
+      <div><dt>인원</dt><dd>3명</dd><dd class="sub">강슛돌·이힝구 여성 · 호호 남성</dd><dd class="sub">03.02부터 강슛돌·이힝구 둘</dd></div>
+      <div><dt>숙소</dt><dd>5곳</dd><dd class="sub">교토·오사카 예약 완료 · 고베부터 미정</dd></div>
+    </dl>
+    <div class="strip-box">
+      <div class="strip-h"><h2>누가 언제 어디에</h2><p>날짜를 누르면 그날 일정으로 이동합니다</p></div>
+      <div class="strip-scroll"><div class="strip" id="strip"></div></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="sec" id="sec-osaka" data-page="osaka" aria-labelledby="h-osaka">
+    <div class="sec-h"><div><p class="kicker">숙소 예약 완료</p><h2 id="h-osaka">오사카 3박과 USJ</h2></div><p>02.27 토 → 03.02 화 · 교토 2박 다음</p></div>
+    <div class="osaka-grid">
+      <article class="panel wide">
+        <h3>USJ</h3>
+        <p class="pick">날짜 <b>03.01 월</b> · 오사카에 묵는 날 · 호호의 마지막 날</p>
+        <dl class="kv">
+          <div><dt>날짜</dt><dd>교토를 먼저 가면서 오사카에 묵는 03.01(월)로 옮겼습니다. 숙소에서 약 35분이라 교토에서 가는 것(약 1시간)보다 편하고, 호호의 마지막 날 일정으로 좋습니다. 다만 한국은 삼일절 연휴(02.27~03.01) 마지막 날이라 한국인 관광객이 많을 수 있고, 일본은 평일입니다. 닌텐도 월드 확약권이 든 익스프레스를 사므로 붐벼도 핵심 놀이기구는 탈 수 있습니다.</dd></div>
+          <div><dt>1일권</dt><dd>날짜 지정권이라 3월 1일로 삽니다. <b>판매 시작 예상: 2026년 12월 29일(화) 정오</b>. 근거가 두 가지입니다. ① 입장 62일 전 정오에 열리고 토·일·공휴일이면 다음 영업일: 12.29(화) 정오. ② 입장 60일 전 0시: 12.31(목) 0시. USJ 공식 발표에서도 9.1 입장분이 7.1(62일 전)에 판매를 시작해 ①이 맞을 가능성이 큽니다. 연말이라 하루 이틀 달라질 수 있으니 12.28(월)부터 공식 웹 티켓 스토어를 확인하세요. 일본과 한국은 시간이 같습니다. 처음엔 그날의 가장 싼 가격으로 열리고 팔리면서 오를 수 있어, 열리면 바로 사는 게 가장 쌉니다.</dd></div>
+          <div><dt>익스프레스</dt><dd><b>익스프레스 4 · 닌텐도 월드 입장 확약권 포함 세트</b>로 확정했습니다. 같은 4라도 확약권이 없는 세트가 있으니 상품 설명에 확약권 포함(エリア入場確約券付き)이 있는지 꼭 확인하세요. 놀이기구 줄을 짧게 서는 추가권이라 1일권과 따로 사야 하고, 방문 약 2개월 전(2026년 12월 말쯤) 판매가 열립니다. 환불·날짜 변경이 안 됩니다.</dd></div>
+          <div><dt>닌텐도 월드</dt><dd>확약권이 포함된 익스프레스를 사므로 당일 앱에서 정리권을 받지 않아도 됩니다. 확약권에는 입장 시간이 정해져 있어 그 시간에 맞춰 들어갑니다. 동키콩 컨트리도 함께 들어갈 수 있는지는 상품 설명에서 확인하세요.</dd></div>
+          <div><dt>개장 시간</dt><dd>2027년 2월 운영 시간은 아직 발표 전입니다. 보통 8:30~9:30 개장이라 시트의 08:30 입장은 그대로 두고, 발표되면 맞춥니다.</dd></div>
+          <div><dt>가는 길</dt><dd>숙소(미마루 오사카 난바 스테이션 어넥스)에서 닛폰바시역(5번 출구)까지 걸어서 약 6분 → 한신 난바선 → 니시쿠조 환승 → JR 유메사키선 유니버설시티역. 전철 약 29분, 편도 약 ¥580(약 4,900원). 07:40에 나서면 08:30 입장에 맞습니다.</dd></div>
+        </dl>
+        <div class="tbl">
+          <table class="price">
+            <caption>티켓 종류와 가격 · 2026년 성인 기준, 날짜마다 다름 · 확약권 포함 상품은 범위의 위쪽 가격일 수 있음 · 원화는 100엔 = 843.01원</caption>
+            <colgroup><col class="c-ticket"><col class="c-amt"><col class="c-amt"></colgroup>
+            <thead><tr><th scope="col">티켓</th><th scope="col">1인</th><th scope="col">3명</th></tr></thead>
+            <tbody>
+              <tr><td><b>1일권 (스튜디오 패스)</b><small>입장에 꼭 필요</small></td><td>¥8,400~¥11,900<small>약 7.1만~10.0만원</small></td><td>¥25,200~¥35,700<small>약 21.2만~30.1만원</small></td></tr>
+              <tr><td><b>익스프레스 4</b><small>놀이기구 4개 + 닌텐도 월드 입장 확약 · 1일권과 별도</small></td><td>약 ¥6,800~¥19,000<small>약 5.7만~16.0만원</small></td><td>약 ¥20,400~¥57,000<small>약 17.2만~48.1만원</small></td></tr>
+              <tr><td><b>닌텐도 월드 입장</b><small>확약권이 든 익스프레스로 · 앱 정리권 필요 없음</small></td><td>익스프레스에 포함</td><td>익스프레스에 포함</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="tips">
+          <li><b>일찍 사기</b>판매가 열린 뒤 값이 오를 수 있고, 이미 산 가격은 그대로입니다.</li>
+          <li><b>판매처 비교</b>공식 사이트와 클룩·KKday 같은 공인 판매처를 같은 날짜·같은 상품으로 비교하세요. 할인 쿠폰은 시기마다 달라 이번 검색으로는 확인하지 못했습니다.</li>
+          <li><b>익스프레스 고르기</b>세트마다 들어 있는 놀이기구가 다릅니다. 익스프레스 4 중 상품명에 닌텐도 월드 입장 확약이 적힌 세트를 고르세요.</li>
+          <li><b>안 사도 되는 것</b>하루 일정이라 1.5일권(¥13,600~, 약 11.5만원~)과 2일권(¥16,000~, 약 13.5만원~)은 필요 없습니다.</li>
+        </ul>
+        <p class="src">익스프레스 가격은 자료마다 차이가 큽니다. 가격과 판매 일정은 <a href="https://www.usj.co.jp/web/ko/kr" target="_blank" rel="noopener">USJ 공식 사이트</a>(한국어)에서 최종 확인하세요.</p>
+      </article>
+
+      <article class="panel wide">
+        <h3>오사카 숙소</h3>
+        <p class="pick">난바 3박 · 02.27 토 → 03.02 화 · 3명 한 방 · 미마루 오사카 난바 스테이션 어넥스 예약 완료</p>
+        <div class="tbl">
+          <table>
+            <colgroup><col style="width:24%"><col style="width:22%"><col style="width:22%"><col style="width:32%"></colgroup>
+            <thead><tr><th scope="col">숙소</th><th scope="col">금액</th><th scope="col">방</th><th scope="col">주변 환경</th></tr></thead>
+            <tbody>
+              <tr class="best booked"><td><b>미마루 오사카 난바 스테이션 어넥스</b><small>2026년 10월 개업 · 아고다 9.5점(후기 56개)</small></td><td>3박 ¥87,532<small>약 73.8만원 · 1박 약 ¥29,200(약 24.6만원) · 1인 3박 약 ¥29,200(약 24.6만원) · 예약번호 1803254069 · 2027.02.18 결제 예정</small></td><td>39㎡<small>1 베드룸 패밀리 아파트먼트 · 금연 · 싱글 2개 + 2층 침대 1개 · 성인 3명 · 외부 배달 음식 허용 · 무료 Wi-Fi · 청소는 제한적</small></td><td>닛폰바시 3초메, 구로몬 시장 약 300m · 난카이 난바역 도보 5분 · 밤에 비교적 조용</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note"><b>도시세</b> 오사카부 숙박세는 1인 1박 숙박 요금(소비세·식사 제외)이 ¥5,000~15,000(약 4.2만~12.6만원)이면 ¥200(약 1,700원)이라, 3명 3박이면 ¥1,800(약 1.5만원)입니다. 교토 예약처럼 아고다 금액에 들어 있지 않을 가능성이 커서 체크인 때 따로 낸다고 보면 됩니다.</p>
+        <p class="src">방 정보는 아고다 예약 화면, 면적과 위치는 미마루 공식 안내 기준입니다.</p>
+      </article>
+
+      <article class="panel wide">
+        <h3>미마루 기준 동선</h3>
+        <p class="pick">숙소: 미마루 오사카 난바 스테이션 어넥스 (예약 완료) · 나니와구 닛폰바시 3-6-4</p>
+        <div class="tbl">
+          <table>
+            <colgroup><col style="width:26%"><col style="width:52%"><col style="width:22%"></colgroup>
+            <thead><tr><th scope="col">어디로</th><th scope="col">가는 법</th><th scope="col">시간</th></tr></thead>
+            <tbody>
+              <tr><td><b>교토역 → 숙소</b><small>02.27 교토에서 올 때</small></td><td>JR 신쾌속 교토 → 오사카, 미도스지선 우메다 → 난바, 지하철 난바역에서 걸어서 5~10분. 짐을 들고 환승 한 번</td><td>약 1시간<small>약 ¥820(약 6,900원)</small></td></tr>
+              <tr><td><b>구로몬 시장</b><small>아침·점심</small></td><td>걸어서 약 300m</td><td>약 5분</td></tr>
+              <tr><td><b>덴덴타운</b><small>02.27 저녁</small></td><td>숙소가 있는 닛폰바시 거리가 덴덴타운입니다</td><td>바로</td></tr>
+              <tr><td><b>도톤보리</b><small>02.27 저녁</small></td><td>걸어서</td><td>약 10분</td></tr>
+              <tr><td><b>오사카성</b><small>02.28 아침</small></td><td>닛폰바시역에서 센니치마에선 → 다니마치큐초메 환승 → 다니마치선 다니마치욘초메, 천수각까지 걸어서</td><td>약 35분<small>전철 약 15분 + 걸어서 15~20분</small></td></tr>
+              <tr><td><b>컵누들 뮤지엄 이케다</b><small>02.28 낮 · 오사카성 다음</small></td><td>다니마치선 히가시우메다 → 걸어서 한큐 오사카우메다 → 다카라즈카선 이케다역 → 걸어서 약 5분</td><td>오사카성에서 약 50분<small>한큐 편도 약 ¥280(약 2,400원)</small></td></tr>
+              <tr><td><b>신사이바시스지 상점가</b><small>02.27 저녁 · PARCO 치이카와랜드</small></td><td>도톤보리를 지나 북쪽으로 걸어서, 또는 미도스지선 난바 → 신사이바시 한 정거장</td><td>걸어서 약 20분</td></tr>
+              <tr><td><b>우메다 스카이빌딩</b><small>02.28 밤 · 상황 봐서</small></td><td>지하철 난바역까지 걸어서, 미도스지선으로 우메다 → 스카이빌딩까지 걸어서 약 10분</td><td>약 30분</td></tr>
+              <tr><td><b>팀랩 (나가이 공원)</b><small>02.28 밤</small></td><td>우메다에서 미도스지선으로 나가이역(약 25분) → 공원까지 걸어서. 끝나면 다시 우메다로 가서 저녁·마사지</td><td>우메다에서 약 35분<small>숙소까지 약 30분</small></td></tr>
+              <tr><td><b>USJ</b><small>03.01</small></td><td>닛폰바시역(5번 출구, 걸어서 약 6분)에서 한신 난바선 → 니시쿠조에서 JR 유메사키선 환승 → 유니버설시티역</td><td>약 35분<small>편도 약 ¥580(약 4,900원)</small></td></tr>
+              <tr><td><b>난카이 난바역</b><small>03.02 호호 라피트</small></td><td>걸어서. 라피트로 간사이공항역까지 약 34~39분</td><td>약 5분<small>라피트 약 ¥1,490(약 1.3만원)</small></td></tr>
+              <tr><td><b>고베산노미야</b><small>03.02 강슛돌·이힝구</small></td><td>닛폰바시역(5번 출구, 걸어서 약 6분)이나 오사카난바역에서 한신 난바선 직통이라 갈아타지 않습니다</td><td>약 45분~1시간<small>약 ¥710(약 6,000원)부터</small></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note"><b>이 숙소라서 좋은 점</b> 03.02에 호호가 라피트를 타는 난카이 난바역까지 걸어서 5분이고, 강슛돌·이힝구는 닛폰바시역에서 고베까지 갈아타지 않고 갑니다. 구로몬 시장과 덴덴타운이 바로 옆이라 02.27 저녁과 USJ에서 돌아온 03.01 밤에 멀리 가지 않고 먹고 쉴 수 있고, 방에 주방이 있어 저녁을 사 와서 먹어도 됩니다. 02.27 교토에서 올 때만 짐을 들고 지하철을 갈아탑니다.</p>
+        <p class="src">걸어서 걸리는 시간은 미마루 공식 안내(난바역 약 5분, 닛폰바시역 5번 출구 약 6분)와 여행 사이트 기준이고, 전철 시간과 요금은 환승 안내 사이트 기준 대략치입니다. 원화는 100엔 = 843.01원으로 계산했습니다.</p>
+      </article>
+
+      <article class="panel wide">
+        <h3>재미있는 박물관·체험 후보</h3>
+        <p class="pick">컵누들 뮤지엄은 02.28 오사카성 다음에 넣었고, 나머지는 시간이 남을 때 넣을 후보입니다</p>
+        <div class="tbl">
+          <table>
+            <colgroup><col style="width:28%"><col style="width:42%"><col style="width:30%"></colgroup>
+            <thead><tr><th scope="col">어디서 무엇을</th><th scope="col">내용</th><th scope="col">가격·예약</th></tr></thead>
+            <tbody>
+              <tr class="best"><td><b>컵누들 뮤지엄 오사카 이케다</b><small>02.28 오사카성 다음 · 일정에 넣음</small></td><td>컵을 직접 꾸미고 수프·건더기를 골라 나만의 컵라면을 만듭니다. 우메다에서 한큐선으로 20분대라 오후 우메다 쇼핑과 동선이 이어집니다</td><td>입장 무료<small>마이 컵누들 ¥300~500(약 2,500~4,200원) · 당일 번호표 · 화요일 휴관</small></td></tr>
+              <tr><td><b>오사카 주택박물관</b><small>오사카 쿠라시노 콘자쿠칸</small></td><td>에도 시대 오사카 거리를 실내에 그대로 재현했고, 유카타를 빌려 입고 골목을 걸을 수 있습니다. 덴진바시스지 6초메역 바로 위</td><td>¥600(약 5,100원)<small>유카타 ¥500(약 4,200원) · 화요일 휴관 · 2027.1.5까지 휴관이라는 정보가 있어 재개관 확인</small></td></tr>
+              <tr><td><b>아사히 맥주 스이타 공장</b><small>어른용 견학</small></td><td>약 90분 공장 견학 뒤 갓 만든 생맥주를 두 잔 시음합니다. JR 스이타역에서 걸어갑니다</td><td>¥1,000(약 8,400원)<small>자료마다 무료로도 나옴 · 사전 예약 필수, 주말은 빨리 마감</small></td></tr>
+              <tr><td><b>스파월드</b><small>신세카이 · 쉬어 가는 날</small></td><td>나라별 콘셉트 온천과 수영장이 있는 대형 온천 시설입니다. 여행 중반 피로를 풀기 좋습니다</td><td>주말 ¥2,700(약 2.3만원)<small>2026.10부터 주말 수영장 10:00~22:00</small></td></tr>
+              <tr><td><b>팀랩 보태니컬 가든 오사카</b><small>밤 · 나가이 공원</small></td><td>공원 숲과 연못이 빛과 소리로 바뀌는 야외 작품. 해가 진 뒤 열고 21:30쯤 닫습니다. 난바에서 미도스지선으로 약 15분</td><td>온라인 성인 ¥1,800(약 1.5만원)부터<small>날짜별 요금 · 2월 개장 시각과 비 오는 날 운영은 공식 확인</small></td></tr>
+              <tr><td><b>우메다 닌텐도 오사카·포켓몬센터</b><small>호호 취향 · 같은 층</small></td><td>닌텐도·포켓몬 공식 매장. 근처에 전자기기 대형점 요도바시 카메라 우메다</td><td>대략 10:00~21:00<small>층과 시간은 방문 전 확인</small></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="src">가격과 휴관일은 2026.11.27 웹 검색 기준이라 방문 전 각 공식 사이트에서 확인하세요. 원화는 100엔 = 843.01원으로 계산했습니다.</p>
+      </article>
+
+      <article class="panel wide">
+        <h3>치이카와 굿즈 매장 · 이힝구 추천</h3>
+        <p class="pick">02.27에 덴덴타운 중고·잡화 가게를 보고 이어서 신사이바시 PARCO 공식 매장으로, 02.28에는 우메다 공식 매장에 들릅니다</p>
+        <div class="tbl">
+          <table>
+            <colgroup><col style="width:28%"><col style="width:34%"><col style="width:38%"></colgroup>
+            <thead><tr><th scope="col">매장</th><th scope="col">위치·가는 법</th><th scope="col">언제·메모</th></tr></thead>
+            <tbody>
+              <tr class="best"><td><b>치이카와 파크 스토어</b><small>공식 · 2026.11.24 개장</small></td><td>우메다 LUCUA SOUTH 11층 · JR 오사카역 바로 연결</td><td>02.28 오후<small>이케부쿠로 '치이카와 파크' 굿즈를 파는 새 매장 · 10:00~20:00 · 주말엔 입장 정리권이 일찍 끝날 수 있음</small></td></tr>
+              <tr class="best"><td><b>치이카와랜드 오사카 우메다점</b><small>공식 상설 매장</small></td><td>한큐 산반가이 키디랜드 오사카 우메다점 안 · 한큐 오사카우메다역 걸어서 약 3분</td><td>02.28 오후<small>10:00~21:00 · 일부 날짜는 사전 정리권 · 북관·남관 표기가 자료마다 달라 현지 안내 확인</small></td></tr>
+              <tr class="best"><td><b>치이카와랜드 신사이바시 PARCO점</b><small>공식 상설 매장</small></td><td>신사이바시 PARCO · 미도스지선 신사이바시역 바로 · 숙소에서 걸어서 약 20분</td><td>02.27 저녁 신사이바시스지 구경 때<small>층·영업시간은 PARCO 안내에서 확인 · 보통 20:00쯤 닫으니 17:30~19:00에 들르기</small></td></tr>
+              <tr><td><b>치이카와 라멘 부타</b><small>테마 라멘 가게</small></td><td>신사이바시 PARCO 안</td><td>02.27 저녁 후보<small>인기라 줄이 길 수 있음</small></td></tr>
+              <tr><td><b>마지카루 치이카와 스토어</b><small>공식 · 우메다 HEP FIVE점</small></td><td>우메다 HEP FIVE</td><td>02.28 오후 시간이 남으면</td></tr>
+              <tr><td><b>스루가야 닛폰바시 덴덴타운점</b><small>중고 · 팬시 잡화·인형</small></td><td>덴덴타운 · 숙소에서 걸어서 약 5분 (난카이 난바역 약 6분)</td><td>02.27 저녁<small>치이카와 같은 팬시 잡화·인형 코너가 있음 · 재고는 그때그때 다름</small></td></tr>
+              <tr><td><b>스루가야 오사카 닛폰바시 본관</b><small>중고 굿즈 대형점</small></td><td>닛폰바시 4초메 · 숙소에서 걸어서 약 5분</td><td>02.27 저녁<small>10:00~21:00, 연중무휴</small></td></tr>
+              <tr><td><b>스루가야 오타로드 아웃렛 오미야게관</b><small>아웃렛</small></td><td>오타로드 · 난카이 난바역 걸어서 약 5분</td><td>02.27 저녁<small>애니 잡화·트레이딩 굿즈</small></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note"><b>덴덴타운에서</b> 공식 치이카와 매장은 없어서, 스루가야 같은 중고·잡화 가게와 오타로드 가챠(캡슐 토이) 가게에서 찾습니다. 한정품이나 새 상품은 02.27 신사이바시 PARCO와 02.28 우메다 공식 매장이 확실합니다.</p>
+        <p class="src">2026.11 기준 매장 소개 기사와 스루가야 공식 매장 안내 기준입니다. 영업시간과 정리권은 자주 바뀌니 가기 전에 각 매장 공식 SNS에서 확인하세요.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="sec-budget" data-page="budget" aria-labelledby="h-budget">
+    <div class="sec-h"><h2 id="h-budget">예산</h2><p>지금까지 금액이 확인된 것만 · 원화는 100엔 = 843.01원</p></div>
+    <div class="budget">
+      <div class="tbl">
+        <table>
+          <colgroup><col class="c-item"><col class="c-amt"><col class="c-amt"><col class="c-amt"></colgroup>
+          <thead><tr><th scope="col">항목</th><th scope="col" class="num">1인 (엔)</th><th scope="col" class="num">1인 (원)</th><th scope="col" class="num">3명 (원)</th></tr></thead>
+          <tbody>
+            <tr><td><b>숙소 · 교토역 근처 2박</b><small>02.25 → 02.27 · 이비스 스타일 교토 스테이션 예약 완료 · 트윈 187,231원(환불 불가) + 호호 더블 130,566원 · 1인은 셋으로 나눈 평균</small></td><td class="num">약 ¥12,600</td><td class="num">10.6만원</td><td class="num">31.8만원</td></tr>
+            <tr><td><b>숙소 · 오사카 난바 3박</b><small>02.27 → 03.02 · 미마루 어넥스 예약 완료(예약번호 1803254069) · 3박 ¥87,532(약 73.8만원) · 02.18 결제 예정</small></td><td class="num">약 ¥29,200</td><td class="num">24.6만원</td><td class="num">73.8만원</td></tr>
+            <tr><td><b>숙박세 · 교토 2박 + 오사카 3박</b><small>아고다 가격에 없으면 체크인 때 따로 냄 · 교토 1인 1박 강슛돌·이힝구 ¥200(약 1,700원), 호호 ¥400(약 3,400원) · 오사카 ¥200(약 1,700원)</small></td><td class="num">약 ¥1,000~¥1,400</td><td class="num">0.8만~1.2만원</td><td class="num">2.9만원</td></tr>
+            <tr><td><b>USJ 1일권</b><small>03.01 월 · 2026년 가격 기준 · 12.29(화) 판매 예상</small></td><td class="num">¥8,400~¥11,900</td><td class="num">7.1만~10.0만원</td><td class="num">21.2만~30.1만원</td></tr>
+            <tr><td><b>익스프레스 4</b><small>닌텐도 월드 입장 확약권 포함 세트로 확정 · 12월 말 판매</small></td><td class="num">약 ¥6,800~¥19,000</td><td class="num">5.7만~16.0만원</td><td class="num">17.2만~48.1만원</td></tr>
+            <tr><td><b>02.25 하루카</b><small>간사이공항 → 교토역 · 외국인 할인 편도 · 2026.11 이후 가격</small></td><td class="num">약 ¥2,700</td><td class="num">2.3만원</td><td class="num">6.8만원</td></tr>
+            <tr><td><b>03.01 USJ 왕복</b><small>닛폰바시 ↔ 유니버설시티 · 편도 약 ¥580(약 4,900원)</small></td><td class="num">약 ¥1,160</td><td class="num">1.0만원</td><td class="num">2.9만원</td></tr>
+            <tr><td><b>교토 시내 교통</b><small>02.25 JR 이나리 왕복 · 02.26 시버스 고조자카 + 지하철 시조 → 교토 · 02.27 JR 아라시야마 왕복</small></td><td class="num">약 ¥1,230</td><td class="num">1.0만원</td><td class="num">3.1만원</td></tr>
+            <tr><td><b>02.27 교토역 → 난바</b><small>JR 신쾌속(약 ¥580·4,900원) + 미도스지선(약 ¥240·2,000원)</small></td><td class="num">약 ¥820</td><td class="num">0.7만원</td><td class="num">2.1만원</td></tr>
+            <tr><td><b>02.28 오사카 시내 이동</b><small>오사카 메트로 1일권(엔조이 에코 카드) 주말가 · 오사카성 → 히가시우메다, 우메다 → 나가이 → 우메다 → 난바</small></td><td class="num">약 ¥620</td><td class="num">0.5만원</td><td class="num">1.6만원</td></tr>
+            <tr><td><b>02.28 한큐 우메다 ↔ 이케다</b><small>컵누들 뮤지엄 왕복 · 1일권 밖 · 편도 약 ¥280(약 2,400원)</small></td><td class="num">약 ¥560</td><td class="num">0.5만원</td><td class="num">1.4만원</td></tr>
+            <tr><td><b>03.02 떠나는 교통</b><small>호호 라피트 → 간사이공항 약 ¥1,490(약 1.3만원) · 강슛돌·이힝구 한신 → 고베산노미야 약 ¥710(약 6,000원)</small></td><td class="num">약 ¥710~¥1,490</td><td class="num">0.6만~1.3만원</td><td class="num">2.5만원</td></tr>
+            <tr class="subrow"><td>교통 소계<small>하루카 + USJ 왕복 + 교토 시내 + 교토 → 난바 + 02.28 + 한큐 이케다 + 03.02</small></td><td class="num">약 ¥7,800~¥8,580</td><td class="num">6.6만~7.2만원</td><td class="num">20.4만원</td></tr>
+            <tr><td><b>기요미즈데라 입장</b><small>02.26 · 성인</small></td><td class="num">¥500</td><td class="num">0.4만원</td><td class="num">1.3만원</td></tr>
+            <tr><td><b>오사카성 천수각</b><small>02.28 일 · 성인</small></td><td class="num">¥1,200</td><td class="num">1.0만원</td><td class="num">3.0만원</td></tr>
+            <tr><td><b>컵누들 뮤지엄 · 나만의 컵누들</b><small>02.28 일 · 입장 무료, 만들기 1개</small></td><td class="num">¥500</td><td class="num">0.4만원</td><td class="num">1.3만원</td></tr>
+            <tr><td><b>팀랩 보태니컬 가든</b><small>02.28 일 · 온라인 성인 최저가</small></td><td class="num">약 ¥1,800</td><td class="num">1.5만원</td><td class="num">4.6만원</td></tr>
+            <tr><td><b>우메다 공중정원 전망대</b><small>02.28 일 밤 · 상황 봐서 갈지 정함 · 온라인가와 현장가가 다름</small></td><td class="num">약 ¥2,000~¥2,400</td><td class="num">1.7만~2.0만원</td><td class="num">5.1만~6.1만원</td></tr>
+            <tr class="sum"><td>합계 (익스프레스 4 포함)</td><td class="num">약 ¥71,800~¥89,100</td><td class="num">60.3만~75.0만원</td><td class="num">182.5만~223.3만원</td></tr>
+            </tbody>
+        </table>
+      </div>
+      <p class="rate">숙소 금액은 아고다 기준입니다. 교토는 이비스 스타일 교토 스테이션 두 방을 모두 예약했습니다. 강슛돌·이힝구 트윈 2박 187,231원(환불 불가), 호호 더블 2박 130,566원(결제 완료)이고 둘 다 세금·수수료 포함입니다. 교토 숙박세는 트윈 요금이 1인 1박 ¥6,000(약 5.1만원) 아래라 강슛돌·이힝구는 ¥200(약 1,700원), 호호는 ¥400(약 3,400원)으로 잡았습니다. 오사카 미마루 어넥스는 3박 ¥87,532(약 73.8만원)이고 2027.02.18에 결제됩니다(예약번호 1803254069). 엔화로 결제되면 그날 환율에 따라 원화 금액이 조금 달라집니다. 교토 트윈 예약 내역을 보니 세금 17,021원이 객실 가격의 딱 10%(소비세)라 숙박세는 아고다 금액에 들어 있지 않았습니다. 그래서 숙박세는 체크인 때 따로 내는 것으로 더했습니다. 03.02 교통은 사람마다 달라 합계의 낮은 쪽에 강슛돌·이힝구의 한신 전철, 높은 쪽에 호호의 라피트를 넣었습니다. 아직 빠진 것: 02.28 마사지, 식비, 고베 도착 이후 구간. 환율은 하나은행 매매기준율(2026.11.27 오전) 100엔 = 843.01원이고, 카드 결제나 환전 때는 수수료가 붙어 조금 더 나옵니다.</p>
+    </div>
+    <div class="osaka-grid">
+      <article class="panel wide">
+        <h3>교통카드</h3>
+        <p class="pick">추천: <b>실물 ICOCA 1인 1장</b> · 오사카에서 마쓰야마까지 한 장으로</p>
+        <dl class="kv">
+          <div><dt>ICOCA</dt><dd>간사이공항역 JR 발매기에서 2,000엔(약 1.7만원, 보증금 500엔·약 4,200원 포함)에 삽니다. 오사카·교토·고베의 JR, 지하철, 사철에 다 쓰고, 강슛돌·이힝구가 가는 히로시마 전차(히로덴)와 마쓰야마 이요테쓰 전차·버스에서도 쓸 수 있습니다. 편의점 결제도 됩니다.</dd></div>
+          <div><dt>카드 터치</dt><dd>오사카 메트로, 난카이, 한신, 긴테쓰, 한큐는 비자·마스터 같은 해외 컨택리스 카드를 개찰구에 대서 탈 수 있습니다. 다만 JR은 안 되는 역이 많아 ICOCA를 기본으로 두고 카드 터치는 보조로 쓰세요.</dd></div>
+          <div><dt>02.28 1일권</dt><dd>일요일이라 오사카 메트로 1일권(엔조이 에코 카드)이 620엔(약 5,200원)입니다. 닛폰바시 → 오사카성 → 히가시우메다, 우메다 → 나가이(팀랩) → 우메다(저녁·마사지) → 난바로 5번 타서 따로 내는 것보다 훨씬 쌉니다. 이케다(컵누들) 가는 한큐선은 1일권에 포함되지 않아 따로 냅니다(왕복 약 ¥560·4,700원).</dd></div>
+          <div><dt>주유패스</dt><dd>오사카 주유패스 1일권은 3,500엔(약 3.0만원)으로 지하철이 무제한이고 오사카성·공중정원 등 40여 곳이 무료입니다. 02.28 계획은 공중정원을 저녁에 가서(패스 무료는 15시까지) 1일권이 낫고, 오사카성처럼 무료 시설을 낮에 여러 곳 돌 때만 주유패스가 이득입니다.</dd></div>
+          <div><dt>주의</dt><dd>02.25 하루카는 외국인 할인 승차권(약 ¥2,700·2.3만원)을, 03.02 호호의 라피트는 지정석 특급권(약 ¥1,490·1.3만원)을 ICOCA와 따로 삽니다. 히로덴은 2026년 7월부터 탈 때와 내릴 때 모두 카드를 댑니다. 우치코·시모나다처럼 JR 시코쿠 구간은 IC 카드가 되는지 미리 확인하세요.</dd></div>
+          <div><dt>아이폰</dt><dd>지갑 앱에 ICOCA를 추가할 수도 있지만, 한국 카드로 충전되는지는 카드마다 달라 실물 카드가 가장 확실합니다.</dd></div>
+        </dl>
+        <p class="src">요금과 사용처는 2026.11.27 웹 검색 기준입니다. 이요테쓰 ICOCA 사용은 공식 안내를 한 번 더 확인하세요.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="sec" data-page="overview" aria-labelledby="h-todo">
+    <div class="sec-h"><h2 id="h-todo">출발 전에 정할 것</h2><p id="todo-count"></p></div>
+    <ul class="todo" id="todo"></ul>
+  </section>
+
+  <section class="sec" data-page="overview" aria-labelledby="h-fx">
+    <div class="sec-h"><h2 id="h-fx">엔화 환율</h2><p>페이지의 원화는 모두 100엔 = 843.01원(하나은행 매매기준율, 2026.11.27 오전)으로 계산</p></div>
+    <div class="fx">
+      <div class="fx-in">
+        <label for="fx-rate">오늘 환율 (100엔당 원)</label>
+        <input id="fx-rate" type="number" inputmode="decimal" min="1" step="0.01" value="843.01">
+        <a class="fx-link" href="https://finance.naver.com/marketindex/exchangeDetail.naver?marketindexCd=FX_JPYKRW" target="_blank" rel="noopener">네이버에서 지금 환율 보기 ↗</a>
+      </div>
+      <div class="fx-in">
+        <label for="fx-yen">엔 → 원 계산</label>
+        <input id="fx-yen" type="number" inputmode="numeric" min="0" step="1" value="3500">
+        <p class="fx-out" id="fx-out" aria-live="polite"></p>
+      </div>
+      <dl class="fx-tbl" id="fx-tbl"></dl>
+    </div>
+    <p class="rate">이 페이지는 바깥 사이트의 시세를 직접 불러올 수 없어 환율이 자동으로 바뀌지는 않습니다. 네이버에서 오늘 환율을 보고 위 칸에 넣으면 오른쪽 금액이 그 환율로 다시 계산되고, 이 브라우저에 기억됩니다.</p>
+  </section>
+
+  <section class="sec" data-page="overview" aria-labelledby="h-fl">
+    <div class="sec-h"><h2 id="h-fl">항공편</h2><p>제주항공 · 모두 현지 시각 (한국과 일본은 시차 없음)</p></div>
+    <div class="flights" id="flights"></div>
+    <div class="book">
+      <div class="bk" data-who="ab">
+        <h3>강슛돌·이힝구 항공권</h3>
+        <dl>
+          <div><dt>예약번호</dt><dd><span id="pnr">GHMNTK</span><button type="button" class="copy" id="copy-pnr">복사</button></dd></div>
+          <div><dt>구간</dt><dd>인천 → 간사이 · 마쓰야마 → 인천</dd></div>
+          <div><dt>위탁수하물</dt><dd>기본 15kg (가는 편·오는 편)</dd></div>
+        </dl>
+      </div>
+      <div class="bk" data-who="c">
+        <h3>호호 항공권</h3>
+        <dl>
+          <div><dt>운임</dt><dd>스탠다드 · 1명</dd></div>
+          <div><dt>구간</dt><dd>인천 → 간사이 · 간사이 → 인천</dd></div>
+          <div><dt>예약번호</dt><dd class="muted">받은 화면에 없음</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" data-page="overview" aria-labelledby="h-wx">
+    <div class="sec-h"><h2 id="h-wx">날씨와 체력 안배</h2><p>2월 말~3월 초 평년값 · 기상청 1991~2020</p></div>
+    <div id="wx-overview"></div>
+  </section>
+
+  <section class="sec" data-page="kyoto">
+    <div class="osaka-grid">
+      <article class="panel wide">
+        <h3>교토 숙소</h3>
+        <p class="pick">교토역 근처 2박 · 02.25 목 → 02.27 토 · 이비스 스타일 교토 스테이션 · 두 방 모두 예약 완료 (강슛돌·이힝구 트윈, 호호 더블)</p>
+        <p class="note">이비스 스타일 교토 스테이션은 교토역 남쪽 하치조 출구 바로 앞(버스 정류장에서 약 72m)입니다. JR·긴테쓰 개찰구와 아반티 식당가가 이쪽이라 기차 타기는 편하고, 시버스 정류장·지하철·교토타워가 있는 북쪽(중앙 출구)까지는 역을 가로질러 약 10분 걷습니다. 02.25에 공항에서 하루카로 바로 오고 02.27 아라시야마도 JR 교토역에서 출발하니 역에서 가까운 숙소가 맞습니다.</p>
+        <div class="tbl">
+          <table>
+            <colgroup><col class="c-name"><col class="c-way"><col class="c-room"></colgroup>
+            <thead><tr><th scope="col">방</th><th scope="col">역까지</th><th scope="col">예약 금액 (2박)</th></tr></thead>
+            <tbody>
+              <tr class="best booked"><td><b>이비스 스타일 교토 스테이션 · 스탠다드 트윈</b><small>금연 · 17㎡ · 싱글 2개 · 성인 2명 · 강슛돌·이힝구 · 객실 평점 9.0</small></td><td>하치조 출구 버스 정류장 약 72m</td><td>2박 187,231원<small>예약번호 1803262970 · 객실 170,210원 + 세금 17,021원(소비세 10%) · 예약 수수료 없음 · 환불 불가 · 숙박세는 체크인 때 따로</small></td></tr>
+              <tr class="best booked"><td><b>이비스 스타일 교토 스테이션 · 이코노미 더블</b><small>금연 · 12㎡ · 더블 1개 · 성인 1명 · 호호 · 객실 평점 8.8</small></td><td>같은 호텔</td><td>2박 130,566원<small>결제 완료 · 객실 118,699원 + 세금·봉사료 11,867원 · 1박 약 65,283원 · 예약번호는 받은 화면에 없음</small></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note"><b>도시세</b> 두 예약 모두 금액에 도시세(숙박세)가 들어 있지 않아 체크인 때 숙소에 직접 냅니다. 강슛돌·이힝구는 1인 1박 ¥200(약 1,700원), 호호는 ¥400(약 3,400원)입니다. 조식은 1인 21,069원에 따로 더할 수 있습니다.</p>
+        <p class="src">아고다 예약 금액(세금·수수료 포함)입니다. 체크인 02.25(목), 체크아웃 02.27(토).</p>
+      </article>
+
+      <article class="panel wide">
+        <h3>교토 동선과 이동 거리</h3>
+        <p class="pick">숙소: 이비스 스타일 교토 스테이션(하치조 출구 바로 앞) 기준 · 체크인데이 카페 '교토 여행 총정리' 2박 3일 코스를 우리 일정에 맞춰 줄였습니다</p>
+        <div class="tbl">
+          <table>
+            <colgroup><col style="width:26%"><col style="width:50%"><col style="width:24%"></colgroup>
+            <thead><tr><th scope="col">구간</th><th scope="col">가는 법</th><th scope="col">시간·거리</th></tr></thead>
+            <tbody>
+              <tr><td><b>간사이공항 → 교토역</b><small>02.25 도착</small></td><td>2터미널에서 무료 셔틀버스로 간사이공항역 → 하루카</td><td>약 75~80분<small>외국인 할인 편도 약 ¥2,700(약 2.3만원)</small></td></tr>
+              <tr><td><b>숙소 → 교토역 개찰구</b><small>하치조 출구 쪽</small></td><td>JR·긴테쓰·신칸센 개찰구가 숙소 쪽(남쪽)에 있습니다</td><td>걸어서 약 2~5분</td></tr>
+              <tr><td><b>숙소 → 버스·지하철·교토타워</b><small>역 북쪽 중앙 출구</small></td><td>교토역 안 남북 통로로 역을 가로지릅니다</td><td>걸어서 약 10분</td></tr>
+              <tr><td><b>교토역 → 후시미이나리</b><small>02.25 오후</small></td><td>JR 나라선 이나리역(두 정거장). 역 앞이 바로 신사 입구입니다</td><td>약 5분<small>편도 약 ¥150(약 1,300원)</small></td></tr>
+              <tr><td><b>본전 → 요쓰쓰지 전망대</b><small>후시미이나리</small></td><td>센본도리이를 지나는 계단 오르막. 전망대에서 돌아옵니다</td><td>편도 약 1.5km<small>왕복 1시간 반 안팎</small></td></tr>
+              <tr><td><b>교토역 → 기요미즈데라</b><small>02.26 아침</small></td><td>시버스 206·100번 고조자카에서 내려 오르막을 걷습니다</td><td>버스 약 15분 + 걸어서 약 10분<small>버스 1회 ¥230(약 1,900원)</small></td></tr>
+              <tr><td><b>기요미즈데라 → 야사카 신사</b><small>02.26 오전</small></td><td>산넨자카 → 니넨자카 → 네네노미치로 내리막 골목을 걷습니다</td><td>약 1.5km<small>구경하며 1시간</small></td></tr>
+              <tr><td><b>야사카 신사 → 니시키 시장</b><small>02.26 점심 뒤</small></td><td>시조 거리를 따라 서쪽으로 걸어서, 가모강 건너 가와라마치</td><td>약 1km, 15분</td></tr>
+              <tr><td><b>가와라마치 → 교토역</b><small>02.26 돌아올 때</small></td><td>지하철 시조역 → 교토역, 또는 시버스 4·17·205번</td><td>약 15~20분<small>지하철 약 ¥220(약 1,900원)</small></td></tr>
+              <tr><td><b>교토역 → 사가아라시야마</b><small>02.27 아침</small></td><td>JR 사가노선</td><td>약 15분<small>편도 약 ¥240(약 2,000원)</small></td></tr>
+              <tr><td><b>사가아라시야마역 → 대나무숲·도게쓰교</b><small>02.27 아침</small></td><td>걸어서. 대나무숲에서 도게쓰교까지 이어서 걷습니다</td><td>역에서 약 10분<small>대나무숲 → 도게쓰교 약 1km</small></td></tr>
+              <tr><td><b>교토역 → 난바</b><small>02.27 오사카로</small></td><td>JR 신쾌속 오사카역 → 미도스지선 우메다 → 난바. 짐을 들고 환승 한 번</td><td>약 1시간<small>약 ¥820(약 6,900원)</small></td></tr>
+              <tr><td><b>교토역 → 철학의 길·은각사</b><small>선택</small></td><td>시버스 5·17번 긴카쿠지미치</td><td>약 35~40분</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note"><b>체력 안배</b> 02.25는 새벽에 출발한 날이라 체크인해 쉬었다가 숙소에서 가까운 후시미이나리만 다녀옵니다. 전망대까지만 오르고 어두워지기 전에 내려옵니다. 02.26은 기요미즈데라를 오전에 보고 내리막으로만 걸은 뒤 오후에 숙소에서 쉽니다. 02.27은 아라시야마를 이른 아침에 짧게 보고, 점심 뒤 짐을 찾아 오사카로 옮깁니다. 금각사·은각사는 이번에는 빼고 선택으로 남겼습니다.</p>
+      </article>
+
+      <article class="panel wide">
+        <h3>교토 비용 정리</h3>
+        <p class="pick">1인 기준 · 식비 제외 · 교토 2박 합계: 강슛돌·이힝구 약 ¥16,800(약 14.1만원), 호호 약 ¥21,500(약 18.2만원)</p>
+        <div class="tbl">
+          <table>
+            <colgroup><col style="width:34%"><col style="width:26%"><col style="width:40%"></colgroup>
+            <thead><tr><th scope="col">항목</th><th scope="col">1인</th><th scope="col">메모</th></tr></thead>
+            <tbody>
+              <tr><td><b>숙소 2박</b><small>이비스 스타일 교토 스테이션</small></td><td>약 ¥11,100~15,500<small>약 9.4만~13.1만원</small></td><td>강슛돌·이힝구 1인 93,616원(트윈 2박 187,231원 ÷ 2) · 호호 130,566원(더블 2박) · 두 방 모두 예약 완료</td></tr>
+              <tr><td><b>숙박세</b><small>교토시</small></td><td>¥400~800<small>약 3,400~6,700원</small></td><td>트윈은 1인 1박 요금이 ¥6,000(약 5.1만원) 아래라 강슛돌·이힝구 ¥200(약 1,700원) × 2박, 호호는 ¥400(약 3,400원) × 2박 · 체크인 때 따로 낼 수 있음</td></tr>
+              <tr><td><b>하루카 간사이공항 → 교토역</b><small>02.25</small></td><td>약 ¥2,700<small>약 2.3만원</small></td><td>외국인 할인 편도</td></tr>
+              <tr><td><b>JR 교토 ↔ 이나리</b><small>02.25</small></td><td>약 ¥300<small>약 2,500원</small></td><td>편도 약 ¥150(약 1,300원) · 후시미이나리 입장 무료</td></tr>
+              <tr><td><b>시버스 교토역 → 고조자카</b><small>02.26</small></td><td>¥230<small>약 1,900원</small></td><td>시내 버스는 어디까지 타도 같은 요금</td></tr>
+              <tr><td><b>기요미즈데라</b><small>02.26</small></td><td>¥500<small>약 4,200원</small></td><td>후시미이나리·야사카 신사·니시키 시장·하나미코지·대나무숲은 무료</td></tr>
+              <tr><td><b>지하철 시조 → 교토</b><small>02.26</small></td><td>약 ¥220<small>약 1,900원</small></td><td>숙소로 돌아올 때</td></tr>
+              <tr><td><b>JR 교토 ↔ 사가아라시야마</b><small>02.27</small></td><td>약 ¥480<small>약 4,000원</small></td><td>편도 약 ¥240(약 2,000원)</td></tr>
+              <tr><td><b>교토역 → 난바</b><small>02.27</small></td><td>약 ¥820<small>약 6,900원</small></td><td>JR 신쾌속 + 미도스지선</td></tr>
+              <tr><td><b>선택: 은각사</b></td><td>약 ¥500<small>약 4,200원</small></td><td>시버스 왕복 ¥460(약 3,900원) 추가</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="src">기요미즈데라 입장료는 공식 안내(2026년), 시버스 요금은 교토시 관광 안내 기준입니다. JR·지하철·하루카 요금과 은각사·뵤도인 입장료는 여행 자료 기준 대략치라 다녀오기 전 한 번 더 확인하세요. 원화는 100엔 = 843.01원으로 계산했습니다.</p>
+      </article>
+
+      <article class="panel wide">
+        <h3>교토 맛집</h3>
+        <p class="pick">카페 글 맛집 목록에서 우리 동선에 가까운 곳만 골랐습니다 · 가격과 영업시간은 방문 전 확인</p>
+        <div class="tbl">
+          <table>
+            <colgroup><col style="width:22%"><col style="width:42%"><col style="width:36%"></colgroup>
+            <thead><tr><th scope="col">동네</th><th scope="col">식당</th><th scope="col">메뉴·메모</th></tr></thead>
+            <tbody>
+              <tr><td><b>가와라마치·산조</b><small>02.26 점심</small></td><td>규카츠 모토무라 산조 가와라마치점</td><td>규카츠 · 줄이 길 수 있음</td></tr>
+              <tr><td><b>가와라마치·데라마치</b><small>02.26 점심</small></td><td>텐동 마키노 교토 데라마치점</td><td>텐동</td></tr>
+              <tr><td><b>시조 가와라마치</b><small>02.26 점심</small></td><td>교토 돈카츠 카츠다 시조 가와라마치점 · 카츠쿠라 산조</td><td>돈카츠</td></tr>
+              <tr><td><b>가와라마치</b><small>02.26 점심</small></td><td>키치키치 오므라이스</td><td>오므라이스 · 예약해야 함</td></tr>
+              <tr><td><b>기온</b><small>02.26 점심</small></td><td>Gion Duck Rice</td><td>오리고기 덮밥</td></tr>
+              <tr><td><b>데라마치</b><small>특별한 저녁</small></td><td>미시마테이 본점</td><td>스키야키 · 비싼 편</td></tr>
+              <tr><td><b>교토역</b><small>02.25 점심 · 02.26 저녁</small></td><td>교토역 빌딩 10층 라멘코지 · 지하상가 포르타</td><td>라멘 골목과 식당가 · 카페 글 목록 밖</td></tr>
+              <tr><td><b>기요미즈데라 근처</b><small>02.26 쉬어 가기</small></td><td>HARIO CAFE</td><td>정원이 예쁜 커피집</td></tr>
+              <tr><td><b>아라시야마</b><small>02.27 점심</small></td><td>타이쇼 하나나</td><td>도미 오차즈케</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="src">출처: 네이버 체크인데이 일본여행카페 <a href="https://cafe.naver.com/20daelee/953006" target="_blank" rel="noopener">'교토 여행 총정리★2027최신'</a>(2026.11.13 작성). 이동 시간은 카페 글과 일반 노선 기준 대략치이고, 원화는 100엔 = 843.01원으로 계산했습니다.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="sec" data-page="city" aria-labelledby="h-plan">
+    <div class="sec-h"><h2 id="h-plan">날짜별 일정</h2><p>이힝구의 시트 기준 · 간사이는 교토 2박 → 오사카 3박 순서로 바꿈 · 시각은 대략의 시작 시각</p></div>
+    <div id="plan"></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>자료: 제주항공 예약 안내, 호호의 항공권 화면, 이힝구가 짠 일정 시트 ‘일본 일주’ (<a href="https://docs.google.com/spreadsheets/d/1fOqP3o2f3PnhA58qr0301qtxUGG74BkC61G0SkMhshM/edit" target="_blank" rel="noopener">시트 열기</a>). 제안 표시가 붙은 항목은 시트에 없던 내용으로, 항공편 시각에 맞춰 덧붙였습니다. USJ·숙소·교통 정보는 2026년 11월 27일 웹 검색으로 모은 것이라 예약 전 공식 사이트에서 최종 확인이 필요합니다.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var START='2027-02-25', END='2027-03-10';
+  var TAG={f:'항공',m:'이동',s:'숙소',o:'선택',x:'택1',r:'자유',t:'제안'};
+
+  var CITY={
+    kyoto:{ko:'교토',jp:'京都',ro:'Kyoto',stay:'교토역 하치조 출구 바로 앞',pref:'이비스 스타일 교토 스테이션 · 트윈·더블 예약 완료',seen:'again',nights:2,range:'02.25 → 02.27',via:'하루카 약 75~80분 (간사이공항 → 교토역)',prev:'간사이공항',next:'오사카',who:'abc'},
+    osaka:{ko:'오사카',jp:'大阪',ro:'Osaka',stay:'닛폰바시 3초메 · 난바역 걸어서 약 5분',pref:'예약 완료: 미마루 오사카 난바 스테이션 어넥스 · 1 베드룸 패밀리 아파트먼트',seen:'again',nights:3,range:'02.27 → 03.02',via:'JR 신쾌속 + 미도스지선 약 1시간 (교토역 → 난바)',prev:'교토',next:'고베',who:'abc'},
+    kobe:{ko:'고베',jp:'神戸',ro:'Kobe',stay:'산노미야 근처',nights:2,range:'03.02 → 03.04',via:'한신 난바선 직통 약 45분~1시간 (난바 → 고베산노미야)',prev:'오사카',next:'히로시마',who:'ab'},
+    hiroshima:{ko:'히로시마',jp:'広島',ro:'Hiroshima',stay:'히로시마역 근처',seen:'first',nights:3,range:'03.04 → 03.07',via:'신칸센 약 1시간 10분 (신고베역 → 히로시마)',prev:'고베',next:'마쓰야마',who:'ab'},
+    matsuyama:{ko:'마쓰야마',jp:'松山',ro:'Matsuyama',stay:'도고온천 근처',pref:'온천 있는 숙소',seen:'first',nights:3,range:'03.07 → 03.10',via:'쾌속선 약 1시간 10분 (히로시마항 → 마쓰야마관광항)',prev:'히로시마',next:'인천공항',who:'ab'}
+  };
+
+  /* 항목: [시각, 내용, 종류]  종류: f 항공 · m 이동 · s 숙소 · o 선택 · x 택1 · r 자유 · t 제안 · e 식사 */
+  var DAYS=[
+    {d:'02-25',w:'목',city:'kyoto',who:'abc',sum:'입국 → 하루카로 교토, 오후 후시미이나리 · 해 질 녘 요쓰쓰지 전망대',items:[
+      ['05:00','인천공항 도착 (1터미널)','m'],
+      ['08:05','7C1391 인천 출발','f'],
+      ['09:50','간사이공항 도착 (2터미널)','f'],
+      ['','무료 셔틀버스로 간사이공항역 (7~9분) · ICOCA와 하루카 표 사기','m'],
+      ['11:00','하루카 → 교토역 (약 75~80분, 외국인 할인 편도 약 ¥2,700·2.3만원)','m'],
+      ['12:30','하치조 출구로 나와 숙소(이비스 스타일 교토 스테이션)에 짐 맡기기 (바로 앞)','s'],
+      ['12:45','교토역 아반티 식당가나 포르타에서 점심','e'],
+      ['14:00','선택: 교토역 빌딩 대계단·스카이웨이 구경 (역 안, 무료)','o'],
+      ['15:00','체크인, 휴식','s'],
+      ['16:00','JR 나라선 교토역 → 이나리역 (두 정거장, 약 5분, 편도 약 ¥150·1,300원)','m'],
+      ['16:10','후시미이나리 신사 · 센본도리이 → 요쓰쓰지 전망대 (왕복 1시간 반 안팎, 해 질 무렵 시내 전망 · 어두워지기 전 내려오기)',''],
+      ['18:00','이나리역 → 교토역, 역 주변 저녁 (라멘코지·포르타) · 새벽부터 움직인 날이라 일찍 쉬기','e'],
+      ['비행기 지연 시','많이 늦어지면 후시미이나리는 02.26 아침으로 옮기기','t']]},
+    {d:'02-26',w:'금',city:'kyoto',who:'abc',sum:'기요미즈데라·산넨자카 → 기온 점심 → 니시키 시장, 저녁 교토역',items:[
+      ['09:00','숙소 → 역 북쪽 버스 정류장 (걸어서 약 10분) → 시버스 206·100번 고조자카 (약 15분) · 3명이면 하치조 출구에서 택시도 방법','m'],
+      ['09:30','기요미즈데라 (고조자카에서 오르막 약 10분, ¥500·4,200원 · 금요일이라 주말보다 한산)',''],
+      ['11:00','산넨자카·니넨자카 → 야사카 신사로 걸어 내려오기 (약 1.5km) · 쉬어 갈 곳: HARIO CAFE',''],
+      ['12:30','기온·가와라마치 점심 · 규카츠 모토무라, 텐동 마키노, 교토 돈카츠 카츠다, Gion Duck Rice 등','e'],
+      ['14:00','니시키 시장 → 데라마치·신쿄고쿠 상점가 (니시키 시장은 저녁 전에 닫는 가게가 많음)',''],
+      ['15:30','지하철 시조역 → 교토역, 걸어서 숙소 (약 10분), 쉬기','s'],
+      ['18:00','교토역 주변 저녁 (아반티·포르타·라멘코지), 교토타워 야경','e']]},
+    {d:'02-27',w:'토',city:'osaka',who:'abc',sum:'아침 아라시야마 대나무숲 → 오사카 난바로, 덴덴타운·신사이바시스지 치이카와 굿즈, 밤 도톤보리',items:[
+      ['08:00','체크아웃, 짐은 숙소에 맡기기','s'],
+      ['08:15','JR 사가노선 교토역 → 사가아라시야마역 (약 15분, 편도 약 ¥240·2,000원)','m'],
+      ['08:40','대나무숲 → 도게쓰교 산책 (이른 아침이라 덜 붐빔, 역에서 걸어서 약 10분)',''],
+      ['11:00','아라시야마 점심 · 타이쇼 하나나(도미 오차즈케) 등','e'],
+      ['12:15','JR 사가아라시야마역 → 교토역, 숙소에서 짐 찾기','m'],
+      ['13:00','JR 신쾌속 교토역 → 오사카역 → 미도스지선 우메다 → 난바 (약 1시간, 약 ¥820·6,900원, 짐 들고 환승 한 번)','m'],
+      ['14:15','숙소(미마루 오사카 난바 스테이션 어넥스) 도착 · 지하철 난바역에서 걸어서 약 5~10분 · 15:00 체크인 뒤 휴식','s'],
+      ['16:00','덴덴타운 치이카와 굿즈 찾기 · 스루가야 덴덴타운점·닛폰바시 본관·오타로드 아웃렛 (숙소에서 걸어서 5분 안팎 · 이힝구 추천)',''],
+      ['17:30','신사이바시스지 상점가 구경 · 신사이바시 PARCO 치이카와랜드 (도톤보리 지나 걸어서 약 20분, 또는 미도스지선 난바 → 신사이바시 한 정거장)',''],
+      ['19:00','상점가를 따라 도톤보리로 걸어 내려와 저녁 · 또는 신사이바시 PARCO 치이카와 라멘 부타','e'],
+      ['20:00','도톤보리 밤 구경 · 에비스바시 글리코 간판, 도톤보리강 산책, 네온 거리',''],
+      ['21:00','숙소로 걸어서 약 10분 · 피곤하면 신사이바시는 02.28로 미루기','m']]},
+    {d:'02-28',w:'일',city:'osaka',who:'abc',sum:'오사카성 → 컵누들 뮤지엄(이케다), 우메다 치이카와, 팀랩 → 우메다 저녁·마사지',items:[
+      ['09:00','숙소 출발 · 닛폰바시역 → 센니치마에선 다니마치큐초메 환승 → 다니마치선 다니마치욘초메 (약 15분)','m'],
+      ['09:30','오사카성 공원 · 천수각 (¥1,200·1.0만원, 역에서 천수각까지 걸어서 약 15~20분)',''],
+      ['11:15','다니마치선 다니마치욘초메 → 히가시우메다 (약 7분), 한큐 오사카우메다역까지 걸어서 약 10분','m'],
+      ['11:45','우메다에서 점심','e'],
+      ['12:45','한큐 다카라즈카선 오사카우메다 → 이케다 (약 20분, 편도 약 ¥280·2,400원) → 걸어서 약 5분','m'],
+      ['13:15','컵누들 뮤지엄 오사카 이케다 · 입장 무료, 나만의 컵누들 만들기 ¥500(약 4,200원) · 일요일이라 붐빔, 마지막 입장 15:30',''],
+      ['15:00','한큐로 우메다 복귀 (약 20분) · 치이카와 파크 스토어·치이카와랜드 우메다점 · 숙소에 들르지 않는 긴 날이라 카페에서 쉬어 가기','o'],
+      ['17:15','미도스지선 우메다 → 나가이 (약 25분)','m'],
+      ['18:00','팀랩 보태니컬 가든 오사카 (1시간~1시간 반 · 밤 야외라 따뜻하게)',''],
+      ['19:30','미도스지선 나가이 → 우메다 (약 25분), 우메다에서 저녁','e'],
+      ['21:00','우메다 근처 마사지 (장소 미정)',''],
+      ['선택','상황 봐서 우메다 스카이빌딩 공중정원 야경 (22:00까지 입장, ¥2,000~2,400·1.7만~2.0만원)','o'],
+      ['22:30','미도스지선 우메다 → 난바, 숙소까지 걸어서','m']]},
+    {d:'03-01',w:'월',city:'osaka',who:'abc',sum:'유니버설 스튜디오 재팬 · 호호의 마지막 날',items:[
+      ['07:40','숙소 → 닛폰바시역 (걸어서 약 6분)','m'],
+      ['','한신 난바선 → 니시쿠조 환승 → 유니버설시티역 (약 29분, 편도 약 ¥580·4,900원)','t'],
+      ['08:30','USJ 입장 (개장 시간 확인) · 한국 삼일절 연휴 마지막 날이라 붐빌 수 있음',''],
+      ['입장 후','익스프레스 확약권에 적힌 시간에 닌텐도 월드 입장','t'],
+      ['20:00','같은 길로 숙소 복귀 (약 35분) · 다음 날 이동이 있으니 짐 미리 싸 두기','s']]},
+    {d:'03-02',w:'화',city:'kobe',cityC:'osaka',who:'abc',split:true,
+      sum:{all:'강슛돌·이힝구는 고베로, 호호는 먼저 귀국',ab:'고베 이동, 기타노 이진칸, 호빵맨 뮤지엄·하버랜드 야경',c:'난바에서 라피트로 간사이공항 (13:05 출발)'},
+      laneTitle:{ab:'고베로 이동',c:'먼저 귀국'},
+      lanes:{
+        ab:[
+          ['11:00','체크아웃 → 닛폰바시역(걸어서 약 6분)이나 오사카난바역에서 한신 난바선 직통 → 고베산노미야 (약 45분~1시간, 약 ¥710·6,000원부터)','m'],
+          ['12:00','점심','e'],
+          ['13:00','숙소에 짐 맡기고 기타노 이진칸 (언덕길이라 천천히)',''],
+          ['15:00','체크인, 휴식','s'],
+          ['16:00','고베 호빵맨(앙팡만) 어린이 박물관 & 쇼핑몰 · 하버랜드 (산노미야에서 JR로 고베역 약 5분 + 걸어서 약 8분 · 1층 쇼핑몰은 무료, 뮤지엄은 날짜·시간 지정표 ¥2,000~2,500·1.7만~2.1만원, 3월은 17:00까지 입장)',''],
+          ['17:30','메리켄파크·하버랜드 야경 (호빵맨 몰에서 바로)',''],
+          ['19:00','고베규 저녁','e']],
+        c:[
+          ['09:30','체크아웃 → 난카이 난바역 (걸어서 약 5분)','s'],
+          ['10:00','라피트 → 간사이공항역 (약 34~39분, 약 ¥1,490·1.3만원)','t'],
+          ['','간사이공항역 → 무료 셔틀버스로 2터미널 (7~9분)','t'],
+          ['11:00','간사이공항 2터미널 도착 (출발 2시간 전)','t'],
+          ['13:05','7C1316 간사이 출발','f'],
+          ['15:15','인천공항 도착 (1터미널)','f']]
+      }},
+    {d:'03-03',w:'수',city:'kobe',who:'ab',sum:'아리마 온천 또는 히메지성 (반나절)',items:[
+      ['10:00','아리마 온천 또는 히메지성','x'],
+      ['16:00','고베 복귀, 휴식','m'],
+      ['19:00','저녁 (난킨마치)','e']]},
+    {d:'03-04',w:'목',city:'hiroshima',who:'ab',sum:'히로시마 이동, 평화기념공원',items:[
+      ['11:00','체크아웃 → 신고베역에서 신칸센 (약 1시간 10분)','m'],
+      ['13:00','히로시마 도착, 점심','e'],
+      ['14:00','체크인, 짐 풀고 쉬기','s'],
+      ['15:00','평화기념공원·자료관',''],
+      ['19:00','오코노미야키 저녁','']]},
+    {d:'03-05',w:'금',city:'hiroshima',who:'ab',sum:'미야지마 (노을까지)',items:[
+      ['09:30','미야지마 이동 (JR + 페리)','m'],
+      ['10:30','이쓰쿠시마 신사',''],
+      ['12:30','점심','e'],
+      ['14:00','미센 로프웨이 (내린 뒤 정상까지 오르막 약 30분 · 컨디션 보고)','o'],
+      ['17:30','노을 보고 복귀','']]},
+    {d:'03-06',w:'토',city:'hiroshima',who:'ab',sum:'자유일 (슈케이엔, 시내 산책)',items:[
+      ['11:00','슈케이엔 정원',''],
+      ['13:00','점심','e'],
+      ['14:00','시내 산책 (오노미치 당일치기는 오가는 시간이 길어 컨디션 좋을 때만)','r'],
+      ['19:00','저녁','e']]},
+    {d:'03-07',w:'일',city:'matsuyama',who:'ab',sum:'페리로 마쓰야마 이동, 도고온천',items:[
+      ['10:00','체크아웃 → 히로시마항','m'],
+      ['11:00','페리 → 마쓰야마관광항 (쾌속선 약 1시간 10분)','m'],
+      ['15:00','도고온천 체크인','s'],
+      ['18:00','도고온천 본관 입욕, 저녁','']]},
+    {d:'03-08',w:'월',city:'matsuyama',who:'ab',sum:'마쓰야마성, 오카이도 상점가',items:[
+      ['10:00','마쓰야마성 (로프웨이)',''],
+      ['12:00','점심','e'],
+      ['15:00','오카이도 상점가',''],
+      ['19:00','저녁','e']]},
+    {d:'03-09',w:'화',city:'matsuyama',who:'ab',sum:'자유일 (우치코 / 시모나다역 노을)',items:[
+      ['10:00','우치코 당일치기 또는 휴식','r'],
+      ['17:30','시모나다역 노을','o'],
+      ['20:00','짐 정리','']]},
+    {d:'03-10',w:'수',city:'matsuyama',who:'ab',sum:'마쓰야마 공항에서 귀국 (15:40 출발)',items:[
+      ['13:40','늦어도 이때까지 마쓰야마 공항 도착','t'],
+      ['15:40','7C1704 마쓰야마 출발 → 인천','f']]}
+  ];
+
+  var FLIGHTS=[
+    {no:'7C1391',date:'02.25 목',who:'abc',dep:['08:05','ICN','인천 1터미널'],arr:['09:50','KIX','간사이 2터미널'],dur:'1시간 45분',foot:'가는 편 · 셋이 같은 비행기. 강슛돌·이힝구는 위탁수하물 기본 15kg, 호호는 스탠다드 운임'},
+    {no:'7C1316',date:'03.02 화',who:'c',dep:['13:05','KIX','간사이 2터미널'],arr:['15:15','ICN','인천 1터미널'],dur:'2시간 10분',foot:'호호 오는 편 · 스탠다드 운임'},
+    {no:'7C1704',date:'03.10 수',who:'ab',dep:['15:40','MYJ','마쓰야마'],arr:['—','ICN','인천'],dur:'도착 시각 미확인',foot:'강슛돌·이힝구 오는 편 · 위탁수하물 기본 15kg. 도착 시각은 안내문에 없습니다'}
+  ];
+
+  var TODO=[
+    {st:'todo',who:'ab',title:'고베·히로시마·마쓰야마 숙소 정하기 · 2명',body:'03.02부터는 강슛돌·이힝구 둘입니다. 마쓰야마는 온천 있는 숙소로 잡습니다.',
+      list:[['산노미야 근처','03.02 → 03.04 · 2박 · 2명','ab'],['히로시마역 근처','03.04 → 03.07 · 3박 · 2명','ab'],['도고온천 근처','03.07 → 03.10 · 3박 · 2명 · 온천','ab']]},
+    {st:'todo',who:'abc',title:'USJ 1일권 3장 사기 (03.01 월) · 12.29(화) 판매 예상',body:'3월 1일분은 입장 62일 전인 12.29(화) 정오에 열릴 가능성이 가장 높습니다(60일 전 0시라는 안내로는 12.31 목). 연말이라 하루 이틀 달라질 수 있어 12.28(월)부터 공식 웹 티켓 스토어를 확인합니다. 처음엔 그날의 가장 싼 가격으로 열리고 팔리면서 오를 수 있어 열리면 바로 삽니다. 03.01은 한국 삼일절 연휴 마지막 날이라 붐빌 수 있습니다. 3명이면 2026년 가격 기준 약 ¥25,200~¥35,700(약 21.2만~30.1만원)이고, 오사카 숙소에서 약 35분 걸립니다.',link:'osaka',linkText:'USJ 정리'},
+    {st:'todo',who:'abc',title:'익스프레스 4 사기 (닌텐도 월드 확약권 포함) · 12월 말 판매',body:'익스프레스 4 중 닌텐도 월드 입장 확약권이 포함된 세트로 확정했습니다. 같은 4라도 확약권이 없는 세트가 있으니 상품 설명을 꼭 확인합니다. 확약권이 있으면 당일 앱 정리권은 필요 없습니다. 3월 1일분은 약 2개월 전인 12월 말쯤 판매가 열리고, 환불·날짜 변경이 안 됩니다. 1인 약 ¥6,800~¥19,000(약 5.7만~16.0만원), 확약권 포함 세트는 위쪽 가격일 수 있습니다.',link:'budget',linkText:'예산 보기'},
+    {st:'todo',who:'abc',title:'ICOCA 1인 1장 · 하루카 표 준비',body:'02.25 간사이공항역 JR 발매기에서 ICOCA를 2,000엔(약 1.7만원, 보증금 500엔·약 4,200원 포함)에 사고, 하루카는 외국인 할인 승차권(약 ¥2,700·2.3만원)을 따로 삽니다. 교토 시버스·지하철·JR, 고베부터 히로시마·마쓰야마까지 ICOCA 한 장으로 씁니다. 02.28은 오사카 메트로 1일권(주말 620엔, 약 5,200원)이 더 쌉니다.',link:'budget',linkText:'교통카드 정리'},
+    {st:'todo',who:'abc',title:'선택 일정 고르기',
+      list:[['02.26 점심','키치키치 오므라이스에 가려면 미리 예약','abc'],['02.27 저녁','치이카와 라멘 부타 (신사이바시 PARCO, 대기 확인)','abc'],['02.28 밤','우메다 근처 마사지 가게 정하기 (예약)','abc'],['02.28 밤','우메다 공중정원 야경 (상황 봐서)','abc'],['02.27 아침','아라시야마 대나무숲 (이른 아침이라 덜 붐빔)','abc'],['03.02 오후','고베 호빵맨 뮤지엄 표 사기 (날짜·시간 지정, ¥2,000~2,500·1.7만~2.1만원) · 쇼핑몰만 볼 거면 표 없이 무료','ab'],['03.03','아리마 온천 또는 히메지성','ab'],['03.05 오후','미센 로프웨이','ab'],['03.06 오후','시내 산책 또는 오노미치 당일치기','ab'],['03.09','우치코 당일치기, 시모나다역 노을','ab']]},
+    {st:'check',who:'abc',title:'오사카 숙소 결제일 2027.02.18',body:'미마루 어넥스(예약번호 1803254069) 3박 ¥87,532(약 73.8만원)가 나중에 결제라 02.18에 카드에서 빠져나갑니다. 엔화 결제라 원화 금액은 그날 환율에 따라 달라집니다. 무료 취소 마감일은 확정서에서 확인하세요.',link:'osaka',linkText:'오사카 숙소'},
+    {st:'check',who:'abc',title:'팀랩 02.28 티켓·개장 시각 확인',body:'18:00쯤 들어가 1시간~1시간 반 보고, 우메다로 돌아가 저녁과 마사지를 할 예정입니다. 날짜별 요금이라 온라인으로 미리 사면 성인 ¥1,800(약 1.5만원)부터입니다. 2월 개장 시각은 아직 확인하지 못했고(11~1월은 18:00), 야외라 날씨에 따라 운영이 바뀔 수 있습니다.',link:'d0228'},
+    {st:'check',who:'abc',title:'USJ 개장 시간 확인 (03.01 월)',body:'2027년 3월 운영 시간은 아직 발표 전입니다. 일정은 08:30 입장, 오사카 숙소에서 07:40 출발(약 35분)로 잡혀 있습니다.',link:'d0301'},
+    {st:'done',who:'abc',title:'오사카 숙소 예약 완료 · 미마루 어넥스',body:'미마루 오사카 난바 스테이션 어넥스 · 02.27 → 03.02 · 3박 · 1 베드룸 패밀리 아파트먼트(39㎡, 금연, 싱글 2개 + 2층 침대 1개) · 성인 3명 · 외부 배달 음식 허용, 무료 Wi-Fi, 청소는 제한적 · 특별 요청: 금연 객실. 예약번호 1803254069 · 3박 ¥87,532(약 73.8만원) · 2027.02.18 결제 예정입니다. 도시세(1인 1박 ¥200·약 1,700원)는 체크인 때 따로 냅니다.',link:'osaka',linkText:'오사카 숙소'},
+    {st:'done',who:'abc',title:'교토 숙소 예약 완료 · 이비스 스타일 두 방',body:'트윈(강슛돌·이힝구): 예약번호 1803262970 · 객실 170,210원 + 세금 17,021원 = 187,231원 · 환불 불가 · 확정서는 강슛돌 이메일로 옵니다. 더블(호호): 객실 118,699원 + 세금·봉사료 11,867원 = 130,566원 · 결제 완료 · 예약번호는 확정서에서 확인. 두 방 모두 02.25(목) 체크인 → 02.27(토) 체크아웃이고, 도시세는 체크인 때 숙소에 직접 냅니다(강슛돌·이힝구 1인 1박 ¥200·약 1,700원, 호호 ¥400·약 3,400원).',link:'kyoto',linkText:'교토 숙소'},
+    {st:'done',who:'c',title:'03.02 호호 공항 가는 길 · 난바에서 라피트',body:'숙소(미마루 오사카 난바 스테이션 어넥스)에서 난카이 난바역까지 걸어서 약 5분입니다. 10:00쯤 라피트(약 34~39분, 약 ¥1,490·1.3만원)를 타면 무료 셔틀버스로 2터미널에 11:00쯤 도착합니다. 교토에서 하루카(약 75분, 약 ¥2,700·2.3만원)로 갈 때보다 약 ¥1,210(약 1.0만원) 싸고 40분쯤 빠릅니다. 라피트 특급권은 지정석이라 ICOCA와 따로 삽니다.',link:'d0302'},
+    {st:'done',who:'abc',title:'교토·오사카 일정 확정 · 교토 먼저',body:'02.25 하루카로 교토, 오후 후시미이나리 · 02.26 기요미즈데라·기온·니시키 시장 · 02.27 아침 아라시야마 뒤 오사카로, 저녁 덴덴타운·신사이바시·밤 도톤보리 · 02.28 오사카성·컵누들 뮤지엄·팀랩·우메다 저녁과 마사지 · 03.01 USJ · 03.02 호호는 라피트로 공항, 강슛돌·이힝구는 고베로.',link:'kyoto',linkText:'교토 보기'},
+    {st:'done',who:'abc',title:'02.25 간사이공항 도착 09:50 · 2터미널',body:'2터미널은 간사이공항역과 떨어져 있어, 하루카를 타려면 무료 셔틀버스(7~9분)로 1터미널 쪽 역까지 갑니다.',link:'d0225'},
+    {st:'done',who:'ab',title:'03.10 귀국편 15:40 마쓰야마 출발',body:'7C1704이고, 늦어도 13:40까지 마쓰야마 공항에 도착하면 됩니다.',link:'d0310'}
+  ];
+
+  /* ---------- helpers ---------- */
+  function $(id){return document.getElementById(id);}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  var today='';
+  try{ today=new Date(Date.now()+9*36e5).toISOString().slice(0,10); }catch(e){}
+  function iso(d){return '2027-'+d;}
+  function idOf(d){return 'd'+d.replace('-','');}
+  function sees(who,view){ return view==='all' || who.indexOf(view==='ab'?'a':'c')>-1; }
+  var NICK={a:'강슛돌',b:'이힝구',c:'호호'};
+  function whoChips(who){
+    var ps=who.split('').filter(function(p){return NICK[p];});
+    var names=ps.map(function(p){return NICK[p];}).join(', ');
+    return '<span class="who" role="img" aria-label="'+names+'" title="'+names+'">'+
+      ps.map(function(p){return '<span class="p" aria-hidden="true">'+NICK[p].charAt(0)+'</span>';}).join('')+'</span>';
+  }
+  function plane(cls){return '<svg class="'+(cls||'')+'" aria-hidden="true" focusable="false"><use href="#i-plane"></use></svg>';}
+  function cityOf(day,view){ return (view==='c' && day.cityC) ? day.cityC : day.city; }
+
+  /* ---------- D-day ---------- */
+  (function(){
+    if(!today) return;
+    var diff=Math.round((Date.parse(START)-Date.parse(today))/864e5);
+    if(diff>0){ $('dday-k').textContent='출발까지'; $('dday').textContent='D-'+diff; }
+    else if(today<=END){ $('dday-k').textContent='여행 중'; $('dday').textContent=(1-diff)+'일째'; }
+    else { $('dday-k').textContent='여행'; $('dday').textContent='다녀옴'; }
+  })();
+
+  /* ---------- strip ---------- */
+  function segs(list){
+    var out=[];
+    list.forEach(function(c,i){
+      var last=out[out.length-1];
+      if(last && last.city===c) last.n++; else out.push({city:c,start:i,n:1});
+    });
+    return out;
+  }
+  function segHTML(s,row,dim,extra){
+    var C=CITY[s.city];
+    return '<span class="seg'+(dim?' dim':'')+'" style="--c:var(--'+s.city+');grid-row:'+row+';grid-column:'+(s.start+2)+' / span '+s.n+'">'+
+      C.ko+'<small>'+C.nights+'박'+(extra||'')+'</small></span>';
+  }
+  function renderStrip(view){
+    var h='';
+    DAYS.forEach(function(day,i){
+      var md=day.d.split('-').map(Number);
+      var label=(i===0||md[1]===1)?md[0]+'.'+md[1]:String(md[1]);
+      var cls='dh'+(day.w==='토'?' sat':day.w==='일'?' sun':'')+(iso(day.d)===today?' today':'');
+      var pos=' style="grid-row:1;grid-column:'+(i+2)+'"';
+      if(sees(day.who,view)) h+='<a class="'+cls+'"'+pos+' href="#'+idOf(day.d)+'">'+label+'<small>'+day.w+'</small></a>';
+      else h+='<span class="'+cls+' off"'+pos+'>'+label+'<small>'+day.w+'</small></span>';
+    });
+    h+='<span class="rl'+(view==='c'?' dim':'')+'" style="grid-row:2">강슛돌<br>이힝구</span>';
+    segs(DAYS.map(function(d){return d.city;})).forEach(function(s){
+      h+=segHTML(s,2,view==='c',s.city==='matsuyama'?' · 10일 귀국':'');
+    });
+    h+='<span class="rl'+(view==='ab'?' dim':'')+'" style="grid-row:3">호호</span>';
+    var cDays=DAYS.filter(function(d){return d.who.indexOf('c')>-1 && !d.split;}).map(function(d){return d.city;});
+    segs(cDays).forEach(function(s){ h+=segHTML(s,3,view==='ab'); });
+    var homeCol=DAYS.findIndex(function(d){return d.split;})+2;
+    h+='<span class="home'+(view==='ab'?' dim':'')+'" style="grid-row:3;grid-column:'+homeCol+'">'+plane()+'귀국</span>';
+    h+='<span class="gone'+(view==='ab'?' dim':'')+'" style="grid-row:3;grid-column:'+(homeCol+1)+' / -1"></span>';
+    $('strip').innerHTML=h;
+  }
+
+  /* ---------- pages (tabs) ---------- */
+  var PAGES=[['overview','개요'],['kyoto','교토'],['osaka','오사카'],['kobe','고베'],['hiroshima','히로시마'],['matsuyama','마쓰야마'],['budget','예산·교통']];
+  var page='overview', target='';
+  function cityVisible(key,view){ return DAYS.some(function(d){ return sees(d.who,view) && cityOf(d,view)===key; }); }
+  function renderTabs(view){
+    $('tabs').innerHTML=PAGES.filter(function(p){ return !CITY[p[0]] || cityVisible(p[0],view); }).map(function(p){
+      var c=CITY[p[0]]?' style="--c:var(--'+p[0]+')"':'';
+      var n=CITY[p[0]]?'<small>'+CITY[p[0]].nights+'박</small>':'';
+      return '<a class="tab" href="#'+p[0]+'"'+c+(page===p[0]?' aria-current="page"':'')+'>'+p[1]+n+'</a>';
+    }).join('');
+  }
+
+  /* ---------- weather (기상청 평년값 1991~2020) ---------- */
+  var WX={
+    osaka:{feb:[10.5,3.2,null],mar:[14.2,6.0,103.1],tip:'아침은 3℃ 안팎으로 쌀쌀합니다. 02.28 밤 팀랩은 야외라 장갑·목도리까지 챙기세요.'},
+    kyoto:{feb:[10.0,1.6,65.1],mar:null,tip:'분지라 아침이 가장 춥습니다(1~2℃). 후시미이나리·아라시야마처럼 이른 시간 일정은 두껍게 입으세요.'},
+    kobe:{feb:[10.1,3.4,55.6],mar:[13.5,6.3,94.2],tip:'항구 바람이 차서 하버랜드 야경을 볼 때는 겉옷을 한 겹 더 챙기세요.'},
+    hiroshima:{feb:[10.9,2.4,64.0],mar:[14.5,5.1,118.3],tip:'3월부터 비가 늘어납니다. 미야지마 페리와 미센 산 위는 바람이 세니 우산보다 방수 겉옷이 편합니다.'},
+    matsuyama:{feb:[11.0,2.8,65.7],mar:[14.4,5.6,105.1],tip:'온천 뒤 밤공기가 찹니다. 시모나다역 노을은 바닷가라 바람에 대비하세요.'}
+  };
+  function wxT(v){ return v==null?'확인 못함':v.toFixed(1)+'℃'; }
+  function wxR(v){ return v==null?'확인 못함':v.toFixed(1)+'mm'; }
+  function weatherHTML(key){
+    var w=WX[key]; if(!w) return '';
+    function col(lbl,a){
+      return '<div class="wx-col"><b>'+lbl+' 평년</b>'+(a
+        ?'<span>낮 최고 '+wxT(a[0])+'</span><span>아침 최저 '+wxT(a[1])+'</span><span>한 달 강수량 '+wxR(a[2])+'</span>'
+        :'<span>확인 못함</span>')+'</div>';
+    }
+    return '<div class="wx"><div class="wx-h">날씨 · 기상청 평년값(1991~2020)</div>'+col('2월',w.feb)+col('3월',w.mar)+'<p class="wx-tip">'+esc(w.tip)+'</p></div>';
+  }
+  function renderOverviewWx(){
+    var rows=['osaka','kyoto','kobe','hiroshima','matsuyama'].map(function(k){
+      var w=WX[k], C=CITY[k];
+      return '<tr><td><b>'+C.ko+'</b><small>'+C.range+'</small></td>'+
+        '<td>'+wxT(w.feb[0])+(w.mar?' → '+wxT(w.mar[0]):'')+'</td>'+
+        '<td>'+wxT(w.feb[1])+(w.mar?' → '+wxT(w.mar[1]):'')+'</td>'+
+        '<td>'+wxR(w.feb[2])+' / '+(w.mar?wxR(w.mar[2]):'확인 못함')+'</td></tr>';
+    }).join('');
+    $('wx-overview').innerHTML=
+      '<div class="osaka-grid"><article class="panel wide"><h3>날씨 한눈에</h3>'+
+      '<p class="pick">2월 → 3월 평년값 · 2027년 실제 예보는 출발 1~2주 전에 확인하세요</p>'+
+      '<div class="tbl"><table><colgroup><col style="width:28%"><col style="width:22%"><col style="width:22%"><col style="width:28%"></colgroup>'+
+      '<thead><tr><th scope="col">도시</th><th scope="col">낮 최고</th><th scope="col">아침 최저</th><th scope="col">강수량 2월 / 3월</th></tr></thead><tbody>'+rows+'</tbody></table></div>'+
+      '<ul class="tips"><li><b>옷차림</b>낮 10~15℃, 아침 2~6℃입니다. 코트나 경량 패딩에 얇은 옷을 겹쳐 입고, 밤 일정이 있는 날은 장갑·목도리까지 챙기세요.</li>'+
+      '<li><b>비</b>3월로 갈수록 비가 늘어 한 달 100mm 안팎입니다. 접이식 우산을 하나씩 챙기세요.</li></ul></article>'+
+      '<article class="panel wide"><h3>체력 안배</h3><p class="pick">셋 다 40대 중반이라 하루에 무리가 몰리지 않게 일정을 고쳤습니다</p>'+
+      '<ul class="tips">'+
+        '<li><b>큰 일정은 하루 2개까지</b>숙소를 옮기는 날은 오후에 하나만 넣었습니다.</li>'+
+        '<li><b>오후 숙소 휴식</b>02.26, 02.27, 02.28, 03.02, 03.04에 숙소에서 쉬는 시간을 넣었습니다.</li>'+
+        '<li><b>USJ 다음 날은 이동만</b>03.01 USJ 다음 날은 공항·고베 이동만 있으니 전날 밤에 짐을 싸 둡니다.</li>'+
+        '<li><b>계단은 짧게</b>후시미이나리는 요쓰쓰지 전망대까지만 갑니다. 미센은 로프웨이에서 내린 뒤 오르막이 약 30분이라 컨디션을 보고 정하세요.</li>'+
+        '<li><b>짐 옮기기</b>숙소를 옮기는 날은 셋이 택시를 나눠 타거나, 숙소에서 다음 숙소로 짐을 보내는 택배(보통 다음 날 도착)를 쓰면 훨씬 편합니다.</li>'+
+      '</ul></article></div>';
+  }
+
+  /* ---------- to-do ---------- */
+  function renderTodo(view){
+    var ST={todo:'정할 것',check:'확인 필요',done:'확인됨'};
+    var count={todo:0,check:0,done:0};
+    var rows=TODO.filter(function(t){return sees(t.who,view);}).map(function(t){
+      count[t.st]++;
+      var sub='';
+      if(t.list){
+        sub='<ul class="td-list">'+t.list.filter(function(x){return sees(x[2],view);}).map(function(x){
+          return '<li><b>'+esc(x[0])+'</b><span>'+esc(x[1])+'</span></li>';
+        }).join('')+'</ul>';
+      }
+      var link=t.link?'<a class="jump" href="#'+t.link+'">'+(t.linkText||'일정 보기')+'</a>':'';
+      return '<li class="td"><span class="st '+t.st+'">'+ST[t.st]+'</span><div><h3>'+esc(t.title)+'</h3>'+
+        (t.body?'<p>'+esc(t.body)+link+'</p>':'')+sub+'</div></li>';
+    });
+    $('todo').innerHTML=rows.join('');
+    $('todo-count').textContent='정할 것 '+count.todo+' · 확인 필요 '+count.check+' · 확인됨 '+count.done;
+  }
+
+  /* ---------- flights ---------- */
+  function renderFlights(view){
+    $('flights').innerHTML=FLIGHTS.filter(function(f){return sees(f.who,view);}).map(function(f){
+      return '<article class="fl">'+
+        '<div class="fl-top"><span class="fl-no">'+f.no+'</span><span class="fl-date">'+f.date+'</span>'+whoChips(f.who)+'</div>'+
+        '<div class="fl-route">'+
+          '<div class="fl-pt"><span class="t">'+f.dep[0]+'</span><span class="code">'+f.dep[1]+'</span><span class="pl">'+esc(f.dep[2])+'</span></div>'+
+          '<div class="fl-path">'+plane()+'<i></i><span>'+esc(f.dur)+'</span></div>'+
+          '<div class="fl-pt r"><span class="t">'+f.arr[0]+'</span><span class="code">'+f.arr[1]+'</span><span class="pl">'+esc(f.arr[2])+'</span></div>'+
+        '</div>'+
+        '<div class="fl-foot">'+esc(f.foot)+'</div>'+
+      '</article>';
+    }).join('');
+    document.querySelectorAll('.bk[data-who]').forEach(function(el){ el.hidden=!sees(el.getAttribute('data-who'),view); });
+  }
+
+  /* ---------- plan ---------- */
+  function list(items){
+    return '<ol class="tl">'+items.map(function(it){
+      var k=it[2];
+      return '<li class="it'+(k?' k-'+k:'')+'"><span class="tm">'+esc(it[0])+'</span>'+
+        '<span class="tx">'+(k==='f'?plane('ic'):'')+esc(it[1])+'</span>'+
+        (TAG[k]?'<span class="tag t-'+k+'">'+TAG[k]+'</span>':'<span></span>')+'</li>';
+    }).join('')+'</ol>';
+  }
+  function board(key,view){
+    var C=CITY[key];
+    var next=(view==='c' && key==='kyoto')?'간사이공항 (귀국)':C.next;
+    return '<div class="board">'+
+      '<div class="sign"><span class="jp" lang="ja">'+C.jp+'</span><span class="ko">'+C.ko+'</span><span class="ro">'+C.ro+'</span>'+
+        (C.seen?'<span class="seen'+(C.seen==='first'?' first':'')+'">'+(C.seen==='first'?'처음 가는 곳':'다시 가는 곳')+'</span>':'')+
+        '<span class="band" aria-hidden="true"></span>'+
+        '<span class="nav"><span>← '+esc(C.prev)+'</span><span>'+esc(next)+' →</span></span></div>'+
+      '<dl class="meta">'+
+        '<div><dt>숙소</dt><dd>'+esc(C.stay)+'<span class="pill">미정</span>'+(C.pref?'<span class="pref">'+esc(C.pref)+'</span>':'')+'</dd></div>'+
+        '<div><dt>숙박</dt><dd>'+C.nights+'박 · '+C.range+'</dd></div>'+
+        '<div><dt>오는 길</dt><dd>'+esc(C.via)+'</dd></div>'+
+        '<div><dt>인원</dt><dd>'+whoChips(C.who)+'</dd></div>'+
+      '</dl></div>';
+  }
+  function dayHTML(day,i,view){
+    var md=day.d.split('-').map(Number);
+    var isToday=iso(day.d)===today;
+    var sum, body, who=day.who;
+    if(day.split){
+      if(view==='all'){
+        sum=day.sum.all;
+        body='<div class="lanes">'+['ab','c'].map(function(k){
+          return '<section class="lane"><h4>'+whoChips(k)+'<span>'+esc(day.laneTitle[k])+'</span></h4>'+list(day.lanes[k])+'</section>';
+        }).join('')+'</div>';
+      } else { sum=day.sum[view]; body=list(day.lanes[view]); who=view; }
+    } else { sum=day.sum; body=list(day.items); }
+    return '<article class="day'+(isToday?' today':'')+'" id="'+idOf(day.d)+'">'+
+      '<div class="day-date"><span class="dn">'+md[1]+'</span><span class="dm">'+md[0]+'월 · '+day.w+'</span><span class="di">'+(i+1)+'일차</span></div>'+
+      '<div class="day-node" aria-hidden="true"></div>'+
+      '<div class="day-body"><div class="day-head"><h3>'+(isToday?'<span class="now">오늘</span>':'')+esc(sum)+'</h3>'+whoChips(who)+'</div>'+body+'</div>'+
+    '</article>';
+  }
+  function renderPlan(view){
+    if(!CITY[page]){ $('plan').innerHTML=''; return; }
+    var groups=[];
+    DAYS.forEach(function(day,i){
+      if(!sees(day.who,view)) return;
+      var key=cityOf(day,view), g=groups[groups.length-1];
+      if(!g || g.key!==key){ g={key:key,days:[]}; groups.push(g); }
+      g.days.push([day,i]);
+    });
+    var gi=-1;
+    groups.forEach(function(g,i){ if(g.key===page) gi=i; });
+    if(gi<0){ $('plan').innerHTML=''; return; }
+    var g=groups[gi];
+    var h='<section class="city" style="--c:var(--'+g.key+')" aria-label="'+CITY[g.key].ko+'">'+board(g.key,view)+weatherHTML(g.key)+
+      '<div class="days">'+g.days.map(function(x){return dayHTML(x[0],x[1],view);}).join('')+'</div></section>';
+    if(gi===groups.length-1){
+      var tn = view==='c'
+        ? '<b>인천공항 도착</b><span>03.02 화 15:15 · 7C1316 · 호호</span>'
+        : '<b>인천공항으로 귀국</b><span>03.10 수 · 7C1704 마쓰야마 15:40 출발 · 강슛돌·이힝구</span>'+(view==='all'?'<span>호호는 03.02 화 15:15에 먼저 도착 · 7C1316</span>':'');
+      h+='<div class="terminus"><span class="tn-node" aria-hidden="true"></span><div class="tn-body">'+tn+'</div></div>';
+    } else {
+      var nx=groups[gi+1].key;
+      h+='<a class="next-city" href="#'+nx+'" style="--c:var(--'+nx+')">다음 도시 · '+CITY[nx].ko+' →</a>';
+    }
+    $('plan').innerHTML=h;
+  }
+
+  /* ---------- router ---------- */
+  function applyPage(keepScroll){
+    document.querySelectorAll('[data-page]').forEach(function(el){
+      var t=el.getAttribute('data-page');
+      el.hidden=!(t===page || (t==='city' && !!CITY[page]));
+    });
+    renderTabs(view); renderPlan(view);
+    if(keepScroll) return;
+    var el=target && document.getElementById(target);
+    if(el) el.scrollIntoView({block:'start'}); else window.scrollTo(0,0);
+  }
+  function route(keepScroll){
+    var h=(location.hash||'').slice(1); target='';
+    if(/^d\d{4}$/.test(h)){
+      var day=DAYS.filter(function(d){ return idOf(d.d)===h; })[0];
+      if(day && sees(day.who,view)){ page=cityOf(day,view); target=h; } else page='overview';
+    } else if(PAGES.some(function(p){ return p[0]===h; })) page=h;
+    else page='overview';
+    if(CITY[page] && !cityVisible(page,view)) page='overview';
+    applyPage(keepScroll);
+  }
+  window.addEventListener('hashchange',function(){ route(false); });
+
+  /* ---------- view switch ---------- */
+  var view='all';
+  try{ var saved=localStorage.getItem('jp-trip-view'); if(saved==='all'||saved==='ab'||saved==='c') view=saved; }catch(e){}
+  function render(keepScroll){
+    renderStrip(view); renderTodo(view); renderFlights(view); renderOverviewWx();
+    document.querySelectorAll('.viewctl button').forEach(function(b){ b.setAttribute('aria-pressed', String(b.getAttribute('data-view')===view)); });
+    route(keepScroll);
+  }
+  document.querySelectorAll('.viewctl button').forEach(function(b){
+    b.addEventListener('click',function(){
+      view=b.getAttribute('data-view');
+      try{ localStorage.setItem('jp-trip-view',view); }catch(e){}
+      render(true);
+    });
+  });
+  render(true);
+
+  /* ---------- copy booking number ---------- */
+  var cp=$('copy-pnr');
+  cp.addEventListener('click',function(){
+    function done(t){ cp.textContent=t; setTimeout(function(){cp.textContent='복사';},1600); }
+    function selectIt(){
+      try{ var r=document.createRange(); r.selectNodeContents($('pnr')); var s=window.getSelection(); s.removeAllRanges(); s.addRange(r); done('선택됨'); }catch(e){}
+    }
+    try{ navigator.clipboard.writeText('GHMNTK').then(function(){done('복사됨');},selectIt); }catch(e){ selectIt(); }
+  });
+
+  /* ---------- 엔화 환율 계산 ---------- */
+  (function(){
+    var BASE=843.01, rateEl=$('fx-rate'), yenEl=$('fx-yen'), out=$('fx-out'), tbl=$('fx-tbl');
+    if(!rateEl) return;
+    var ROWS=[['1인 예산 합계',71800,89100],['USJ 1일권',8400,11900],['익스프레스 4',6800,19000],['1만 엔',10000]];
+    try{ var saved=parseFloat(localStorage.getItem('jp-trip-fx')); if(saved>0) rateEl.value=saved; }catch(e){}
+    function won(y,r){ var w=y*r/100; return w>=10000 ? (Math.round(w/1000)/10).toFixed(1)+'만원' : (Math.round(w/100)*100).toLocaleString('ko-KR')+'원'; }
+    function yen(y){ return '¥'+Math.round(y).toLocaleString('ja-JP'); }
+    function upd(){
+      var r=parseFloat(rateEl.value), y=parseFloat(yenEl.value), ok=r>0;
+      out.textContent = !ok ? '환율을 숫자로 넣어 주세요' : (y>=0 ? yen(y)+' = 약 '+won(y,r) : '엔 금액을 숫자로 넣어 주세요');
+      if(!ok){ tbl.innerHTML=''; return; }
+      var d=(r-BASE)/BASE*100;
+      tbl.innerHTML = ROWS.map(function(x){
+        var yy = x.length>2 ? yen(x[1])+'~'+yen(x[2]) : yen(x[1]);
+        var ww = x.length>2 ? won(x[1],r)+'~'+won(x[2],r) : won(x[1],r);
+        return '<div><dt>'+x[0]+'<small>'+yy+'</small></dt><dd>'+ww+'</dd></div>';
+      }).join('') + '<div class="fx-diff"><dt>843.01원 기준과 차이</dt><dd>'+(Math.abs(d)<0.05 ? '같음' : (d>0?'+':'')+d.toFixed(1)+'%')+'</dd></div>';
+      try{ localStorage.setItem('jp-trip-fx', String(r)); }catch(e){}
+    }
+    rateEl.addEventListener('input',upd); yenEl.addEventListener('input',upd); upd();
+  })();
+})();
+</script>
+</html>
