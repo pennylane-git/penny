@@ -445,6 +445,11 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 </header>
 
 <main class="wrap">
+  <section class="sec" data-page="city" aria-labelledby="h-plan">
+    <div class="sec-h"><h2 id="h-plan">날짜별 일정</h2><p>이힝구의 시트 기준 · 간사이는 교토 2박 → 오사카 3박 순서로 바꿈 · 시각은 대략의 시작 시각</p></div>
+    <div id="plan"></div>
+  </section>
+
   <section class="sec" id="sec-osaka" data-page="osaka" aria-labelledby="h-osaka">
     <div class="sec-h"><div><p class="kicker">숙소 예약 완료</p><h2 id="h-osaka">오사카 3박과 USJ</h2></div><p>02.27 토 → 03.02 화 · 교토 2박 다음</p></div>
     <div class="osaka-grid">
@@ -784,10 +789,6 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     </div>
   </section>
 
-  <section class="sec" data-page="city" aria-labelledby="h-plan">
-    <div class="sec-h"><h2 id="h-plan">날짜별 일정</h2><p>이힝구의 시트 기준 · 간사이는 교토 2박 → 오사카 3박 순서로 바꿈 · 시각은 대략의 시작 시각</p></div>
-    <div id="plan"></div>
-  </section>
 </main>
 
 <footer class="foot">
@@ -1240,7 +1241,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   });
   render(true);
   if(target){
-    var goTarget=function(){ var el=document.getElementById(target); if(el) el.scrollIntoView({block:'start'}); };
+    var goTarget=function(){ var el=document.getElementById(target); if(el) el.scrollIntoView({block:'start',behavior:'instant'}); };
     if(document.readyState==='complete') goTarget(); else window.addEventListener('load',goTarget);
   }
 
