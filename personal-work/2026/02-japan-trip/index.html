@@ -416,6 +416,51 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   .budget tr.sum td{padding-top:0;border-bottom:0}
 }
 </style>
+<style>
+/* Leaflet 1.9.4 (BSD-2) */
+.leaflet-image-layer,.leaflet-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane,.leaflet-pane>canvas,.leaflet-pane>svg,.leaflet-tile,.leaflet-tile-container,.leaflet-zoom-box{position:absolute;left:0;top:0}.leaflet-container{overflow:hidden}.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-tile{-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-user-drag:none}.leaflet-tile::selection{background:0 0}.leaflet-safari .leaflet-tile{image-rendering:-webkit-optimize-contrast}.leaflet-safari .leaflet-tile-container{width:1600px;height:1600px;-webkit-transform-origin:0 0}.leaflet-marker-icon,.leaflet-marker-shadow{display:block}.leaflet-container .leaflet-overlay-pane svg{max-width:none!important;max-height:none!important}.leaflet-container .leaflet-marker-pane img,.leaflet-container .leaflet-shadow-pane img,.leaflet-container .leaflet-tile,.leaflet-container .leaflet-tile-pane img,.leaflet-container img.leaflet-image-layer{max-width:none!important;max-height:none!important;width:auto;padding:0}.leaflet-container img.leaflet-tile{mix-blend-mode:plus-lighter}.leaflet-container.leaflet-touch-zoom{-ms-touch-action:pan-x pan-y;touch-action:pan-x pan-y}.leaflet-container.leaflet-touch-drag{-ms-touch-action:pinch-zoom;touch-action:none;touch-action:pinch-zoom}.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom{-ms-touch-action:none;touch-action:none}.leaflet-container{-webkit-tap-highlight-color:transparent}.leaflet-container a{-webkit-tap-highlight-color:rgba(51,181,229,.4)}.leaflet-tile{filter:inherit;visibility:hidden}.leaflet-tile-loaded{visibility:inherit}.leaflet-zoom-box{width:0;height:0;-moz-box-sizing:border-box;box-sizing:border-box;z-index:800}.leaflet-overlay-pane svg{-moz-user-select:none}.leaflet-pane{z-index:400}.leaflet-tile-pane{z-index:200}.leaflet-overlay-pane{z-index:400}.leaflet-shadow-pane{z-index:500}.leaflet-marker-pane{z-index:600}.leaflet-tooltip-pane{z-index:650}.leaflet-popup-pane{z-index:700}.leaflet-map-pane canvas{z-index:100}.leaflet-map-pane svg{z-index:200}.leaflet-vml-shape{width:1px;height:1px}.lvml{behavior:url(#default#VML);display:inline-block;position:absolute}.leaflet-control{position:relative;z-index:800;pointer-events:visiblePainted;pointer-events:auto}.leaflet-bottom,.leaflet-top{position:absolute;z-index:1000;pointer-events:none}.leaflet-top{top:0}.leaflet-right{right:0}.leaflet-bottom{bottom:0}.leaflet-left{left:0}.leaflet-control{float:left;clear:both}.leaflet-right .leaflet-control{float:right}.leaflet-top .leaflet-control{margin-top:10px}.leaflet-bottom .leaflet-control{margin-bottom:10px}.leaflet-left .leaflet-control{margin-left:10px}.leaflet-right .leaflet-control{margin-right:10px}.leaflet-fade-anim .leaflet-popup{opacity:0;-webkit-transition:opacity .2s linear;-moz-transition:opacity .2s linear;transition:opacity .2s linear}.leaflet-fade-anim .leaflet-map-pane .leaflet-popup{opacity:1}.leaflet-zoom-animated{-webkit-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0}svg.leaflet-zoom-animated{will-change:transform}.leaflet-zoom-anim .leaflet-zoom-animated{-webkit-transition:-webkit-transform .25s cubic-bezier(0,0,.25,1);-moz-transition:-moz-transform .25s cubic-bezier(0,0,.25,1);transition:transform .25s cubic-bezier(0,0,.25,1)}.leaflet-pan-anim .leaflet-tile,.leaflet-zoom-anim .leaflet-tile{-webkit-transition:none;-moz-transition:none;transition:none}.leaflet-zoom-anim .leaflet-zoom-hide{visibility:hidden}.leaflet-interactive{cursor:pointer}.leaflet-grab{cursor:-webkit-grab;cursor:-moz-grab;cursor:grab}.leaflet-crosshair,.leaflet-crosshair .leaflet-interactive{cursor:crosshair}.leaflet-control,.leaflet-popup-pane{cursor:auto}.leaflet-dragging .leaflet-grab,.leaflet-dragging .leaflet-grab .leaflet-interactive,.leaflet-dragging .leaflet-marker-draggable{cursor:move;cursor:-webkit-grabbing;cursor:-moz-grabbing;cursor:grabbing}.leaflet-image-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane>svg path,.leaflet-tile-container{pointer-events:none}.leaflet-image-layer.leaflet-interactive,.leaflet-marker-icon.leaflet-interactive,.leaflet-pane>svg path.leaflet-interactive,svg.leaflet-image-layer.leaflet-interactive path{pointer-events:visiblePainted;pointer-events:auto}.leaflet-container{background:#ddd;outline-offset:1px}.leaflet-container a{color:#0078a8}.leaflet-zoom-box{border:2px dotted #38f;background:rgba(255,255,255,.5)}.leaflet-container{font-family:"Helvetica Neue",Arial,Helvetica,sans-serif;font-size:12px;font-size:.75rem;line-height:1.5}.leaflet-bar{box-shadow:0 1px 5px rgba(0,0,0,.65);border-radius:4px}.leaflet-bar a{background-color:#fff;border-bottom:1px solid #ccc;width:26px;height:26px;line-height:26px;display:block;text-align:center;text-decoration:none;color:#000}.leaflet-bar a,.leaflet-control-layers-toggle{background-position:50% 50%;background-repeat:no-repeat;display:block}.leaflet-bar a:focus,.leaflet-bar a:hover{background-color:#f4f4f4}.leaflet-bar a:first-child{border-top-left-radius:4px;border-top-right-radius:4px}.leaflet-bar a:last-child{border-bottom-left-radius:4px;border-bottom-right-radius:4px;border-bottom:none}.leaflet-bar a.leaflet-disabled{cursor:default;background-color:#f4f4f4;color:#bbb}.leaflet-touch .leaflet-bar a{width:30px;height:30px;line-height:30px}.leaflet-touch .leaflet-bar a:first-child{border-top-left-radius:2px;border-top-right-radius:2px}.leaflet-touch .leaflet-bar a:last-child{border-bottom-left-radius:2px;border-bottom-right-radius:2px}.leaflet-control-zoom-in,.leaflet-control-zoom-out{font:bold 18px 'Lucida Console',Monaco,monospace;text-indent:1px}.leaflet-touch .leaflet-control-zoom-in,.leaflet-touch .leaflet-control-zoom-out{font-size:22px}.leaflet-control-layers{box-shadow:0 1px 5px rgba(0,0,0,.4);background:#fff;border-radius:5px}.leaflet-control-layers-toggle{background-image:none;width:36px;height:36px}.leaflet-retina .leaflet-control-layers-toggle{background-image:none;background-size:26px 26px}.leaflet-touch .leaflet-control-layers-toggle{width:44px;height:44px}.leaflet-control-layers .leaflet-control-layers-list,.leaflet-control-layers-expanded .leaflet-control-layers-toggle{display:none}.leaflet-control-layers-expanded .leaflet-control-layers-list{display:block;position:relative}.leaflet-control-layers-expanded{padding:6px 10px 6px 6px;color:#333;background:#fff}.leaflet-control-layers-scrollbar{overflow-y:scroll;overflow-x:hidden;padding-right:5px}.leaflet-control-layers-selector{margin-top:2px;position:relative;top:1px}.leaflet-control-layers label{display:block;font-size:13px;font-size:1.08333em}.leaflet-control-layers-separator{height:0;border-top:1px solid #ddd;margin:5px -10px 5px -6px}.leaflet-default-icon-path{background-image:none}.leaflet-container .leaflet-control-attribution{background:#fff;background:rgba(255,255,255,.8);margin:0}.leaflet-control-attribution,.leaflet-control-scale-line{padding:0 5px;color:#333;line-height:1.4}.leaflet-control-attribution a{text-decoration:none}.leaflet-control-attribution a:focus,.leaflet-control-attribution a:hover{text-decoration:underline}.leaflet-attribution-flag{display:inline!important;vertical-align:baseline!important;width:1em;height:.6669em}.leaflet-left .leaflet-control-scale{margin-left:5px}.leaflet-bottom .leaflet-control-scale{margin-bottom:5px}.leaflet-control-scale-line{border:2px solid #777;border-top:none;line-height:1.1;padding:2px 5px 1px;white-space:nowrap;-moz-box-sizing:border-box;box-sizing:border-box;background:rgba(255,255,255,.8);text-shadow:1px 1px #fff}.leaflet-control-scale-line:not(:first-child){border-top:2px solid #777;border-bottom:none;margin-top:-2px}.leaflet-control-scale-line:not(:first-child):not(:last-child){border-bottom:2px solid #777}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-attribution,.leaflet-touch .leaflet-control-layers{box-shadow:none}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-layers{border:2px solid rgba(0,0,0,.2);background-clip:padding-box}.leaflet-popup{position:absolute;text-align:center;margin-bottom:20px}.leaflet-popup-content-wrapper{padding:1px;text-align:left;border-radius:12px}.leaflet-popup-content{margin:13px 24px 13px 20px;line-height:1.3;font-size:13px;font-size:1.08333em;min-height:1px}.leaflet-popup-content p{margin:17px 0;margin:1.3em 0}.leaflet-popup-tip-container{width:40px;height:20px;position:absolute;left:50%;margin-top:-1px;margin-left:-20px;overflow:hidden;pointer-events:none}.leaflet-popup-tip{width:17px;height:17px;padding:1px;margin:-10px auto 0;pointer-events:auto;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#fff;color:#333;box-shadow:0 3px 14px rgba(0,0,0,.4)}.leaflet-container a.leaflet-popup-close-button{position:absolute;top:0;right:0;border:none;text-align:center;width:24px;height:24px;font:16px/24px Tahoma,Verdana,sans-serif;color:#757575;text-decoration:none;background:0 0}.leaflet-container a.leaflet-popup-close-button:focus,.leaflet-container a.leaflet-popup-close-button:hover{color:#585858}.leaflet-popup-scrolled{overflow:auto}.leaflet-oldie .leaflet-popup-content-wrapper{-ms-zoom:1}.leaflet-oldie .leaflet-popup-tip{width:24px;margin:0 auto}.leaflet-oldie .leaflet-control-layers,.leaflet-oldie .leaflet-control-zoom,.leaflet-oldie .leaflet-popup-content-wrapper,.leaflet-oldie .leaflet-popup-tip{border:1px solid #999}.leaflet-div-icon{background:#fff;border:1px solid #666}.leaflet-tooltip{position:absolute;padding:6px;background-color:#fff;border:1px solid #fff;border-radius:3px;color:#222;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,.4)}.leaflet-tooltip.leaflet-interactive{cursor:pointer;pointer-events:auto}.leaflet-tooltip-bottom:before,.leaflet-tooltip-left:before,.leaflet-tooltip-right:before,.leaflet-tooltip-top:before{position:absolute;pointer-events:none;border:6px solid transparent;background:0 0;content:""}.leaflet-tooltip-bottom{margin-top:6px}.leaflet-tooltip-top{margin-top:-6px}.leaflet-tooltip-bottom:before,.leaflet-tooltip-top:before{left:50%;margin-left:-6px}.leaflet-tooltip-top:before{bottom:0;margin-bottom:-12px;border-top-color:#fff}.leaflet-tooltip-bottom:before{top:0;margin-top:-12px;margin-left:-6px;border-bottom-color:#fff}.leaflet-tooltip-left{margin-left:-6px}.leaflet-tooltip-right{margin-left:6px}.leaflet-tooltip-left:before,.leaflet-tooltip-right:before{top:50%;margin-top:-6px}.leaflet-tooltip-left:before{right:0;margin-right:-12px;border-left-color:#fff}.leaflet-tooltip-right:before{left:0;margin-left:-12px;border-right-color:#fff}@media print{.leaflet-control{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+/* ---------- 동선 지도 ---------- */
+.rmap-wrap{margin-top:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;scroll-margin-top:calc(env(safe-area-inset-top,0px) + 72px)}
+.rmap-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding:14px 16px 10px}
+.rmap-head h4{margin:0;font:700 16px/1.3 var(--font-ko)}
+.rdays{flex:1;min-width:0;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.rdays::-webkit-scrollbar{display:none}
+.rday{flex:none;appearance:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 12px;font:600 13px/1.2 var(--font-ko);color:var(--ink-2);cursor:pointer}
+.rday:hover{border-color:var(--ink-3)}
+.rday[aria-pressed="true"]{background:var(--c);border-color:var(--c);color:#fff}
+.rmap-body{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);border-top:1px solid var(--line)}
+.rmap{position:relative;z-index:0;isolation:isolate;min-height:400px;background:var(--soft)}
+.rmap-off{margin:0;padding:24px;color:var(--ink-2)}
+.rstops{list-style:none;margin:0;padding:6px;max-height:400px;overflow:auto;border-left:1px solid var(--line)}
+.rstops li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;padding:8px;border-radius:10px;cursor:pointer}
+.rstops li.on{background:color-mix(in srgb,var(--c) 14%,var(--surface))}
+.rstops li.back{cursor:default}
+.rstops li.back p{margin:3px 0 0;color:var(--ink-3)}
+.rstops .no{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;border:2.5px solid var(--c);background:var(--surface);font:700 12px/1 var(--font-num);color:var(--ink)}
+.rstops li.on .no{background:var(--c);color:#fff}
+.rstops b{font-weight:600;font-size:14.5px}
+.rstops .tm2{margin-left:6px;font:500 12px/1 var(--font-num);color:var(--ink-3)}
+.rstops p{margin:2px 0 0;font-size:13px;color:var(--ink-2)}
+.rstops a{display:inline-block;margin-top:3px;font-size:12.5px;color:var(--accent);text-underline-offset:3px}
+.rmap-foot{display:flex;flex-wrap:wrap;gap:4px 14px;padding:10px 16px 12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3)}
+.rmap-foot a{color:var(--accent);font-weight:600;text-underline-offset:3px}
+.rnote{flex-basis:100%;color:var(--ink-2)}
+.leaflet-marker-icon.rpin{display:grid;place-items:center;border-radius:50%;background:#fff;border:3px solid var(--c);color:#172033;font:700 12px/1 var(--font-num);box-shadow:0 1px 4px rgba(0,0,0,.3);cursor:pointer}
+.leaflet-marker-icon.rpin.on{background:var(--c);color:#fff;box-shadow:0 0 0 6px color-mix(in srgb,var(--c) 32%,transparent),0 1px 4px rgba(0,0,0,.3)}
+.leaflet-tooltip.rtip{width:max-content;max-width:min(240px,70vw);white-space:normal;padding:8px 10px;border-radius:10px;font:13px/1.45 var(--font-ko);color:var(--ink);box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.rtip b{display:block;font-size:14px;font-weight:700}
+.rtip span{display:block}
+.rtip .tt{font:600 12px/1.4 var(--font-num);color:var(--ink-3)}
+.day-tools{flex:none;display:flex;align-items:center;gap:8px}
+.maplink{appearance:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:3px 10px;font:600 12px/1.4 var(--font-ko);color:var(--accent);cursor:pointer}
+.maplink:hover{border-color:var(--accent)}
+@media (max-width:760px){
+  .rmap-body{grid-template-columns:1fr}
+  .rmap{min-height:300px}
+  .rstops{max-height:none;border-left:0;border-top:1px solid var(--line)}
+}
+</style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="i-plane" viewBox="0 0 24 24"><path fill="currentColor" d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></symbol>
@@ -438,7 +483,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     <p class="slogan">모시모시재팬</p>
     <h1>2027 일본 여행</h1>
     <p class="route-sub">교토 · 오사카 · 고베 · 히로시마 · 마쓰야마</p>
-    <p class="lede">간사이공항으로 들어가 교토·오사카·고베·히로시마를 지나 마쓰야마에서 돌아오는 일정입니다. 이힝구가 짠 일정 시트에 항공권 시각을 맞춰 넣었고, USJ는 오사카에 묵는 03.01 월로 잡았습니다. 교토·오사카는 다시 가는 곳, 히로시마·마쓰야마는 처음입니다.</p>
+    <p class="lede">셋이 함께하는 교토 2박·오사카 3박으로 시작해, 호호가 먼저 돌아가는 03.02부터는 강슛돌·이힝구 둘이 고베·히로시마·마쓰야마까지 서쪽으로 이어 가는 13박 14일 여행입니다. 후시미이나리와 아라시야마, 도톤보리 대게와 USJ 닌텐도 월드, 고베 야경, 미야지마, 도고온천이 큰 줄기입니다.</p>
     <dl class="facts">
       <div><dt id="dday-k">출발까지</dt><dd id="dday">D-90</dd></div>
       <div><dt>기간</dt><dd>13박 14일</dd><dd class="sub">호호는 5박 6일</dd></div>
@@ -779,6 +824,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
 (function(){
   var START='2027-02-25', END='2027-03-10';
@@ -1172,6 +1218,189 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     document.querySelectorAll('.bk[data-who]').forEach(function(el){ el.hidden=!sees(el.getAttribute('data-who'),view); });
   }
 
+
+  /* ---------- 동선 지도 (번호 = 다니는 순서) ---------- */
+  var P={
+    k_hotel:[34.98375,135.75839], k_inari_st:[34.96674,135.77084], k_inari:[34.96752,135.77971], k_yotsu:[34.96460,135.78550],
+    k_station:[34.98535,135.75877], k_gojozaka:[34.99571,135.77931], k_kiyomizu:[34.99430,135.78444], k_sannen:[34.99753,135.78106],
+    k_yasaka:[35.00360,135.77826], k_shijokawara:[35.00378,135.76932], k_nishiki:[35.00502,135.76557], k_shinkyogoku:[35.00724,135.76724],
+    k_shijo_st:[35.00380,135.75965], k_tower:[34.98755,135.75933], k_saga_st:[35.01878,135.68141], k_bamboo:[35.01720,135.67150],
+    k_togetsu:[35.01287,135.67776], k_hanana:[35.01520,135.67870],
+    o_hotel:[34.66199,135.50643], o_denden:[34.65922,135.50582], o_shinsaibashisuji:[34.67067,135.50133], o_parco:[34.67387,135.50097],
+    o_kaniyoshi:[34.66862,135.49986], o_ebisubashi:[34.66907,135.50130], o_nipponbashi_st:[34.66830,135.50620], o_castle:[34.68718,135.52540],
+    o_hankyu_umeda:[34.70542,135.49837], o_cupnoodle:[34.81811,135.42668], o_lucua:[34.70290,135.49570], o_nagai:[34.61235,135.52396],
+    o_osaka_st:[34.70190,135.49443], o_skybldg:[34.70529,135.49053], o_nishikujo:[34.68227,135.46631], o_ucity:[34.66782,135.43857],
+    o_usj:[34.66564,135.43245], o_nankai_namba:[34.66470,135.50150], o_kix:[34.43470,135.24400],
+    b_sannomiya:[34.69366,135.19543], b_kazamidori:[34.70139,135.18951], b_anpanman:[34.67843,135.18486], b_meriken:[34.68331,135.18932],
+    b_dinner:[34.69300,135.19250],
+    h_station:[34.39783,132.47558], h_museum:[34.39150,132.45240], h_dome:[34.39547,132.45352], h_miyajimaguchi:[34.31231,132.30294],
+    h_itsukushima:[34.29653,132.31901], h_momijidani:[34.29370,132.32590], h_shukkeien:[34.40034,132.46745], h_port:[34.35215,132.45724],
+    m_port:[33.88862,132.70425], m_dogo:[33.85206,132.78640], m_ropeway:[33.84438,132.76994], m_castle:[33.84565,132.76575],
+    m_okaido:[33.83869,132.77010], m_shimonada:[33.65542,132.58941], m_uchiko:[33.55144,132.65017], m_airport:[33.82731,132.70133]
+  };
+  var ROUTES=[
+    {id:'r0225',city:'kyoto',who:'abc',label:'02.25 목 · 후시미이나리',stops:[
+      {p:'k_hotel',n:'숙소 · 이비스 스타일 교토 스테이션',ja:'イビススタイルズ京都ステーション',t:'12:30',d:'교토역 하치조 출구 바로 앞 · 짐 맡기고 15:00 체크인 · 점심은 역 아반티·포르타'},
+      {p:'k_inari_st',n:'JR 이나리역',ja:'稲荷駅',t:'16:00',d:'교토역에서 JR 나라선 두 정거장(약 5분) · 편도 약 ¥150(약 1,300원)'},
+      {p:'k_inari',n:'후시미이나리 신사',ja:'伏見稲荷大社',t:'16:10',d:'주홍 도리이가 이어지는 센본도리이 · 입장 무료'},
+      {p:'k_yotsu',n:'요쓰쓰지 전망대',ja:'四ツ辻 伏見稲荷',t:'17:00 무렵',d:'해 질 무렵 교토 시내가 보이는 중턱 · 여기까지만 오르고 어두워지기 전에 내려오기'},
+      {p:'k_station',n:'교토역 저녁',ja:'京都駅',t:'18:00',d:'라멘코지(교토역 빌딩 10층)·포르타 지하상가 · 새벽부터 움직인 날이라 일찍 쉬기'}]},
+    {id:'r0226',city:'kyoto',who:'abc',label:'02.26 금 · 기요미즈데라·기온',stops:[
+      {p:'k_hotel',n:'숙소',ja:'イビススタイルズ京都ステーション',t:'09:00',d:'역 북쪽 버스 정류장까지 걸어서 약 10분 · 3명이면 택시도 방법'},
+      {p:'k_gojozaka',n:'고조자카 정류장',ja:'五条坂',t:'09:15',d:'시버스 206·100번 약 15분, ¥230(약 1,900원) · 여기서 오르막 약 10분'},
+      {p:'k_kiyomizu',n:'기요미즈데라',ja:'清水寺',t:'09:30',d:'나무 무대에서 내려다보는 교토 · ¥500(약 4,200원) · 금요일이라 주말보다 한산'},
+      {p:'k_sannen',n:'산넨자카·니넨자카',ja:'産寧坂',t:'11:00',d:'돌계단 옛 거리 · 기념품·간식 · 쉬어 갈 곳은 HARIO CAFE'},
+      {p:'k_yasaka',n:'야사카 신사',ja:'八坂神社',t:'12:00',d:'기온 입구의 주홍 문 · 입장 무료'},
+      {p:'k_shijokawara',n:'기온·가와라마치 점심',ja:'四条河原町',t:'12:30',d:'규카츠 모토무라·텐동 마키노·카츠다·Gion Duck Rice 등 (맛집 탭 참고)'},
+      {p:'k_nishiki',n:'니시키 시장',ja:'錦市場',t:'14:00',d:'‘교토의 부엌’ 먹거리 시장 · 저녁 전에 닫는 가게가 많음'},
+      {p:'k_shinkyogoku',n:'데라마치·신쿄고쿠 상점가',ja:'新京極',t:'14:30',d:'지붕 있는 상점가 · 기념품·잡화'},
+      {p:'k_shijo_st',n:'지하철 시조역',ja:'四条駅 京都市営地下鉄',t:'15:30',d:'가라스마선으로 교토역, 약 ¥220(약 1,900원) · 숙소에서 쉬기'},
+      {p:'k_tower',n:'교토타워 야경',ja:'京都タワー',t:'18:00',d:'교토역 앞 · 역 주변에서 저녁 먹고 야경'}]},
+    {id:'r0227am',city:'kyoto',who:'abc',label:'02.27 토 오전 · 아라시야마',back:1,backNote:'12:15 역으로 돌아가 교토역 → 숙소에서 짐 찾고 오사카로',stops:[
+      {p:'k_hotel',n:'숙소',ja:'イビススタイルズ京都ステーション',t:'08:00',d:'체크아웃하고 짐 맡기기 · 교토역에서 JR 사가노선'},
+      {p:'k_saga_st',n:'JR 사가아라시야마역',ja:'嵯峨嵐山駅',t:'08:30',d:'교토역에서 약 15분 · 편도 약 ¥240(약 2,000원)'},
+      {p:'k_bamboo',n:'대나무숲',ja:'竹林の小径',t:'08:40',d:'이른 아침이라 덜 붐빔 · 사진은 이때'},
+      {p:'k_togetsu',n:'도게쓰교',ja:'渡月橋',t:'09:30',d:'가쓰라강 위 나무다리 · 산과 강 풍경'},
+      {p:'k_hanana',n:'타이쇼 하나나 (점심)',ja:'鯛匠 HANANA',t:'11:00',d:'도미 오차즈케 · 줄이 생기니 일찍 · 위치는 대략'}]},
+    {id:'r0227',city:'osaka',who:'abc',label:'02.27 토 오후 · 난바·도톤보리',back:0,backNote:'21:30 숙소로 걸어서 약 10분',stops:[
+      {p:'o_hotel',n:'숙소 · 미마루 오사카 난바 스테이션 어넥스',ja:'MIMARU大阪 難波STATION ANNEX',t:'14:15',d:'교토에서 JR + 미도스지선 약 1시간 · 15:00 체크인 뒤 휴식 · 위치는 닛폰바시 3초메 대략'},
+      {p:'o_denden',n:'덴덴타운 치이카와 굿즈',ja:'でんでんタウン',t:'16:00',d:'스루가야 덴덴타운점·닛폰바시 본관·오타로드 아웃렛 · 숙소에서 걸어서 5분 안팎'},
+      {p:'o_shinsaibashisuji',n:'신사이바시스지 상점가',ja:'心斎橋筋商店街',t:'17:30',d:'지붕 있는 긴 쇼핑 거리 · 힘들면 건너뛰기'},
+      {p:'o_parco',n:'신사이바시 PARCO 치이카와랜드',ja:'心斎橋PARCO',t:'18:00',d:'치이카와 공식 매장 · 미도스지선 신사이바시역 바로'},
+      {p:'o_kaniyoshi',n:'게요시 난바 도톤보리 (대게 저녁)',ja:'蟹吉 なんば道頓堀',g:'https://maps.app.goo.gl/PLzW4BRBLAdYfhsA6',t:'19:00',d:'유력 후보 · 예약 · 즈와이 대게 삼매 코스 1인 약 ¥12,320(약 10.4만원) · 난바역 25번 출구 1분'},
+      {p:'o_ebisubashi',n:'에비스바시 · 글리코 간판',ja:'戎橋',t:'20:45',d:'도톤보리 밤 구경 · 강변 산책 · 배가 남으면 타코야키(쿠쿠루·아카오니)'}]},
+    {id:'r0228',city:'osaka',who:'abc',label:'02.28 일 · 오사카성·컵누들·팀랩',back:0,backNote:'22:30 우메다에서 미도스지선으로 난바, 숙소로',stops:[
+      {p:'o_hotel',n:'숙소',ja:'MIMARU大阪 難波STATION ANNEX',t:'09:00',d:'오사카 메트로 1일권(주말 620엔·약 5,200원)으로 하루 이동'},
+      {p:'o_nipponbashi_st',n:'닛폰바시역',ja:'日本橋駅 大阪',t:'09:05',d:'센니치마에선 → 다니마치큐초메 환승 → 다니마치선 다니마치욘초메'},
+      {p:'o_castle',n:'오사카성 천수각',ja:'大阪城天守閣',t:'09:30',d:'역에서 걸어서 15~20분 · ¥1,200(약 1.0만원)'},
+      {p:'o_hankyu_umeda',n:'우메다 점심 · 한큐 오사카우메다역',ja:'大阪梅田駅 阪急',t:'11:45',d:'히가시우메다에서 걸어서 약 10분 · 점심 뒤 한큐 다카라즈카선'},
+      {p:'o_cupnoodle',n:'컵누들 뮤지엄 오사카 이케다',ja:'カップヌードルミュージアム 大阪池田',t:'13:15',d:'입장 무료 · 나만의 컵누들 ¥500(약 4,200원) · 마지막 입장 15:30 · 한큐 이케다역에서 걸어서 5분'},
+      {p:'o_lucua',n:'우메다 치이카와 매장',ja:'ルクア大阪',t:'15:00',d:'치이카와 파크 스토어(LUCUA SOUTH 11층)·치이카와랜드(한큐 산반가이) · 카페에서 쉬기'},
+      {p:'o_nagai',n:'팀랩 보태니컬 가든 오사카',ja:'チームラボ ボタニカルガーデン 大阪',t:'18:00',d:'미도스지선 나가이역 약 25분 · 야외라 따뜻하게 · 1시간~1시간 반'},
+      {p:'o_osaka_st',n:'우메다 저녁·마사지',ja:'梅田',t:'19:30',d:'나가이에서 미도스지선 약 25분 · 21:00 마사지(장소 미정)'},
+      {p:'o_skybldg',n:'우메다 공중정원 (선택)',ja:'梅田スカイビル 空中庭園展望台',t:'상황 봐서',d:'야경 · ¥2,000~2,400(약 1.7만~2.0만원) · 22:00까지 입장'}]},
+    {id:'r0301',city:'osaka',who:'abc',label:'03.01 월 · USJ',back:0,backNote:'20:00 무렵 같은 길로 숙소',stops:[
+      {p:'o_hotel',n:'숙소',ja:'MIMARU大阪 難波STATION ANNEX',t:'07:40',d:'닛폰바시역 5번 출구까지 걸어서 약 6분'},
+      {p:'o_nipponbashi_st',n:'닛폰바시역',ja:'日本橋駅 大阪',t:'07:45',d:'한신 난바선으로 니시쿠조'},
+      {p:'o_nishikujo',n:'니시쿠조역',ja:'西九条駅',t:'08:00',d:'JR 유메사키선으로 갈아타기'},
+      {p:'o_ucity',n:'유니버설시티역',ja:'ユニバーサルシティ駅',t:'08:15',d:'전철 약 29분 · 편도 약 ¥580(약 4,900원)'},
+      {p:'o_usj',n:'유니버설 스튜디오 재팬',ja:'ユニバーサル・スタジオ・ジャパン',t:'08:30~',d:'익스프레스 4 · 닌텐도 월드는 확약권에 적힌 시간에 입장'}]},
+    {id:'r0302c',city:'osaka',who:'c',label:'03.02 화 · 호호 귀국',stops:[
+      {p:'o_hotel',n:'숙소',ja:'MIMARU大阪 難波STATION ANNEX',t:'09:30',d:'체크아웃 · 난카이 난바역까지 걸어서 약 5분'},
+      {p:'o_nankai_namba',n:'난카이 난바역',ja:'なんば駅 南海',t:'10:00',d:'라피트 약 34~39분 · 약 ¥1,490(약 1.3만원)'},
+      {p:'o_kix',n:'간사이공항',ja:'関西国際空港',t:'11:00',d:'역에서 무료 셔틀버스로 2터미널(7~9분) · 13:05 7C1316'}]},
+    {id:'r0302',city:'kobe',who:'ab',label:'03.02 화 · 기타노·하버랜드',stops:[
+      {p:'b_sannomiya',n:'고베산노미야역',ja:'神戸三宮駅',t:'12:00',d:'닛폰바시·오사카난바에서 한신 난바선 직통 약 45분~1시간, 약 ¥710(약 6,000원)부터 · 점심 · 숙소는 산노미야 근처(미정)'},
+      {p:'b_kazamidori',n:'기타노 이진칸 · 풍향계의 집',ja:'風見鶏の館',t:'13:00',d:'언덕 위 서양식 옛집 거리 · 천천히 걷기'},
+      {p:'b_anpanman',n:'고베 호빵맨 어린이 박물관 & 몰',ja:'神戸アンパンマンこどもミュージアム&モール',t:'16:00',d:'산노미야에서 JR로 고베역 약 5분 + 걸어서 약 8분 · 몰 무료, 뮤지엄 ¥2,000~2,500(약 1.7만~2.1만원) · 3월은 17:00까지 입장'},
+      {p:'b_meriken',n:'메리켄파크 · 하버랜드 야경',ja:'メリケンパーク',t:'17:30',d:'포트타워와 바다 야경'},
+      {p:'b_dinner',n:'고베규 저녁 (산노미야)',ja:'三宮 神戸牛',t:'19:00',d:'산노미야 주변 고베규 가게 · 위치는 대략'}]},
+    {id:'r0304',city:'hiroshima',who:'ab',label:'03.04 목 · 평화기념공원',stops:[
+      {p:'h_station',n:'히로시마역',ja:'広島駅',t:'13:00',d:'신고베에서 신칸센 약 1시간 10분 · 점심 · 숙소는 역 근처(미정)'},
+      {p:'h_museum',n:'평화기념자료관',ja:'広島平和記念資料館',t:'15:00',d:'평화기념공원 안 · 역에서 노면전차로 약 15분'},
+      {p:'h_dome',n:'원폭 돔',ja:'原爆ドーム',t:'16:30',d:'공원 북쪽 강 건너 · 저녁은 시내에서 오코노미야키'}]},
+    {id:'r0305',city:'hiroshima',who:'ab',label:'03.05 금 · 미야지마',back:1,backNote:'17:30 노을 보고 페리로 복귀',stops:[
+      {p:'h_station',n:'히로시마역',ja:'広島駅',t:'09:30',d:'JR 산요선으로 미야지마구치 약 30분'},
+      {p:'h_miyajimaguchi',n:'미야지마구치 · 페리',ja:'宮島口駅',t:'10:00',d:'페리 약 10분'},
+      {p:'h_itsukushima',n:'이쓰쿠시마 신사',ja:'嚴島神社',t:'10:30',d:'바다 위 주홍 도리이'},
+      {p:'h_momijidani',n:'미센 로프웨이 모미지다니역',ja:'宮島ロープウエー 紅葉谷駅',t:'14:00',d:'내린 뒤 정상까지 오르막 약 30분 · 컨디션 보고'}]},
+    {id:'r0307',city:'matsuyama',who:'ab',label:'03.07 일 · 페리로 마쓰야마',stops:[
+      {p:'h_port',n:'히로시마항',ja:'広島港',t:'11:00',d:'쾌속선 약 1시간 10분'},
+      {p:'m_port',n:'마쓰야마관광항',ja:'松山観光港',t:'12:10',d:'버스·전차로 도고온천 쪽으로'},
+      {p:'m_dogo',n:'도고온천 본관',ja:'道後温泉本館',t:'15:00',d:'15:00 숙소 체크인(도고온천 근처, 미정) · 18:00 본관 입욕과 저녁'}]},
+    {id:'r0308',city:'matsuyama',who:'ab',label:'03.08 월 · 마쓰야마성·오카이도',stops:[
+      {p:'m_dogo',n:'도고온천 (숙소 근처)',ja:'道後温泉',t:'09:30',d:'이요테쓰 전차로 오카이도 쪽으로'},
+      {p:'m_ropeway',n:'마쓰야마성 로프웨이',ja:'松山城ロープウェイ',t:'10:00',d:'산 위 성까지 로프웨이·리프트'},
+      {p:'m_castle',n:'마쓰야마성',ja:'松山城',t:'10:30',d:'천수각에서 시내와 바다 전망'},
+      {p:'m_okaido',n:'오카이도 상점가',ja:'大街道',t:'15:00',d:'지붕 있는 상점가 · 점심·간식'}]},
+    {id:'r0309',city:'matsuyama',who:'ab',label:'03.09 화 · 우치코·시모나다',back:0,backNote:'노을 뒤 마쓰야마로 돌아오기',stops:[
+      {p:'m_dogo',n:'도고온천 (숙소 근처)',ja:'道後温泉',t:'10:00',d:'우치코 당일치기는 선택, 쉬어도 됨'},
+      {p:'m_uchiko',n:'우치코 (선택)',ja:'内子座',t:'낮',d:'옛 거리와 가부키 극장 · JR로 약 25분'},
+      {p:'m_shimonada',n:'시모나다역 노을',ja:'下灘駅',t:'17:30',d:'바다 바로 앞 무인역 · 바람이 차니 겉옷'}]},
+    {id:'r0310',city:'matsuyama',who:'ab',label:'03.10 수 · 귀국',stops:[
+      {p:'m_dogo',n:'도고온천 (숙소 근처)',ja:'道後温泉',t:'오전',d:'체크아웃'},
+      {p:'m_airport',n:'마쓰야마 공항',ja:'松山空港',t:'13:40',d:'늦어도 이때까지 도착 · 15:40 7C1704'}]}
+  ];
+  var routeSel={}, rmap=null, rmarks=[], ractive=-1, rsticky=false;
+  function routesFor(city,view){ return ROUTES.filter(function(r){ return r.city===city && sees(r.who,view); }); }
+  function gUrl(s){ return s.g || 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(s.ja||s.n); }
+  function dirUrl(r){
+    var pts=r.stops.map(function(s){ return P[s.p].join(','); });
+    if(r.back!=null) pts.push(P[r.stops[r.back].p].join(','));
+    var u='https://www.google.com/maps/dir/?api=1&origin='+pts[0]+'&destination='+pts[pts.length-1];
+    var mid=pts.slice(1,-1).slice(0,9); if(mid.length) u+='&waypoints='+mid.join('%7C');
+    return u;
+  }
+  function routeHTML(city,view){
+    var rs=routesFor(city,view); if(!rs.length) return '';
+    if(!rs.some(function(r){ return r.id===routeSel[city]; })) routeSel[city]=rs[0].id;
+    return '<section class="rmap-wrap" id="rmap-wrap" data-city="'+city+'"><div class="rmap-head"><h4>동선 지도</h4>'+
+      '<div class="rdays" role="group" aria-label="날짜 고르기">'+rs.map(function(r){
+        return '<button type="button" class="rday" data-route="'+r.id+'" aria-pressed="'+(r.id===routeSel[city])+'">'+esc(r.label)+'</button>'; }).join('')+'</div></div>'+
+      '<div class="rmap-body"><div class="rmap" id="rmap"></div><ol class="rstops" id="rstops"></ol></div>'+
+      '<div class="rmap-foot" id="rmap-foot"></div></section>';
+  }
+  function setActive(i,sticky,pan){
+    if(rsticky && !sticky && i<0) return;
+    if(ractive>-1){
+      var li=document.querySelector('#rstops li[data-i="'+ractive+'"]'); if(li) li.classList.remove('on');
+      var m=rmarks[ractive]; if(m){ var el=m.getElement(); if(el) el.classList.remove('on'); m.closeTooltip(); m.setZIndexOffset(0); }
+    }
+    ractive=i; rsticky=!!sticky && i>-1;
+    if(i<0) return;
+    var li2=document.querySelector('#rstops li[data-i="'+i+'"]'); if(li2) li2.classList.add('on');
+    var m2=rmarks[i];
+    if(m2){ var el2=m2.getElement(); if(el2) el2.classList.add('on'); m2.setZIndexOffset(1000); m2.openTooltip();
+      if(rmap && pan){ if(!rmap.getBounds().contains(m2.getLatLng())) rmap.panTo(m2.getLatLng());
+        var pt=rmap.latLngToContainerPoint(m2.getLatLng()); if(pt.y<150) rmap.panBy([0,pt.y-150]); } }
+  }
+  function initRoute(city){
+    if(rmap){ rmap.remove(); rmap=null; } rmarks=[]; ractive=-1; rsticky=false;
+    var wrap=$('rmap-wrap'); if(!wrap) return;
+    var r=ROUTES.filter(function(x){ return x.id===routeSel[city]; })[0]; if(!r) return;
+    wrap.querySelectorAll('.rday').forEach(function(b){ b.setAttribute('aria-pressed',String(b.getAttribute('data-route')===r.id)); });
+    $('rstops').innerHTML=r.stops.map(function(s,i){
+      return '<li data-i="'+i+'"><span class="no">'+(i+1)+'</span><div><b>'+esc(s.n)+'</b><span class="tm2">'+esc(s.t||'')+'</span>'+
+        '<p>'+esc(s.d)+'</p><a href="'+esc(gUrl(s))+'" target="_blank" rel="noopener">구글 지도</a></div></li>';
+    }).join('')+(r.backNote?'<li class="back"><span class="no">↩</span><div><p>'+esc(r.backNote)+'</p></div></li>':'');
+    $('rmap-foot').innerHTML='<span>번호에 마우스를 올리거나 누르면 이름과 특징이 보입니다</span><a href="'+esc(dirUrl(r))+'" target="_blank" rel="noopener">구글 지도로 전체 길 보기</a><span class="rnote" id="rnote" hidden>이 화면에서는 지도 바탕이 보이지 않아 위치와 순서만 보입니다 · 공유 링크(GitHub 페이지)에서는 실제 지도 위에 보입니다</span>';
+    $('rstops').querySelectorAll('li[data-i]').forEach(function(li){
+      var i=+li.getAttribute('data-i');
+      li.addEventListener('mouseenter',function(){ setActive(i,false,true); });
+      li.addEventListener('mouseleave',function(){ setActive(-1,false); });
+      li.addEventListener('click',function(e){ if(e.target.tagName==='A') return; setActive(i,true,true); });
+    });
+    if(!window.L){ $('rmap').innerHTML='<p class="rmap-off">지도를 불러오지 못했습니다. 아래 순서와 구글 지도 링크를 보세요.</p>'; return; }
+    var c=getComputedStyle(wrap).getPropertyValue('--c').trim()||'#1E5BD8';
+    rmap=L.map('rmap',{scrollWheelZoom:false,dragging:!L.Browser.mobile,tap:false});
+    var warned=false;
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap'}).on('tileerror',function(){
+      if(warned) return; warned=true; var n=$('rnote'); if(n) n.hidden=false; $('rmap').classList.add('notile'); }).addTo(rmap);
+    var pts=r.stops.map(function(s){ return P[s.p]; });
+    L.polyline(pts,{color:c,weight:4,opacity:.85}).addTo(rmap);
+    if(r.back!=null) L.polyline([pts[pts.length-1],pts[r.back]],{color:c,weight:3,opacity:.55,dashArray:'6 8'}).addTo(rmap);
+    r.stops.forEach(function(s,i){
+      var m=L.marker(P[s.p],{icon:L.divIcon({className:'rpin',html:String(i+1),iconSize:[28,28],iconAnchor:[14,14]}),keyboard:false});
+      m.bindTooltip('<b>'+(i+1)+'. '+esc(s.n)+'</b>'+(s.t?'<span class="tt">'+esc(s.t)+'</span>':'')+'<span>'+esc(s.d)+'</span>',{direction:'top',offset:[0,-14],className:'rtip',opacity:1});
+      m.on('mouseover',function(){ setActive(i,false); });
+      m.on('mouseout',function(){ setActive(-1,false); });
+      m.on('click',function(){ setActive(i,true,true); });
+      m.addTo(rmap); rmarks.push(m);
+    });
+    rmap.fitBounds(L.latLngBounds(pts),{padding:[30,30],maxZoom:16});
+  }
+  function bindRoute(city){
+    var wrap=$('rmap-wrap'); if(!wrap) return;
+    wrap.querySelectorAll('.rday').forEach(function(b){
+      b.addEventListener('click',function(){ routeSel[city]=b.getAttribute('data-route'); initRoute(city); });
+    });
+    document.querySelectorAll('.maplink').forEach(function(b){
+      b.addEventListener('click',function(){ routeSel[city]=b.getAttribute('data-route'); initRoute(city);
+        wrap.scrollIntoView({block:'start',behavior:'smooth'}); });
+    });
+    initRoute(city);
+  }
+
   /* ---------- plan ---------- */
   function list(items){
     return '<ol class="tl">'+items.map(function(it){
@@ -1196,6 +1425,11 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         '<div><dt>인원</dt><dd>'+whoChips(C.who)+'</dd></div>'+
       '</dl></div>';
   }
+  function mapBtn(day,view){
+    var key=idOf(day.d).slice(1);
+    var r=ROUTES.filter(function(x){ return x.city===page && x.id.slice(1,5)===key && sees(x.who,view); })[0];
+    return r?'<button type="button" class="maplink" data-route="'+r.id+'">지도</button>':'';
+  }
   function dayHTML(day,i,view){
     var md=day.d.split('-').map(Number);
     var isToday=iso(day.d)===today;
@@ -1211,10 +1445,11 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     return '<article class="day'+(isToday?' today':'')+'" id="'+idOf(day.d)+'">'+
       '<div class="day-date"><span class="dn">'+md[1]+'</span><span class="dm">'+md[0]+'월 · '+day.w+'</span><span class="di">'+(i+1)+'일차</span></div>'+
       '<div class="day-node" aria-hidden="true"></div>'+
-      '<div class="day-body"><div class="day-head"><h3>'+(isToday?'<span class="now">오늘</span>':'')+esc(sum)+'</h3>'+whoChips(who)+'</div>'+body+'</div>'+
+      '<div class="day-body"><div class="day-head"><h3>'+(isToday?'<span class="now">오늘</span>':'')+esc(sum)+'</h3><div class="day-tools">'+mapBtn(day,view)+whoChips(who)+'</div></div>'+body+'</div>'+
     '</article>';
   }
   function renderPlan(view){
+    if(rmap){ rmap.remove(); rmap=null; }
     if(!CITY[page]){ $('plan').innerHTML=''; return; }
     var groups=[];
     DAYS.forEach(function(day,i){
@@ -1227,7 +1462,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     groups.forEach(function(g,i){ if(g.key===page) gi=i; });
     if(gi<0){ $('plan').innerHTML=''; return; }
     var g=groups[gi];
-    var h='<section class="city" style="--c:var(--'+g.key+')" aria-label="'+CITY[g.key].ko+'">'+board(g.key,view)+weatherHTML(g.key)+
+    var h='<section class="city" style="--c:var(--'+g.key+')" aria-label="'+CITY[g.key].ko+'">'+board(g.key,view)+routeHTML(g.key,view)+weatherHTML(g.key)+
       '<div class="days">'+g.days.map(function(x){return dayHTML(x[0],x[1],view);}).join('')+'</div></section>';
     if(gi===groups.length-1){
       var tn = view==='c'
@@ -1239,6 +1474,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       h+='<a class="next-city" href="#'+nx+'" style="--c:var(--'+nx+')">다음 도시 · '+CITY[nx].ko+' →</a>';
     }
     $('plan').innerHTML=h;
+    bindRoute(g.key);
   }
 
   /* ---------- router ---------- */
