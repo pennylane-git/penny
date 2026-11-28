@@ -447,6 +447,8 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .rmap-foot a{color:var(--accent);font-weight:600;text-underline-offset:3px}
 .rnote{flex-basis:100%;color:var(--ink-2)}
 .rmap-veil{position:absolute;top:10px;left:56px;right:10px;z-index:1000;display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:8px 12px;border-radius:10px;background:var(--surface);box-shadow:0 2px 10px rgba(0,0,0,.15);font:500 13px/1.4 var(--font-ko);color:var(--ink-2)}
+.rmap-chip{position:absolute;left:10px;bottom:22px;z-index:1000;display:flex;align-items:center;gap:8px;padding:4px 6px 4px 10px;border-radius:999px;background:var(--surface);box-shadow:0 1px 6px rgba(0,0,0,.18);font:600 12px/1.4 var(--font-ko);color:var(--ink-2)}
+.rmap-chip a{padding:2px 9px;border-radius:999px;background:var(--accent);color:var(--on-accent);text-decoration:none}
 .rmap-veil a{padding:4px 12px;border-radius:999px;background:var(--accent);color:var(--on-accent);font-weight:600;text-decoration:none}
 .leaflet-marker-icon.rpin{display:grid;place-items:center;border-radius:50%;background:#fff;border:3px solid var(--c);color:#172033;font:700 12px/1 var(--font-num);box-shadow:0 1px 4px rgba(0,0,0,.3);cursor:pointer}
 .leaflet-marker-icon.rpin.on{background:var(--c);color:#fff;box-shadow:0 0 0 6px color-mix(in srgb,var(--c) 32%,transparent),0 1px 4px rgba(0,0,0,.3)}
@@ -1241,6 +1243,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     m_port:[33.88862,132.70425], m_dogo:[33.85206,132.78640], m_ropeway:[33.84438,132.76994], m_castle:[33.84565,132.76575],
     m_okaido:[33.83869,132.77010], m_shimonada:[33.65542,132.58941], m_uchiko:[33.55144,132.65017], m_airport:[33.82731,132.70133]
   };
+  var RIMG={"r0225":[[34.950919,135.729716],[34.999025,135.814174],14],"r0226":[[34.971446,135.729186],[35.019539,135.813644],14],"r0227am":[[34.953163,135.630488],[35.049343,135.799402],13],"r0227":[[34.642399,135.460916],[34.690685,135.545374],14],"r0228":[[34.328333,134.800381],[35.100453,136.151699],10],"r0301":[[34.623834,135.384983],[34.720399,135.553897],13],"r0302c":[[34.162049,134.699556],[34.935711,136.050874],10],"r0302":[[34.665771,135.147916],[34.714044,135.232374],14],"r0304":[[34.37044,132.421761],[34.418884,132.506219],14],"r0305":[[34.151668,132.05143],[34.539446,132.72709],11],"r0307":[[33.321113,131.270502],[34.876687,133.973138],9],"r0308":[[33.820992,132.733846],[33.869752,132.818304],14],"r0309":[[33.310263,132.012246],[34.091723,133.363564],10],"r0310":[[33.790909,132.659408],[33.888435,132.828322],13]}; // 캡처한 지도 그림(2배 해상도)의 남서·북동 좌표와 캡처 줌 (maps/아이디.jpg)
   var ROUTES=[
     {id:'r0225',city:'kyoto',who:'abc',label:'02.25 목 · 후시미이나리',stops:[
       {p:'k_hotel',n:'숙소 · 이비스 스타일 교토 스테이션',ja:'イビススタイルズ京都ステーション',t:'12:30',d:'교토역 하치조 출구 바로 앞 · 짐 맡기고 15:00 체크인 · 점심은 역 아반티·포르타'},
@@ -1370,7 +1373,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       return '<li data-i="'+i+'"><span class="no">'+lab[i]+'</span><div><b>'+esc(s.n)+'</b><span class="tm2">'+esc(s.t||'')+'</span>'+
         '<p>'+esc(s.d)+'</p><a href="'+esc(gUrl(s))+'" target="_blank" rel="noopener">구글 지도</a></div></li>';
     }).join('')+(r.backNote?'<li class="back"><span class="no">↩</span><div><p>'+esc(r.backNote)+'</p></div></li>':'');
-    $('rmap-foot').innerHTML='<span>번호에 마우스를 올리거나 누르면 이름과 특징이 보입니다</span><a href="'+esc(dirUrl(r))+'" target="_blank" rel="noopener">구글 지도로 전체 길 보기</a><span class="rnote" id="rnote" hidden>이 화면(클로드 아티팩트)에서는 지도 바탕이 보이지 않아 위치와 순서만 보입니다 · <a href="'+SHARE+'#'+city+'" target="_blank" rel="noopener">공유 링크</a>에서는 실제 지도 위에 보입니다</span>';
+    $('rmap-foot').innerHTML='<span>번호에 마우스를 올리거나 누르면 이름과 특징이 보입니다</span><a href="'+esc(dirUrl(r))+'" target="_blank" rel="noopener">구글 지도로 전체 길 보기</a><span class="rnote" id="rnote" hidden>이 화면(클로드 아티팩트)에서는 실시간 지도를 불러올 수 없어 미리 캡처한 지도 그림을 깔았습니다 · 크게 확대하면 흐려질 수 있어요 · <a href="'+SHARE+'#'+city+'" target="_blank" rel="noopener">공유 링크</a>에서는 실시간 지도로 보입니다</span>';
     $('rstops').querySelectorAll('li[data-i]').forEach(function(li){
       var i=+li.getAttribute('data-i');
       li.addEventListener('mouseenter',function(){ setActive(i,false,true); });
@@ -1384,6 +1387,19 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     var noTile=function(){
       if(tok!==rtok || !rmap || document.querySelector('#rmap .leaflet-tile-loaded')) return;
       var n=$('rnote'); if(n) n.hidden=false;
+      if(RIMG[r.id] && !rmap._img){
+        rmap.removeLayer(tl);
+        rmap._img=L.imageOverlay('maps/'+r.id+'.jpg',[RIMG[r.id][0],RIMG[r.id][1]],{attribution:'&copy; OpenStreetMap'}).addTo(rmap);
+        rmap.setMaxZoom(RIMG[r.id][2]+1);
+        rmap._img.bringToBack();
+        rmap._img.on('error',function(){ rmap._img=null; rmap._imgFail=true; noTile(); });
+        var chip=document.createElement('div'); chip.className='rmap-chip';
+        chip.innerHTML='미리 캡처한 지도<a href="'+SHARE+'#'+city+'" target="_blank" rel="noopener">실시간 지도 보기</a>';
+        L.DomEvent.disableClickPropagation(chip); $('rmap').appendChild(chip);
+        return;
+      }
+      if(rmap._img) return;
+      var ch=document.querySelector('#rmap .rmap-chip'); if(ch) ch.remove();
       if(!document.querySelector('#rmap .rmap-veil')){
         var v=document.createElement('div'); v.className='rmap-veil';
         v.innerHTML='<span>이 화면에서는 지도 바탕이 안 보여요</span><a href="'+SHARE+'#'+city+'" target="_blank" rel="noopener">공유 링크에서 지도 보기</a>';
