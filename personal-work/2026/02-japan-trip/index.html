@@ -443,12 +443,21 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .rstops .tm2{margin-left:6px;font:500 12px/1 var(--font-num);color:var(--ink-3)}
 .rstops p{margin:2px 0 0;font-size:13px;color:var(--ink-2)}
 .rstops a{display:inline-block;margin-top:3px;font-size:12.5px;color:var(--accent);text-underline-offset:3px}
+.rstops a.yt{margin-left:12px;color:#C4302B;font-weight:600}
 .rmap-foot{display:flex;flex-wrap:wrap;gap:4px 14px;padding:10px 16px 12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3)}
 .rmap-foot a{color:var(--accent);font-weight:600;text-underline-offset:3px}
 .rnote{flex-basis:100%;color:var(--ink-2)}
 .rmap-veil{position:absolute;top:10px;left:56px;right:10px;z-index:1000;display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:8px 12px;border-radius:10px;background:var(--surface);box-shadow:0 2px 10px rgba(0,0,0,.15);font:500 13px/1.4 var(--font-ko);color:var(--ink-2)}
 .rmap-chip{position:absolute;left:10px;bottom:22px;z-index:1000;display:flex;align-items:center;gap:8px;padding:4px 6px 4px 10px;border-radius:999px;background:var(--surface);box-shadow:0 1px 6px rgba(0,0,0,.18);font:600 12px/1.4 var(--font-ko);color:var(--ink-2)}
 .rmap-chip a{padding:2px 9px;border-radius:999px;background:var(--accent);color:var(--on-accent);text-decoration:none}
+#vmap{min-width:0}
+.vchap{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:2px}
+.vchap li{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:6px 0;border-top:1px solid var(--line);font-size:14px}
+.vchap li:first-child{border-top:0}
+.vchap a.vt{font:600 13px/1.4 var(--font-num);color:#C4302B;text-decoration:none}
+.vchap em{font-style:normal;font:600 11.5px/1.6 var(--font-ko);color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent);padding:0 8px;border-radius:999px;white-space:nowrap}
+.vbtn{display:inline-block;padding:7px 14px;border-radius:999px;background:#C4302B;color:#fff;font-weight:600;text-decoration:none}
+@media (max-width:600px){.vchap li{grid-template-columns:46px minmax(0,1fr)} .vchap em{grid-column:2;justify-self:start}}
 .rmap-veil a{padding:4px 12px;border-radius:999px;background:var(--accent);color:var(--on-accent);font-weight:600;text-decoration:none}
 .leaflet-marker-icon.rpin{display:grid;place-items:center;border-radius:50%;background:#fff;border:3px solid var(--c);color:#172033;font:700 12px/1 var(--font-num);box-shadow:0 1px 4px rgba(0,0,0,.3);cursor:pointer}
 .leaflet-marker-icon.rpin.on{background:var(--c);color:#fff;box-shadow:0 0 0 6px color-mix(in srgb,var(--c) 32%,transparent),0 1px 4px rgba(0,0,0,.3)}
@@ -637,6 +646,116 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   <section class="sec" id="sec-food" data-page="food" aria-labelledby="h-food">
     <div class="sec-h"><h2 id="h-food">맛집 리스트</h2><p id="food-count"></p></div>
     <div id="food"></div>
+  </section>
+
+  <section class="sec" id="sec-video" data-page="video" aria-labelledby="h-video">
+    <div class="sec-h"><h2 id="h-video">영상 정리 · 오사카 58분 가이드</h2><p>유튜브 ‘모먼타임 Momentime’ 영상 요약 · 원화는 100엔 = 843.01원</p></div>
+    <div class="osaka-grid">
+      <article class="panel wide vcard">
+        <h3>2026 오사카 여행 계획, 58분 영상 하나로 끝내요</h3>
+        <p class="pick">모먼타임 Momentime · 58분 · 공항·교통·숙소·명소(교토·고베·나라·히메지 포함)·경비·꿀팁 · 시각을 누르면 그 장면부터 재생됩니다</p>
+        <p><a class="vbtn" href="https://youtu.be/L-e9s2opFAE" target="_blank" rel="noopener">▶ 유튜브에서 보기</a></p>
+        <ol class="vchap"><li><a class="vt" href="https://youtu.be/L-e9s2opFAE?t=33" target="_blank" rel="noopener">00:33</a><span>준비물과 공항 입국</span></li><li><a class="vt" href="https://youtu.be/L-e9s2opFAE?t=177" target="_blank" rel="noopener">02:57</a><span>공항 → 시내 · 라피트와 하루카 비교</span><em>우리 02.25·03.02</em></li><li><a class="vt" href="https://youtu.be/L-e9s2opFAE?t=283" target="_blank" rel="noopener">04:43</a><span>주유패스 사용법</span></li><li><a class="vt" href="https://youtu.be/L-e9s2opFAE?t=388" target="_blank" rel="noopener">06:28</a><span>Day 1 · 난바·도톤보리·신사이바시·아메무라</span><em>우리 02.27</em></li><li><a class="vt" href="https://youtu.be/L-e9s2opFAE?t=631" target="_blank" rel="noopener">10:31</a><span>숙소 지역 고르기</span><em>우리 숙소 참고</em></li><li><a class="vt" href="https://youtu.be/L-e9s2opFAE?t=865" target="_blank" rel="noopener">14:25</a><span>Day 1 · 호젠지·구로몬·덴덴타운</span><em>우리 02.27</em></li><li><a class="vt" href="https://youtu.be/L-e9s2opFAE?t=1055" target="_blank" rel="noopener">17:35</a><span>Day 2 · 오사카성 → 텐만궁 → 나카자키초 → 우메다</span><em>우리 02.28</em></li><li><a class="vt" href="https://youtu.be/L-e9s2opFAE?t=1340" target="_blank" rel="noopener">22:20</a><span>Day 2 · 2026 새 코스 (나카노시마·우메키타)</span><em>02.28 대안</em></li><li><a class="vt" href="https://youtu.be/L-e9s2opFAE?t=1616" target="_blank" rel="noopener">26:56</a><span>Day 3 · 덴노지·신세카이</span></li><li><a class="vt" href="https://youtu.be/L-e9s2opFAE?t=1763" target="_blank" rel="noopener">29:23</a><span>Day 4 · 비주류 코스 (USJ·가이유칸·츠루하시 등)</span><em>우리 03.01 USJ</em></li><li><a class="vt" href="https://youtu.be/L-e9s2opFAE?t=1894" target="_blank" rel="noopener">31:34</a><span>Day 5 · 교토</span><em>우리 02.26~27</em></li><li><a class="vt" href="https://youtu.be/L-e9s2opFAE?t=2355" target="_blank" rel="noopener">39:15</a><span>Day 6 · 고베</span><em>우리 03.02</em></li><li><a class="vt" href="https://youtu.be/L-e9s2opFAE?t=2796" target="_blank" rel="noopener">46:36</a><span>Day 7 · 나라</span></li><li><a class="vt" href="https://youtu.be/L-e9s2opFAE?t=2884" target="_blank" rel="noopener">48:04</a><span>Day 7 · 히메지</span><em>우리 03.03 선택</em></li><li><a class="vt" href="https://youtu.be/L-e9s2opFAE?t=3013" target="_blank" rel="noopener">50:13</a><span>7박 8일 경비</span></li><li><a class="vt" href="https://youtu.be/L-e9s2opFAE?t=3208" target="_blank" rel="noopener">53:28</a><span>실전 꿀팁</span></li></ol>
+      </article>
+
+      <article class="panel wide">
+        <h3>우리 여행에 바로 쓸 것</h3>
+        <p class="pick">영상 내용 중 우리 일정과 겹치거나 바로 써먹을 수 있는 것만 골랐습니다 · 일정에는 아직 넣지 않았습니다</p>
+        <ul class="tips">
+          <li><b>03.02 호호 공항</b>라피트(¥1,490·약 1.3만원) 대신 난카이 공항급행도 가능합니다. ¥970(약 8,200원)이고 ICOCA로 타며 약 10분 더 걸리지만 배차가 잦습니다. <a class="jump" href="#d0302">03.02 일정</a></li>
+          <li><b>02.27 밤 도톤보리</b>도톤보리 바로 남쪽 호젠지 요코초는 밤에 가장 운치 있는 골목입니다. 에비스바시 남쪽 스타벅스 츠타야는 쉬어 가기 좋습니다. <a class="jump" href="#d0227">02.27 일정</a></li>
+          <li><b>02.28 우메다</b>공중정원(선택) 대신 도지마하마 타워 16층 무료 전망대가 한적한 대안입니다. 루쿠아 9층 스타벅스 츠타야는 치이카와 파크 스토어와 같은 루쿠아라 15:00 쉬는 자리로 맞습니다. <a class="jump" href="#d0228">02.28 일정</a></li>
+          <li><b>02.26 교토</b>걸어서 15분 거리면 버스보다 걷는 게 빠를 수 있고, 셋이면 택시(약 ¥1,500·1.3만원)도 괜찮습니다. 니시키 시장은 붐비고 관광객용으로 바뀌는 중이라 구경 위주로, 밤에는 폰토초·시라카와가 예쁩니다. <a class="jump" href="#d0226">02.26 일정</a></li>
+          <li><b>02.27 아라시야마</b>덴류지 뒷길로 대나무숲에 들어가는 동선이 자연스럽습니다. 도롯코 열차는 왕복 약 1시간이라 시간이 남을 때만. <a class="jump" href="#d0227">02.27 일정</a></li>
+          <li><b>03.02 고베</b>영상 동선이 우리(기타노 → 하버랜드)와 거의 같습니다. 1907년 서양관 건물의 스타벅스 기타노이진칸점, 덴마크관 근처 5분 거리의 한적한 미하라시 전망대, 무료인 고베시청 전망대가 있고 호빵맨 박물관은 모자이크 바로 뒤입니다. <a class="jump" href="#d0302">03.02 일정</a></li>
+          <li><b>03.03 선택</b>히메지성은 2026.3.1부터 성인 ¥2,500(약 2.1만원)으로 올랐고, 히메지는 3~5시간이면 충분합니다. 아리마 온천과 고를 때 참고하세요. <a class="jump" href="#d0303">03.03 일정</a></li>
+          <li><b>식당 예약</b>교토·고베 인기 식당은 노쇼 때문에 예약금을 받거나 현장 손님을 안 받는 곳이 많아 미리 예약 사이트를 확인합니다. <a class="jump" href="#food">맛집 리스트</a></li>
+          <li><b>면세가 바뀜</b>2026.11.1부터 가게에서 세금 포함 금액으로 먼저 내고, 출국 때 공항 전용 단말기에 여권을 찍어 돌려받습니다. 소모품 구매 상한과 비닐 밀봉 의무는 없어졌습니다.</li>
+        </ul>
+      </article>
+
+      <article class="panel wide">
+        <h3>영상 속 동선</h3>
+        <p class="pick">영상 장면을 캡처해 넣지 않고, 영상에 나온 순서대로 직접 그린 지도입니다 · 지점마다 ▶ 링크를 누르면 그 장면부터 재생됩니다</p>
+        <div id="vmap" style="--c:var(--accent)"></div>
+      </article>
+
+      <article class="panel wide">
+        <h3>공항 → 시내</h3>
+        <div class="tbl">
+          <table>
+            <colgroup><col style="width:34%"><col style="width:22%"><col style="width:44%"></colgroup>
+            <thead><tr><th scope="col">열차</th><th scope="col">요금</th><th scope="col">특징</th></tr></thead>
+            <tbody>
+              <tr><td><b>난카이 공항급행</b><small>간사이공항 → 난바·신이마미야</small></td><td>¥970(약 8,200원)</td><td>자유석 · ICOCA 가능 · 라피트보다 약 10분 느리지만 배차가 잦음 · 영상 추천</td></tr>
+              <tr><td><b>난카이 라피트</b><small>간사이공항 → 난바</small></td><td>¥1,490(약 1.3만원)</td><td>지정석 · 표는 발권기나 클룩 같은 앱에서 따로 · 우리 03.02 호호</td></tr>
+              <tr><td><b>JR 하루카</b><small>간사이공항 → 오사카·신오사카·교토</small></td><td>오사카역 ¥2,710(약 2.3만원)</td><td>지정석 · 오사카역까지 약 50분 · 표 따로 · 우리 02.25 교토행</td></tr>
+              <tr><td><b>JR 간사이공항선 → 한와선 → 순환선</b><small>갈아타지 않고 오사카역까지</small></td><td>¥1,180(약 9,900원)</td><td>ICOCA 가능 · 하루카보다 약 20분 더</td></tr>
+              <tr><td><b>난카이 공항급행 + 신이마미야에서 순환선</b><small>오사카역까지</small></td><td>¥1,170(약 9,900원)</td><td>하루카보다 약 ¥1,540(약 1.3만원) 아낌</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note"><b>공항에서</b> 비짓재팬 웹 QR로 입국심사와 세관이 한 번에 끝납니다. 나와서 1층은 버스·택시, 에스컬레이터로 2층에 올라가면 공항역입니다. ICOCA는 ‘ICOCA’라고 적힌 발권기에서 삽니다.</p>
+      </article>
+
+      <article class="panel wide">
+        <h3>패스</h3>
+        <ul class="tips">
+          <li><b>주유패스</b>실물은 없어지고 인터넷 구매·QR만 됩니다. 유료 시설을 2곳 이상 갈 때 이득이지만, 공중정원은 15시 전 입장만 무료이고 1일권은 하루 안에 같은 곳 한 번씩만, 교통은 오사카 시내만(교토·고베 안 됨)입니다. 우리 02.28은 메트로 1일권이 낫습니다.</li>
+          <li><b>조이패스</b>교통이 빠진 관광 패스로, 교토·나라·고베까지 포함한 시설 중 3곳이나 5곳을 기간 안에 골라 씁니다.</li>
+        </ul>
+      </article>
+
+      <article class="panel wide">
+        <h3>숙소 지역 고르기</h3>
+        <div class="tbl">
+          <table>
+            <colgroup><col style="width:24%"><col style="width:46%"><col style="width:30%"></colgroup>
+            <thead><tr><th scope="col">지역</th><th scope="col">장점</th><th scope="col">단점·영상 평가</th></tr></thead>
+            <tbody>
+              <tr><td><b>우메다 중심</b></td><td>고급 호텔·명품·맛집 · 공항 연결 오사카역</td><td>비쌈</td></tr>
+              <tr><td><b>우메다 동쪽</b></td><td>깔끔한 가성비 호텔 · 아케이드 맛집·이자카야</td><td>역까지 걸어서 10~15분</td></tr>
+              <tr class="best"><td><b>우메다 서쪽</b></td><td>오사카역 가깝고 순환선 · 새 개발지라 깨끗하고 할인 많음</td><td>영상 2026 추천 · 가장 선호</td></tr>
+              <tr><td><b>난바·도톤보리</b></td><td>관광 한가운데 · 쇼핑하다 숙소 들르기 쉬움</td><td>비싸고 낡은 곳이 많음 · 밤 소음·호객 · 우리 숙소(닛폰바시) 쪽</td></tr>
+              <tr class="best"><td><b>신사이바시·나가호리바시</b></td><td>도톤보리·아메무라·미도스지 걸어서 · 깔끔하고 합리적</td><td>공항 직결역 없음 · 중심지 추천</td></tr>
+              <tr><td><b>덴노지</b></td><td>공항 직결, JR·미도스지선·다니마치선 · 새 호텔</td><td>하루카스 위 메리어트 미야코 전망</td></tr>
+              <tr class="best"><td><b>신이마미야</b></td><td>공항 약 30분 · 난바 절반 가격에 넓은 신축(OMO7, 2026.5 시티 익스프레스 바이 메리어트)</td><td>예전 이미지가 남아 있음 · 남부 추천</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note"><b>고르는 기준</b> 밤늦게까지 노는 편이면 난바, 아침 일찍 나가는 편이면 우메다는 08~09시 미도스지선 출근 인파를 각오해야 합니다.</p>
+      </article>
+
+      <article class="panel wide">
+        <h3>영상 속 7박 8일 경비 (1인, 쇼핑 제외)</h3>
+        <div class="tbl">
+          <table>
+            <colgroup><col style="width:22%"><col style="width:32%"><col style="width:46%"></colgroup>
+            <thead><tr><th scope="col">항목</th><th scope="col">금액</th><th scope="col">메모</th></tr></thead>
+            <tbody>
+              <tr><td><b>항공</b></td><td>약 25만원</td><td>시기에 따라 15만~40만원</td></tr>
+              <tr><td><b>교통</b></td><td>¥9,140(약 7.7만원)</td><td>패스 없이 ICOCA만, 많이 걸음 · 시내 하루 ¥480~940(약 4,000~7,900원), 교토 ¥2,480(약 2.1만원), 고베 ¥1,280(약 1.1만원), 나라 ¥1,740(약 1.5만원)</td></tr>
+              <tr><td><b>숙소</b></td><td>약 56만원 (7박)</td><td>비즈니스 호텔 1박 6만~10만원 · 도미토리 약 3만원, 고급 30만원부터</td></tr>
+              <tr><td><b>식비</b></td><td>하루 약 ¥13,000(약 11.0만원)</td><td>식사 ¥6,000(약 5.1만원) · 이자카야 한 곳 ¥3,000(약 2.5만원) · 디저트 ¥2,000(약 1.7만원) · 음료·간식 ¥2,000(약 1.7만원) · 7일 ¥91,000(약 76.7만원)</td></tr>
+              <tr class="best"><td><b>합계</b></td><td>약 171만원</td><td>영상은 100엔 = 900원으로 계산 · 우리 환율이면 교통·식비가 조금 줄어듦</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note"><b>우리 예산에 빠진 식비</b>를 잡을 때 하루 약 ¥13,000(약 11.0만원)을 기준으로 삼을 수 있습니다.</p>
+      </article>
+
+      <article class="panel wide">
+        <h3>실전 꿀팁</h3>
+        <ul class="tips">
+          <li><b>챙길 것</b>여권(6개월 이상), 비짓재팬 웹, 트래블카드·신용카드·약간의 엔화, 이심, 110V 어댑터, 동전지갑, 압축팩 · 보조배터리는 단자에 테이프를 붙여 직접 들고 탑니다.</li>
+          <li><b>교토 이동</b>15분 거리면 걷는 게 빠를 수 있고, 시간이 아까우면 택시(약 ¥1,500·1.3만원).</li>
+          <li><b>여행자 보험</b>길거리 음식 배탈, 많이 걸어 생긴 몸살로 병원 가는 경우가 많고 일본은 의료비가 비쌉니다.</li>
+          <li><b>동전 정리</b>마지막 날 공항 편의점에서 동전을 모두 넣고 모자라는 만큼만 카드로 내면 됩니다.</li>
+          <li><b>여권 분실</b>파출소에 신고해 접수번호를 받고, 증명사진 2장을 찍어 가까운 총영사관에서 긴급 여권을 만듭니다(보통 당일~다음 날). 여권 사본과 사진 파일을 휴대폰에 미리 저장해 두세요.</li>
+        </ul>
+        <p class="src">출처: 유튜브 <a href="https://youtu.be/L-e9s2opFAE" target="_blank" rel="noopener">‘2026 오사카 여행 계획, 58분 영상 하나로 끝내요’</a> (모먼타임 Momentime) 자막을 요약했습니다. 요금은 영상에 나온 값이고, 원화는 100엔 = 843.01원으로 다시 계산했습니다.</p>
+      </article>
+    </div>
   </section>
 
   <section class="sec" id="sec-budget" data-page="budget" aria-labelledby="h-budget">
@@ -1051,7 +1170,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   }
 
   /* ---------- pages (tabs) ---------- */
-  var PAGES=[['overview','개요'],['kyoto','교토'],['osaka','오사카'],['kobe','고베'],['hiroshima','히로시마'],['matsuyama','마쓰야마'],['food','맛집'],['budget','예산·교통']];
+  var PAGES=[['overview','개요'],['kyoto','교토'],['osaka','오사카'],['kobe','고베'],['hiroshima','히로시마'],['matsuyama','마쓰야마'],['food','맛집'],['video','영상 정리'],['budget','예산·교통']];
   var page='overview', target='';
   function cityVisible(key,view){ return DAYS.some(function(d){ return sees(d.who,view) && cityOf(d,view)===key; }); }
   function renderTabs(view){
@@ -1241,9 +1360,10 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     h_station:[34.39783,132.47558], h_museum:[34.39150,132.45240], h_dome:[34.39547,132.45352], h_miyajimaguchi:[34.31231,132.30294],
     h_itsukushima:[34.29653,132.31901], h_momijidani:[34.29370,132.32590], h_shukkeien:[34.40034,132.46745], h_port:[34.35215,132.45724],
     m_port:[33.88862,132.70425], m_dogo:[33.85206,132.78640], m_ropeway:[33.84438,132.76994], m_castle:[33.84565,132.76575],
-    m_okaido:[33.83869,132.77010], m_shimonada:[33.65542,132.58941], m_uchiko:[33.55144,132.65017], m_airport:[33.82731,132.70133]
+    m_okaido:[33.83869,132.77010], m_shimonada:[33.65542,132.58941], m_uchiko:[33.55144,132.65017], m_airport:[33.82731,132.70133],
+    v_tsutaya_ebisu:[34.66870,135.50160], v_daimaru_sb:[34.67350,135.50160], v_bigstep:[34.67200,135.49900], v_sankaku:[34.67210,135.49793], v_hozenji:[34.66818,135.50267], v_kuromon:[34.66670,135.50705], v_denden:[34.65922,135.50582], v_midosuji:[34.67452,135.50036], v_tanimachi4:[34.68210,135.51740], v_rekihaku:[34.68262,135.52081], v_castle:[34.68718,135.52540], v_gozabune:[34.68920,135.52580], v_tenmabashi:[34.69033,135.51642], v_tenmangu:[34.69609,135.51277], v_tenjinbashi:[34.70415,135.51143], v_nakazaki:[34.70723,135.50562], v_hepfive:[34.70406,135.50038], v_lucua:[34.70271,135.49477], v_nakanoshima:[34.69240,135.50776], v_toyotoji:[34.69342,135.50549], v_kokaido:[34.69354,135.50401], v_oebashi:[34.69430,135.49976], v_dojimahama:[34.69551,135.50062], v_ohatsu:[34.69913,135.50084], v_innogate:[34.70174,135.49326], v_umekita:[34.70367,135.49240], v_fukushima:[34.69680,135.48550], v_harukas:[34.64577,135.51401], v_qsmall:[34.64436,135.51221], v_tennoji_park:[34.65085,135.50945], v_megadonki:[34.65080,135.50550], v_tsutenkaku:[34.65254,135.50631], v_kiyomizugojo:[34.99636,135.76867], v_kiyomizu:[34.99430,135.78444], v_sannen:[34.99753,135.78106], v_hankyu_arashi:[35.01020,135.68150], v_togetsu:[35.01287,135.67776], v_tenryuji:[35.01622,135.67294], v_chikurin:[35.01739,135.67036], v_torokko:[35.01714,135.67024], v_nishiki:[35.00502,135.76557], v_pontocho:[35.00425,135.77121], v_hanamikoji:[35.00802,135.77546], v_sannomiya:[34.69316,135.19286], v_uroko:[34.70294,135.19069], v_kazamidori:[34.70139,135.18951], v_sb_kitano:[34.69950,135.19020], v_centergai:[34.69234,135.19378], v_nankinmachi:[34.68811,135.18838], v_meriken:[34.68263,135.18672], v_mosaic:[34.67961,135.18457], v_renga:[34.67791,135.18343], v_kintetsunara:[34.68448,135.82686], v_sarusawa:[34.68144,135.83095], v_kofukuji:[34.68297,135.83187], v_naramuseum:[34.68310,135.83831], v_narapark:[34.68290,135.85460], v_todaiji:[34.68824,135.83976], v_wakakusa:[34.69117,135.85426], v_himeji_st:[34.82761,134.68914], v_himeji:[34.83933,134.69402], v_nishinomaru:[34.83920,134.69150], v_kokoen:[34.83797,134.68961], v_miyuki:[34.83115,134.69232]
   };
-  var RIMG={"r0225":[[34.950919,135.729716],[34.999025,135.814174],14,[[34.96119,135.746968],[34.988759,135.796922]]],"r0226":[[34.971446,135.729186],[35.019539,135.813644],14,[[34.981713,135.746438],[35.009276,135.796392]]],"r0227am":[[34.953163,135.630488],[35.049343,135.799402],13,[[34.973702,135.664992],[35.028823,135.764898]]],"r0227":[[34.642399,135.460916],[34.690685,135.545374],14,[[34.652708,135.478168],[34.680381,135.528122]]],"r0228":[[34.328333,134.800381],[35.100453,136.151699],10,[[34.493747,135.076412],[34.936249,135.875668]]],"r0301":[[34.623834,135.384983],[34.720399,135.553897],13,[[34.644455,135.419487],[34.699797,135.519393]]],"r0302c":[[34.162049,134.699556],[34.935711,136.050874],10,[[34.327791,134.975587],[34.771177,135.774843]]],"r0302":[[34.665771,135.147916],[34.714044,135.232374],14,[[34.676077,135.165168],[34.703742,135.215122]]],"r0304":[[34.37044,132.421761],[34.418884,132.506219],14,[[34.380782,132.439013],[34.408546,132.488967]]],"r0305":[[34.151668,132.05143],[34.539446,132.72709],11,[[34.23459,132.189446],[34.456825,132.589074]]],"r0307":[[33.321113,131.270502],[34.876687,133.973138],9,[[33.655546,131.822565],[34.547055,133.421075]]],"r0308":[[33.820992,132.733846],[33.869752,132.818304],14,[[33.831402,132.751098],[33.859346,132.801052]]],"r0309":[[33.310263,132.012246],[34.091723,133.363564],10,[[33.477662,132.288277],[33.925517,133.087533]]],"r0310":[[33.790909,132.659408],[33.888435,132.828322],13,[[33.811735,132.693912],[33.867627,132.793818]]]}; // 캡처 지도: [남서, 북동, 캡처 줌, 확대용(줌+1) 범위] · maps/아이디.jpg, maps/아이디-z.jpg
+  var RIMG={"r0225":[[34.950919,135.729716],[34.999025,135.814174],14,[[34.96119,135.746968],[34.988759,135.796922]]],"r0226":[[34.971446,135.729186],[35.019539,135.813644],14,[[34.981713,135.746438],[35.009276,135.796392]]],"r0227am":[[34.953163,135.630488],[35.049343,135.799402],13,[[34.973702,135.664992],[35.028823,135.764898]]],"r0227":[[34.642399,135.460916],[34.690685,135.545374],14,[[34.652708,135.478168],[34.680381,135.528122]]],"r0228":[[34.328333,134.800381],[35.100453,136.151699],10,[[34.493747,135.076412],[34.936249,135.875668]]],"r0301":[[34.623834,135.384983],[34.720399,135.553897],13,[[34.644455,135.419487],[34.699797,135.519393]]],"r0302c":[[34.162049,134.699556],[34.935711,136.050874],10,[[34.327791,134.975587],[34.771177,135.774843]]],"r0302":[[34.665771,135.147916],[34.714044,135.232374],14,[[34.676077,135.165168],[34.703742,135.215122]]],"r0304":[[34.37044,132.421761],[34.418884,132.506219],14,[[34.380782,132.439013],[34.408546,132.488967]]],"r0305":[[34.151668,132.05143],[34.539446,132.72709],11,[[34.23459,132.189446],[34.456825,132.589074]]],"r0307":[[33.321113,131.270502],[34.876687,133.973138],9,[[33.655546,131.822565],[34.547055,133.421075]]],"r0308":[[33.820992,132.733846],[33.869752,132.818304],14,[[33.831402,132.751098],[33.859346,132.801052]]],"r0309":[[33.310263,132.012246],[34.091723,133.363564],10,[[33.477662,132.288277],[33.925517,133.087533]]],"r0310":[[33.790909,132.659408],[33.888435,132.828322],13,[[33.811735,132.693912],[33.867627,132.793818]]],"v1":[[34.642724,135.460261],[34.69101,135.544719],14,[[34.653033,135.477513],[34.680706,135.527467]]],"v2":[[34.646642,135.425828],[34.743181,135.594742],13,[[34.667258,135.460332],[34.722585,135.560238]]],"v2n":[[34.685967,135.475516],[34.710101,135.517744],15,[[34.691119,135.484142],[34.70495,135.509118]]],"v3":[[34.636375,135.488641],[34.660523,135.530869],15,[[34.64153,135.497267],[34.65537,135.522243]]],"v5":[[34.909614,135.558425],[35.101964,135.896255],12,[[34.950709,135.627433],[35.060945,135.827247]]],"v6":[[34.64214,135.104148],[34.738684,135.273062],13,[[34.662757,135.138652],[34.718086,135.238558]]],"v7":[[34.662164,135.798501],[34.710439,135.882959],14,[[34.672471,135.815753],[34.700137,135.865707]]],"v7h":[[34.821422,134.670466],[34.845516,134.712694],15,[[34.826566,134.679092],[34.840374,134.704068]]]}; // 캡처 지도: [남서, 북동, 캡처 줌, 확대용(줌+1) 범위] · maps/아이디.jpg, maps/아이디-z.jpg
   var ROUTES=[
     {id:'r0225',city:'kyoto',who:'abc',label:'02.25 목 · 후시미이나리',stops:[
       {p:'k_hotel',n:'숙소 · 이비스 스타일 교토 스테이션',ja:'イビススタイルズ京都ステーション',t:'12:30',d:'교토역 하치조 출구 바로 앞 · 짐 맡기고 15:00 체크인 · 점심은 역 아반티·포르타'},
@@ -1326,10 +1446,83 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       {p:'m_shimonada',n:'시모나다역 노을',ja:'下灘駅',t:'17:30',d:'바다 바로 앞 무인역 · 바람이 차니 겉옷'}]},
     {id:'r0310',city:'matsuyama',who:'ab',label:'03.10 수 · 귀국',stops:[
       {p:'m_dogo',n:'도고온천 (숙소 근처)',ja:'道後温泉',t:'오전',d:'체크아웃'},
-      {p:'m_airport',n:'마쓰야마 공항',ja:'松山空港',t:'13:40',d:'늦어도 이때까지 도착 · 15:40 7C1704'}]}
+      {p:'m_airport',n:'마쓰야마 공항',ja:'松山空港',t:'13:40',d:'늦어도 이때까지 도착 · 15:40 7C1704'}]},
+    {id:'v1',city:'video',who:'abc',label:'Day 1 · 난바·도톤보리·신사이바시',stops:[
+      {p:'o_ebisubashi',n:'에비스바시 · 글리코 간판',ja:'道頓堀 グリコサイン',yt:390,t:'영상 6:30',d:'도톤보리 인증샷 · 돈키호테 관람차는 주유패스면 무료 · 리버크루즈 · 우리 02.27 밤'},
+      {p:'v_tsutaya_ebisu',n:'스타벅스 츠타야 에비스바시',ja:'スターバックス TSUTAYA 戎橋',yt:427,t:'영상 7:07',d:'에비스바시 남쪽 · 쇼핑 전에 쉬어 가기'},
+      {p:'v_daimaru_sb',n:'신사이바시스지 · 다이마루',ja:'大丸心斎橋店',yt:466,t:'영상 7:46',d:'상점가 쇼핑 · 다이마루 9층 포켓몬센터·점프샵 · 우리 02.27'},
+      {p:'v_midosuji',n:'신사이바시 PARCO · 미도스지',ja:'心斎橋PARCO',yt:488,t:'영상 8:08',d:'일본 로컬 브랜드 PARCO, 바깥 미도스지는 명품 거리'},
+      {p:'v_bigstep',n:'아메리카무라 빅스텝',ja:'ビッグステップ',yt:538,t:'영상 8:58',d:'1층 가챠 기계 1,000대 이상 · 스트리트 패션'},
+      {p:'v_sankaku',n:'삼각공원',ja:'三角公園 アメリカ村',yt:595,t:'영상 9:55',d:'아메무라 중심 · 주말 저녁 버스킹'},
+      {p:'v_hozenji',n:'호젠지 요코초',ja:'法善寺横丁',yt:878,t:'영상 14:38',d:'도톤보리 바로 남쪽 · 밤이나 비 오는 날 가장 운치 있는 골목'},
+      {p:'v_kuromon',n:'구로몬 시장',ja:'黒門市場',yt:975,t:'영상 16:15',d:'구경은 해 볼 만하지만 요즘 많이 비싸짐'},
+      {p:'v_denden',n:'덴덴타운',ja:'でんでんタウン',yt:1011,t:'영상 16:51',d:'피규어·애니·레트로 게임 · 구로몬 시장과 이어짐 · 우리 02.27'}]},
+    {id:'v2',city:'video',who:'abc',label:'Day 2 · 오사카성 → 우메다',stops:[
+      {p:'v_rekihaku',n:'오사카 역사박물관',ja:'大阪歴史博物館',yt:1062,t:'영상 17:42',d:'다니마치욘초메역에서 가는 길 · 10층에서 오사카성 전망'},
+      {p:'v_castle',n:'오사카성 천수각',ja:'大阪城天守閣',yt:1107,t:'영상 18:27',d:'안은 다소 심심, 전망대 경치 · 미라이자 옥상 테라스 · 우리 02.28'},
+      {p:'v_gozabune',n:'고자부네 놀잇배',ja:'大阪城 御座船乗り場',yt:1126,t:'영상 18:46',d:'고쿠라쿠바시 건너 선착장 · 해자를 약 20분 유람'},
+      {p:'v_tenmabashi',n:'덴마바시 · 오카와강',ja:'天満橋',yt:1160,t:'영상 19:20',d:'강 풍경, 봄엔 벚꽃 길'},
+      {p:'v_tenmangu',n:'오사카 텐만궁',ja:'大阪天満宮',yt:1191,t:'영상 19:51',d:'합격 기원 신사 · 텐진마쓰리 본거지'},
+      {p:'v_tenjinbashi',n:'텐진바시스지 상점가',ja:'天神橋筋商店街',yt:1215,t:'영상 20:15',d:'오사카에서 가장 긴 상점가 · 로컬 맛집'},
+      {p:'v_nakazaki',n:'나카자키초',ja:'中崎町',yt:1239,t:'영상 20:39',d:'100년 된 목조주택 골목 · 카페·소품·빈티지'},
+      {p:'v_hepfive',n:'HEP FIVE 관람차 · 우메다',ja:'HEP FIVE',yt:1289,t:'영상 21:29',d:'야경 정석 코스(관람차·공중정원) · 다이마루·한신·한큐 백화점'},
+      {p:'v_lucua',n:'루쿠아 · 9층 스타벅스 츠타야',ja:'ルクア大阪',yt:1323,t:'영상 22:03',d:'쇼핑 마무리하고 쉬기 · 치이카와 파크 스토어도 루쿠아 · 우리 02.28'}]},
+    {id:'v2n',city:'video',who:'abc',label:'Day 2 · 2026 새 코스 (나카노시마 → 후쿠시마)',stops:[
+      {p:'v_nakanoshima',n:'나카노시마 공원',ja:'中之島公園',yt:1345,t:'영상 22:25',d:'강으로 둘러싸인 도심 공원 · 봄 벚꽃, 장미'},
+      {p:'v_toyotoji',n:'동양도자미술관',ja:'大阪市立東洋陶磁美術館',yt:1371,t:'영상 22:51',d:'한중일 도자기'},
+      {p:'v_kokaido',n:'오사카시 중앙공회당',ja:'大阪市中央公会堂',yt:1383,t:'영상 23:03',d:'100년 넘은 붉은 벽돌 건물'},
+      {p:'v_oebashi',n:'오에바시 다리',ja:'大江橋',yt:1403,t:'영상 23:23',d:'고가도로와 빌딩 사이 작은 다리'},
+      {p:'v_dojimahama',n:'도지마하마 타워 무료 전망대',ja:'大阪堂島浜タワー',yt:1418,t:'영상 23:38',d:'16층 무료 전망대 · 한적한 리버뷰 · 공중정원 대안 · 우리 02.28 참고'},
+      {p:'v_ohatsu',n:'오하쓰텐진 (쓰유노텐 신사)',ja:'露天神社',yt:1456,t:'영상 24:16',d:'연인들의 신사 · 북문 앞 상점가'},
+      {p:'v_innogate',n:'이노게이트 오사카 · 9층 스타벅스',ja:'イノゲート大阪',yt:1504,t:'영상 25:04',d:'통유리로 내려다보는 우메다'},
+      {p:'v_umekita',n:'우메키타 공원 · 그랑그린 오사카',ja:'うめきた公園',yt:1540,t:'영상 25:40',d:'역과 이어진 큰 잔디 공원 · 새 쇼핑센터'},
+      {p:'v_fukushima',n:'후쿠시마 쇼텐도리',ja:'福島 聖天通商店街',yt:1592,t:'영상 26:32',d:'현지인 맛집 골목 · 라멘·스시·이자카야'}]},
+    {id:'v3',city:'video',who:'abc',label:'Day 3 · 덴노지 → 신세카이',stops:[
+      {p:'v_harukas',n:'아베노 하루카스 · 전망대',ja:'あべのハルカス',yt:1631,t:'영상 27:11',d:'일본 최대급 백화점 · 최상층 전망대'},
+      {p:'v_qsmall',n:'아베노 큐즈몰',ja:'あべのキューズモール',yt:1646,t:'영상 27:26',d:'유니클로·GU·캐릭터샵·마트'},
+      {p:'v_tennoji_park',n:'덴노지 공원',ja:'天王寺公園',yt:1653,t:'영상 27:33',d:'잔디 공원 · 시립미술관·동물원'},
+      {p:'v_megadonki',n:'메가 돈키호테 신세카이점',ja:'MEGAドン・キホーテ 新世界店',yt:1684,t:'영상 28:04',d:'정문 계단으로 바로 2층 · 도톤보리점보다 여유'},
+      {p:'v_tsutenkaku',n:'신세카이 · 츠텐카쿠',ja:'通天閣',yt:1725,t:'영상 28:45',d:'쿠시카츠 본고장 · 밤 네온이 예쁨'}]},
+    {id:'v5',city:'video',who:'abc',label:'Day 5 · 교토',stops:[
+      {p:'v_kiyomizugojo',n:'기요미즈고조역',ja:'清水五条駅',yt:1924,t:'영상 32:04',d:'신사이바시 → 요도야바시 → 게이한선, 약 ¥680(약 5,700원) · 버스 대신 걷기'},
+      {p:'v_kiyomizu',n:'기요미즈데라',ja:'清水寺',yt:1948,t:'영상 32:28',d:'절벽 위 나무 무대 · 우리 02.26'},
+      {p:'v_sannen',n:'산넨자카·니넨자카',ja:'産寧坂',yt:1977,t:'영상 32:57',d:'돌길 전통 거리 · 우리 02.26'},
+      {p:'v_hankyu_arashi',n:'한큐 아라시야마역',ja:'阪急嵐山駅',yt:2017,t:'영상 33:37',d:'가와라마치에서 한큐로 · 나카노시마 다리, 아라시야마 공원'},
+      {p:'v_togetsu',n:'도게쓰교',ja:'渡月橋',yt:2037,t:'영상 33:57',d:'아라시야마 상징 다리 · 우리 02.27'},
+      {p:'v_tenryuji',n:'덴류지',ja:'天龍寺',yt:2057,t:'영상 34:17',d:'세계유산 정원 · 뒷길로 대나무숲'},
+      {p:'v_chikurin',n:'대나무숲 (치쿠린)',ja:'竹林の小径',yt:2070,t:'영상 34:30',d:'아라시야마 하이라이트 · 우리 02.27'},
+      {p:'v_torokko',n:'도롯코 아라시야마역',ja:'トロッコ嵐山駅',yt:2088,t:'영상 34:48',d:'계곡 관광열차 · 왕복 약 1시간이라 시간 보고'},
+      {p:'v_nishiki',n:'니시키 시장',ja:'錦市場',yt:2144,t:'영상 35:44',d:'먹거리 시장 · 좁고 붐비며 관광객용으로 바뀌는 중 · 우리 02.26'},
+      {p:'v_pontocho',n:'폰토초 · 기야마치',ja:'先斗町',yt:2252,t:'영상 37:32',d:'밤이 가장 아름다운 골목 · 가모강 산책'},
+      {p:'v_hanamikoji',n:'하나미코지 · 시라카와',ja:'花見小路通',yt:2312,t:'영상 38:32',d:'기온 옛 거리 · 운 좋으면 마이코'}]},
+    {id:'v6',city:'video',who:'abc',label:'Day 6 · 고베',stops:[
+      {p:'v_sannomiya',n:'산노미야역',ja:'三宮駅',yt:2376,t:'영상 39:36',d:'북쪽 언덕길 약 400m로 기타노'},
+      {p:'v_uroko',n:'우로코의 집 · 기타노 이진칸',ja:'うろこの家',yt:2444,t:'영상 40:44',d:'영국관·프랑스관·야마테 8번관 등 서양관 거리 · 우리 03.02'},
+      {p:'v_kazamidori',n:'풍향계의 집 · 기타노초 광장',ja:'風見鶏の館',yt:2496,t:'영상 41:36',d:'붉은 벽돌 상징 · 모에기의 집'},
+      {p:'v_sb_kitano',n:'스타벅스 기타노이진칸점',ja:'スターバックス 神戸北野異人館店',yt:2525,t:'영상 42:05',d:'1907년 서양관 건물 매장'},
+      {p:'v_centergai',n:'산노미야 센터가이',ja:'三宮センター街',yt:2562,t:'영상 42:42',d:'약 600m 아케이드 · 백화점·편집숍'},
+      {p:'v_nankinmachi',n:'난킨마치 (차이나타운)',ja:'南京町',yt:2599,t:'영상 43:19',d:'길거리 음식'},
+      {p:'v_meriken',n:'메리켄파크 · 포트타워',ja:'神戸ポートタワー',yt:2636,t:'영상 43:56',d:'바다 공원 · 전망대 · 우리 03.02 야경'},
+      {p:'v_mosaic',n:'하버랜드 모자이크',ja:'神戸ハーバーランド umie MOSAIC',yt:2657,t:'영상 44:17',d:'바닷가 쇼핑몰·관람차 · 바로 뒤가 호빵맨 박물관 · 우리 03.02'},
+      {p:'v_renga',n:'고베 벽돌창고 · 우미에',ja:'神戸煉瓦倉庫',yt:2682,t:'영상 44:42',d:'옛 창고 레스토랑 · 고베역으로'}]},
+    {id:'v7',city:'video',who:'abc',label:'Day 7 · 나라',stops:[
+      {p:'v_kintetsunara',n:'긴테쓰나라역',ja:'近鉄奈良駅',yt:2799,t:'영상 46:39',d:'오사카에서 1시간 남짓'},
+      {p:'v_sarusawa',n:'사루사와이케',ja:'猿沢池',yt:2807,t:'영상 46:47',d:'749년 인공 연못'},
+      {p:'v_kofukuji',n:'고후쿠지',ja:'興福寺',yt:2811,t:'영상 46:51',d:'아수라상'},
+      {p:'v_naramuseum',n:'나라국립박물관',ja:'奈良国立博物館',yt:2821,t:'영상 47:01',d:'불교 미술'},
+      {p:'v_narapark',n:'나라공원 사슴',ja:'奈良公園',yt:2825,t:'영상 47:05',d:'사슴 천국'},
+      {p:'v_todaiji',n:'도다이지',ja:'東大寺',yt:2833,t:'영상 47:13',d:'세계 최대급 목조 건물'},
+      {p:'v_wakakusa',n:'와카쿠사산',ja:'若草山',yt:2867,t:'영상 47:47',d:'완만한 능선에서 마무리'}]},
+    {id:'v7h',city:'video',who:'abc',label:'Day 7 · 히메지',stops:[
+      {p:'v_himeji_st',n:'히메지역',ja:'姫路駅',yt:2895,t:'영상 48:15',d:'오사카에서 전철 약 1시간 20분 · 성까지 걸어서 15분, 버스 5분'},
+      {p:'v_himeji',n:'히메지성',ja:'姫路城',yt:2921,t:'영상 48:41',d:'2026.3.1부터 성인 ¥2,500(약 2.1만원), 18세 이하 무료 · 우리 03.03 선택'},
+      {p:'v_nishinomaru',n:'니시노마루 정원 사진 명소',ja:'姫路城 西の丸',yt:2938,t:'영상 48:58',d:'성 전체가 담기는 사진 자리'},
+      {p:'v_kokoen',n:'고코엔',ja:'好古園',yt:2947,t:'영상 49:07',d:'무사 저택 터 정원'},
+      {p:'v_miyuki',n:'미유키도리 상점가',ja:'みゆき通り 姫路',yt:2952,t:'영상 49:12',d:'역까지 이어지는 상점가 · 히메지는 3~5시간이면 충분'}]}
   ];
   var routeSel={}, rmap=null, rmarks=[], ractive=-1, rsticky=false, rtok=0;
   var SHARE='https://pennylane-git.github.io/penny/personal-work/2026/02-japan-trip/';
+  var VID='https://youtu.be/L-e9s2opFAE?t=';
   function stopLabels(r){ var n=0, out=[]; r.stops.forEach(function(s,i){ if(s.alt){ out[i-1]=n+'A'; out[i]=n+'B'; } else { n++; out[i]=String(n); } }); return out; }
   function routesFor(city,view){ return ROUTES.filter(function(r){ return r.city===city && sees(r.who,view); }); }
   function gUrl(s){ return s.g || 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(s.ja||s.n); }
@@ -1343,7 +1536,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   function routeHTML(city,view){
     var rs=routesFor(city,view); if(!rs.length) return '';
     if(!rs.some(function(r){ return r.id===routeSel[city]; })) routeSel[city]=rs[0].id;
-    return '<section class="rmap-wrap" id="rmap-wrap" data-city="'+city+'"><div class="rmap-head"><h4>동선 지도</h4>'+
+    return '<section class="rmap-wrap" id="rmap-wrap" data-city="'+city+'"><div class="rmap-head"><h4>'+(city==='video'?'영상 속 동선':'동선 지도')+'</h4>'+
       '<div class="rdays" role="group" aria-label="날짜 고르기">'+rs.map(function(r){
         return '<button type="button" class="rday" data-route="'+r.id+'" aria-pressed="'+(r.id===routeSel[city])+'">'+esc(r.label)+'</button>'; }).join('')+'</div></div>'+
       '<div class="rmap-body"><div class="rmap" id="rmap"></div><ol class="rstops" id="rstops"></ol></div>'+
@@ -1368,10 +1561,12 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     var wrap=$('rmap-wrap'); if(!wrap) return;
     var r=ROUTES.filter(function(x){ return x.id===routeSel[city]; })[0]; if(!r) return;
     wrap.querySelectorAll('.rday').forEach(function(b){ b.setAttribute('aria-pressed',String(b.getAttribute('data-route')===r.id)); });
+    var pb=wrap.querySelector('.rday[aria-pressed="true"]'), rd=wrap.querySelector('.rdays');
+    if(pb && rd && rd.scrollWidth>rd.clientWidth){ rd.scrollLeft+=pb.getBoundingClientRect().left-rd.getBoundingClientRect().left-8; }
     var lab=stopLabels(r);
     $('rstops').innerHTML=r.stops.map(function(s,i){
       return '<li data-i="'+i+'"><span class="no">'+lab[i]+'</span><div><b>'+esc(s.n)+'</b><span class="tm2">'+esc(s.t||'')+'</span>'+
-        '<p>'+esc(s.d)+'</p><a href="'+esc(gUrl(s))+'" target="_blank" rel="noopener">구글 지도</a></div></li>';
+        '<p>'+esc(s.d)+'</p><a href="'+esc(gUrl(s))+'" target="_blank" rel="noopener">구글 지도</a>'+(s.yt!=null?'<a class="yt" href="'+VID+s.yt+'" target="_blank" rel="noopener">▶ 이 장면 보기</a>':'')+'</div></li>';
     }).join('')+(r.backNote?'<li class="back"><span class="no">↩</span><div><p>'+esc(r.backNote)+'</p></div></li>':'');
     $('rmap-foot').innerHTML='<span>번호에 마우스를 올리거나 누르면 이름과 특징이 보입니다</span><a href="'+esc(dirUrl(r))+'" target="_blank" rel="noopener">구글 지도로 전체 길 보기</a><span class="rnote" id="rnote" hidden>이 화면(클로드 아티팩트)에서는 실시간 지도를 불러올 수 없어 미리 캡처한 지도 그림을 깔았습니다 · 크게 확대하면 흐려질 수 있어요 · <a href="'+SHARE+'#'+city+'" target="_blank" rel="noopener">공유 링크</a>에서는 실시간 지도로 보입니다</span>';
     $('rstops').querySelectorAll('li[data-i]').forEach(function(li){
@@ -1431,6 +1626,11 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       m.addTo(rmap); rmarks.push(m);
     });
     rmap.fitBounds(L.latLngBounds(all),{padding:[30,30],maxZoom:16});
+  }
+  function renderVideoMap(view){
+    var box=$('vmap'); if(!box) return;
+    if(page!=='video'){ box.innerHTML=''; return; }
+    box.innerHTML=routeHTML('video',view); bindRoute('video');
   }
   function bindRoute(city){
     var wrap=$('rmap-wrap'); if(!wrap) return;
@@ -1526,7 +1726,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       var t=el.getAttribute('data-page');
       el.hidden=!(t===page || (t==='city' && !!CITY[page]));
     });
-    renderTabs(view); renderPlan(view);
+    renderTabs(view); renderPlan(view); renderVideoMap(view);
     if(keepScroll) return;
     var el=target && document.getElementById(target);
     if(el) el.scrollIntoView({block:'start'}); else window.scrollTo(0,0);
